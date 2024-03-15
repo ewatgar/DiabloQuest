@@ -1,0 +1,919 @@
+fileFormatVersion: 2
+guid: e134a45f2349ba349b49406326730efe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4589076980798968208
+    second: LavaDungeonTileset_0
+  - first:
+      213: 102363636203022566
+    second: LavaDungeonTileset_1
+  - first:
+      213: 1647683699423173767
+    second: LavaDungeonTileset_2
+  - first:
+      213: -5026626541926702996
+    second: LavaDungeonTileset_3
+  - first:
+      213: -7758291706448350809
+    second: LavaDungeonTileset_4
+  - first:
+      213: 1521421566956357220
+    second: LavaDungeonTileset_5
+  - first:
+      213: -1153590382438371738
+    second: LavaDungeonTileset_6
+  - first:
+      213: 4250733039766013233
+    second: LavaDungeonTileset_7
+  - first:
+      213: -4494317562979636083
+    second: LavaDungeonTileset_8
+  - first:
+      213: 2157336365902630950
+    second: LavaDungeonTileset_9
+  - first:
+      213: 5093696925410916624
+    second: LavaDungeonTileset_10
+  - first:
+      213: -7702809514402353910
+    second: LavaDungeonTileset_11
+  - first:
+      213: 6642745643079233389
+    second: LavaDungeonTileset_12
+  - first:
+      213: 5377374139845826319
+    second: LavaDungeonTileset_13
+  - first:
+      213: 7848823887360895910
+    second: LavaDungeonTileset_14
+  - first:
+      213: -4492835629415768477
+    second: LavaDungeonTileset_15
+  - first:
+      213: 297334242582224507
+    second: LavaDungeonTileset_16
+  - first:
+      213: 7422274672870814338
+    second: LavaDungeonTileset_17
+  - first:
+      213: 93275436704887929
+    second: LavaDungeonTileset_18
+  - first:
+      213: 8361853498613512707
+    second: LavaDungeonTileset_19
+  - first:
+      213: 8703990199897012091
+    second: LavaDungeonTileset_20
+  - first:
+      213: 874603612480638400
+    second: LavaDungeonTileset_21
+  - first:
+      213: -6272135695111653142
+    second: LavaDungeonTileset_22
+  - first:
+      213: 4150464581738011655
+    second: LavaDungeonTileset_23
+  - first:
+      213: 5981259688153557603
+    second: LavaDungeonTileset_24
+  - first:
+      213: -1886529690058760173
+    second: LavaDungeonTileset_25
+  - first:
+      213: 8172359742602367323
+    second: LavaDungeonTileset_26
+  - first:
+      213: -1385588284871730944
+    second: LavaDungeonTileset_27
+  - first:
+      213: -5530685856384795433
+    second: LavaDungeonTileset_28
+  - first:
+      213: 4357611079946689574
+    second: LavaDungeonTileset_29
+  - first:
+      213: -8725637260875702706
+    second: LavaDungeonTileset_30
+  - first:
+      213: -626603570396956002
+    second: LavaDungeonTileset_31
+  - first:
+      213: -8418896354443578290
+    second: LavaDungeonTileset_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LavaDungeonTileset_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 479
+        width: 98
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 091d177333dafaf30800000000000000
+      internalID: 4589076980798968208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 191
+        width: 114
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e86ccd4f2bab6100800000000000000
+      internalID: 102363636203022566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 418
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78cd156489fbdd610800000000000000
+      internalID: 1647683699423173767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 415
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c60a8e5dac5dd3ab0800000000000000
+      internalID: -5026626541926702996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 415
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a179455cc2055490800000000000000
+      internalID: -7758291706448350809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_5
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 415
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4664d04badc2d1510800000000000000
+      internalID: 1521421566956357220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_6
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 452
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e247eb8af9dffe0800000000000000
+      internalID: -1153590382438371738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_7
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 452
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1350546ad23adfa30800000000000000
+      internalID: 4250733039766013233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_8
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 452
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8cacc60df9f0a1c0800000000000000
+      internalID: -4494317562979636083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_9
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 452
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62098a6aef560fd10800000000000000
+      internalID: 2157336365902630950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 415
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 019fd98bd5270b640800000000000000
+      internalID: 5093696925410916624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_11
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 287
+        width: 34
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0d6c81de8f1a1590800000000000000
+      internalID: -7702809514402353910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_12
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 423
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6fe205b7f5cf2c50800000000000000
+      internalID: 6642745643079233389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_13
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 423
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f07d1e52a4540aa40800000000000000
+      internalID: 5377374139845826319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_14
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 383
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab2fbe9dbf9cec60800000000000000
+      internalID: 7848823887360895910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_15
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 348
+        width: 32
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e54729ccd36a1c0800000000000000
+      internalID: -4492835629415768477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_16
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 348
+        width: 32
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e5ca41be7502400800000000000000
+      internalID: 297334242582224507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_17
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 348
+        width: 62
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282f7d57d77310760800000000000000
+      internalID: 7422274672870814338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_18
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 348
+        width: 62
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9747017f3816b4100800000000000000
+      internalID: 93275436704887929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_19
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 386
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a37b834754b0470800000000000000
+      internalID: 8361853498613512707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_20
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 357
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77b75998f8cac870800000000000000
+      internalID: 8703990199897012091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_21
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 159
+        width: 10
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cd8e290a57332c00800000000000000
+      internalID: 874603612480638400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_22
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 159
+        width: 10
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae872d501d5e4f8a0800000000000000
+      internalID: -6272135695111653142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_23
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 244
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70c95570c89699930800000000000000
+      internalID: 4150464581738011655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_24
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 255
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36aa1cd0ff3b10350800000000000000
+      internalID: 5981259688153557603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_25
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 31
+        width: 162
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 310e1ddfd33b1d5e0800000000000000
+      internalID: -1886529690058760173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_26
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 134
+        width: 26
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b51548a03ed0a6170800000000000000
+      internalID: 8172359742602367323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_27
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 204
+        width: 78
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 009174bcbc665cce0800000000000000
+      internalID: -1385588284871730944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_28
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 159
+        width: 78
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dc38e5348e0f33b0800000000000000
+      internalID: -5530685856384795433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_29
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 31
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62c57898038597c30800000000000000
+      internalID: 4357611079946689574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_30
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 31
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e5792442f48e680800000000000000
+      internalID: -8725637260875702706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_31
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 40
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9a7f736f5bdd47f0800000000000000
+      internalID: -626603570396956002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaDungeonTileset_32
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 31
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e443f80fe521a2b80800000000000000
+      internalID: -8418896354443578290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
