@@ -15,6 +15,7 @@ public class GridManager : MonoBehaviour
             {
                 var newTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity);
                 newTile.name = $"({x},{y})";
+                newTile.transform.parent = transform;
             }
         }
     }

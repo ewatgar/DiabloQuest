@@ -12,7 +12,6 @@ public class Tile : MonoBehaviour
     {
         _sprite = GetComponent<SpriteRenderer>();
         _baseColor = _sprite.color;
-        print("awake tile");
     }
 
     private void OnMouseEnter()
