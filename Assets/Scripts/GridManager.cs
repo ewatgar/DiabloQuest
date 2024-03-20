@@ -5,9 +5,9 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     private static GridManager _instance;
-    private Dictionary<Vector2Int, Tile> _tileDict = new Dictionary<Vector2Int, Tile>();
-
     public static GridManager Instance { get => _instance; }
+
+    private Dictionary<Vector2Int, Tile> _tileDict = new Dictionary<Vector2Int, Tile>();
     public Dictionary<Vector2Int, Tile> TileDict { get => _tileDict; }
 
     [SerializeField] private int _width, _height;

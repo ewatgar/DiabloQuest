@@ -5,12 +5,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    private int healthPoints; //health points
-    private int actionPoints; //action points
-    [SerializeField] private int movementPoints = 3; //movement points
-    private int damage; //damage
-    private int resistancePerc; //resistance %
-    private int critsPerc; //crits %
+    //Player Stats
+    private int _healthPoints; //health points
+    private int _actionPoints; //action points
+    [SerializeField] private int _movementPoints = 3; //movement points
+    private int _damage; //damage
+    private int _resistancePerc; //resistance %
+    private int _critsPerc; //crits %
+
+    //private bool _bCurrentTurn;
     private Vector2Int _coords;
     public Vector2Int Coords { get => _coords; }
 
@@ -18,6 +21,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _coords = Vector2Int.RoundToInt(transform.position);
+        //_bCurrentTurn = false;
         AddObserverToAllTiles();
     }
 
@@ -62,7 +66,7 @@ public class Player : MonoBehaviour
             //TODO player lerp animation
             transform.position = tile.transform.position;
             _coords = Vector2Int.RoundToInt(transform.position);
-            movementPoints -= diff;
+            _movementPoints -= diff;
 
         }
         else
@@ -75,6 +79,12 @@ public class Player : MonoBehaviour
     {
         diff = 0;
 
+        /*
+        if (!_bCurrentTurn)
+        {
+            return false;
+        }*/
+
         if (Coords == tile.Coords)
         {
             return false;
@@ -84,13 +94,13 @@ public class Player : MonoBehaviour
         {
             int diffY = Mathf.Abs(Coords.y - tile.Coords.y);
             diff = diffY;
-            return diffY <= movementPoints;
+            return diffY <= _movementPoints;
         }
         else if (Coords.y == tile.Coords.y && Coords.x != tile.Coords.x)
         {
             int diffX = Mathf.Abs(Coords.x - tile.Coords.x);
             diff = diffX;
-            return diffX <= movementPoints;
+            return diffX <= _movementPoints;
         }
         return false;
     }
