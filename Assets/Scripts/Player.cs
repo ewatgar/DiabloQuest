@@ -33,11 +33,11 @@ public class Player : MonoBehaviour
 
     private void AddObserverToAllTiles()
     {
-        var tileList = GridManager.Instance.TileList;
-        foreach (Tile tile in tileList)
+        Dictionary<Vector2Int, Tile> tileDict = GridManager.Instance.TileDict;
+        foreach (var tile in tileDict)
         {
-            tile.OnTileHovered += HandleTileHovered;
-            tile.OnTileClicked += HandleTileClicked;
+            tile.Value.OnTileHovered += HandleTileHovered;
+            tile.Value.OnTileClicked += HandleTileClicked;
         }
     }
 

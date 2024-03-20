@@ -5,10 +5,10 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     private static GridManager _instance;
-    public static GridManager Instance { get => _instance; }
+    private Dictionary<Vector2Int, Tile> _tileDict = new Dictionary<Vector2Int, Tile>();
 
-    private List<Tile> _tileList = new List<Tile>();
-    public List<Tile> TileList { get => _tileList; }
+    public static GridManager Instance { get => _instance; }
+    public Dictionary<Vector2Int, Tile> TileDict { get => _tileDict; }
 
     [SerializeField] private int _width, _height;
     [SerializeField] private Tile _tilePrefab;
@@ -32,10 +32,11 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                var newTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity);
+                Tile newTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity);
                 newTile.name = $"({x},{y})";
                 newTile.transform.parent = transform;
-                _tileList.Add(newTile);
+                Vector2Int tileCoords = new Vector2Int(x, y);
+                _tileDict.Add(tileCoords, newTile);
             }
         }
     }
