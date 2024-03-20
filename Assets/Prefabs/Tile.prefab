@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5886d9600c27e3447b9196873e4ccb67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _highlightColor: {r: 0.009542346, g: 1, b: 0, a: 0.29411766}
+  _canMoveColor: {r: 0, g: 1, b: 0.12614322, a: 0.19607843}
+  _canNotMoveColor: {r: 1, g: 0, b: 0, a: 0.19607843}
 --- !u!61 &-202460307913030949
 BoxCollider2D:
   m_ObjectHideFlags: 0
