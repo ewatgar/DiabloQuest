@@ -131,12 +131,12 @@ TextureImporter:
       name: WarriorRightAttack01_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 5
-        width: 22
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: WarriorRightAttack01_1
       rect:
         serializedVersion: 2
-        x: 59
-        y: 5
-        width: 22
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: WarriorRightAttack01_2
       rect:
         serializedVersion: 2
-        x: 99
+        x: 96
         y: 0
-        width: 46
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: WarriorRightAttack01_3
       rect:
         serializedVersion: 2
-        x: 160
-        y: 4
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: WarriorRightAttack01_4
       rect:
         serializedVersion: 2
-        x: 208
-        y: 4
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,18 +236,18 @@ TextureImporter:
       name: WarriorRightAttack01_5
       rect:
         serializedVersion: 2
-        x: 251
-        y: 5
-        width: 22
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9bf738de76785eef0800000000000000
+      spriteID: 9cc28e0d019a91043a2b4449e85e64d4
       internalID: -79508537972916295
       vertices: []
       indices: 
@@ -256,7 +256,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c0eb6b05e1080144b94e3c70939151c0
     internalID: 0
     vertices: []
     indices: 

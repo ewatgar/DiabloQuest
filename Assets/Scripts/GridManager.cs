@@ -32,7 +32,7 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                Tile newTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity);
+                Tile newTile = Instantiate(_tilePrefab, new Vector3(x, y, 9), Quaternion.identity);
                 newTile.name = $"({x},{y})";
                 newTile.transform.parent = transform;
                 Vector2Int tileCoords = new Vector2Int(x, y);

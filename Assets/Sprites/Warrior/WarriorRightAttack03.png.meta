@@ -137,12 +137,12 @@ TextureImporter:
       name: WarriorRightAttack03_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 6
-        width: 22
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -158,12 +158,12 @@ TextureImporter:
       name: WarriorRightAttack03_1
       rect:
         serializedVersion: 2
-        x: 60
-        y: 9
-        width: 20
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -179,12 +179,12 @@ TextureImporter:
       name: WarriorRightAttack03_2
       rect:
         serializedVersion: 2
-        x: 102
-        y: 10
-        width: 26
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -200,12 +200,12 @@ TextureImporter:
       name: WarriorRightAttack03_3
       rect:
         serializedVersion: 2
-        x: 127
-        y: 12
-        width: 9
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -221,12 +221,12 @@ TextureImporter:
       name: WarriorRightAttack03_4
       rect:
         serializedVersion: 2
-        x: 148
-        y: 11
-        width: 9
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,73 +238,10 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: WarriorRightAttack03_5
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 10
-        width: 20
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7caea331fadbdb5f0800000000000000
-      internalID: -739226204179338553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WarriorRightAttack03_6
-      rect:
-        serializedVersion: 2
-        x: 177
-        y: 12
-        width: 8
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 45bc7fd95742991a0800000000000000
-      internalID: -6802365674586387628
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WarriorRightAttack03_7
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 9
-        width: 20
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6cf2e10083c817d30800000000000000
-      internalID: 4427474080829943750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e21d934a2d08a404db1ab72d45635d22
     internalID: 0
     vertices: []
     indices: 
@@ -317,9 +254,6 @@ TextureImporter:
       WarriorRightAttack03_2: 1547851385779807353
       WarriorRightAttack03_3: 486160017708660924
       WarriorRightAttack03_4: 1766146367937561088
-      WarriorRightAttack03_5: -739226204179338553
-      WarriorRightAttack03_6: -6802365674586387628
-      WarriorRightAttack03_7: 4427474080829943750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
