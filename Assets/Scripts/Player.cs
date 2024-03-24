@@ -13,16 +13,12 @@ public class Player : MonoBehaviour
     private int _resistancePerc; //resistance %
     private int _critsPerc; //crits %
 
-    //private bool _bCurrentTurn;
     private Vector2Int _coords;
     public Vector2Int Coords { get => _coords; }
 
-
     private void Awake()
     {
-        _coords = Vector2Int.RoundToInt(transform.position);
-        //_bCurrentTurn = false;
-        AddObserverToAllTiles();
+        _coords = Utils.WorldToTileCoords(transform.position, GridGenerator.Instance.GridScale);
     }
 
     void Start()
@@ -35,69 +31,35 @@ public class Player : MonoBehaviour
 
     }
 
-    private void AddObserverToAllTiles()
+    public void GetHurt(int hp = 1)
     {
-        Dictionary<Vector2Int, Tile> tileDict = GridManager.Instance.TileDict;
-        foreach (var tile in tileDict)
-        {
-            tile.Value.OnTileHovered += HandleTileHovered;
-            tile.Value.OnTileClicked += HandleTileClicked;
-        }
+        _healthPoints -= hp;
     }
 
-    private void HandleTileHovered(Tile tile)
+    public void Move(Vector3 position, int _mp = 1)
     {
-        if (CanMove(tile, out int diff))
-        {
-            tile.Sprite.color = tile.CanMoveColor;
-        }
-        else
-        {
-            tile.Sprite.color = tile.CanNotMoveColor;
-        }
+        transform.position = position;
+        _movementPoints -= _mp;
     }
 
-    private void HandleTileClicked(Tile tile)
-    {
-        tile.Sprite.color = tile.CanNotMoveColor;
-
-        if (CanMove(tile, out int diff))
-        {
-            //TODO player lerp animation
-            transform.position = tile.transform.position;
-            _coords = tile.Coords;
-            _movementPoints -= diff;
-        }
-        else
-        {
-            Debug.Log("You cant move, sorry :3");
-        }
-    }
-
-    private bool CanMove(Tile tile, out int diff)
+    public bool CanMove(Vector2Int tileCoords, out int diff)
     {
         diff = 0;
 
-        /*
-        if (!_bCurrentTurn)
-        {
-            return false;
-        }*/
-
-        if (Coords == tile.Coords)
+        if (Coords == tileCoords)
         {
             return false;
         }
 
-        if (Coords.x == tile.Coords.x && Coords.y != tile.Coords.y)
+        if (Coords.x == tileCoords.x && Coords.y != tileCoords.y)
         {
-            int diffY = Mathf.Abs(Coords.y - tile.Coords.y);
+            int diffY = Mathf.Abs(Coords.y - tileCoords.y);
             diff = diffY;
             return diffY <= _movementPoints;
         }
-        else if (Coords.y == tile.Coords.y && Coords.x != tile.Coords.x)
+        else if (Coords.y == tileCoords.y && Coords.x != tileCoords.x)
         {
-            int diffX = Mathf.Abs(Coords.x - tile.Coords.x);
+            int diffX = Mathf.Abs(Coords.x - tileCoords.x);
             diff = diffX;
             return diffX <= _movementPoints;
         }

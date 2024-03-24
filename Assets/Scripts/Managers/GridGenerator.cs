@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridManager : MonoBehaviour
+public class GridGenerator : MonoBehaviour
 {
-    private static GridManager _instance;
-    public static GridManager Instance { get => _instance; }
+    private static GridGenerator _instance;
+    public static GridGenerator Instance { get => _instance; }
 
-    private Dictionary<Vector2Int, Tile> _tileDict = new Dictionary<Vector2Int, Tile>();
-    public Dictionary<Vector2Int, Tile> TileDict { get => _tileDict; }
+    private Tile[,] _tileGrid;
+    public Tile[,] TileGrid { get => _tileGrid; }
 
-    [SerializeField] private int _width, _height;
+    [SerializeField] private int _nCols = 13, _nRows = 7;
     [SerializeField] private Tile _tilePrefab;
-    [SerializeField] private float _gridScale;
+    [SerializeField] private float _gridScale = 1.5f;
+    public float GridScale { get => _gridScale; set => _gridScale = value; }
 
     private void Awake()
     {
@@ -27,22 +28,29 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    void GenerateGrid()
+    private void GenerateGrid()
     {
+        _tileGrid = new Tile[_nCols, _nRows];
+
         float globalX = 0;
-        for (int x = 0; x < _width; x++)
+        for (int x = 0; x < _nCols; x++)
         {
             float globalY = 0;
-            for (int y = 0; y < _height; y++)
+            for (int y = 0; y < _nRows; y++)
             {
                 Tile newTile = Instantiate(_tilePrefab, new Vector3(globalX, globalY, 9), Quaternion.identity);
-                newTile.Coords = new Vector2Int(x, y);
                 newTile.name = newTile.Coords.ToString();
                 newTile.transform.parent = transform;
-                _tileDict.Add(newTile.Coords, newTile);
+                _tileGrid[x, y] = newTile;
                 globalY += _gridScale;
             }
             globalX += _gridScale;
         }
     }
+
+    public Tile GetTileFromGridArray(Vector2Int tileCoords)
+    {
+        return _tileGrid[tileCoords.x, tileCoords.y];
+    }
+
 }

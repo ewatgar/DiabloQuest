@@ -11,34 +11,41 @@ public class Tile : MonoBehaviour
     private SpriteRenderer _sprite;
     private Vector2Int _coords;
 
+    //A* Pathfinding
+    private int _gCost;
+    private int _hCost;
+    private int _fCost;
+    bool _bStart;
+    bool _bGoal;
+    bool _bOpen;
+    bool _bChecked;
+
+    public Color BaseColor { get => _baseColor; }
     public Color CanMoveColor { get => _canMoveColor; }
     public Color CanNotMoveColor { get => _canNotMoveColor; }
     public SpriteRenderer Sprite { get => _sprite; }
-    public Vector2Int Coords { get => _coords; set => _coords = value; }
-
-    public event Action<Tile> OnTileClicked;
-    public event Action<Tile> OnTileHovered;
+    public Vector2Int Coords { get => _coords; }
 
     private void Awake()
     {
         _sprite = GetComponent<SpriteRenderer>();
         _baseColor = _sprite.color;
+        _coords = Utils.WorldToTileCoords(transform.position, GridGenerator.Instance.GridScale);
     }
 
     private void OnMouseEnter()
     {
-        OnTileHovered?.Invoke(this);
+
     }
 
     private void OnMouseDown()
     {
-        print(name);
-        OnTileClicked?.Invoke(this);
+        print($"name: {name}");
+        print($"coords: {Coords}");
     }
 
     private void OnMouseExit()
     {
-        _sprite.color = _baseColor;
     }
 
 
