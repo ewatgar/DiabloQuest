@@ -8,9 +8,12 @@ public class PathfindingManager : MonoBehaviour
     private static PathfindingManager _instance;
     public static PathfindingManager Instance { get => _instance; }
 
-    private Tile _startTile, _goalTile, _currentTile;
+
+
+    private Tile _startTile, _goalTile, _solidTile, _currentTile;
     public Tile StartTile { get => _startTile; }
     public Tile GoalTile { get => _goalTile; }
+    public Tile SolidTile { get => _solidTile; }
     public Tile CurrentTile { get => _currentTile; }
 
     private List<Tile> _openList = new List<Tile>();
@@ -33,8 +36,7 @@ public class PathfindingManager : MonoBehaviour
 
     private void Update()
     {
-        print(Input.GetKey(KeyCode.V));
-        if (_bInitPlayer && Input.GetKey(KeyCode.V))
+        if (_bInitPlayer && Input.GetKey(KeyCode.Space))
         {
             Search();
         }
@@ -43,11 +45,20 @@ public class PathfindingManager : MonoBehaviour
 
     public void InitPlayerPathfinding(Tile selectedTile)
     {
+        Tile[,] tileGrid = GridGenerator.Instance.TileGrid;
         GameObject _player = GameObject.FindGameObjectsWithTag("Player").First();
         Vector3 playerPos = _player.transform.position;
         Tile tileFromPlayer = GridGenerator.Instance.GetTileFromWorldCoords(playerPos);
         SetStartTile(tileFromPlayer);
         SetGoalTile(selectedTile);
+        SetSolidTile(tileGrid[4, 1]);
+        SetSolidTile(tileGrid[4, 2]);
+        SetSolidTile(tileGrid[4, 3]);
+        SetSolidTile(tileGrid[4, 4]);
+        SetSolidTile(tileGrid[4, 5]);
+        SetSolidTile(tileGrid[5, 1]);
+        SetSolidTile(tileGrid[6, 1]);
+        SetSolidTile(tileGrid[7, 1]);
         SetCostOnTiles();
         _bInitPlayer = true;
     }
@@ -63,6 +74,12 @@ public class PathfindingManager : MonoBehaviour
     {
         _goalTile = tile;
         tile.SetAsGoal();
+    }
+
+    private void SetSolidTile(Tile tile)
+    {
+        _solidTile = tile;
+        tile.SetAsSolid();
     }
 
     private void SetCostOnTiles()
@@ -137,7 +154,7 @@ public class PathfindingManager : MonoBehaviour
             if (_currentTile == _goalTile)
             {
                 _bGoalReached = true;
-                trackThePath();
+                TrackThePath();
             }
 
         }
@@ -153,7 +170,7 @@ public class PathfindingManager : MonoBehaviour
         }
     }
 
-    private void trackThePath()
+    private void TrackThePath()
     {
         Tile current = _goalTile;
         while (current != _startTile)

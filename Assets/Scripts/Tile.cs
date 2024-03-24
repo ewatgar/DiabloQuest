@@ -65,16 +65,19 @@ public class Tile : MonoBehaviour
     public void SetAsStart()
     {
         _bStart = true;
+        _sprite.color = Color.cyan;
     }
 
     public void SetAsGoal()
     {
         _bGoal = true;
+        _sprite.color = Color.blue;
     }
 
     public void SetAsSolid()
     {
         _bSolid = true;
+        _sprite.color = Color.black;
     }
 
     public void SetAsOpen()
