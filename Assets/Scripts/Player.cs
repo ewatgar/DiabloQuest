@@ -65,9 +65,8 @@ public class Player : MonoBehaviour
         {
             //TODO player lerp animation
             transform.position = tile.transform.position;
-            _coords = Vector2Int.RoundToInt(transform.position);
+            _coords = tile.Coords;
             _movementPoints -= diff;
-
         }
         else
         {

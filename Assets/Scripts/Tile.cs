@@ -14,7 +14,7 @@ public class Tile : MonoBehaviour
     public Color CanMoveColor { get => _canMoveColor; }
     public Color CanNotMoveColor { get => _canNotMoveColor; }
     public SpriteRenderer Sprite { get => _sprite; }
-    public Vector2Int Coords { get => _coords; }
+    public Vector2Int Coords { get => _coords; set => _coords = value; }
 
     public event Action<Tile> OnTileClicked;
     public event Action<Tile> OnTileHovered;
@@ -22,7 +22,6 @@ public class Tile : MonoBehaviour
     private void Awake()
     {
         _sprite = GetComponent<SpriteRenderer>();
-        _coords = Vector2Int.RoundToInt(transform.position);
         _baseColor = _sprite.color;
     }
 

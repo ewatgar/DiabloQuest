@@ -12,6 +12,7 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private int _width, _height;
     [SerializeField] private Tile _tilePrefab;
+    [SerializeField] private float _gridScale;
 
     private void Awake()
     {
@@ -28,16 +29,20 @@ public class GridManager : MonoBehaviour
 
     void GenerateGrid()
     {
+        float globalX = 0;
         for (int x = 0; x < _width; x++)
         {
+            float globalY = 0;
             for (int y = 0; y < _height; y++)
             {
-                Tile newTile = Instantiate(_tilePrefab, new Vector3(x, y, 9), Quaternion.identity);
-                newTile.name = $"({x},{y})";
+                Tile newTile = Instantiate(_tilePrefab, new Vector3(globalX, globalY, 9), Quaternion.identity);
+                newTile.Coords = new Vector2Int(x, y);
+                newTile.name = newTile.Coords.ToString();
                 newTile.transform.parent = transform;
-                Vector2Int tileCoords = new Vector2Int(x, y);
-                _tileDict.Add(tileCoords, newTile);
+                _tileDict.Add(newTile.Coords, newTile);
+                globalY += _gridScale;
             }
+            globalX += _gridScale;
         }
     }
 }
