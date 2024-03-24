@@ -14,6 +14,8 @@ public class GridGenerator : MonoBehaviour
     [SerializeField] private Tile _tilePrefab;
     [SerializeField] private float _gridScale = 1.5f;
     public float GridScale { get => _gridScale; set => _gridScale = value; }
+    public int NCols { get => _nCols; }
+    public int NRows { get => _nRows; }
 
     private void Awake()
     {
@@ -48,9 +50,23 @@ public class GridGenerator : MonoBehaviour
         }
     }
 
-    public Tile GetTileFromGridArray(Vector2Int tileCoords)
+    public Vector2Int WorldToTileCoords(Vector3 worldCoords)
     {
-        return _tileGrid[tileCoords.x, tileCoords.y];
+        worldCoords += new Vector3(_gridScale / 2f, _gridScale / 2f, 0f);
+
+        int tileX = Mathf.FloorToInt(worldCoords.x / _gridScale);
+        int tileY = Mathf.FloorToInt(worldCoords.y / _gridScale);
+
+        return new Vector2Int(tileX, tileY);
     }
 
+    public Tile GetTileFromTileCoords(Vector2Int coords)
+    {
+        return _tileGrid[coords.x, coords.y];
+    }
+
+    public Tile GetTileFromWorldCoords(Vector3 worldCoords)
+    {
+        return GetTileFromTileCoords(WorldToTileCoords(worldCoords));
+    }
 }

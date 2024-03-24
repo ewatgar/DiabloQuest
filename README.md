@@ -8,6 +8,7 @@ Tilesets_Cemetery				Dreamir				https://dreamir.itch.io/
 RPG Ability Icons Collection	frosty_rabbid		https://frosty-rabbid.itch.io/
 Map Button						BeyonderBoy			https://beyonderboy.itch.io/
 Pixel Perfect Camera w/Zoom		glowurms			https://github.com/glowurms						
+A* Pathfinding                  RyiSnow             https://www.youtube.com/watch?v=2JNEme00ZFA&t=1123s
 
 --- RESOURCES -------------------------------------------------------------------------------------------
 //eliminar//Grid Based Movement				Comp-3 Interactive	https://www.youtube.com/@comp3interactive

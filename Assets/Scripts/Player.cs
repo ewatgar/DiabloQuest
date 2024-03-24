@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        _coords = Utils.WorldToTileCoords(transform.position, GridGenerator.Instance.GridScale);
+        _coords = GridGenerator.Instance.WorldToTileCoords(transform.position);
     }
 
     void Start()
