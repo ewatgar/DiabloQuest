@@ -146,12 +146,12 @@ TextureImporter:
       name: SorceressDownAttack03_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 6
-        width: 20
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,12 +167,12 @@ TextureImporter:
       name: SorceressDownAttack03_1
       rect:
         serializedVersion: 2
-        x: 62
-        y: 7
-        width: 20
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,12 +188,12 @@ TextureImporter:
       name: SorceressDownAttack03_2
       rect:
         serializedVersion: 2
-        x: 110
-        y: 10
-        width: 20
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,12 +209,12 @@ TextureImporter:
       name: SorceressDownAttack03_3
       rect:
         serializedVersion: 2
-        x: 159
-        y: 5
-        width: 18
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,12 +230,12 @@ TextureImporter:
       name: SorceressDownAttack03_4
       rect:
         serializedVersion: 2
-        x: 202
-        y: 6
-        width: 28
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -251,12 +251,12 @@ TextureImporter:
       name: SorceressDownAttack03_5
       rect:
         serializedVersion: 2
-        x: 247
-        y: 13
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,12 +272,12 @@ TextureImporter:
       name: SorceressDownAttack03_6
       rect:
         serializedVersion: 2
-        x: 255
-        y: 6
-        width: 18
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,94 +289,10 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: SorceressDownAttack03_7
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 13
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f87f100dde1f136b0800000000000000
-      internalID: -5318203681248512113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SorceressDownAttack03_8
-      rect:
-        serializedVersion: 2
-        x: 293
-        y: 16
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9177619a52e74c690800000000000000
-      internalID: -7582797172369361127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SorceressDownAttack03_9
-      rect:
-        serializedVersion: 2
-        x: 303
-        y: 6
-        width: 18
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 131090bf33b80f910800000000000000
-      internalID: 1869146900730020145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SorceressDownAttack03_10
-      rect:
-        serializedVersion: 2
-        x: 323
-        y: 16
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5d93a7da5e4772f20800000000000000
-      internalID: 3397812973681129941
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8a674c3ff6f87c941a2e02af863b1bcf
     internalID: 0
     vertices: []
     indices: 
@@ -386,15 +302,11 @@ TextureImporter:
     nameFileIdTable:
       SorceressDownAttack03_0: -2791791037397109790
       SorceressDownAttack03_1: -8198772236519246288
-      SorceressDownAttack03_10: 3397812973681129941
       SorceressDownAttack03_2: 5273041707820756095
       SorceressDownAttack03_3: -4622013651267477041
       SorceressDownAttack03_4: -1180279980585975758
       SorceressDownAttack03_5: 2527010414117663621
       SorceressDownAttack03_6: -3939371230208074909
-      SorceressDownAttack03_7: -5318203681248512113
-      SorceressDownAttack03_8: -7582797172369361127
-      SorceressDownAttack03_9: 1869146900730020145
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

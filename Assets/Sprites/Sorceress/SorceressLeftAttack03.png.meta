@@ -143,12 +143,12 @@ TextureImporter:
       name: SorceressLeftAttack03_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 5
-        width: 20
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,12 +164,12 @@ TextureImporter:
       name: SorceressLeftAttack03_1
       rect:
         serializedVersion: 2
-        x: 58
-        y: 8
-        width: 26
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,12 +185,12 @@ TextureImporter:
       name: SorceressLeftAttack03_2
       rect:
         serializedVersion: 2
-        x: 106
-        y: 11
-        width: 26
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: SorceressLeftAttack03_3
       rect:
         serializedVersion: 2
-        x: 155
-        y: 4
-        width: 22
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,12 +227,12 @@ TextureImporter:
       name: SorceressLeftAttack03_4
       rect:
         serializedVersion: 2
-        x: 199
-        y: 4
-        width: 28
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,12 +248,12 @@ TextureImporter:
       name: SorceressLeftAttack03_5
       rect:
         serializedVersion: 2
-        x: 244
-        y: 11
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,12 +269,12 @@ TextureImporter:
       name: SorceressLeftAttack03_6
       rect:
         serializedVersion: 2
-        x: 254
-        y: 4
-        width: 24
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,73 +286,10 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: SorceressLeftAttack03_7
-      rect:
-        serializedVersion: 2
-        x: 290
-        y: 14
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d0185bdf96cf11480800000000000000
-      internalID: -8930079053940686579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SorceressLeftAttack03_8
-      rect:
-        serializedVersion: 2
-        x: 302
-        y: 4
-        width: 19
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f1363d0c469550d30800000000000000
-      internalID: 4397018900463837983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SorceressLeftAttack03_9
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 14
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0eb7993dd746e5f40800000000000000
-      internalID: 5719119068390849504
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1c3c740012f0ff14caa679c23d647a89
     internalID: 0
     vertices: []
     indices: 
@@ -367,9 +304,6 @@ TextureImporter:
       SorceressLeftAttack03_4: 1585547478708929937
       SorceressLeftAttack03_5: 3777801387331173196
       SorceressLeftAttack03_6: -4923590108243649666
-      SorceressLeftAttack03_7: -8930079053940686579
-      SorceressLeftAttack03_8: 4397018900463837983
-      SorceressLeftAttack03_9: 5719119068390849504
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
