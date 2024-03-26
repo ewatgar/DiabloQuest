@@ -122,7 +122,7 @@ public class PathfindingManager : MonoBehaviour
             if (row + 1 < GridGenerator.Instance.NRows) OpenTile(tileGrid[col, row + 1]);
 
             //Right Tile
-            if (row + 1 < GridGenerator.Instance.NCols) OpenTile(tileGrid[col + 1, row]);
+            if (col + 1 < GridGenerator.Instance.NCols) OpenTile(tileGrid[col + 1, row]);
 
             //Find best Tile
             int bestTileIndex = 0;
