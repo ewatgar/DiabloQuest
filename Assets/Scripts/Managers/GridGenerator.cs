@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,7 +30,6 @@ public class GridGenerator : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void GenerateGrid()
     {
         _tileGrid = new Tile[_nCols, _nRows];

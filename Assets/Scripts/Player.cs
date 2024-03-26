@@ -16,19 +16,9 @@ public class Player : MonoBehaviour
     private Vector2Int _coords;
     public Vector2Int Coords { get => _coords; }
 
-    private void Awake()
+    private void Start()
     {
         _coords = GridGenerator.Instance.WorldToTileCoords(transform.position);
-    }
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
     }
 
     public void GetHurt(int hp = 1)
