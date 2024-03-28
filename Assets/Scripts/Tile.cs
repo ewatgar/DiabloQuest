@@ -17,10 +17,6 @@ public class Tile : MonoBehaviour
     public SpriteRenderer Sprite { get => _sprite; }
     public Vector2Int Coords { get => _coords; }
 
-    public event Action<Tile> OnTileHovered;
-    public event Action<Tile> OnTileExited;
-    public event Action<Tile> OnTileClicked;
-
     //A* Pathfinding Fields
     private Tile _pathfindingParent;
     private int _gCost;
@@ -38,7 +34,7 @@ public class Tile : MonoBehaviour
     public int FCost { get => _fCost; set => _fCost = value; }
     public bool BStart { get => _bStart; }
     public bool BGoal { get => _bGoal; }
-    public bool BSolid { get => _bSolid; set => _bSolid = value; }
+    public bool BSolid { get => _bSolid; }
     public bool BOpen { get => _bOpen; }
     public bool BChecked { get => _bChecked; }
 
@@ -52,52 +48,16 @@ public class Tile : MonoBehaviour
     private void OnMouseEnter()
     {
         GameManager.Instance.HandleTileHovered(this);
-        /*
-        if (!BSolid)
-        {
-
-            InitPlayerPathfinding();
-        }*/
     }
 
     private void OnMouseDown()
     {
-        GameManager.Instance.HandleTileClicked(this);
         //print($"name: {name}");
         //print($"coords: {Coords}");
-        /*if (!BSolid)
-        {
-            InitPlayerMoving();
-        }*/
-    }
-
-    private void OnMouseExit()
-    {
-        //GameManager.Instance.HandleTileExited(this);
-        //PathfindingManager.Instance.ClearValues();
+        GameManager.Instance.HandleTileClicked(this);
     }
 
     //A* Pathfinding Methods
-    /*
-    private void InitPlayerPathfinding()
-    {
-        Vector3 playerPos = _player.transform.position;
-        Tile tileFromPlayer = GridGenerator.Instance.GetTileFromWorldCoords(playerPos);
-        PathfindingManager.Instance.InitPathfinding(tileFromPlayer, this);
-    }
-
-    private void InitPlayerMoving()
-    {
-        StartCoroutine(MovePlayer());
-        PathfindingManager.Instance.ClearValues();
-    }
-
-    IEnumerator MovePlayer()
-    {
-        _player.transform.position = transform.position;
-        yield return new WaitForSeconds(5);
-        yield return null;
-    }*/
 
     public void ClearPathfindingValues()
     {
@@ -115,13 +75,11 @@ public class Tile : MonoBehaviour
     public void SetAsStart()
     {
         _bStart = true;
-        _sprite.color = Color.cyan;
     }
 
     public void SetAsGoal()
     {
         _bGoal = true;
-        _sprite.color = _canMoveColor;
     }
 
     public void SetAsSolid()

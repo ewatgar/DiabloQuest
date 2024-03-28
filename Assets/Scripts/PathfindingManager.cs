@@ -21,6 +21,11 @@ public class PathfindingManager : MonoBehaviour
     private bool _bGoalReached = false;
     private int _step = 0;
 
+    private List<Tile> _finalPath = new List<Tile>();
+    public List<Tile> FinalPath { get => _finalPath; }
+
+    private GridGenerator _grid;
+
     private void Awake()
     {
         if (_instance == null)
@@ -35,12 +40,13 @@ public class PathfindingManager : MonoBehaviour
 
     private void Start()
     {
+        _grid = GridGenerator.Instance;
         SetSolidTiles();
     }
 
     private void SetSolidTiles()
     {
-        Tile[,] tileGrid = GridGenerator.Instance.TileGrid;
+        Tile[,] tileGrid = _grid.TileGrid;
         SetSolidTile(tileGrid[4, 1]);
         SetSolidTile(tileGrid[4, 2]);
         SetSolidTile(tileGrid[4, 3]);
@@ -80,7 +86,7 @@ public class PathfindingManager : MonoBehaviour
 
     private void SetCostOnAllTiles()
     {
-        Tile[,] tileGrid = GridGenerator.Instance.TileGrid;
+        Tile[,] tileGrid = _grid.TileGrid;
         foreach (Tile tile in tileGrid)
         {
             SetTileCost(tile);
@@ -110,7 +116,7 @@ public class PathfindingManager : MonoBehaviour
 
             int col = _currentTile.Coords.x;
             int row = _currentTile.Coords.y;
-            Tile[,] tileGrid = GridGenerator.Instance.TileGrid;
+            Tile[,] tileGrid = _grid.TileGrid;
 
             //Up Tile
             if (row - 1 >= 0) OpenTile(tileGrid[col, row - 1]);
@@ -119,10 +125,10 @@ public class PathfindingManager : MonoBehaviour
             if (col - 1 >= 0) OpenTile(tileGrid[col - 1, row]);
 
             //Down Tile
-            if (row + 1 < GridGenerator.Instance.NRows) OpenTile(tileGrid[col, row + 1]);
+            if (row + 1 < _grid.NRows) OpenTile(tileGrid[col, row + 1]);
 
             //Right Tile
-            if (col + 1 < GridGenerator.Instance.NCols) OpenTile(tileGrid[col + 1, row]);
+            if (col + 1 < _grid.NCols) OpenTile(tileGrid[col + 1, row]);
 
             //Find best Tile
             int bestTileIndex = 0;
@@ -169,16 +175,13 @@ public class PathfindingManager : MonoBehaviour
 
     private void TrackFinalPath()
     {
-        Tile current = _goalTile;
-        while (current != _startTile)
+        while (_currentTile != _startTile)
         {
-            current = current.PathfindingParent;
-
-            if (current != _startTile)
-            {
-                current.SetAsPath();
-            }
+            _currentTile.SetAsPath();
+            _finalPath.Add(_currentTile);
+            _currentTile = _currentTile.PathfindingParent;
         }
+        _finalPath.Reverse();
     }
 
     public void ClearValues()
@@ -196,6 +199,6 @@ public class PathfindingManager : MonoBehaviour
         _checkedList = new List<Tile>();
         _bGoalReached = false;
         _step = 0;
+        _finalPath = new List<Tile>();
     }
-
 }

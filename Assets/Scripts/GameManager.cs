@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum GameState
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
     private Player _player;
     private Tile _selectedTile;
 
+    private bool _bPlayerMoving;
+
     private void Awake()
     {
         if (_instance == null)
@@ -52,7 +55,7 @@ public class GameManager : MonoBehaviour
         switch (_gameState)
         {
             case GameState.PlayerIdle:
-                //OnPlayerIdle();
+                OnPlayerIdle();
                 break;
             case GameState.PlayerSelectTileMove:
                 OnPlayerSelectTileMove(_selectedTile);
@@ -77,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerIdle()
     {
-        throw new NotImplementedException();
+        _bPlayerMoving = false;
     }
 
     private void OnPlayerSelectTileMove(Tile selectedTile)
@@ -88,13 +91,35 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerMoving()
     {
-        _player.Move(_selectedTile.transform.position);
+        StartCoroutine(MovingPath());
+        _bPlayerMoving = false;
+    }
 
+    IEnumerator MovingPath()
+    {
+        float duration = .5f;
+
+        List<Tile> path = _path.FinalPath;
+        foreach (Tile tile in path)
+        {
+            float currentTime = 0;
+            while (currentTime < duration)
+            {
+                Vector3 lerpPosition = Vector3.Lerp(
+                    _player.transform.position,
+                    tile.transform.position,
+                    currentTime / duration
+                    );
+                _player.Move(lerpPosition);
+                currentTime += Time.deltaTime;
+                yield return null;
+            }
+        }
     }
 
     public void HandleTileHovered(Tile tile)
     {
-        if (!tile.BSolid && tile != _selectedTile)
+        if (!_bPlayerMoving && !tile.BSolid && tile != _selectedTile)
         {
             _gameState = GameState.PlayerSelectTileMove;
             _selectedTile = tile;
@@ -105,12 +130,8 @@ public class GameManager : MonoBehaviour
     {
         if (!tile.BSolid && tile == _selectedTile)
         {
+            _bPlayerMoving = true;
             _gameState = GameState.PlayerMoving;
         }
-    }
-
-    public void HandleTileExited(Tile tile)
-    {
-        throw new NotImplementedException();
     }
 }
