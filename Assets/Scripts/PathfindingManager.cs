@@ -51,7 +51,7 @@ public class PathfindingManager : MonoBehaviour
         SetSolidTile(tileGrid[7, 1]);
     }
 
-    public void InitPathfinding(Tile startTile, Tile goalTile, int limit = STEP_LIMIT_DEFAULT)
+    public void SetPathfinding(Tile startTile, Tile goalTile, int limit = STEP_LIMIT_DEFAULT)
     {
         SetStartTile(startTile);
         SetGoalTile(goalTile);
@@ -145,9 +145,8 @@ public class PathfindingManager : MonoBehaviour
                 }
             }
 
-            print($"bestTileIndex: {bestTileIndex}");
+            //print($"bestTileIndex: {bestTileIndex}");
             _currentTile = _openList[bestTileIndex];
-
 
             if (_currentTile == _goalTile)
             {

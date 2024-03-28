@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum GameState
 {
-    PlayerWaiting,
+    PlayerIdle,
     PlayerSelectTileMove,
     PlayerMoving,
     PlayerSelectSpell,
@@ -21,21 +21,19 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance { get => _instance; }
 
-    private GameState _state;
-    public GameState State { get => _state; set => _state = value; }
+    private GameState _gameState;
+    public GameState GameState { get => _gameState; set => _gameState = value; }
 
-    private Tile _selectedTile;
+    private PathfindingManager _path;
     private Player _player;
-    //private List<Enemy>
-
-    public Tile SelectedTile { get => _selectedTile; set => _selectedTile = value; }
-    public Player Player { get => _player; }
+    private Tile _selectedTile;
 
     private void Awake()
     {
         if (_instance == null)
         {
             _instance = this;
+            _gameState = GameState.PlayerIdle;
         }
         else
         {
@@ -45,18 +43,22 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _path = PathfindingManager.Instance;
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     private void Update()
     {
-        switch (_state)
+        switch (_gameState)
         {
-            case GameState.PlayerWaiting:
+            case GameState.PlayerIdle:
+                //OnPlayerIdle();
                 break;
             case GameState.PlayerSelectTileMove:
+                OnPlayerSelectTileMove(_selectedTile);
                 break;
             case GameState.PlayerMoving:
+                OnPlayerMoving();
                 break;
             case GameState.PlayerSelectSpell:
                 break;
@@ -71,5 +73,44 @@ public class GameManager : MonoBehaviour
             case GameState.Lose:
                 break;
         }
+    }
+
+    private void OnPlayerIdle()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnPlayerSelectTileMove(Tile selectedTile)
+    {
+        _path.ClearValues();
+        _path.SetPathfinding(_player.GetPlayerTile(), _selectedTile);
+    }
+
+    private void OnPlayerMoving()
+    {
+        _player.Move(_selectedTile.transform.position);
+
+    }
+
+    public void HandleTileHovered(Tile tile)
+    {
+        if (!tile.BSolid && tile != _selectedTile)
+        {
+            _gameState = GameState.PlayerSelectTileMove;
+            _selectedTile = tile;
+        }
+    }
+
+    public void HandleTileClicked(Tile tile)
+    {
+        if (!tile.BSolid && tile == _selectedTile)
+        {
+            _gameState = GameState.PlayerMoving;
+        }
+    }
+
+    public void HandleTileExited(Tile tile)
+    {
+        throw new NotImplementedException();
     }
 }
