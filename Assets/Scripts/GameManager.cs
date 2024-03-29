@@ -91,29 +91,32 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerMoving()
     {
+        _bPlayerMoving = true;
         StartCoroutine(MovingPath());
         _bPlayerMoving = false;
     }
 
     IEnumerator MovingPath()
     {
-        float duration = .5f;
+        float duration = .3f;
+        float currentTime = 0;
 
         List<Tile> path = _path.FinalPath;
+
         foreach (Tile tile in path)
         {
-            float currentTime = 0;
+            Vector3 startPos = _player.transform.position;
+            Vector3 endPos = tile.transform.position;
+
             while (currentTime < duration)
             {
-                Vector3 lerpPosition = Vector3.Lerp(
-                    _player.transform.position,
-                    tile.transform.position,
-                    currentTime / duration
-                    );
-                _player.Move(lerpPosition);
                 currentTime += Time.deltaTime;
+                float t = currentTime / duration;
+                _player.transform.position = Vector3.Lerp(startPos, endPos, t);
                 yield return null;
             }
+            _player.transform.position = tile.transform.position;
+            currentTime = 0;
         }
     }
 
@@ -130,7 +133,6 @@ public class GameManager : MonoBehaviour
     {
         if (!tile.BSolid && tile == _selectedTile)
         {
-            _bPlayerMoving = true;
             _gameState = GameState.PlayerMoving;
         }
     }
