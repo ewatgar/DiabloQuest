@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour
     private Player _player;
     private Tile _selectedTile;
 
-    private bool _bPlayerMoving;
-
     private void Awake()
     {
         if (_instance == null)
@@ -58,7 +56,7 @@ public class GameManager : MonoBehaviour
                 OnPlayerIdle();
                 break;
             case GameState.PlayerSelectTileMove:
-                OnPlayerSelectTileMove(_selectedTile);
+                OnPlayerSelectTileMove();
                 break;
             case GameState.PlayerMoving:
                 OnPlayerMoving();
@@ -80,60 +78,40 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerIdle()
     {
-        _bPlayerMoving = false;
+        _path.ClearValues();
     }
 
-    private void OnPlayerSelectTileMove(Tile selectedTile)
+    private void OnPlayerSelectTileMove()
     {
         _path.ClearValues();
-        _path.SetPathfinding(_player.GetPlayerTile(), _selectedTile);
+        _path.SetPathfinding(_player.CurrentTile, _selectedTile);
     }
 
     private void OnPlayerMoving()
     {
-        _bPlayerMoving = true;
-        StartCoroutine(MovingPath());
-        _bPlayerMoving = false;
-    }
+        _player.Move(_path.FinalPath, _selectedTile);
 
-    IEnumerator MovingPath()
-    {
-        float duration = .3f;
-        float currentTime = 0;
-
-        List<Tile> path = _path.FinalPath;
-
-        foreach (Tile tile in path)
-        {
-            Vector3 startPos = _player.transform.position;
-            Vector3 endPos = tile.transform.position;
-
-            while (currentTime < duration)
-            {
-                currentTime += Time.deltaTime;
-                float t = currentTime / duration;
-                _player.transform.position = Vector3.Lerp(startPos, endPos, t);
-                yield return null;
-            }
-            _player.transform.position = tile.transform.position;
-            currentTime = 0;
-        }
     }
 
     public void HandleTileHovered(Tile tile)
     {
-        if (!_bPlayerMoving && !tile.BSolid && tile != _selectedTile)
+        if (_gameState == GameState.PlayerIdle && _player.EnoughMovementPoints(tile) && !tile.Solid && tile != _selectedTile)
         {
             _gameState = GameState.PlayerSelectTileMove;
             _selectedTile = tile;
+        }
+        else
+        {
+            _gameState = GameState.PlayerIdle;
         }
     }
 
     public void HandleTileClicked(Tile tile)
     {
-        if (!tile.BSolid && tile == _selectedTile)
+        if (_gameState == GameState.PlayerSelectTileMove && _player.EnoughMovementPoints(tile) && !tile.Solid && tile == _selectedTile)
         {
             _gameState = GameState.PlayerMoving;
+
         }
     }
 }

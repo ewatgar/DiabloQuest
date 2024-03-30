@@ -32,11 +32,11 @@ public class Tile : MonoBehaviour
     public int GCost { get => _gCost; set => _gCost = value; }
     public int HCost { get => _hCost; set => _hCost = value; }
     public int FCost { get => _fCost; set => _fCost = value; }
-    public bool BStart { get => _bStart; }
-    public bool BGoal { get => _bGoal; }
-    public bool BSolid { get => _bSolid; }
-    public bool BOpen { get => _bOpen; }
-    public bool BChecked { get => _bChecked; }
+    public bool StartTile { get => _bStart; }
+    public bool Goal { get => _bGoal; }
+    public bool Solid { get => _bSolid; }
+    public bool Open { get => _bOpen; }
+    public bool Checked { get => _bChecked; }
 
     private void Start()
     {
@@ -52,8 +52,6 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //print($"name: {name}");
-        //print($"coords: {Coords}");
         GameManager.Instance.HandleTileClicked(this);
     }
 
