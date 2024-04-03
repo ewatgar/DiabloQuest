@@ -9,14 +9,17 @@ public class PathfindingManager : MonoBehaviour
     private static PathfindingManager _instance;
     public static PathfindingManager Instance { get => _instance; }
 
-    private Tile _startTile, _goalTile, _currentTile;
+    private const int STEP_LIMIT_DEFAULT = 300;
+    private Tile _startTile, _goalTile, _solidTile, _currentTile;
     public Tile StartTile { get => _startTile; }
     public Tile GoalTile { get => _goalTile; }
+    public Tile SolidTile { get => _solidTile; }
     public Tile CurrentTile { get => _currentTile; }
 
     private List<Tile> _openList = new List<Tile>();
     private List<Tile> _checkedList = new List<Tile>();
     private bool _bGoalReached = false;
+    private int _step = 0;
 
     private List<Tile> _finalPath = new List<Tile>();
     public List<Tile> FinalPath { get => _finalPath; }
@@ -44,22 +47,22 @@ public class PathfindingManager : MonoBehaviour
     private void SetSolidTiles()
     {
         Tile[,] tileGrid = _grid.TileGrid;
-        tileGrid[4, 1].SetAsSolid();
-        tileGrid[4, 2].SetAsSolid();
-        tileGrid[4, 3].SetAsSolid();
-        tileGrid[4, 4].SetAsSolid();
-        tileGrid[4, 5].SetAsSolid();
-        tileGrid[5, 1].SetAsSolid();
-        tileGrid[6, 1].SetAsSolid();
-        tileGrid[7, 1].SetAsSolid();
+        SetSolidTile(tileGrid[4, 1]);
+        SetSolidTile(tileGrid[4, 2]);
+        SetSolidTile(tileGrid[4, 3]);
+        SetSolidTile(tileGrid[4, 4]);
+        SetSolidTile(tileGrid[4, 5]);
+        SetSolidTile(tileGrid[5, 1]);
+        SetSolidTile(tileGrid[6, 1]);
+        SetSolidTile(tileGrid[7, 1]);
     }
 
-    public void SetPathfinding(Tile startTile, Tile goalTile)
+    public void SetPathfinding(Tile startTile, Tile goalTile, int limit = STEP_LIMIT_DEFAULT)
     {
         SetStartTile(startTile);
         SetGoalTile(goalTile);
         SetCostOnAllTiles();
-        Search();
+        Search(limit);
     }
 
     private void SetStartTile(Tile tile)
@@ -73,6 +76,12 @@ public class PathfindingManager : MonoBehaviour
     {
         _goalTile = tile;
         tile.SetAsGoal();
+    }
+
+    private void SetSolidTile(Tile tile)
+    {
+        _solidTile = tile;
+        tile.SetAsSolid();
     }
 
     private void SetCostOnAllTiles()
@@ -97,9 +106,9 @@ public class PathfindingManager : MonoBehaviour
         tile.FCost = tile.GCost + tile.HCost;
     }
 
-    private void Search()
+    private void Search(int limit)
     {
-        while (!_bGoalReached)
+        while (!_bGoalReached && _step < limit)
         {
             _currentTile.SetAsChecked();
             _checkedList.Add(_currentTile);
@@ -148,14 +157,15 @@ public class PathfindingManager : MonoBehaviour
             if (_currentTile == _goalTile)
             {
                 _bGoalReached = true;
-                _finalPath = TrackFinalPath();
+                TrackFinalPath();
             }
         }
+        _step++;
     }
 
     private void OpenTile(Tile tile)
     {
-        if (!tile.Open && !tile.Checked && !tile.Solid)
+        if (!tile.BOpen && !tile.BChecked && !tile.BSolid)
         {
             tile.SetAsOpen();
             tile.PathfindingParent = _currentTile;
@@ -163,22 +173,20 @@ public class PathfindingManager : MonoBehaviour
         }
     }
 
-    private List<Tile> TrackFinalPath()
+    private void TrackFinalPath()
     {
-        List<Tile> finalPath = new List<Tile>();
         while (_currentTile != _startTile)
         {
             _currentTile.SetAsPath();
-            finalPath.Add(_currentTile);
+            _finalPath.Add(_currentTile);
             _currentTile = _currentTile.PathfindingParent;
         }
-        finalPath.Reverse();
-        return finalPath;
+        _finalPath.Reverse();
     }
 
     public void ClearValues()
     {
-        _startTile = _goalTile = _currentTile = null;
+        _startTile = _goalTile = _solidTile = _currentTile = null;
         foreach (Tile tile in _openList)
         {
             tile.ClearPathfindingValues();
@@ -190,6 +198,7 @@ public class PathfindingManager : MonoBehaviour
         _openList = new List<Tile>();
         _checkedList = new List<Tile>();
         _bGoalReached = false;
+        _step = 0;
         _finalPath = new List<Tile>();
     }
 }

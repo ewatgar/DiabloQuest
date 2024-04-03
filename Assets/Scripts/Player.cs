@@ -1,9 +1,6 @@
-using System;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Threading;
 
 public class Player : MonoBehaviour
 {
@@ -16,88 +13,54 @@ public class Player : MonoBehaviour
     private int _resistancePerc; //resistance %
     private int _critsPerc; //crits %
 
-    private Tile _currentTile;
-    public Tile CurrentTile { get => _currentTile; }
-
     private GridGenerator _grid;
-
 
     private void Start()
     {
         _grid = GridGenerator.Instance;
-        _currentTile = _grid.GetTileFromWorldCoords(transform.position);
     }
 
-    public int GetTileDistance(Tile goalTile)
+    public Tile GetPlayerTile()
     {
-        int xDistance = Mathf.Abs(goalTile.Coords.x - _currentTile.Coords.x);
-        int yDistance = Mathf.Abs(goalTile.Coords.y - _currentTile.Coords.y);
-        int totalDistance = xDistance + yDistance;
-
-        return totalDistance;
+        return _grid.GetTileFromWorldCoords(transform.position);
     }
 
-    public bool EnoughMovementPoints(Tile goalTile)
+    public void Move(Vector3 position, int _mp = 0)
     {
-        return GetTileDistance(goalTile) <= _movementPoints;
+        transform.position = position;
+        _movementPoints -= _mp;
     }
 
-    public void Move(List<Tile> path, Tile goalTile)
-    {
-        StartCoroutine(MoveOnPath(path, goalTile));
+    public void MovePath(List<Tile> path)
+    {//TODO movepath player
     }
 
-    private IEnumerator MoveOnPath(List<Tile> path, Tile goalTile)
+    public bool CanMove(Vector2Int tileCoords, out int diff)
     {
-        print("corroutine");
-        _movementPoints -= GetTileDistance(goalTile);
-        float duration = .3f;
+        Tile playerTile = GetPlayerTile();
 
-        foreach (Tile tile in path)
+        diff = 0;
+
+        if (playerTile.Coords == tileCoords)
         {
-            Vector3 startPos = transform.position;
-            Vector3 endPos = tile.transform.position;
-            float currentTime = 0;
-
-            while (currentTime < duration)
-            {
-                currentTime += Time.deltaTime;
-                float t = currentTime / duration;
-                transform.position = Vector3.Lerp(startPos, endPos, t);
-                yield return null;
-            }
+            return false;
         }
-        transform.position = goalTile.transform.position;
-        _currentTile = goalTile;
-        yield break;
+
+        if (playerTile.Coords.x == tileCoords.x && playerTile.Coords.y != tileCoords.y)
+        {
+            int diffY = Mathf.Abs(playerTile.Coords.y - tileCoords.y);
+            diff = diffY;
+            return diffY <= _movementPoints;
+        }
+        else if (playerTile.Coords.y == tileCoords.y && playerTile.Coords.x != tileCoords.x)
+        {
+            int diffX = Mathf.Abs(playerTile.Coords.x - tileCoords.x);
+            diff = diffX;
+            return diffX <= _movementPoints;
+        }
+        return false;
     }
 
-
-    /*
-        private IEnumerator MoveOnPathOld(List<Tile> path, Tile goalTile)
-        {
-            _bPlayerMoving = true;
-            float duration = .3f;
-
-            foreach (Tile tile in path)
-            {
-                Vector3 startPos = transform.position;
-                Vector3 endPos = tile.transform.position;
-                float currentTime = 0;
-
-                while (currentTime < duration)
-                {
-                    currentTime += Time.deltaTime;
-                    float t = currentTime / duration;
-                    transform.position = Vector3.Lerp(startPos, endPos, t);
-                    yield return null;
-                }
-                transform.position = tile.transform.position;
-            }
-            _currentTile = goalTile;
-            _bPlayerMoving = false;
-        }
-    */
     public void GetHurt(int hp = 1)
     {
         _healthPoints -= hp;
