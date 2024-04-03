@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
 
     public void HandleTileHovered(Tile tile)
     {
-        if (!_bPlayerMoving && !tile.BSolid && tile != _selectedTile)
+        if (!_bPlayerMoving && !tile.Solid && tile != _selectedTile)
         {
             _gameState = GameState.PlayerSelectTileMove;
             _selectedTile = tile;
@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
 
     public void HandleTileClicked(Tile tile)
     {
-        if (!tile.BSolid && tile == _selectedTile)
+        if (!tile.Solid && tile == _selectedTile)
         {
             _gameState = GameState.PlayerMoving;
         }
