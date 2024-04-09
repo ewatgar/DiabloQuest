@@ -1,3 +1,6 @@
+// https://discussions.unity.com/t/run-coroutine-only-once/122924/2
+
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
