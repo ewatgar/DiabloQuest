@@ -54,12 +54,12 @@ public class PathfindingManager : MonoBehaviour
         tileGrid[7, 1].SetAsSolid();
     }
 
-    public void SetPathfinding(Tile startTile, Tile goalTile)
+    public List<Tile> SetPathfinding(Tile startTile, Tile goalTile)
     {
         SetStartTile(startTile);
         SetGoalTile(goalTile);
         SetCostOnAllTiles();
-        Search();
+        return Search();
     }
 
     private void SetStartTile(Tile tile)
@@ -97,7 +97,7 @@ public class PathfindingManager : MonoBehaviour
         tile.FCost = tile.GCost + tile.HCost;
     }
 
-    private void Search()
+    private List<Tile> Search()
     {
         while (!_bGoalReached)
         {
@@ -142,15 +142,17 @@ public class PathfindingManager : MonoBehaviour
                 }
             }
 
-            //print($"bestTileIndex: {bestTileIndex}");
+            print($"bestTileIndex: {bestTileIndex}");
             _currentTile = _openList[bestTileIndex];
 
             if (_currentTile == _goalTile)
             {
                 _bGoalReached = true;
-                TrackFinalPath();
             }
         }
+
+        TrackFinalPath();
+        return _finalPath;
     }
 
     private void OpenTile(Tile tile)
@@ -158,7 +160,7 @@ public class PathfindingManager : MonoBehaviour
         if (!tile.Open && !tile.Checked && !tile.Solid)
         {
             tile.SetAsOpen();
-            tile.PathfindingParent = _currentTile;
+            tile.ParentTile = _currentTile;
             _openList.Add(tile);
         }
     }
@@ -167,11 +169,18 @@ public class PathfindingManager : MonoBehaviour
     {
         while (_currentTile != _startTile)
         {
-            _currentTile.SetAsPath();
             _finalPath.Add(_currentTile);
-            _currentTile = _currentTile.PathfindingParent;
+            _currentTile = _currentTile.ParentTile;
         }
         _finalPath.Reverse();
+    }
+
+    public void ColorTilesFromFinalPath()
+    {
+        foreach (Tile tile in _finalPath)
+        {
+            tile.ColorTileCanMove();
+        }
     }
 
     public void ClearValues()
@@ -190,4 +199,6 @@ public class PathfindingManager : MonoBehaviour
         _bGoalReached = false;
         _finalPath = new List<Tile>();
     }
+
+
 }

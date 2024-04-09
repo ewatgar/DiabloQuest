@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         _path.ClearValues();
         _path.SetPathfinding(_player.GetPlayerTile(), _selectedTile);
+        _path.ColorTilesFromFinalPath();
     }
 
     private void OnPlayerMoving()

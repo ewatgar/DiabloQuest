@@ -13,12 +13,11 @@ public class Tile : MonoBehaviour
 
     public Color BaseColor { get => _baseColor; }
     public Color CanMoveColor { get => _canMoveColor; }
-    public Color CanNotMoveColor { get => _canNotMoveColor; }
     public SpriteRenderer Sprite { get => _sprite; }
     public Vector2Int Coords { get => _coords; }
 
     //A* Pathfinding Fields
-    private Tile _pathfindingParent;
+    private Tile _parentTile;
     private int _gCost;
     private int _hCost;
     private int _fCost;
@@ -28,7 +27,7 @@ public class Tile : MonoBehaviour
     private bool _bOpen;
     private bool _bChecked;
 
-    public Tile PathfindingParent { get => _pathfindingParent; set => _pathfindingParent = value; }
+    public Tile ParentTile { get => _parentTile; set => _parentTile = value; }
     public int GCost { get => _gCost; set => _gCost = value; }
     public int HCost { get => _hCost; set => _hCost = value; }
     public int FCost { get => _fCost; set => _fCost = value; }
@@ -47,11 +46,13 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        //TODO como patron observer
         GameManager.Instance.HandleTileHovered(this);
     }
 
     private void OnMouseDown()
     {
+        //TODO como patron observer
         //print($"name: {name}");
         //print($"coords: {Coords}");
         GameManager.Instance.HandleTileClicked(this);
@@ -98,7 +99,7 @@ public class Tile : MonoBehaviour
         if (!_bStart && !_bGoal) _bChecked = true;
     }
 
-    public void SetAsPath()
+    public void ColorTileCanMove()
     {
         _sprite.color = _canMoveColor;
     }
