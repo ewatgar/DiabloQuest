@@ -92,13 +92,17 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerMoving()
     {
-        _bPlayerMoving = true;
-        StartCoroutine(MovingPath());
-        _bPlayerMoving = false;
+        if (!_bPlayerMoving)
+        {
+            StartCoroutine(MovingPath());
+
+        }
     }
 
     IEnumerator MovingPath()
     {
+        _bPlayerMoving = true;
+        print("empieza corrutina");
         float duration = .3f;
         float currentTime = 0;
 
@@ -118,7 +122,10 @@ public class GameManager : MonoBehaviour
             }
             _player.transform.position = tile.transform.position;
             currentTime = 0;
+            _player.SpendMovementPoint();
         }
+        print("termina corrutina");
+        _bPlayerMoving = false;
     }
 
     public void HandleTileHovered(Tile tile)
@@ -134,7 +141,11 @@ public class GameManager : MonoBehaviour
     {
         if (!tile.Solid && tile == _selectedTile)
         {
-            _gameState = GameState.PlayerMoving;
+            if (!_bPlayerMoving)
+            {
+                StartCoroutine(MovingPath());
+
+            }
         }
     }
 }

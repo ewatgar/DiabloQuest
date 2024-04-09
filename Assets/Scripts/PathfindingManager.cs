@@ -38,20 +38,6 @@ public class PathfindingManager : MonoBehaviour
     private void Start()
     {
         _grid = GridGenerator.Instance;
-        SetSolidTiles();
-    }
-
-    private void SetSolidTiles()
-    {
-        Tile[,] tileGrid = _grid.TileGrid;
-        tileGrid[4, 1].SetAsSolid();
-        tileGrid[4, 2].SetAsSolid();
-        tileGrid[4, 3].SetAsSolid();
-        tileGrid[4, 4].SetAsSolid();
-        tileGrid[4, 5].SetAsSolid();
-        tileGrid[5, 1].SetAsSolid();
-        tileGrid[6, 1].SetAsSolid();
-        tileGrid[7, 1].SetAsSolid();
     }
 
     public List<Tile> SetPathfinding(Tile startTile, Tile goalTile)
@@ -59,6 +45,7 @@ public class PathfindingManager : MonoBehaviour
         SetStartTile(startTile);
         SetGoalTile(goalTile);
         SetCostOnAllTiles();
+        SetSolidTiles();
         return Search();
     }
 
@@ -95,6 +82,12 @@ public class PathfindingManager : MonoBehaviour
         tile.HCost = xDistance + yDistance;
 
         tile.FCost = tile.GCost + tile.HCost;
+    }
+
+    private void SetSolidTiles()
+    {
+        Tile[,] tileGrid = _grid.TileGrid;
+        tileGrid[2, 0].SetAsSolid();
     }
 
     private List<Tile> Search()
@@ -142,7 +135,7 @@ public class PathfindingManager : MonoBehaviour
                 }
             }
 
-            print($"bestTileIndex: {bestTileIndex}");
+            //print($"bestTileIndex: {bestTileIndex}");
             _currentTile = _openList[bestTileIndex];
 
             if (_currentTile == _goalTile)
@@ -179,7 +172,7 @@ public class PathfindingManager : MonoBehaviour
     {
         foreach (Tile tile in _finalPath)
         {
-            tile.ColorTileCanMove();
+            tile.ColorPathTile();
         }
     }
 

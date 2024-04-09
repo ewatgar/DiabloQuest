@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nCols: 13
   _nRows: 7
-  _tilePrefab: {fileID: -8064956752065509934, guid: ef8d128095be61c498760be5ff783c83, type: 3}
+  _tilePrefab: {fileID: 1794197094655806385, guid: ef8d128095be61c498760be5ff783c83, type: 3}
   _gridScale: 1.5
 --- !u!1 &474532864
 GameObject:

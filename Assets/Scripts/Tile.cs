@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private Color _canMoveColor;
-    [SerializeField] private Color _canNotMoveColor;
+    [SerializeField] private Color _pathTileColor;
     private Color _baseColor;
     private SpriteRenderer _sprite;
     private Vector2Int _coords;
 
     public Color BaseColor { get => _baseColor; }
-    public Color CanMoveColor { get => _canMoveColor; }
+    public Color PathTileColor { get => _pathTileColor; }
     public SpriteRenderer Sprite { get => _sprite; }
     public Vector2Int Coords { get => _coords; }
 
@@ -99,9 +98,9 @@ public class Tile : MonoBehaviour
         if (!_bStart && !_bGoal) _bChecked = true;
     }
 
-    public void ColorTileCanMove()
+    public void ColorPathTile()
     {
-        _sprite.color = _canMoveColor;
+        _sprite.color = _pathTileColor;
     }
 
 
