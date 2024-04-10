@@ -15,12 +15,12 @@ public class Player : MonoBehaviour
     private int _critsPerc; //crits %
 
     //Turns
-    private bool _bPlayerTurn = false;
+    //private bool _bPlayerTurn = false;
 
     //Movement
-    private PathfindingManager _path = null;
     private bool _bPlayerMoving = false;
     private Tile _selectedTile = null;
+    [SerializeField] private float _animationSpeed = 0.3f;
 
     public int HealthPoints { get => _healthPoints; set => _healthPoints = value; }
     public int ActionPoints { get => _actionPoints; set => _actionPoints = value; }
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _path = PathfindingManager.Instance;
+
         AddAsObserverToAllTiles();
     }
 
@@ -47,12 +47,14 @@ public class Player : MonoBehaviour
 
     private void HandleTileHovered(Tile tile)
     {
-        if (!_bPlayerMoving && !tile.Solid && tile != _selectedTile)
+        //tile != _selectedTile
+        if (!tile.Solid && !_bPlayerMoving && EnoughMovementPoints(tile))
         {
             _selectedTile = tile;
-            OnPlayerSelectTileMove(_selectedTile);
+            OnPlayerSelectTileMove();
         }
     }
+
 
     private void HandleTileClicked(Tile tile)
     {
@@ -62,11 +64,23 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnPlayerSelectTileMove(Tile selectedTile)
+    private bool EnoughMovementPoints(Tile tile)
     {
-        _path.ClearValues();
-        _path.SetPathfinding(GetPlayerTile(), _selectedTile);
-        _path.ColorTilesFromFinalPath();
+        RegeneratePath(GetPlayerTile(), tile);
+        int tilePathCount = PathfindingManager.Instance.FinalPath.Count;
+        return tilePathCount <= _movementPoints;
+    }
+
+    private void OnPlayerSelectTileMove()
+    {
+        RegeneratePath(GetPlayerTile(), _selectedTile);
+        PathfindingManager.Instance.ColorFinalPath();
+    }
+
+    private void RegeneratePath(Tile playerTile, Tile selectedTile)
+    {
+        PathfindingManager.Instance.ClearValues();
+        PathfindingManager.Instance.SetPathfinding(playerTile, selectedTile);
     }
 
     private void OnPlayerMoving()
@@ -78,10 +92,9 @@ public class Player : MonoBehaviour
     {
         _bPlayerMoving = true;
         print("empieza corrutina");
-        float duration = .3f;
         float currentTime = 0;
 
-        List<Tile> path = _path.FinalPath;
+        List<Tile> path = PathfindingManager.Instance.FinalPath;
 
         foreach (Tile tile in path)
         {
@@ -89,10 +102,10 @@ public class Player : MonoBehaviour
             Vector3 startPos = transform.position;
             Vector3 endPos = tile.transform.position;
 
-            while (currentTime < duration)
+            while (currentTime < _animationSpeed)
             {
                 currentTime += Time.deltaTime;
-                float t = currentTime / duration;
+                float t = currentTime / _animationSpeed;
                 transform.position = Vector3.Lerp(startPos, endPos, t);
                 yield return null;
             }
@@ -102,6 +115,7 @@ public class Player : MonoBehaviour
             tile.UncolorPathTile();
         }
         print("termina corrutina");
+        _selectedTile = null;
         _bPlayerMoving = false;
     }
 

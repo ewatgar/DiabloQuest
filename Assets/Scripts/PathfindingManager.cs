@@ -21,8 +21,6 @@ public class PathfindingManager : MonoBehaviour
     private List<Tile> _finalPath = new List<Tile>();
     public List<Tile> FinalPath { get => _finalPath; }
 
-    private GridGenerator _grid;
-
     private void Awake()
     {
         if (_instance == null)
@@ -35,17 +33,11 @@ public class PathfindingManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        _grid = GridGenerator.Instance;
-    }
-
     public List<Tile> SetPathfinding(Tile startTile, Tile goalTile)
     {
         SetStartTile(startTile);
         SetGoalTile(goalTile);
         SetCostOnAllTiles();
-        SetSolidTiles();
         return Search();
     }
 
@@ -64,7 +56,7 @@ public class PathfindingManager : MonoBehaviour
 
     private void SetCostOnAllTiles()
     {
-        Tile[,] tileGrid = _grid.TileGrid;
+        Tile[,] tileGrid = GridGenerator.Instance.TileGrid;
         foreach (Tile tile in tileGrid)
         {
             SetTileCost(tile);
@@ -84,14 +76,9 @@ public class PathfindingManager : MonoBehaviour
         tile.FCost = tile.GCost + tile.HCost;
     }
 
-    private void SetSolidTiles()
-    {
-        Tile[,] tileGrid = _grid.TileGrid;
-        tileGrid[2, 0].SetAsSolid();
-    }
-
     private List<Tile> Search()
     {
+        GridGenerator _grid = GridGenerator.Instance;
         while (!_bGoalReached)
         {
             _currentTile.SetAsChecked();
@@ -168,7 +155,7 @@ public class PathfindingManager : MonoBehaviour
         _finalPath.Reverse();
     }
 
-    public void ColorTilesFromFinalPath()
+    public void ColorFinalPath()
     {
         foreach (Tile tile in _finalPath)
         {

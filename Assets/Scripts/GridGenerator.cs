@@ -30,6 +30,22 @@ public class GridGenerator : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Start()
+    {
+        UpdateSolidTiles();
+    }
+
+    private void Update()
+    {
+        UpdateSolidTiles();
+    }
+
+    private void UpdateSolidTiles()
+    {
+        _tileGrid[2, 0].SetAsSolid();
+    }
+
     private void GenerateGrid()
     {
         _tileGrid = new Tile[_nCols, _nRows];

@@ -39,7 +39,7 @@ public class Tile : MonoBehaviour
     public event Action<Tile> OnTileHovered;
     public event Action<Tile> OnTileClicked;
 
-    private void Start()
+    private void Awake()
     {
         _sprite = GetComponent<SpriteRenderer>();
         _baseColor = _sprite.color;
