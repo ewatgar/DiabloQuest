@@ -36,6 +36,9 @@ public class Tile : MonoBehaviour
     public bool Open { get => _bOpen; }
     public bool Checked { get => _bChecked; }
 
+    public event Action<Tile> OnTileHovered;
+    public event Action<Tile> OnTileClicked;
+
     private void Start()
     {
         _sprite = GetComponent<SpriteRenderer>();
@@ -46,7 +49,8 @@ public class Tile : MonoBehaviour
     private void OnMouseEnter()
     {
         //TODO como patron observer
-        GameManager.Instance.HandleTileHovered(this);
+        //OnTileHovered?.Invoke(this);
+        //GameManager.Instance.HandleTileHovered(this);
     }
 
     private void OnMouseDown()
@@ -54,6 +58,7 @@ public class Tile : MonoBehaviour
         //TODO como patron observer
         //print($"name: {name}");
         //print($"coords: {Coords}");
+        //OnTileHovered?.Invoke(this);
         GameManager.Instance.HandleTileClicked(this);
     }
 
@@ -101,6 +106,11 @@ public class Tile : MonoBehaviour
     public void ColorPathTile()
     {
         _sprite.color = _pathTileColor;
+    }
+
+    public void UncolorPathTile()
+    {
+        _sprite.color = _baseColor;
     }
 
 

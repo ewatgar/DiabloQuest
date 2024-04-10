@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerIdle()
     {
-        _bPlayerMoving = false;
+        //_bPlayerMoving = false;
     }
 
     private void OnPlayerSelectTileMove(Tile selectedTile)
@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
 
         foreach (Tile tile in path)
         {
+
             Vector3 startPos = _player.transform.position;
             Vector3 endPos = tile.transform.position;
 
@@ -126,6 +127,7 @@ public class GameManager : MonoBehaviour
             _player.transform.position = tile.transform.position;
             currentTime = 0;
             _player.SpendMovementPoint();
+            tile.UncolorPathTile();
         }
         print("termina corrutina");
         _bPlayerMoving = false;
@@ -135,8 +137,9 @@ public class GameManager : MonoBehaviour
     {
         if (!_bPlayerMoving && !tile.Solid && tile != _selectedTile)
         {
-            _gameState = GameState.PlayerSelectTileMove;
+            //_gameState = GameState.PlayerSelectTileMove;
             _selectedTile = tile;
+            OnPlayerSelectTileMove(_selectedTile);
         }
     }
 

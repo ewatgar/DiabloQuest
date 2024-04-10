@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,9 @@ public class Player : MonoBehaviour
     private int _resistancePerc; //resistance %
     private int _critsPerc; //crits %
 
-    private GridGenerator _grid;
+    //Movement
+    private bool _bPlayerTurn = false;
+    private Tile _selectedTile = null;
 
     public int HealthPoints { get => _healthPoints; set => _healthPoints = value; }
     public int ActionPoints { get => _actionPoints; set => _actionPoints = value; }
@@ -24,12 +27,27 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _grid = GridGenerator.Instance;
+        AddAsObserverToAllTiles();
+    }
+
+    private void AddAsObserverToAllTiles()
+    {
+        Tile[,] tileGrid = GridGenerator.Instance.TileGrid;
+        foreach (Tile tile in tileGrid)
+        {
+            //tile.OnTileHovered += HandleTileHovered;
+            //tile.OnTileClicked += HandleTileClicked;
+        }
+    }
+
+    private void HandleTileClicked(Vector3 coordinates)
+    {
+        //TODO corrutina
     }
 
     public Tile GetPlayerTile()
     {
-        return _grid.GetTileFromWorldCoords(transform.position);
+        return GridGenerator.Instance.GetTileFromWorldCoords(transform.position);
     }
 
     public void GetHurt(int hp = 1)
