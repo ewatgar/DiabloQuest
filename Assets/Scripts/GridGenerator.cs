@@ -43,7 +43,7 @@ public class GridGenerator : MonoBehaviour
 
     private void UpdateSolidTiles()
     {
-        _tileGrid[2, 0].SetAsSolid();
+        _tileGrid[0, 1].SetAsSolid();
     }
 
     private void GenerateGrid()

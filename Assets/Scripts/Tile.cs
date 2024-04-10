@@ -48,13 +48,13 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        print($"coords: {Coords}");
         OnTileHovered?.Invoke(this);
     }
 
     private void OnMouseDown()
     {
-        //print($"name: {name}");
-        //print($"coords: {Coords}");
+
         OnTileClicked?.Invoke(this);
     }
 

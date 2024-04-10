@@ -100,16 +100,30 @@ public class Player : MonoBehaviour
         {
 
             Vector3 startPos = transform.position;
-            Vector3 endPos = tile.transform.position;
+
+            Vector3 tilePos = tile.transform.position;
+            Vector3 endPos = new Vector3(tilePos.x, tilePos.y, tile.Coords.y);
 
             while (currentTime < _animationSpeed)
             {
                 currentTime += Time.deltaTime;
                 float t = currentTime / _animationSpeed;
+                /*
+                transform.position = new Vector3(
+                    Mathf.Lerp(startPos.x, endPos.x, t),
+                    Mathf.Lerp(startPos.y, endPos.x, t),
+                    tile.Coords.y //get layer
+                );*/
                 transform.position = Vector3.Lerp(startPos, endPos, t);
                 yield return null;
             }
-            transform.position = tile.transform.position;
+
+            transform.position = new Vector3(
+                endPos.x,
+                endPos.y,
+                tile.Coords.y
+            );
+            //transform.position = tile.transform.position;
             currentTime = 0;
             SpendMovementPoint();
             tile.UncolorPathTile();
@@ -138,17 +152,18 @@ public class Player : MonoBehaviour
     {
         if (_bPlayerTurn)
         {
-            _bPlayerTurn = false;
             StartCoroutine(MockEnemyTurn());
         }
     }
 
     private IEnumerator MockEnemyTurn()
     {
+        print("turno player termina");
         _bPlayerTurn = false;
         yield return new WaitForSeconds(3);
         _bPlayerTurn = true;
         yield return null;
+        print("turno player empieza");
     }
 
     /*
