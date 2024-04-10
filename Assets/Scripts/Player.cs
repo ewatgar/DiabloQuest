@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private int _critsPerc; //crits %
 
     //Turns
-    //private bool _bPlayerTurn = false;
+    private bool _bPlayerTurn = true;
 
     //Movement
     private bool _bPlayerMoving = false;
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     private void HandleTileHovered(Tile tile)
     {
         //tile != _selectedTile
-        if (!tile.Solid && !_bPlayerMoving && EnoughMovementPoints(tile))
+        if (_bPlayerTurn && !tile.Solid && !_bPlayerMoving && EnoughMovementPoints(tile))
         {
             _selectedTile = tile;
             OnPlayerSelectTileMove();
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
 
     private void HandleTileClicked(Tile tile)
     {
-        if (!_bPlayerMoving && !tile.Solid && tile == _selectedTile)
+        if (_bPlayerTurn && !_bPlayerMoving && !tile.Solid && tile == _selectedTile)
         {
             OnPlayerMoving();
         }
@@ -132,6 +132,23 @@ public class Player : MonoBehaviour
     public void SpendMovementPoint()
     {
         MovementPoints--;
+    }
+
+    public void FinishPlayerTurn()
+    {
+        if (_bPlayerTurn)
+        {
+            _bPlayerTurn = false;
+            StartCoroutine(MockEnemyTurn());
+        }
+    }
+
+    private IEnumerator MockEnemyTurn()
+    {
+        _bPlayerTurn = false;
+        yield return new WaitForSeconds(3);
+        _bPlayerTurn = true;
+        yield return null;
     }
 
     /*
