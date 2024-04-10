@@ -48,22 +48,17 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        //TODO como patron observer
         OnTileHovered?.Invoke(this);
-        //GameManager.Instance.HandleTileHovered(this);
     }
 
     private void OnMouseDown()
     {
-        //TODO como patron observer
         //print($"name: {name}");
         //print($"coords: {Coords}");
         OnTileClicked?.Invoke(this);
-        //GameManager.Instance.HandleTileClicked(this);
     }
 
     //A* Pathfinding Methods
-
     public void ClearPathfindingValues()
     {
         _gCost = int.MaxValue;

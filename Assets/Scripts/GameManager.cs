@@ -28,11 +28,11 @@ public class GameManager : MonoBehaviour
     private GameState _gameState;
     public GameState GameState { get => _gameState; set => _gameState = value; }
 
-    private PathfindingManager _path;
-    private Player _player;
-    private Tile _selectedTile;
+    //private PathfindingManager _path;
+    //private Player _player;
+    //private Tile _selectedTile;
 
-    private bool _bPlayerMoving;
+    //private bool _bPlayerMoving;
 
     private void Awake()
     {
@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _path = PathfindingManager.Instance;
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        //_path = PathfindingManager.Instance;
+        //_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     private void Update()
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
                 OnPlayerIdle();
                 break;
             case GameState.PlayerSelectTileMove:
-                OnPlayerSelectTileMove(_selectedTile);
+                OnPlayerSelectTileMove();
                 break;
             case GameState.PlayerMoving:
                 OnPlayerMoving();
@@ -83,72 +83,14 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerIdle()
     {
-        //_bPlayerMoving = false;
+
     }
 
-    private void OnPlayerSelectTileMove(Tile selectedTile)
+    private void OnPlayerSelectTileMove()
     {
-        _path.ClearValues();
-        _path.SetPathfinding(_player.GetPlayerTile(), _selectedTile);
-        _path.ColorTilesFromFinalPath();
     }
 
     private void OnPlayerMoving()
     {
-        if (!_bPlayerMoving)
-        {
-            StartCoroutine(MovingPath());
-
-        }
-    }
-
-    IEnumerator MovingPath()
-    {
-        _bPlayerMoving = true;
-        print("empieza corrutina");
-        float duration = .3f;
-        float currentTime = 0;
-
-        List<Tile> path = _path.FinalPath;
-
-        foreach (Tile tile in path)
-        {
-
-            Vector3 startPos = _player.transform.position;
-            Vector3 endPos = tile.transform.position;
-
-            while (currentTime < duration)
-            {
-                currentTime += Time.deltaTime;
-                float t = currentTime / duration;
-                _player.transform.position = Vector3.Lerp(startPos, endPos, t);
-                yield return null;
-            }
-            _player.transform.position = tile.transform.position;
-            currentTime = 0;
-            _player.SpendMovementPoint();
-            tile.UncolorPathTile();
-        }
-        print("termina corrutina");
-        _bPlayerMoving = false;
-    }
-
-    public void HandleTileHovered(Tile tile)
-    {
-        if (!_bPlayerMoving && !tile.Solid && tile != _selectedTile)
-        {
-            //_gameState = GameState.PlayerSelectTileMove;
-            //_selectedTile = tile;
-            //OnPlayerSelectTileMove(_selectedTile);
-        }
-    }
-
-    public void HandleTileClicked(Tile tile)
-    {
-        if (!tile.Solid && tile == _selectedTile)
-        {
-            //_gameState = GameState.PlayerMoving;
-            //StartCoroutine(MovingPath());
-        }
     }
 }
