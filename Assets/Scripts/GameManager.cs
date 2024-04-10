@@ -138,8 +138,8 @@ public class GameManager : MonoBehaviour
         if (!_bPlayerMoving && !tile.Solid && tile != _selectedTile)
         {
             //_gameState = GameState.PlayerSelectTileMove;
-            _selectedTile = tile;
-            OnPlayerSelectTileMove(_selectedTile);
+            //_selectedTile = tile;
+            //OnPlayerSelectTileMove(_selectedTile);
         }
     }
 
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         if (!tile.Solid && tile == _selectedTile)
         {
             //_gameState = GameState.PlayerMoving;
-            StartCoroutine(MovingPath());
+            //StartCoroutine(MovingPath());
         }
     }
 }

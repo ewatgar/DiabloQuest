@@ -14,8 +14,12 @@ public class Player : MonoBehaviour
     private int _resistancePerc; //resistance %
     private int _critsPerc; //crits %
 
-    //Movement
+    //Turns
     private bool _bPlayerTurn = false;
+
+    //Movement
+    private PathfindingManager _path = null;
+    private bool _bPlayerMoving = false;
     private Tile _selectedTile = null;
 
     public int HealthPoints { get => _healthPoints; set => _healthPoints = value; }
@@ -27,6 +31,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        _path = PathfindingManager.Instance;
         AddAsObserverToAllTiles();
     }
 
@@ -35,14 +40,69 @@ public class Player : MonoBehaviour
         Tile[,] tileGrid = GridGenerator.Instance.TileGrid;
         foreach (Tile tile in tileGrid)
         {
-            //tile.OnTileHovered += HandleTileHovered;
-            //tile.OnTileClicked += HandleTileClicked;
+            tile.OnTileHovered += HandleTileHovered;
+            tile.OnTileClicked += HandleTileClicked;
         }
     }
 
-    private void HandleTileClicked(Vector3 coordinates)
+    private void HandleTileHovered(Tile tile)
     {
-        //TODO corrutina
+        if (!_bPlayerMoving && !tile.Solid && tile != _selectedTile)
+        {
+            _selectedTile = tile;
+            OnPlayerSelectTileMove(_selectedTile);
+        }
+    }
+
+    private void HandleTileClicked(Tile tile)
+    {
+        if (!_bPlayerMoving && !tile.Solid && tile == _selectedTile)
+        {
+            OnPlayerMoving();
+        }
+    }
+
+    private void OnPlayerSelectTileMove(Tile selectedTile)
+    {
+        _path.ClearValues();
+        _path.SetPathfinding(GetPlayerTile(), _selectedTile);
+        _path.ColorTilesFromFinalPath();
+    }
+
+    private void OnPlayerMoving()
+    {
+        StartCoroutine(MovingThroughPath());
+    }
+
+    IEnumerator MovingThroughPath()
+    {
+        _bPlayerMoving = true;
+        print("empieza corrutina");
+        float duration = .3f;
+        float currentTime = 0;
+
+        List<Tile> path = _path.FinalPath;
+
+        foreach (Tile tile in path)
+        {
+
+            Vector3 startPos = transform.position;
+            Vector3 endPos = tile.transform.position;
+
+            while (currentTime < duration)
+            {
+                currentTime += Time.deltaTime;
+                float t = currentTime / duration;
+                transform.position = Vector3.Lerp(startPos, endPos, t);
+                yield return null;
+            }
+            transform.position = tile.transform.position;
+            currentTime = 0;
+            SpendMovementPoint();
+            tile.UncolorPathTile();
+        }
+        print("termina corrutina");
+        _bPlayerMoving = false;
     }
 
     public Tile GetPlayerTile()
