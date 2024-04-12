@@ -25,9 +25,6 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance { get => _instance; }
 
-    private GameState _gameState;
-    public GameState GameState { get => _gameState; set => _gameState = value; }
-
     //private PathfindingManager _path;
     //private Player _player;
     //private Tile _selectedTile;
@@ -39,7 +36,6 @@ public class GameManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            _gameState = GameState.PlayerIdle;
         }
         else
         {
@@ -55,30 +51,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        switch (_gameState)
-        {
-            case GameState.PlayerIdle:
-                OnPlayerIdle();
-                break;
-            case GameState.PlayerSelectTileMove:
-                OnPlayerSelectTileMove();
-                break;
-            case GameState.PlayerMoving:
-                OnPlayerMoving();
-                break;
-            case GameState.PlayerSelectSpell:
-                break;
-            case GameState.PlayerSelectTileSpell:
-                break;
-            case GameState.PlayerSpellCasted:
-                break;
-            case GameState.EnemiesTurn:
-                break;
-            case GameState.Victory:
-                break;
-            case GameState.Lose:
-                break;
-        }
+
     }
 
     private void OnPlayerIdle()
