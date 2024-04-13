@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridGenerator : MonoBehaviour
+public class GridManager : MonoBehaviour
 {
-    private static GridGenerator _instance;
-    public static GridGenerator Instance { get => _instance; }
+    private static GridManager _instance;
+    public static GridManager Instance { get => _instance; }
 
     private Tile[,] _tileGrid;
     public Tile[,] TileGrid { get => _tileGrid; }
@@ -86,5 +86,12 @@ public class GridGenerator : MonoBehaviour
         return GetTileFromTileCoords(WorldToTileCoords(worldCoords));
     }
 
-    // public void Add
+    public void AddAsObserverToAllTiles(Action<Tile> HandleTileHovered, Action<Tile> HandleTileClicked)
+    {
+        foreach (Tile tile in _tileGrid)
+        {
+            tile.OnTileHovered += HandleTileHovered;
+            tile.OnTileClicked += HandleTileClicked;
+        }
+    }
 }

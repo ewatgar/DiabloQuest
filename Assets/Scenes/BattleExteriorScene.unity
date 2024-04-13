@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 393208731}
   - component: {fileID: 393208732}
   m_Layer: 0
-  m_Name: GridGenerator
+  m_Name: GridManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1122,6 +1122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9391d9943f6231f4dba1e16a5dda5389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  EnemiesList: []
 --- !u!4 &1385743136
 Transform:
   m_ObjectHideFlags: 0

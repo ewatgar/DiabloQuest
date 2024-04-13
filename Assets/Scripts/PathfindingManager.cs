@@ -56,7 +56,7 @@ public class PathfindingManager : MonoBehaviour
 
     private void SetCostOnAllTiles()
     {
-        Tile[,] tileGrid = GridGenerator.Instance.TileGrid;
+        Tile[,] tileGrid = GridManager.Instance.TileGrid;
         foreach (Tile tile in tileGrid)
         {
             SetTileCost(tile);
@@ -78,7 +78,7 @@ public class PathfindingManager : MonoBehaviour
 
     private List<Tile> Search()
     {
-        GridGenerator _grid = GridGenerator.Instance;
+        GridManager _grid = GridManager.Instance;
         while (!_bGoalReached)
         {
             _currentTile.SetAsChecked();

@@ -43,7 +43,7 @@ public class Tile : MonoBehaviour
     {
         _sprite = GetComponent<SpriteRenderer>();
         _baseColor = _sprite.color;
-        _coords = GridGenerator.Instance.WorldToTileCoords(transform.position);
+        _coords = GridManager.Instance.WorldToTileCoords(transform.position);
     }
 
     private void OnMouseEnter()

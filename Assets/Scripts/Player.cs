@@ -31,13 +31,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-
-        AddAsObserverToAllTiles();
+        GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
+        //AddAsObserverToAllTiles();
     }
 
     private void AddAsObserverToAllTiles()
     {
-        Tile[,] tileGrid = GridGenerator.Instance.TileGrid;
+        Tile[,] tileGrid = GridManager.Instance.TileGrid;
         foreach (Tile tile in tileGrid)
         {
             tile.OnTileHovered += HandleTileHovered;
@@ -141,7 +141,7 @@ public class Player : MonoBehaviour
 
     public Tile GetPlayerTile()
     {
-        return GridGenerator.Instance.GetTileFromWorldCoords(transform.position);
+        return GridManager.Instance.GetTileFromWorldCoords(transform.position);
     }
 
     public void GetHurt(int hp = 1)
