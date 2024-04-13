@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum State
@@ -37,7 +38,9 @@ public class StateMachine : MonoBehaviour
     private State _oldState; //DEBUG
 
     [SerializeField] Player player;
-    [SerializeField] List<Enemy> EnemiesList;
+    [SerializeField] List<Enemy> enemiesList;
+
+    private Tile _selectedTile;
 
     private void Awake()
     {
@@ -52,6 +55,11 @@ public class StateMachine : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
     }
 
     private void Update()
@@ -77,7 +85,7 @@ public class StateMachine : MonoBehaviour
                 else if (event_ == Event.PlayerStartsMoving)
                 {
                     _currentState = State.PlayerMoving;
-                    //StartMovingCoroutine()//TODO playermoving
+                    StartPlayerMoving();//TODO playermoving
                 }
                 break;
             case State.PlayerMoving:
@@ -118,6 +126,40 @@ public class StateMachine : MonoBehaviour
         yield return new WaitForSeconds(3);
         print("termina corrutina enemy turn");
         ProcessEvent(Event.FinishEnemiesTurn);
+    }
+
+    private void HandleTileHovered(Tile tile)
+    {
+        if (CurrectState == State.PlayerTurn
+        && !tile.Solid
+        && player.EnoughMovementPoints(tile))
+        {
+            _selectedTile = tile;
+            player.OnPlayerSelectTileMove(_selectedTile);
+        }
+    }
+
+
+    private void HandleTileClicked(Tile tile)
+    {
+        if (CurrectState == State.PlayerTurn
+        && !tile.Solid
+        && tile == _selectedTile)
+        {
+            ProcessEvent(Event.PlayerStartsMoving);
+        }
+    }
+
+    private void StartPlayerMoving()
+    {
+        StartCoroutine(PlayerMovingCoroutine());
+    }
+
+    private IEnumerator PlayerMovingCoroutine()
+    {
+        yield return StartCoroutine(player.MovingThroughPath());
+        _selectedTile = null;
+        ProcessEvent(Event.PlayerStopsMoving);
     }
 
 }

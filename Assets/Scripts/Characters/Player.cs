@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
     //Movement
     private bool _bPlayerMoving = false;
-    private Tile _selectedTile = null;
     [SerializeField] private float _animationSpeed = 0.3f;
 
     public int HealthPoints { get => _healthPoints; set => _healthPoints = value; }
@@ -31,20 +30,11 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
+        //GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
         //AddAsObserverToAllTiles();
     }
 
-    private void AddAsObserverToAllTiles()
-    {
-        Tile[,] tileGrid = GridManager.Instance.TileGrid;
-        foreach (Tile tile in tileGrid)
-        {
-            tile.OnTileHovered += HandleTileHovered;
-            tile.OnTileClicked += HandleTileClicked;
-        }
-    }
-
+    /*
     private void HandleTileHovered(Tile tile)
     {
         //tile != _selectedTile
@@ -68,18 +58,18 @@ public class Player : MonoBehaviour
         {
             OnPlayerMoving();
         }
-    }
+    }*/
 
-    private bool EnoughMovementPoints(Tile tile)
+    public bool EnoughMovementPoints(Tile tile)
     {
         RegeneratePath(GetPlayerTile(), tile);
         int tilePathCount = PathfindingManager.Instance.FinalPath.Count;
         return tilePathCount <= _movementPoints;
     }
 
-    private void OnPlayerSelectTileMove()
+    public void OnPlayerSelectTileMove(Tile selectedTile)
     {
-        RegeneratePath(GetPlayerTile(), _selectedTile);
+        RegeneratePath(GetPlayerTile(), selectedTile);
         PathfindingManager.Instance.ColorFinalPath();
     }
 
@@ -94,9 +84,9 @@ public class Player : MonoBehaviour
         StartCoroutine(MovingThroughPath());
     }
 
-    IEnumerator MovingThroughPath()
+    public IEnumerator MovingThroughPath()
     {
-        _bPlayerMoving = true;
+        //_bPlayerMoving = true;
         print("empieza corrutina");
         float currentTime = 0;
 
@@ -135,8 +125,8 @@ public class Player : MonoBehaviour
             tile.UncolorPathTile();
         }
         print("termina corrutina");
-        _selectedTile = null;
-        _bPlayerMoving = false;
+        //_selectedTile = null;
+        //_bPlayerMoving = false;
     }
 
     public Tile GetPlayerTile()
