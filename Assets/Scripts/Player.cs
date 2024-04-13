@@ -48,7 +48,10 @@ public class Player : MonoBehaviour
     private void HandleTileHovered(Tile tile)
     {
         //tile != _selectedTile
-        if (_bPlayerTurn && !tile.Solid && !_bPlayerMoving && EnoughMovementPoints(tile))
+        if (StateMachine.Instance.CurrectState == State.PlayerTurn
+        && !tile.Solid
+        && !_bPlayerMoving
+        && EnoughMovementPoints(tile))
         {
             _selectedTile = tile;
             OnPlayerSelectTileMove();
@@ -58,7 +61,10 @@ public class Player : MonoBehaviour
 
     private void HandleTileClicked(Tile tile)
     {
-        if (_bPlayerTurn && !_bPlayerMoving && !tile.Solid && tile == _selectedTile)
+        if (StateMachine.Instance.CurrectState == State.PlayerTurn
+        && !_bPlayerMoving
+        && !tile.Solid
+        && tile == _selectedTile)
         {
             OnPlayerMoving();
         }

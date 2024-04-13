@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
@@ -7,12 +8,12 @@ public enum State
 {
     MatchStart,
     PlayerTurn,
-    //PlayerMovingAnim,
-    //PlayerSpellAnim,
     EnemiesTurn,
     Win,
     Lose,
     MatchEnd,
+    PlayerMoving,
+    //PlayerCastingSpell,
 }
 
 public enum Event
@@ -21,7 +22,9 @@ public enum Event
     FinishPlayerTurn,
     FinishEnemiesTurn,
     PlayerDies,
-    AllEnemiesDie
+    AllEnemiesDie,
+    PlayerStartsMoving,
+    PlayerStopsMoving
 }
 
 public class StateMachine : MonoBehaviour
@@ -31,8 +34,10 @@ public class StateMachine : MonoBehaviour
 
     private State _currentState;
     public State CurrectState { get => _currentState; }
+    private State _oldState; //DEBUG
 
-    private State _oldState;
+    [SerializeField] Player player;
+    [SerializeField] List<Enemy> EnemiesList;
 
     private void Awake()
     {
@@ -69,6 +74,17 @@ public class StateMachine : MonoBehaviour
                     _currentState = State.EnemiesTurn;
                     StartEnemiesTurn();
                 }
+                else if (event_ == Event.PlayerStartsMoving)
+                {
+                    _currentState = State.PlayerMoving;
+                    //StartMovingCoroutine()//TODO playermoving
+                }
+                break;
+            case State.PlayerMoving:
+                if (event_ == Event.PlayerStopsMoving)
+                {
+                    _currentState = State.PlayerTurn;
+                }
                 break;
             case State.EnemiesTurn:
                 if (event_ == Event.PlayerDies) _currentState = State.Lose;
@@ -103,4 +119,5 @@ public class StateMachine : MonoBehaviour
         print("termina corrutina enemy turn");
         ProcessEvent(Event.FinishEnemiesTurn);
     }
+
 }
