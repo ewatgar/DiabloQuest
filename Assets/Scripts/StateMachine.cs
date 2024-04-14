@@ -64,8 +64,24 @@ public class StateMachine : MonoBehaviour
 
     private void Update()
     {
+        //debug
         if (_currentState != _oldState) { print("current state changed to: " + _currentState); }
         _oldState = _currentState;
+        //------------------------------
+
+        UpdateSolidTiles();
+    }
+
+    private void UpdateSolidTiles()
+    {
+        GridManager.Instance.ClearSolidTiles();
+        foreach (Enemy enemy in enemiesList)
+        {
+            Vector3 enemyPos = enemy.transform.position;
+            Tile enemyTile = GridManager.Instance.GetTileFromWorldCoords(enemyPos);
+            enemyTile.SetAsSolid();
+        }
+
     }
 
     public void ProcessEvent(Event event_ = Event.StartsMatch)
@@ -122,10 +138,55 @@ public class StateMachine : MonoBehaviour
 
     private IEnumerator MockEnemyTurn()
     {
+        foreach (Enemy enemy in enemiesList)
+        {
+
+        }
         print("empieza corrutina enemy turn");
-        yield return new WaitForSeconds(3);
+        yield return StartCoroutine(DebugMovingThroughPath());
         print("termina corrutina enemy turn");
         ProcessEvent(Event.FinishEnemiesTurn);
+    }
+
+    public IEnumerator DebugMovingThroughPath()
+    {
+        print("empieza corrutina enemy moving");
+        float currentTime = 0;
+
+        Tile[,] tileGrid = GridManager.Instance.TileGrid;
+        Tile tile = tileGrid[1, 1];
+
+        Vector3 startPos = enemiesList[0].transform.position;
+
+        Vector3 tilePos = tile.transform.position;
+        Vector3 endPos = new Vector3(tilePos.x, tilePos.y, tile.Coords.y);
+
+        print($"{startPos} {tilePos} {endPos}");
+
+        while (currentTime < 0.3f)
+        {
+            currentTime += Time.deltaTime;
+            float t = currentTime / 0.3f;
+            /*
+            transform.position = new Vector3(
+                Mathf.Lerp(startPos.x, endPos.x, t),
+                Mathf.Lerp(startPos.y, endPos.x, t),
+                tile.Coords.y //get layer
+            );*/
+            enemiesList[0].transform.position = Vector3.Lerp(startPos, endPos, t);
+            yield return null;
+        }
+
+        enemiesList[0].transform.position = new Vector3(
+            endPos.x,
+            endPos.y,
+            tile.Coords.y
+        );
+        //transform.position = tile.transform.position;
+        currentTime = 0;
+        tile.UncolorPathTile();
+
+        print("termina corrutina enemy moving");
     }
 
     private void HandleTileHovered(Tile tile)
@@ -160,6 +221,11 @@ public class StateMachine : MonoBehaviour
         yield return StartCoroutine(player.MovingThroughPath());
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
+    }
+
+    private void StartPlayerTurn()
+    {
+
     }
 
 }

@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     private int _critsPerc; //crits %
 
     //Turns
-    private bool _bPlayerTurn = true;
 
     //Movement
     private bool _bPlayerMoving = false;
@@ -28,37 +27,10 @@ public class Player : MonoBehaviour
     public int ResistancePerc { get => _resistancePerc; set => _resistancePerc = value; }
     public int CritsPerc { get => _critsPerc; set => _critsPerc = value; }
 
-    private void Start()
+    private void Awake()
     {
-        //GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
-        //AddAsObserverToAllTiles();
+
     }
-
-    /*
-    private void HandleTileHovered(Tile tile)
-    {
-        //tile != _selectedTile
-        if (StateMachine.Instance.CurrectState == State.PlayerTurn
-        && !tile.Solid
-        && !_bPlayerMoving
-        && EnoughMovementPoints(tile))
-        {
-            _selectedTile = tile;
-            OnPlayerSelectTileMove();
-        }
-    }
-
-
-    private void HandleTileClicked(Tile tile)
-    {
-        if (StateMachine.Instance.CurrectState == State.PlayerTurn
-        && !_bPlayerMoving
-        && !tile.Solid
-        && tile == _selectedTile)
-        {
-            OnPlayerMoving();
-        }
-    }*/
 
     public bool EnoughMovementPoints(Tile tile)
     {
@@ -79,15 +51,9 @@ public class Player : MonoBehaviour
         PathfindingManager.Instance.SetPathfinding(playerTile, selectedTile);
     }
 
-    private void OnPlayerMoving()
-    {
-        StartCoroutine(MovingThroughPath());
-    }
-
     public IEnumerator MovingThroughPath()
     {
-        //_bPlayerMoving = true;
-        print("empieza corrutina");
+        print("empieza corrutina player moving");
         float currentTime = 0;
 
         List<Tile> path = PathfindingManager.Instance.FinalPath;
@@ -124,9 +90,7 @@ public class Player : MonoBehaviour
             SpendMovementPoint();
             tile.UncolorPathTile();
         }
-        print("termina corrutina");
-        //_selectedTile = null;
-        //_bPlayerMoving = false;
+        print("termina corrutina player moving");
     }
 
     public Tile GetPlayerTile()
@@ -144,23 +108,7 @@ public class Player : MonoBehaviour
         MovementPoints--;
     }
 
-    public void FinishPlayerTurn()
-    {
-        if (_bPlayerTurn)
-        {
-            StartCoroutine(MockEnemyTurn());
-        }
-    }
 
-    private IEnumerator MockEnemyTurn()
-    {
-        print("turno player termina");
-        _bPlayerTurn = false;
-        yield return new WaitForSeconds(3);
-        _bPlayerTurn = true;
-        yield return null;
-        print("turno player empieza");
-    }
 
     /*
         public bool CanMove(Vector2Int tileCoords, out int diff)

@@ -88,6 +88,12 @@ public class Tile : MonoBehaviour
         _sprite.color = Color.black;
     }
 
+    public void SetAsNotSolid()
+    {
+        _bSolid = false;
+        _sprite.color = _baseColor;
+    }
+
     public void SetAsOpen()
     {
         _bOpen = true;

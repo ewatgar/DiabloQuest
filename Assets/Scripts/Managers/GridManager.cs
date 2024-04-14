@@ -31,21 +31,6 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        UpdateSolidTiles();
-    }
-
-    private void Update()
-    {
-        UpdateSolidTiles();
-    }
-
-    private void UpdateSolidTiles()
-    {
-        _tileGrid[0, 1].SetAsSolid();
-    }
-
     private void GenerateGrid()
     {
         _tileGrid = new Tile[_nCols, _nRows];
@@ -92,6 +77,14 @@ public class GridManager : MonoBehaviour
         {
             tile.OnTileHovered += HandleTileHovered;
             tile.OnTileClicked += HandleTileClicked;
+        }
+    }
+
+    public void ClearSolidTiles()
+    {
+        foreach (Tile tile in _tileGrid)
+        {
+            tile.SetAsNotSolid();
         }
     }
 }

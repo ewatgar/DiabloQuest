@@ -208,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 474532866}
   - component: {fileID: 474532865}
+  - component: {fileID: 474532867}
   m_Layer: 3
   m_Name: Goblin1
   m_TagString: Untagged
@@ -284,6 +285,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1826748172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &474532867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474532864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e49b1cdef387449910a8ca2b866951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &571390059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,7 +1136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1006336197}
-  enemiesList: []
+  enemiesList:
+  - {fileID: 474532867}
 --- !u!4 &1385743136
 Transform:
   m_ObjectHideFlags: 0
