@@ -38,16 +38,12 @@ public class Character : MonoBehaviour
         _critsPerc = _initCritsPerc;
     }
 
-    public void RestartStatsNextTurn()
+    public void RestartStats()
     {
         _actionPoints = _initActionPoints;
         _movementPoints = _initMovementPoints;
     }
 
-    public Tile GetCharacterTile()
-    {
-        return GridManager.Instance.GetTileFromWorldCoords(transform.position);
-    }
 
     public void TakeDamage(int hp = 1)
     {
@@ -78,9 +74,9 @@ public class Character : MonoBehaviour
         PathfindingManager.Instance.RegeneratePath(GetCharacterTile(), selectedTile, color);
     }
 
-    public IEnumerator MovingThroughPath()
+    public IEnumerator MovingThroughPathCoroutine()
     {
-        print("empieza corrutina character moving");
+        //print("empieza corrutina character moving");
         float currentTime = 0;
 
         List<Tile> path = PathfindingManager.Instance.FinalPath;
@@ -97,12 +93,6 @@ public class Character : MonoBehaviour
             {
                 currentTime += Time.deltaTime;
                 float t = currentTime / _animationSpeed;
-                /*
-                transform.position = new Vector3(
-                    Mathf.Lerp(startPos.x, endPos.x, t),
-                    Mathf.Lerp(startPos.y, endPos.x, t),
-                    tile.Coords.y //get layer
-                );*/
                 transform.position = Vector3.Lerp(startPos, endPos, t);
                 yield return null;
             }
@@ -112,13 +102,23 @@ public class Character : MonoBehaviour
                 endPos.y,
                 tile.Coords.y
             );
-            //transform.position = tile.transform.position;
             currentTime = 0;
             SpendMovementPoint();
-            tile.PathColor = false;
+            tile.Path = false;
         }
-        print("termina corrutina character moving");
+        //print("termina corrutina character moving");
     }
 
+    public Tile GetCharacterTile()
+    {
+        return GridManager.Instance.GetTileFromWorldCoords(transform.position);
+    }
 
+    public Tile MeleeTile(Vector2Int dir)
+    {
+        var grid = GridManager.Instance;
+
+        Tile tile = grid.GetTileFromTileCoords(GetCharacterTile().Coords + dir);
+        return tile;
+    }
 }

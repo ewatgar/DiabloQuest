@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,8 +11,6 @@ public enum State
     MatchStart,
     PlayerTurn,
     EnemiesTurn,
-    Win,
-    Lose,
     MatchEnd,
     PlayerMoving,
     //PlayerCastingSpell,
@@ -25,7 +24,8 @@ public enum Event
     PlayerDies,
     AllEnemiesDie,
     PlayerStartsMoving,
-    PlayerStopsMoving
+    PlayerStopsMoving,
+    FinishGame
 }
 
 public class StateMachine : MonoBehaviour
@@ -90,7 +90,11 @@ public class StateMachine : MonoBehaviour
                 _currentState = State.PlayerTurn;
                 break;
             case State.PlayerTurn:
-                if (event_ == Event.AllEnemiesDie) _currentState = State.Win;
+                if (event_ == Event.AllEnemiesDie)
+                {
+                    _currentState = State.MatchEnd;
+                    //StartMatchEnd(true);
+                }
                 else if (event_ == Event.FinishPlayerTurn)
                 {
                     _currentState = State.EnemiesTurn;
@@ -106,47 +110,54 @@ public class StateMachine : MonoBehaviour
                 if (event_ == Event.PlayerStopsMoving)
                 {
                     _currentState = State.PlayerTurn;
+                    ResumePlayerTurn();
                 }
                 break;
             case State.EnemiesTurn:
-                if (event_ == Event.PlayerDies) _currentState = State.Lose;
+                if (event_ == Event.PlayerDies)
+                {
+                    _currentState = State.MatchEnd;
+                    //StartMatchEnd(false);
+                }
                 else if (event_ == Event.FinishEnemiesTurn)
                 {
                     _currentState = State.PlayerTurn;
+                    StartPlayerTurn();
                 }
                 break;
-            case State.Win:
-                //TODO
-                _currentState = State.MatchEnd;
-                break;
-            case State.Lose:
-                //TODO
-                _currentState = State.MatchEnd;
-                break;
             case State.MatchEnd:
-                //TODO volver al menu de niveles
+                if (event_ == Event.FinishGame)
+                {
+                    //TODO terminar pelea
+                }
                 break;
         }
     }
 
+
+    // START METHODS FOR STATE MACHINE -------------------
+
+    private void StartPlayerTurn()
+    {
+        player.RestartStats();
+    }
+
+    private void ResumePlayerTurn()
+    {
+
+    }
+
+    private void StartPlayerMoving()
+    {
+        StartCoroutine(PlayerMovingCoroutine());
+    }
+
     private void StartEnemiesTurn()
     {
-        StartCoroutine(MockEnemyTurn());
+        StartCoroutine(AllEnemiesTurnsCoroutine());
     }
 
-    private IEnumerator MockEnemyTurn()
-    {
-
-        Tile[,] tileGrid = GridManager.Instance.TileGrid;
-        Tile mockTile = tileGrid[3, 4];
-        Enemy enemy = enemiesList[0];
-        enemy.SelectTileForPathfinding(mockTile, true);
-        yield return StartCoroutine(enemy.MovingThroughPath());
-        yield return new WaitForSeconds(3);
-
-
-        ProcessEvent(Event.FinishEnemiesTurn);
-    }
+    // HANDLE TILE EVENTS --------------------------------
 
     private void HandleTileHovered(Tile tile)
     {
@@ -159,7 +170,6 @@ public class StateMachine : MonoBehaviour
         }
     }
 
-
     private void HandleTileClicked(Tile tile)
     {
         if (CurrectState == State.PlayerTurn
@@ -170,21 +180,49 @@ public class StateMachine : MonoBehaviour
         }
     }
 
-    private void StartPlayerMoving()
-    {
-        StartCoroutine(PlayerMovingCoroutine());
-    }
+    // COROUTINES ----------------------------------------
 
     private IEnumerator PlayerMovingCoroutine()
     {
-        yield return StartCoroutine(player.MovingThroughPath());
+        yield return StartCoroutine(player.MovingThroughPathCoroutine());
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
     }
 
-    private void StartPlayerTurn()
+    private IEnumerator AllEnemiesTurnsCoroutine()
     {
-
+        foreach (Enemy enemy in enemiesList)
+        {
+            print("--- turno de enemigo entero ---");
+            enemy.RestartStats();
+            yield return StartCoroutine(EnemyTurnCoroutine(enemy));
+        }
+        ProcessEvent(Event.FinishEnemiesTurn);
     }
+
+
+    // turno enemigo tiene dos partes:
+    // 1. Movimiento (acercarse o alejarse del player)
+    // 2. Atacar (melee o distancia)
+    private IEnumerator EnemyTurnCoroutine(Enemy enemy)
+    {
+        //PASO 1 - moverse si puede -------------------------------------------
+        Tile mockTile = player.MeleeTile(Vector2Int.left);
+        enemy.SelectTileForPathfinding(mockTile, true);
+        yield return StartCoroutine(enemy.MovingThroughPathCoroutine());
+
+        yield return new WaitForSeconds(3);
+
+        //PASO 2 - atacar si puede --------------------------------------------
+        if (enemy.GetCharacterTile() == mockTile) print("enemigo te ataca");
+    }
+
+
+
+
+
+
+
+
 
 }

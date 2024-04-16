@@ -146,4 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5886d9600c27e3447b9196873e4ccb67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pathTileColor: {r: 0.3079522, g: 1, b: 0.26226407, a: 0.5568628}
+  _pathTileColor: {r: 0, g: 1, b: 0, a: 0.50980395}
+  _spellTileColor: {r: 1, g: 0.48951495, b: 0, a: 0.50980395}

@@ -166,7 +166,7 @@ public class PathfindingManager : MonoBehaviour
     {
         foreach (Tile tile in _finalPath)
         {
-            tile.PathColor = true;
+            tile.Path = true;
         }
     }
 
