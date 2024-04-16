@@ -115,7 +115,7 @@ public class Character : MonoBehaviour
             //transform.position = tile.transform.position;
             currentTime = 0;
             SpendMovementPoint();
-            tile.UncolorPathTile();
+            tile.PathColor = false;
         }
         print("termina corrutina character moving");
     }

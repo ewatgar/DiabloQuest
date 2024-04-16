@@ -77,7 +77,7 @@ public class StateMachine : MonoBehaviour
         GridManager.Instance.ClearSolidTiles();
         foreach (Enemy enemy in enemiesList)
         {
-            enemy.GetCharacterTile().SetAsSolid();
+            enemy.GetCharacterTile().Solid = true;
         }
 
     }
@@ -136,11 +136,13 @@ public class StateMachine : MonoBehaviour
 
     private IEnumerator MockEnemyTurn()
     {
+        /*
         Tile[,] tileGrid = GridManager.Instance.TileGrid;
         Tile mockTile = tileGrid[3, 4];
         Enemy enemy = enemiesList[0];
         enemy.SelectTileForPathfinding(mockTile, true);
-        yield return StartCoroutine(enemy.MovingThroughPath());
+        yield return StartCoroutine(enemy.MovingThroughPath());*/
+        yield return new WaitForSeconds(3);
 
 
         ProcessEvent(Event.FinishEnemiesTurn);

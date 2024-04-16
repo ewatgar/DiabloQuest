@@ -25,16 +25,18 @@ public class Tile : MonoBehaviour
     private bool _bSolid;
     private bool _bOpen;
     private bool _bChecked;
+    private bool _bPathColor;
 
     public Tile ParentTile { get => _parentTile; set => _parentTile = value; }
     public int GCost { get => _gCost; set => _gCost = value; }
     public int HCost { get => _hCost; set => _hCost = value; }
     public int FCost { get => _fCost; set => _fCost = value; }
-    public bool StartTile { get => _bStart; }
-    public bool Goal { get => _bGoal; }
-    public bool Solid { get => _bSolid; }
-    public bool Open { get => _bOpen; }
-    public bool Checked { get => _bChecked; }
+    public bool Start { get => _bStart; set => _bStart = value; }
+    public bool Goal { get => _bGoal; set => _bGoal = value; }
+    public bool Solid { get => _bSolid; set => _bSolid = value; }
+    public bool Open { get => _bOpen; set => _bOpen = value; }
+    public bool Checked { get => _bChecked; set => _bChecked = value; }
+    public bool PathColor { get => _bPathColor; set => _bPathColor = value; }
 
     public event Action<Tile> OnTileHovered;
     public event Action<Tile> OnTileClicked;
@@ -44,6 +46,18 @@ public class Tile : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
         _baseColor = _sprite.color;
         _coords = GridManager.Instance.WorldToTileCoords(transform.position);
+    }
+
+    private void Update()
+    {
+        CheckTileColor();
+    }
+
+    private void CheckTileColor()
+    {
+        if (_bSolid) _sprite.color = Color.black;
+        else if (_bPathColor) _sprite.color = _pathTileColor;
+        else _sprite.color = _baseColor;
     }
 
     private void OnMouseEnter()
@@ -69,50 +83,11 @@ public class Tile : MonoBehaviour
         _bSolid = false;
         _bOpen = false;
         _bChecked = false;
-        _sprite.color = _baseColor;
-    }
-
-    public void SetAsStart()
-    {
-        _bStart = true;
-    }
-
-    public void SetAsGoal()
-    {
-        _bGoal = true;
-    }
-
-    public void SetAsSolid()
-    {
-        _bSolid = true;
-        _sprite.color = Color.black;
-    }
-
-    public void SetAsNotSolid()
-    {
-        _bSolid = false;
-        _sprite.color = _baseColor;
-    }
-
-    public void SetAsOpen()
-    {
-        _bOpen = true;
+        _bPathColor = false;
     }
 
     public void SetAsChecked()
     {
         if (!_bStart && !_bGoal) _bChecked = true;
     }
-
-    public void ColorPathTile()
-    {
-        _sprite.color = _pathTileColor;
-    }
-
-    public void UncolorPathTile()
-    {
-        _sprite.color = _baseColor;
-    }
-
-
 }

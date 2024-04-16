@@ -37,7 +37,7 @@ public class PathfindingManager : MonoBehaviour
     {
         ClearValues();
         SetPathfinding(startTile, goalTile);
-        ColorFinalPath();
+        if (color) ColorFinalPath();
     }
 
     public void SetPathfinding(Tile startTile, Tile goalTile)
@@ -52,13 +52,13 @@ public class PathfindingManager : MonoBehaviour
     {
         _startTile = tile;
         _currentTile = _startTile;
-        tile.SetAsStart();
+        tile.Start = true;
     }
 
     private void SetGoalTile(Tile tile)
     {
         _goalTile = tile;
-        tile.SetAsGoal();
+        tile.Goal = true;
     }
 
     private void SetCostOnAllTiles()
@@ -146,7 +146,7 @@ public class PathfindingManager : MonoBehaviour
     {
         if (!tile.Open && !tile.Checked && !tile.Solid)
         {
-            tile.SetAsOpen();
+            tile.Open = true;
             tile.ParentTile = _currentTile;
             _openList.Add(tile);
         }
@@ -166,7 +166,7 @@ public class PathfindingManager : MonoBehaviour
     {
         foreach (Tile tile in _finalPath)
         {
-            tile.ColorPathTile();
+            tile.PathColor = true;
         }
     }
 

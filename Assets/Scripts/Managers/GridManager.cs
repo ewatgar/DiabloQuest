@@ -84,7 +84,7 @@ public class GridManager : MonoBehaviour
     {
         foreach (Tile tile in _tileGrid)
         {
-            tile.SetAsNotSolid();
+            tile.Solid = false;
         }
     }
 }
