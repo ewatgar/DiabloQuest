@@ -87,4 +87,11 @@ public class GridManager : MonoBehaviour
             tile.Solid = false;
         }
     }
+
+    public static int DistanceBetweenTiles(Tile tileA, Tile tileB)
+    {
+        int xDistance = Mathf.Abs(tileA.Coords.x - tileB.Coords.x);
+        int yDistance = Mathf.Abs(tileA.Coords.y - tileB.Coords.y);
+        return xDistance + yDistance;
+    }
 }

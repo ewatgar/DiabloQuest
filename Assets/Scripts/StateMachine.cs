@@ -75,7 +75,10 @@ public class StateMachine : MonoBehaviour
         switch (_currentState)
         {
             case State.MatchStart:
-                _currentState = State.PlayerTurn;
+                {
+                    _currentState = State.PlayerTurn;
+                    StartPlayerTurn();
+                }
                 break;
             case State.PlayerTurn:
                 if (event_ == Event.AllEnemiesDie)
@@ -178,7 +181,7 @@ public class StateMachine : MonoBehaviour
 
     private IEnumerator PlayerMovingCoroutine()
     {
-        yield return StartCoroutine(player.MovingThroughPathCoroutine(false));
+        yield return StartCoroutine(player.MovingThroughPathCoroutine());
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
     }
@@ -187,7 +190,6 @@ public class StateMachine : MonoBehaviour
     {
         foreach (Enemy enemy in enemiesList)
         {
-            print("--- turno de enemigo entero ---");
             enemy.RestartStats();
             enemy.GetCharacterTile().Solid = false;
             yield return StartCoroutine(EnemyTurnCoroutine(enemy));
@@ -205,7 +207,7 @@ public class StateMachine : MonoBehaviour
         //PASO 1 - moverse si puede -------------------------------------------
 
         enemy.SelectTileForPathfinding(player.GetCharacterTile(), true);
-        yield return StartCoroutine(enemy.MovingThroughPathCoroutine(true));
+        yield return StartCoroutine(enemy.MovingThroughPathCoroutine());
         //PASO 2 - atacar si puede --------------------------------------------
     }
 
