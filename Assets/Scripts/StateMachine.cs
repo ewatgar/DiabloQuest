@@ -178,7 +178,7 @@ public class StateMachine : MonoBehaviour
 
     private IEnumerator PlayerMovingCoroutine()
     {
-        yield return StartCoroutine(player.MovingThroughPathCoroutine(true));
+        yield return StartCoroutine(player.MovingThroughPathCoroutine(false));
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
     }
@@ -205,7 +205,7 @@ public class StateMachine : MonoBehaviour
         //PASO 1 - moverse si puede -------------------------------------------
 
         enemy.SelectTileForPathfinding(player.GetCharacterTile(), true);
-        yield return StartCoroutine(enemy.MovingThroughPathCoroutine(false));
+        yield return StartCoroutine(enemy.MovingThroughPathCoroutine(true));
         //PASO 2 - atacar si puede --------------------------------------------
     }
 

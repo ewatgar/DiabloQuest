@@ -74,16 +74,20 @@ public class Character : MonoBehaviour
         PathfindingManager.Instance.RegeneratePath(GetCharacterTile(), selectedTile, color);
     }
 
-    public IEnumerator MovingThroughPathCoroutine(bool lastTileCounts)
+    public IEnumerator MovingThroughPathCoroutine(bool enemy)
     {
         //print("empieza corrutina character moving");
         float currentTime = 0;
 
         List<Tile> path = PathfindingManager.Instance.FinalPath;
-        if (!lastTileCounts) path.RemoveAt(path.Count - 1);
+        if (enemy) path.RemoveAt(path.Count - 1);
 
         foreach (Tile tile in path)
         {
+            if (_movementPoints <= 0)
+            {
+                break;
+            }
 
             Vector3 startPos = transform.position;
 
