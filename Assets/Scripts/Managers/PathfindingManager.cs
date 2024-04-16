@@ -33,12 +33,19 @@ public class PathfindingManager : MonoBehaviour
         }
     }
 
-    public List<Tile> SetPathfinding(Tile startTile, Tile goalTile)
+    public void RegeneratePath(Tile startTile, Tile goalTile, bool color)
+    {
+        ClearValues();
+        SetPathfinding(startTile, goalTile);
+        ColorFinalPath();
+    }
+
+    public void SetPathfinding(Tile startTile, Tile goalTile)
     {
         SetStartTile(startTile);
         SetGoalTile(goalTile);
         SetCostOnAllTiles();
-        return Search();
+        Search();
     }
 
     private void SetStartTile(Tile tile)
@@ -179,6 +186,8 @@ public class PathfindingManager : MonoBehaviour
         _bGoalReached = false;
         _finalPath = new List<Tile>();
     }
+
+
 
 
 }

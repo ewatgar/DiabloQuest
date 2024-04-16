@@ -77,9 +77,7 @@ public class StateMachine : MonoBehaviour
         GridManager.Instance.ClearSolidTiles();
         foreach (Enemy enemy in enemiesList)
         {
-            Vector3 enemyPos = enemy.transform.position;
-            Tile enemyTile = GridManager.Instance.GetTileFromWorldCoords(enemyPos);
-            enemyTile.SetAsSolid();
+            enemy.GetCharacterTile().SetAsSolid();
         }
 
     }
@@ -138,65 +136,24 @@ public class StateMachine : MonoBehaviour
 
     private IEnumerator MockEnemyTurn()
     {
-        foreach (Enemy enemy in enemiesList)
-        {
-
-        }
-        print("empieza corrutina enemy turn");
-        yield return StartCoroutine(DebugMovingThroughPath());
-        print("termina corrutina enemy turn");
-        ProcessEvent(Event.FinishEnemiesTurn);
-    }
-
-    public IEnumerator DebugMovingThroughPath()
-    {
-        print("empieza corrutina enemy moving");
-        float currentTime = 0;
-
         Tile[,] tileGrid = GridManager.Instance.TileGrid;
-        Tile tile = tileGrid[1, 1];
+        Tile mockTile = tileGrid[3, 4];
+        Enemy enemy = enemiesList[0];
+        enemy.SelectTileForPathfinding(mockTile, true);
+        yield return StartCoroutine(enemy.MovingThroughPath());
 
-        Vector3 startPos = enemiesList[0].transform.position;
 
-        Vector3 tilePos = tile.transform.position;
-        Vector3 endPos = new Vector3(tilePos.x, tilePos.y, tile.Coords.y);
-
-        print($"{startPos} {tilePos} {endPos}");
-
-        while (currentTime < 0.3f)
-        {
-            currentTime += Time.deltaTime;
-            float t = currentTime / 0.3f;
-            /*
-            transform.position = new Vector3(
-                Mathf.Lerp(startPos.x, endPos.x, t),
-                Mathf.Lerp(startPos.y, endPos.x, t),
-                tile.Coords.y //get layer
-            );*/
-            enemiesList[0].transform.position = Vector3.Lerp(startPos, endPos, t);
-            yield return null;
-        }
-
-        enemiesList[0].transform.position = new Vector3(
-            endPos.x,
-            endPos.y,
-            tile.Coords.y
-        );
-        //transform.position = tile.transform.position;
-        currentTime = 0;
-        tile.UncolorPathTile();
-
-        print("termina corrutina enemy moving");
+        ProcessEvent(Event.FinishEnemiesTurn);
     }
 
     private void HandleTileHovered(Tile tile)
     {
         if (CurrectState == State.PlayerTurn
         && !tile.Solid
-        && player.EnoughMovementPoints(tile))
+        && player.EnoughMovementPoints(tile, false))
         {
             _selectedTile = tile;
-            player.OnPlayerSelectTileMove(_selectedTile);
+            player.SelectTileForPathfinding(_selectedTile, true);
         }
     }
 

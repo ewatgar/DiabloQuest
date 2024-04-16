@@ -297,6 +297,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e49b1cdef387449910a8ca2b866951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initHealthPoints: 300
+  _initActionPoints: 6
+  _initMovementPoints: 4
+  _initDamage: 1
+  _initResistancePerc: 1
+  _initCritsPerc: 1
+  _healthPoints: 0
+  _actionPoints: 0
+  _movementPoints: 0
+  _damage: 0
+  _resistancePerc: 0
+  _critsPerc: 0
+  _animationSpeed: 0.3
 --- !u!1 &571390059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,7 +1095,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e7e6dad728cf546a4bff149a39c44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementPoints: 6
+  _initHealthPoints: 300
+  _initActionPoints: 6
+  _initMovementPoints: 4
+  _initDamage: 1
+  _initResistancePerc: 1
+  _initCritsPerc: 1
+  _healthPoints: 0
+  _actionPoints: 0
+  _movementPoints: 0
+  _damage: 0
+  _resistancePerc: 0
+  _critsPerc: 0
   _animationSpeed: 0.3
 --- !u!95 &1006336198
 Animator:
