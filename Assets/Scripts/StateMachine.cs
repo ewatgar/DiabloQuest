@@ -68,18 +68,6 @@ public class StateMachine : MonoBehaviour
         if (_currentState != _oldState) { print("current state changed to: " + _currentState); }
         _oldState = _currentState;
         //------------------------------
-
-        UpdateSolidTiles();
-    }
-
-    private void UpdateSolidTiles()
-    {
-        GridManager.Instance.ClearSolidTiles();
-        foreach (Enemy enemy in enemiesList)
-        {
-            enemy.GetCharacterTile().Solid = true;
-        }
-
     }
 
     public void ProcessEvent(Event event_ = Event.StartsMatch)
@@ -140,6 +128,9 @@ public class StateMachine : MonoBehaviour
     private void StartPlayerTurn()
     {
         player.RestartStats();
+        player.GetCharacterTile().Solid = false;
+        InitEnemiesSolidTiles();
+
     }
 
     private void ResumePlayerTurn()
@@ -149,11 +140,14 @@ public class StateMachine : MonoBehaviour
 
     private void StartPlayerMoving()
     {
+
+
         StartCoroutine(PlayerMovingCoroutine());
     }
 
     private void StartEnemiesTurn()
     {
+        //player.GetCharacterTile().Solid = true;
         StartCoroutine(AllEnemiesTurnsCoroutine());
     }
 
@@ -184,7 +178,7 @@ public class StateMachine : MonoBehaviour
 
     private IEnumerator PlayerMovingCoroutine()
     {
-        yield return StartCoroutine(player.MovingThroughPathCoroutine());
+        yield return StartCoroutine(player.MovingThroughPathCoroutine(true));
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
     }
@@ -195,7 +189,9 @@ public class StateMachine : MonoBehaviour
         {
             print("--- turno de enemigo entero ---");
             enemy.RestartStats();
+            enemy.GetCharacterTile().Solid = false;
             yield return StartCoroutine(EnemyTurnCoroutine(enemy));
+            enemy.GetCharacterTile().Solid = true;
         }
         ProcessEvent(Event.FinishEnemiesTurn);
     }
@@ -207,17 +203,21 @@ public class StateMachine : MonoBehaviour
     private IEnumerator EnemyTurnCoroutine(Enemy enemy)
     {
         //PASO 1 - moverse si puede -------------------------------------------
-        Tile mockTile = player.MeleeTile(Vector2Int.left);
-        enemy.SelectTileForPathfinding(mockTile, true);
-        yield return StartCoroutine(enemy.MovingThroughPathCoroutine());
 
-        yield return new WaitForSeconds(3);
-
+        enemy.SelectTileForPathfinding(player.GetCharacterTile(), true);
+        yield return StartCoroutine(enemy.MovingThroughPathCoroutine(false));
         //PASO 2 - atacar si puede --------------------------------------------
-        if (enemy.GetCharacterTile() == mockTile) print("enemigo te ataca");
     }
 
+    // OTHER ------------------------------------------------
 
+    private void InitEnemiesSolidTiles()
+    {
+        foreach (Enemy enemy in enemiesList)
+        {
+            enemy.GetCharacterTile().Solid = true;
+        }
+    }
 
 
 

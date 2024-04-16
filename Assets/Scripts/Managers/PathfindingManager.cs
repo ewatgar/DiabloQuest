@@ -83,7 +83,7 @@ public class PathfindingManager : MonoBehaviour
         tile.FCost = tile.GCost + tile.HCost;
     }
 
-    private List<Tile> Search()
+    private void Search()
     {
         GridManager _grid = GridManager.Instance;
         while (!_bGoalReached)
@@ -139,12 +139,11 @@ public class PathfindingManager : MonoBehaviour
         }
 
         TrackFinalPath();
-        return _finalPath;
     }
 
     private void OpenTile(Tile tile)
     {
-        if (!tile.Open && !tile.Checked && !tile.Solid)
+        if (!tile.Solid && !tile.Open && !tile.Checked)
         {
             tile.Open = true;
             tile.ParentTile = _currentTile;

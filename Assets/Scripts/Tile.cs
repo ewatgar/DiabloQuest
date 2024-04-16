@@ -88,7 +88,6 @@ public class Tile : MonoBehaviour
         _fCost = int.MaxValue;
         _bStart = false;
         _bGoal = false;
-        _bSolid = false;
         _bOpen = false;
         _bChecked = false;
         _bPath = false;
