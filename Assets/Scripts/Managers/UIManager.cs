@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,11 +7,11 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    //[SerializeField] TextMeshPro finishPlayerTurnText;
 
-    public void FinishPlayerTurn()
+    public void OnFinishTurnClicked()
     {
-        //finishPlayerTurnText.text = "Esperando a que acabe turno";
         StateMachine.Instance.ProcessEvent(Event.FinishPlayerTurn);
     }
+
 }
+

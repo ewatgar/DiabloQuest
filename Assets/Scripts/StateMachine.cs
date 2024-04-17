@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public enum State
     EnemiesTurn,
     MatchEnd,
     PlayerMoving,
-    //PlayerCastingSpell,
+    PlayerCastingSpell,
 }
 
 public enum Event
@@ -25,7 +26,9 @@ public enum Event
     AllEnemiesDie,
     PlayerStartsMoving,
     PlayerStopsMoving,
-    FinishGame
+    FinishGame,
+    PlayerStartsCastingSpell,
+    PlayerStopsCastingSpell
 }
 
 public class StateMachine : MonoBehaviour
@@ -96,12 +99,23 @@ public class StateMachine : MonoBehaviour
                     _currentState = State.PlayerMoving;
                     StartPlayerMoving();
                 }
+                else if (event_ == Event.PlayerStartsCastingSpell)
+                {
+                    _currentState = State.PlayerCastingSpell;
+                    StartPlayerCastingSpell();
+                }
                 break;
             case State.PlayerMoving:
                 if (event_ == Event.PlayerStopsMoving)
                 {
                     _currentState = State.PlayerTurn;
                     ResumePlayerTurn();
+                }
+                break;
+            case State.PlayerCastingSpell:
+                if (event_ == Event.PlayerStopsCastingSpell) //?
+                {
+                    //TODO Event.PlayerStopsCastingSpell
                 }
                 break;
             case State.EnemiesTurn:
@@ -126,6 +140,8 @@ public class StateMachine : MonoBehaviour
     }
 
 
+
+
     // START METHODS FOR STATE MACHINE -------------------
 
     private void StartPlayerTurn()
@@ -143,38 +159,18 @@ public class StateMachine : MonoBehaviour
 
     private void StartPlayerMoving()
     {
-
-
         StartCoroutine(PlayerMovingCoroutine());
+    }
+
+    private void StartPlayerCastingSpell()
+    {
+        throw new NotImplementedException();
     }
 
     private void StartEnemiesTurn()
     {
         //player.GetCharacterTile().Solid = true;
         StartCoroutine(AllEnemiesTurnsCoroutine());
-    }
-
-    // HANDLE TILE EVENTS --------------------------------
-
-    private void HandleTileHovered(Tile tile)
-    {
-        if (CurrectState == State.PlayerTurn
-        && !tile.Solid
-        && player.EnoughMovementPoints(tile, false))
-        {
-            _selectedTile = tile;
-            player.SelectTileForPathfinding(_selectedTile, true);
-        }
-    }
-
-    private void HandleTileClicked(Tile tile)
-    {
-        if (CurrectState == State.PlayerTurn
-        && !tile.Solid
-        && tile == _selectedTile)
-        {
-            ProcessEvent(Event.PlayerStartsMoving);
-        }
     }
 
     // COROUTINES ----------------------------------------
@@ -198,7 +194,6 @@ public class StateMachine : MonoBehaviour
         ProcessEvent(Event.FinishEnemiesTurn);
     }
 
-
     // turno enemigo tiene dos partes:
     // 1. Movimiento (acercarse o alejarse del player)
     // 2. Atacar (melee o distancia)
@@ -220,6 +215,37 @@ public class StateMachine : MonoBehaviour
             enemy.GetCharacterTile().Solid = true;
         }
     }
+
+    // EVENTS --------------------------------
+
+    private void HandleTileHovered(Tile tile)
+    {
+        if (CurrectState == State.PlayerTurn
+        && !tile.Solid
+        && player.EnoughMovementPoints(tile, false))
+        {
+            _selectedTile = tile;
+            player.SelectTileForPathfinding(_selectedTile, true);
+        }
+    }
+
+    private void HandleTileClicked(Tile tile)
+    {
+        if (CurrectState == State.PlayerTurn
+        && !tile.Solid
+        && tile == _selectedTile)
+        {
+            ProcessEvent(Event.PlayerStartsMoving);
+        }
+    }
+
+    // SPELLS -------------------------------
+    /*
+    public void HandleSpellButtonClicked(Spell spell)
+    {
+        print(spell.name);
+    }*/
+
 
 
 

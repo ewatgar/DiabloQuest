@@ -85,5 +85,4 @@ public class Enemy : Character
         //print("termina corrutina character moving");
     }
 
-
 }
