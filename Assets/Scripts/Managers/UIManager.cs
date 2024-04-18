@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private Canvas canvas;
     [SerializeField] private GameObject spellPanel;
-    [SerializeField] private GameObject spellButtonPrefab;
+    [SerializeField] private SpellButton spellButtonPrefab;
 
     [Header("Other")]
     [SerializeField] protected Player player;
@@ -53,13 +53,13 @@ public class UIManager : MonoBehaviour
         float offsetX = spellButtonWidth + gapX;
 
         int i = 0;
-
         foreach (Spell spell in player.ListSpells)
         {
             float coordsX = x0 + offsetX * i;
-            GameObject spellButton = Instantiate(spellButtonPrefab, spellPanel.transform);
+            SpellButton spellButton = Instantiate(spellButtonPrefab, spellPanel.transform);
             spellButton.name = spellButtonPrefab.name + i;
             spellButton.transform.localPosition = new Vector2(coordsX, 0);
+            spellButton.Spell = spell;
             i++;
         }
     }

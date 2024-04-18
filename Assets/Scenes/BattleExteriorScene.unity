@@ -720,7 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 798882260}
   spellPanel: {fileID: 283052849770243171}
-  spellButtonPrefab: {fileID: 1397726867072487349, guid: d30b795849f595d41961e50e1471cf22, type: 3}
+  spellButtonPrefab: {fileID: 8305984849175267526, guid: d30b795849f595d41961e50e1471cf22, type: 3}
   player: {fileID: 1006336197}
   spellButtonsGap: 50
 --- !u!4 &644711310
@@ -28834,8 +28834,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 90}
-  m_SizeDelta: {x: 1000, y: 140}
+  m_AnchoredPosition: {x: 0, y: 110}
+  m_SizeDelta: {x: 800, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6660290087073875123
 MonoBehaviour:

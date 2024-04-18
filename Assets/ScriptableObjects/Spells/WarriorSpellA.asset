@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 360601aaf488fa841aa412d8a5218bb7, type: 3}
-  m_Name: SpellC
+  m_Name: WarriorSpellA
   m_EditorClassIdentifier: 
-  name: test
-  description: this is a test
+  name: Estocada
+  description: descripcion A
   artwork: {fileID: 0}
   actionPointCost: 0
   baseDamage: 0
-  spellAreaType: 2
+  spellAreaType: 0
   range: 0
