@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpellButton : MonoBehaviour
 {
-    //[SerializeField] Spell _spell;
+    [SerializeField] Spell _spell;
     /*
         private void Awake()
         {

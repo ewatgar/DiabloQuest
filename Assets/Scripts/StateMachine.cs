@@ -40,8 +40,9 @@ public class StateMachine : MonoBehaviour
     public State CurrectState { get => _currentState; }
     private State _oldState; //DEBUG
 
-    [SerializeField] Player player;
-    [SerializeField] List<Enemy> enemiesList;
+    [Header("Fighters")]
+    [SerializeField] private Player player;
+    [SerializeField] private List<Enemy> enemiesList;
 
     private Tile _selectedTile;
 
