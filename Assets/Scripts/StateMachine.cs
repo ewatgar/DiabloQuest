@@ -53,7 +53,6 @@ public class StateMachine : MonoBehaviour
             _instance = this;
             _currentState = State.MatchStart;
             _oldState = State.MatchStart;
-            ProcessEvent();
         }
         else
         {
@@ -64,6 +63,7 @@ public class StateMachine : MonoBehaviour
     private void Start()
     {
         GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
+        ProcessEvent();
     }
 
     private void Update()
@@ -147,6 +147,7 @@ public class StateMachine : MonoBehaviour
 
     private void StartPlayerTurn()
     {
+        //PathfindingManager.Instance.ClearValues();
         player.RestartStats();
         player.GetCharacterTile().Solid = false;
         InitEnemiesSolidTiles();

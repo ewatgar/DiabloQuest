@@ -86,7 +86,8 @@ public class PathfindingManager : MonoBehaviour
     private void Search()
     {
         GridManager _grid = GridManager.Instance;
-        while (!_bGoalReached)
+        int step = 0;
+        while (!_bGoalReached && step < 100)
         {
             _currentTile.SetAsChecked();
             _checkedList.Add(_currentTile);
@@ -130,12 +131,13 @@ public class PathfindingManager : MonoBehaviour
             }
 
             //print($"bestTileIndex: {bestTileIndex}");
-            _currentTile = _openList[bestTileIndex];
+            //print(_openList.ToArray());
 
-            if (_currentTile == _goalTile)
-            {
-                _bGoalReached = true;
-            }
+            if (_openList.Any() && _openList != null) _currentTile = _openList[bestTileIndex]; //Player can be stuck
+
+            if (_currentTile == _goalTile) _bGoalReached = true;
+
+            step++;
         }
 
         TrackFinalPath();
