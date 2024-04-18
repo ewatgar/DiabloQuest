@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private Canvas canvas;
-    [SerializeField] private GameObject spellPanelPrefab;
+    [SerializeField] private GameObject spellPanel;
     [SerializeField] private GameObject spellButtonPrefab;
 
     [Header("Other")]
@@ -33,20 +33,12 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        GenerateSpellPanelWithSpellButtons();
+        PlaceSpellButtonsWithOffset(spellPanel, spellButtonsGap);
     }
 
     public void OnFinishTurnClicked()
     {
         StateMachine.Instance.ProcessEvent(Event.FinishPlayerTurn);
-    }
-
-    public void GenerateSpellPanelWithSpellButtons()
-    {
-        GameObject spellPanel = Instantiate(spellPanelPrefab, canvas.transform);
-        spellPanel.name = spellPanelPrefab.name;
-
-        PlaceSpellButtonsWithOffset(spellPanel, spellButtonsGap);
     }
 
     private void PlaceSpellButtonsWithOffset(GameObject spellPanel, float gap)
