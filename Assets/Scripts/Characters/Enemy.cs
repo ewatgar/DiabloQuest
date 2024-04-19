@@ -53,12 +53,35 @@ public class Enemy : Character
 
     public IEnumerator EnemyAttackCoroutine(Tile playerTile)
     {
-        while (_actionPoints > 0)
+        int step = 100;
+        while (_actionPoints > 0 || step < 100)
         {
             int index = Random.Range(0, ListSpells.Count - 1);
-            //Spell randomSpell =
+            Spell randomSpell = _listSpells[index];
 
+            //check if can use spell
+            if (_actionPoints >= randomSpell.actionPointCost)
+            {
+                if (randomSpell.spellAreaType == SpellAreaType.Range)
+                {
+
+                }
+
+                SpendActionPoints(randomSpell.actionPointCost);
+            }
+
+
+
+            //check if its damage spell
+
+            //check if can use spell on player
+
+            //
+
+            step++;
         }
+
+
 
 
         yield return null;

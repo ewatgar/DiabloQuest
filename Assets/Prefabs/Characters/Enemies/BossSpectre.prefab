@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initHealthPoints: 700
-  _initActionPoints: 9
+  _initActionPoints: 6
   _initMovementPoints: 4
   _initDamage: 30
   _initResistancePerc: 3

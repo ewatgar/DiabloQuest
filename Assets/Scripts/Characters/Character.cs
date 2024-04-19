@@ -21,7 +21,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected int _critsPerc;
 
     [Header("Character Spells")]
-    [SerializeField] private List<Spell> _listSpells;
+    [SerializeField] protected List<Spell> _listSpells;
 
     [Header("Other")]
     [SerializeField] protected float _animationSpeed = 0.3f;
@@ -64,7 +64,8 @@ public class Character : MonoBehaviour
 
     public void SpendActionPoints(int ap = 1)
     {
-
+        if (_actionPoints > 0) _actionPoints -= ap;
+        else _actionPoints = 0;
     }
 
     public void SpendMovementPoint()

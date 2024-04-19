@@ -3,20 +3,27 @@ using UnityEngine;
 public enum SpellAreaType
 {
     Melee,
-    Cross,
+    Range,
     Donut,
     Line,
-    Range,
     Self
 }
 
-public abstract class Spell : ScriptableObject
+public enum UtilityType
+{
+    Damage,
+    Healing,
+    Knockback,
+}
+
+[CreateAssetMenu(fileName = "NewSpell", menuName = "Spell", order = 0)]
+public class Spell : ScriptableObject
 {
     public new string name;
     public string description;
     public Sprite artwork;
     public int actionPointCost;
-    //public int baseDamage;
+    public int baseDamageOrHealing;
     public SpellAreaType spellAreaType;
-    public int range; //only for Line and Range
+    public UtilityType utilityType;
 }
