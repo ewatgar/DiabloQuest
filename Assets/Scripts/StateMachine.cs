@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -166,7 +165,7 @@ public class StateMachine : MonoBehaviour
 
     private void StartPlayerCastingSpell()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     private void StartEnemiesTurn()
@@ -201,12 +200,16 @@ public class StateMachine : MonoBehaviour
     // 2. Atacar (melee o distancia)
     private IEnumerator EnemyTurnCoroutine(Enemy enemy)
     {
-        //PASO 1 - moverse si puede -------------------------------------------
+        //PASO 1 - moverse si puede
+        yield return StartCoroutine(enemy.EnemyMovementCoroutine(player.GetCharacterTile()));
 
-        enemy.SelectTileForPathfinding(player.GetCharacterTile(), true);
-        yield return StartCoroutine(enemy.MovingThroughPathCoroutine());
-        //PASO 2 - atacar si puede --------------------------------------------
+        //PASO 2 - atacar si puede
+        yield return StartCoroutine(enemy.EnemyAttackCoroutine(player.GetCharacterTile()));
+
     }
+
+
+
 
     // OTHER ------------------------------------------------
 

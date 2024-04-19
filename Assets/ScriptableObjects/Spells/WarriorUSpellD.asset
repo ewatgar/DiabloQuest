@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 360601aaf488fa841aa412d8a5218bb7, type: 3}
-  m_Name: WarriorSpellC
+  m_Script: {fileID: 11500000, guid: 561f8761b7d935644b32cfe6565ff6b7, type: 3}
+  m_Name: WarriorUSpellD
   m_EditorClassIdentifier: 
-  name: Golpe Certero
-  description: descripcion C
-  artwork: {fileID: 2738159280066784702, guid: 582217c6aed880d41a48b42643c7bfc7, type: 3}
-  actionPointCost: 0
-  baseDamage: 0
-  spellAreaType: 2
+  name: Escudo Protector
+  description: 
+  artwork: {fileID: 8781525044889457999, guid: 4df7fa320e736144597445d93388c32b, type: 3}
+  actionPointCost: 3
+  spellAreaType: 0
   range: 0
+  utilityType: 1

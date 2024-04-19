@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 360601aaf488fa841aa412d8a5218bb7, type: 3}
-  m_Name: WarriorSpellD
+  m_Script: {fileID: 11500000, guid: 561f8761b7d935644b32cfe6565ff6b7, type: 3}
+  m_Name: BossUSpellC
   m_EditorClassIdentifier: 
-  name: Escudo Protector
-  description: descripcion D
-  artwork: {fileID: 8781525044889457999, guid: 4df7fa320e736144597445d93388c32b, type: 3}
-  actionPointCost: 0
-  baseDamage: 0
-  spellAreaType: 0
+  name: BossDSPellC
+  description: 
+  artwork: {fileID: 0}
+  actionPointCost: 2
+  spellAreaType: 5
   range: 0
+  utilityType: 0

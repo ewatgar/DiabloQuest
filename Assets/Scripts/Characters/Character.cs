@@ -20,8 +20,19 @@ public class Character : MonoBehaviour
     [SerializeField] protected int _resistancePerc;
     [SerializeField] protected int _critsPerc;
 
+    [Header("Character Spells")]
+    [SerializeField] private List<Spell> _listSpells;
+
     [Header("Other")]
     [SerializeField] protected float _animationSpeed = 0.3f;
+
+    public int HealthPoints { get => _healthPoints; }
+    public int ActionPoints { get => _actionPoints; }
+    public int MovementPoints { get => _movementPoints; }
+    public int Damage { get => _damage; }
+    public int ResistancePerc { get => _resistancePerc; }
+    public int CritsPerc { get => _critsPerc; }
+    public List<Spell> ListSpells { get => _listSpells; }
 
     private void Awake()
     {

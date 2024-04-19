@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6911345113808426159
+--- !u!1 &7075959859084379979
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4831696983151222084}
-  - component: {fileID: 600604348895223920}
-  - component: {fileID: 883177367698306515}
-  - component: {fileID: 6742454679611154156}
+  - component: {fileID: 6396331631957771166}
+  - component: {fileID: 1213176720900883202}
+  - component: {fileID: 3567403269171539714}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
+  m_Name: BossSpectre
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4831696983151222084
+--- !u!4 &6396331631957771166
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911345113808426159}
+  m_GameObject: {fileID: 7075959859084379979}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9, y: 7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &600604348895223920
+--- !u!212 &1213176720900883202
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911345113808426159}
+  m_GameObject: {fileID: 7075959859084379979}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,35 +76,35 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1967112827789767629, guid: 16f8260f1316d26438d82766d82b22e7, type: 3}
+  m_Sprite: {fileID: -6054980857752379783, guid: 6552fe203c8a09e4f9acce0db1734f12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &883177367698306515
+--- !u!114 &3567403269171539714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911345113808426159}
+  m_GameObject: {fileID: 7075959859084379979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e7e6dad728cf546a4bff149a39c44a, type: 3}
+  m_Script: {fileID: 11500000, guid: a6e49b1cdef387449910a8ca2b866951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initHealthPoints: 400
-  _initActionPoints: 6
-  _initMovementPoints: 3
-  _initDamage: 20
-  _initResistancePerc: 2
-  _initCritsPerc: 2
+  _initHealthPoints: 700
+  _initActionPoints: 9
+  _initMovementPoints: 4
+  _initDamage: 30
+  _initResistancePerc: 3
+  _initCritsPerc: 3
   _healthPoints: 0
   _actionPoints: 0
   _movementPoints: 0
@@ -113,30 +112,9 @@ MonoBehaviour:
   _resistancePerc: 0
   _critsPerc: 0
   _listSpells:
-  - {fileID: 11400000, guid: f687296edf0d1b34489497a4551c0e10, type: 2}
-  - {fileID: 11400000, guid: 18b57581d72e39d42a30357aa1329c79, type: 2}
-  - {fileID: 11400000, guid: b8b84784c5b697140bc6a7c6ffd029ab, type: 2}
-  - {fileID: 11400000, guid: bc730fac70e716843bc9edf6ba532bbc, type: 2}
+  - {fileID: 11400000, guid: 12da1d9b446816648bad50b490a73188, type: 2}
+  - {fileID: 11400000, guid: 8800c730b18a26745a652f1205f39746, type: 2}
+  - {fileID: 11400000, guid: 7409096c6d09098438ab2ccc814967f5, type: 2}
   _animationSpeed: 0.3
---- !u!95 &6742454679611154156
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911345113808426159}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8c941170e4432644a1e61db6a43b574, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  _enemyType: 0
+  _minDistanceLongRange: 0

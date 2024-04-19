@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6911345113808426159
+--- !u!1 &7908806914963609856
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4831696983151222084}
-  - component: {fileID: 600604348895223920}
-  - component: {fileID: 883177367698306515}
-  - component: {fileID: 6742454679611154156}
+  - component: {fileID: 2812739869157420245}
+  - component: {fileID: 5393832577258678628}
+  - component: {fileID: 6406329269751404298}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
+  m_Name: Cultist
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4831696983151222084
+--- !u!4 &2812739869157420245
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911345113808426159}
+  m_GameObject: {fileID: 7908806914963609856}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -34,13 +33,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &600604348895223920
+--- !u!212 &5393832577258678628
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911345113808426159}
+  m_GameObject: {fileID: 7908806914963609856}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1967112827789767629, guid: 16f8260f1316d26438d82766d82b22e7, type: 3}
+  m_Sprite: {fileID: -7618221830748741723, guid: 162a0217054574c408172ae9b89be094, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,24 +87,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &883177367698306515
+--- !u!114 &6406329269751404298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911345113808426159}
+  m_GameObject: {fileID: 7908806914963609856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e7e6dad728cf546a4bff149a39c44a, type: 3}
+  m_Script: {fileID: 11500000, guid: a6e49b1cdef387449910a8ca2b866951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initHealthPoints: 400
+  _initHealthPoints: 350
   _initActionPoints: 6
-  _initMovementPoints: 3
-  _initDamage: 20
+  _initMovementPoints: 4
+  _initDamage: 10
   _initResistancePerc: 2
-  _initCritsPerc: 2
+  _initCritsPerc: 1
   _healthPoints: 0
   _actionPoints: 0
   _movementPoints: 0
@@ -113,30 +112,8 @@ MonoBehaviour:
   _resistancePerc: 0
   _critsPerc: 0
   _listSpells:
-  - {fileID: 11400000, guid: f687296edf0d1b34489497a4551c0e10, type: 2}
-  - {fileID: 11400000, guid: 18b57581d72e39d42a30357aa1329c79, type: 2}
-  - {fileID: 11400000, guid: b8b84784c5b697140bc6a7c6ffd029ab, type: 2}
-  - {fileID: 11400000, guid: bc730fac70e716843bc9edf6ba532bbc, type: 2}
+  - {fileID: 11400000, guid: 78d8edac3835bc64daa1de083f2d01e8, type: 2}
+  - {fileID: 11400000, guid: f1432b0e5de7d404985e0617bcb1e183, type: 2}
   _animationSpeed: 0.3
---- !u!95 &6742454679611154156
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911345113808426159}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8c941170e4432644a1e61db6a43b574, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  _enemyType: 1
+  _minDistanceLongRange: 5

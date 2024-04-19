@@ -45,6 +45,26 @@ public class Enemy : Character
         return farAwayTiles[index];
     }
 
+    public IEnumerator EnemyMovementCoroutine(Tile playerTile)
+    {
+        SelectTileForPathfinding(playerTile, true);
+        yield return StartCoroutine(MovingThroughPathCoroutine());
+    }
+
+    public IEnumerator EnemyAttackCoroutine(Tile playerTile)
+    {
+        while (_actionPoints > 0)
+        {
+            int index = Random.Range(0, ListSpells.Count - 1);
+            //Spell randomSpell =
+
+        }
+
+
+        yield return null;
+
+    }
+
     public new IEnumerator MovingThroughPathCoroutine()
     {
         //print("empieza corrutina character moving");
@@ -84,5 +104,7 @@ public class Enemy : Character
         }
         //print("termina corrutina character moving");
     }
+
+
 
 }
