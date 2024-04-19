@@ -12,11 +12,14 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private Canvas canvas;
-    [SerializeField] private GameObject spellPanel;
+    [SerializeField] private GameObject spellZone;
     [SerializeField] private SpellButton spellButtonPrefab;
+    [SerializeField] private GameObject otherButtonsZone;
 
     [Header("Other")]
     [SerializeField] protected Player player;
+
+    private bool _canUseMainButtons;
 
     private void Awake()
     {
@@ -45,7 +48,7 @@ public class UIManager : MonoBehaviour
         int i = 50;
         foreach (Spell spell in player.ListSpells)
         {
-            SpellButton spellButton = Instantiate(spellButtonPrefab, spellPanel.transform);
+            SpellButton spellButton = Instantiate(spellButtonPrefab, spellZone.transform);
             spellButton.name = spellButtonPrefab.name;
             float pos = spellButton.transform.localPosition.x;
             spellButton.transform.localPosition = new Vector2(pos + i, 0);

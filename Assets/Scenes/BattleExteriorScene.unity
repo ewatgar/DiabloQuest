@@ -662,8 +662,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 798882260}
-  spellPanel: {fileID: 1767363643}
+  spellZone: {fileID: 1767363643}
   spellButtonPrefab: {fileID: 8305984849175267526, guid: d30b795849f595d41961e50e1471cf22, type: 3}
+  otherButtonsZone: {fileID: 1530272347}
   player: {fileID: 1006336197}
 --- !u!4 &644711310
 Transform:
