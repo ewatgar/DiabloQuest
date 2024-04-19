@@ -1,0 +1,4015 @@
+fileFormatVersion: 2
+guid: 8517bdb5a7b8f1a4d975e1f6d289cd54
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 828742691502729391
+    second: IconsShadow-64_0
+  - first:
+      213: 7874003783588586134
+    second: IconsShadow-64_1
+  - first:
+      213: 3027508174197725706
+    second: IconsShadow-64_2
+  - first:
+      213: 1766634767181784946
+    second: IconsShadow-64_3
+  - first:
+      213: 6159231320821765046
+    second: IconsShadow-64_4
+  - first:
+      213: 2763454251577174414
+    second: IconsShadow-64_5
+  - first:
+      213: -5862253517273022983
+    second: IconsShadow-64_6
+  - first:
+      213: 6425394467579277945
+    second: IconsShadow-64_7
+  - first:
+      213: -1215068509845094584
+    second: IconsShadow-64_8
+  - first:
+      213: -1906140733048600629
+    second: IconsShadow-64_9
+  - first:
+      213: -6792578687913450557
+    second: IconsShadow-64_10
+  - first:
+      213: 2434647342570013274
+    second: IconsShadow-64_11
+  - first:
+      213: -7673270412796239196
+    second: IconsShadow-64_12
+  - first:
+      213: 1730315508127418775
+    second: IconsShadow-64_13
+  - first:
+      213: 5746647857527791480
+    second: IconsShadow-64_14
+  - first:
+      213: -2991912455757936243
+    second: IconsShadow-64_15
+  - first:
+      213: -7180157032431470207
+    second: IconsShadow-64_16
+  - first:
+      213: 7405582309215484949
+    second: IconsShadow-64_17
+  - first:
+      213: -1002206421335196299
+    second: IconsShadow-64_18
+  - first:
+      213: -8542019558259575989
+    second: IconsShadow-64_19
+  - first:
+      213: 7408413060748855670
+    second: IconsShadow-64_20
+  - first:
+      213: 4935933345919467355
+    second: IconsShadow-64_21
+  - first:
+      213: -4266880470550983206
+    second: IconsShadow-64_22
+  - first:
+      213: -878324942653365786
+    second: IconsShadow-64_23
+  - first:
+      213: 2999542552523555249
+    second: IconsShadow-64_24
+  - first:
+      213: 4287935883544875811
+    second: IconsShadow-64_25
+  - first:
+      213: 3004932031186837371
+    second: IconsShadow-64_26
+  - first:
+      213: 6707260516244887977
+    second: IconsShadow-64_27
+  - first:
+      213: -3536396361195778434
+    second: IconsShadow-64_28
+  - first:
+      213: -4316238801471797800
+    second: IconsShadow-64_29
+  - first:
+      213: 574952650680288333
+    second: IconsShadow-64_30
+  - first:
+      213: 6333133446381753472
+    second: IconsShadow-64_31
+  - first:
+      213: 8336657249344774986
+    second: IconsShadow-64_32
+  - first:
+      213: 7724388046135602264
+    second: IconsShadow-64_33
+  - first:
+      213: 2269486774445261696
+    second: IconsShadow-64_34
+  - first:
+      213: -2654339393906610162
+    second: IconsShadow-64_35
+  - first:
+      213: -2835186486436846624
+    second: IconsShadow-64_36
+  - first:
+      213: 8167847643278741889
+    second: IconsShadow-64_37
+  - first:
+      213: -5301429707873432017
+    second: IconsShadow-64_38
+  - first:
+      213: 3028668587920880171
+    second: IconsShadow-64_39
+  - first:
+      213: 515856932982519374
+    second: IconsShadow-64_40
+  - first:
+      213: 7258408798588732450
+    second: IconsShadow-64_41
+  - first:
+      213: -2641040564056110411
+    second: IconsShadow-64_42
+  - first:
+      213: -1935956947842564697
+    second: IconsShadow-64_43
+  - first:
+      213: -7578185495061469431
+    second: IconsShadow-64_44
+  - first:
+      213: -2897018068384722385
+    second: IconsShadow-64_45
+  - first:
+      213: 4542575756722574248
+    second: IconsShadow-64_46
+  - first:
+      213: -8682935160190294223
+    second: IconsShadow-64_47
+  - first:
+      213: -5129368102930513547
+    second: IconsShadow-64_48
+  - first:
+      213: 4001859290284088000
+    second: IconsShadow-64_49
+  - first:
+      213: -6071896565141643162
+    second: IconsShadow-64_50
+  - first:
+      213: -6409453462722406131
+    second: IconsShadow-64_51
+  - first:
+      213: -3465953791947860029
+    second: IconsShadow-64_52
+  - first:
+      213: 2201898077807333711
+    second: IconsShadow-64_53
+  - first:
+      213: 4382401096687480762
+    second: IconsShadow-64_54
+  - first:
+      213: -5976547366832834778
+    second: IconsShadow-64_55
+  - first:
+      213: -5597985316712841931
+    second: IconsShadow-64_56
+  - first:
+      213: -1520554305971211487
+    second: IconsShadow-64_57
+  - first:
+      213: -4953079138104327225
+    second: IconsShadow-64_58
+  - first:
+      213: -8384741322973203440
+    second: IconsShadow-64_59
+  - first:
+      213: 8028165742477856741
+    second: IconsShadow-64_60
+  - first:
+      213: -1624280711642549566
+    second: IconsShadow-64_61
+  - first:
+      213: 4503077569760178560
+    second: IconsShadow-64_62
+  - first:
+      213: 7258329577186548309
+    second: IconsShadow-64_63
+  - first:
+      213: 2602062876898033785
+    second: IconsShadow-64_64
+  - first:
+      213: -7004255714566770787
+    second: IconsShadow-64_65
+  - first:
+      213: 5599545449533815423
+    second: IconsShadow-64_66
+  - first:
+      213: -6965798822386002378
+    second: IconsShadow-64_67
+  - first:
+      213: -5633454407666285701
+    second: IconsShadow-64_68
+  - first:
+      213: -8486144086686892602
+    second: IconsShadow-64_69
+  - first:
+      213: 2422205570172890732
+    second: IconsShadow-64_70
+  - first:
+      213: -8050098425288355503
+    second: IconsShadow-64_71
+  - first:
+      213: -6654959439871880668
+    second: IconsShadow-64_72
+  - first:
+      213: -3484162418683414943
+    second: IconsShadow-64_73
+  - first:
+      213: 9073986618373497317
+    second: IconsShadow-64_74
+  - first:
+      213: 8002788336615455551
+    second: IconsShadow-64_75
+  - first:
+      213: -5408208262829499152
+    second: IconsShadow-64_76
+  - first:
+      213: 1470377440269779462
+    second: IconsShadow-64_77
+  - first:
+      213: -9033034019567972590
+    second: IconsShadow-64_78
+  - first:
+      213: -8332624868940128642
+    second: IconsShadow-64_79
+  - first:
+      213: -3073291860110150808
+    second: IconsShadow-64_80
+  - first:
+      213: 6601744480127563397
+    second: IconsShadow-64_81
+  - first:
+      213: 9037512258112848769
+    second: IconsShadow-64_82
+  - first:
+      213: -7685571404403543206
+    second: IconsShadow-64_83
+  - first:
+      213: -6373536539437806164
+    second: IconsShadow-64_84
+  - first:
+      213: 3978364954412566126
+    second: IconsShadow-64_85
+  - first:
+      213: -2596443127572691649
+    second: IconsShadow-64_86
+  - first:
+      213: 2743946967937298971
+    second: IconsShadow-64_87
+  - first:
+      213: 4210050390499966632
+    second: IconsShadow-64_88
+  - first:
+      213: 1440296579819706083
+    second: IconsShadow-64_89
+  - first:
+      213: -7639203499797703660
+    second: IconsShadow-64_90
+  - first:
+      213: -1366481201952126235
+    second: IconsShadow-64_91
+  - first:
+      213: 3638209830715697230
+    second: IconsShadow-64_92
+  - first:
+      213: -8332573148569243185
+    second: IconsShadow-64_93
+  - first:
+      213: 4251259114304595778
+    second: IconsShadow-64_94
+  - first:
+      213: -7498094094189308405
+    second: IconsShadow-64_95
+  - first:
+      213: -6536588986475367186
+    second: IconsShadow-64_96
+  - first:
+      213: -1366292844650799485
+    second: IconsShadow-64_97
+  - first:
+      213: -5913259320428078134
+    second: IconsShadow-64_98
+  - first:
+      213: 6445213667149990035
+    second: IconsShadow-64_99
+  - first:
+      213: -4387208683752871183
+    second: IconsShadow-64_100
+  - first:
+      213: 5813429393975491194
+    second: IconsShadow-64_101
+  - first:
+      213: -3235661169057727545
+    second: IconsShadow-64_102
+  - first:
+      213: -8468502058210023855
+    second: IconsShadow-64_103
+  - first:
+      213: 9055242605956662674
+    second: IconsShadow-64_104
+  - first:
+      213: -6369392266671705029
+    second: IconsShadow-64_105
+  - first:
+      213: 3596625070748809899
+    second: IconsShadow-64_106
+  - first:
+      213: 5476204883185588969
+    second: IconsShadow-64_107
+  - first:
+      213: 8415134465434182932
+    second: IconsShadow-64_108
+  - first:
+      213: 9146630633707414412
+    second: IconsShadow-64_109
+  - first:
+      213: -7870182007728180255
+    second: IconsShadow-64_110
+  - first:
+      213: 1699340684880706287
+    second: IconsShadow-64_111
+  - first:
+      213: -6450694563391254481
+    second: IconsShadow-64_112
+  - first:
+      213: 5166939757589641947
+    second: IconsShadow-64_113
+  - first:
+      213: 577824424952500241
+    second: IconsShadow-64_114
+  - first:
+      213: 7907663098062467963
+    second: IconsShadow-64_115
+  - first:
+      213: -8315022126948061639
+    second: IconsShadow-64_116
+  - first:
+      213: -7183555043205294456
+    second: IconsShadow-64_117
+  - first:
+      213: -5203373465782500182
+    second: IconsShadow-64_118
+  - first:
+      213: 9070247759131502552
+    second: IconsShadow-64_119
+  - first:
+      213: 7685165716705818637
+    second: IconsShadow-64_120
+  - first:
+      213: -3730067005478189898
+    second: IconsShadow-64_121
+  - first:
+      213: -2028273149411482200
+    second: IconsShadow-64_122
+  - first:
+      213: 7289008877561574451
+    second: IconsShadow-64_123
+  - first:
+      213: 4684357401634875609
+    second: IconsShadow-64_124
+  - first:
+      213: -3904667796620469862
+    second: IconsShadow-64_125
+  - first:
+      213: 5223555531974334987
+    second: IconsShadow-64_126
+  - first:
+      213: 7555638414402351157
+    second: IconsShadow-64_127
+  - first:
+      213: 7682078126270293989
+    second: IconsShadow-64_128
+  - first:
+      213: 7733801566349299905
+    second: IconsShadow-64_129
+  - first:
+      213: -7325265257964000337
+    second: IconsShadow-64_130
+  - first:
+      213: 1175012665983736060
+    second: IconsShadow-64_131
+  - first:
+      213: 5906305789464973695
+    second: IconsShadow-64_132
+  - first:
+      213: -2365760907963127397
+    second: IconsShadow-64_133
+  - first:
+      213: -4347628842872851869
+    second: IconsShadow-64_134
+  - first:
+      213: 4036483871596524260
+    second: IconsShadow-64_135
+  - first:
+      213: 6917502802722826281
+    second: IconsShadow-64_136
+  - first:
+      213: 3541130272444245552
+    second: IconsShadow-64_137
+  - first:
+      213: -3599223082424867261
+    second: IconsShadow-64_138
+  - first:
+      213: 7180460692497208585
+    second: IconsShadow-64_139
+  - first:
+      213: -5060121072724606761
+    second: IconsShadow-64_140
+  - first:
+      213: 6930773292979113627
+    second: IconsShadow-64_141
+  - first:
+      213: -7228579354007978960
+    second: IconsShadow-64_142
+  - first:
+      213: 720012079070832366
+    second: IconsShadow-64_143
+  - first:
+      213: 3366224566027661178
+    second: IconsShadow-64_144
+  - first:
+      213: 1802038604164250425
+    second: IconsShadow-64_145
+  - first:
+      213: 4808165277881479484
+    second: IconsShadow-64_146
+  - first:
+      213: 8315647775575042563
+    second: IconsShadow-64_147
+  - first:
+      213: 6473025588621485845
+    second: IconsShadow-64_148
+  - first:
+      213: -70392040602662189
+    second: IconsShadow-64_149
+  - first:
+      213: 5185858770936004458
+    second: IconsShadow-64_150
+  - first:
+      213: -7807157832119777770
+    second: IconsShadow-64_151
+  - first:
+      213: -6328157063107926970
+    second: IconsShadow-64_152
+  - first:
+      213: 6187713291735257717
+    second: IconsShadow-64_153
+  - first:
+      213: -1058572190631014984
+    second: IconsShadow-64_154
+  - first:
+      213: -4297688260352587172
+    second: IconsShadow-64_155
+  - first:
+      213: 1165850376382997100
+    second: IconsShadow-64_156
+  - first:
+      213: -293342823815644734
+    second: IconsShadow-64_157
+  - first:
+      213: -2777683607979896771
+    second: IconsShadow-64_158
+  - first:
+      213: 3867957161440887808
+    second: IconsShadow-64_159
+  - first:
+      213: -1890407009556859699
+    second: IconsShadow-64_160
+  - first:
+      213: 6276312209402874615
+    second: IconsShadow-64_161
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: IconsShadow-64_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 611
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa8a8394619408b00800000000000000
+      internalID: 828742691502729391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 579
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69221e019b4164d60800000000000000
+      internalID: 7874003783588586134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 579
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0a95add4aed30a20800000000000000
+      internalID: 3027508174197725706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 579
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277a9b1f5f8548810800000000000000
+      internalID: 1766634767181784946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 583
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b39a07d04cf97550800000000000000
+      internalID: 6159231320821765046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_5
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 611
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e89ec4a1003c95620800000000000000
+      internalID: 2763454251577174414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_6
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 611
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fd38af4c7715aea0800000000000000
+      internalID: -5862253517273022983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_7
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 611
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 972b2dd99369b2950800000000000000
+      internalID: 6425394467579277945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_8
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 611
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84f7be4c0a5332fe0800000000000000
+      internalID: -1215068509845094584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_9
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 619
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc74cba3a170c85e0800000000000000
+      internalID: -1906140733048600629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_10
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 619
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c3a7060ca9ebb1a0800000000000000
+      internalID: -6792578687913450557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_11
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 611
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a520c37dbda99c120800000000000000
+      internalID: 2434647342570013274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_12
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 611
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a2e3cbd631138590800000000000000
+      internalID: -7673270412796239196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_13
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 603
+        width: 42
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 799c84b79c0530810800000000000000
+      internalID: 1730315508127418775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_14
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 595
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f143587c130cf40800000000000000
+      internalID: 5746647857527791480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_15
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 579
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d894b7b29779a76d0800000000000000
+      internalID: -2991912455757936243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_16
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 603
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 189366a9835fa5c90800000000000000
+      internalID: -7180157032431470207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_17
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 579
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51cb4bfafd9e5c660800000000000000
+      internalID: 7405582309215484949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_18
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 579
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d33b8d1927712f0800000000000000
+      internalID: -1002206421335196299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_19
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 579
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b43bf752876a47980800000000000000
+      internalID: -8542019558259575989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_20
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 603
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 679cc436d68ffc660800000000000000
+      internalID: 7408413060748855670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_21
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 603
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ff886f935ff7440800000000000000
+      internalID: 4935933345919467355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_22
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 603
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: addc1c5a1def8c4c0800000000000000
+      internalID: -4266880470550983206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_23
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 603
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1e7c34e109fc3f0800000000000000
+      internalID: -878324942653365786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_24
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 603
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b1c5db2f0480a920800000000000000
+      internalID: 2999542552523555249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_25
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 579
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 323d756b7fec18b30800000000000000
+      internalID: 4287935883544875811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_26
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 579
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7f9515f2c9a3b920800000000000000
+      internalID: 3004932031186837371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_27
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 579
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a997c627e9f41d50800000000000000
+      internalID: 6707260516244887977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_28
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 579
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7e01f10f323ceec0800000000000000
+      internalID: -3536396361195778434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_29
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 579
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d50480bda3a914c0800000000000000
+      internalID: -4316238801471797800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_30
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 515
+        width: 38
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d44c77ab364aaf700800000000000000
+      internalID: 574952650680288333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_31
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 531
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 084dabaa05fc3e750800000000000000
+      internalID: 6333133446381753472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_32
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 539
+        width: 42
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4361694991c1b370800000000000000
+      internalID: 8336657249344774986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_33
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 531
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85caf2d900a823b60800000000000000
+      internalID: 7724388046135602264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_34
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 531
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 083c1457236de7f10800000000000000
+      internalID: 2269486774445261696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_35
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 515
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00fed07264e92bd0800000000000000
+      internalID: -2654339393906610162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_36
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 515
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e3a1fb79e467a8d0800000000000000
+      internalID: -2835186486436846624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_37
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 515
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 181142d08260a5170800000000000000
+      internalID: 8167847643278741889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_38
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 511
+        width: 130
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2e4084d4c98d66b0800000000000000
+      internalID: -5301429707873432017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_39
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 515
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b22786db80ef70a20800000000000000
+      internalID: 3028668587920880171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_40
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 515
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e46785db521b82700800000000000000
+      internalID: 515856932982519374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_41
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 515
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 224837a785c0bb460800000000000000
+      internalID: 7258408798588732450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_42
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 515
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bac90e8993295bd0800000000000000
+      internalID: -2641040564056110411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_43
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 475
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7adf46fb9691225e0800000000000000
+      internalID: -1935956947842564697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_44
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 459
+        width: 58
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907e7d47170e4d690800000000000000
+      internalID: -7578185495061469431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_45
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 451
+        width: 50
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f225a067a69bbc7d0800000000000000
+      internalID: -2897018068384722385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_46
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 451
+        width: 42
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a310c845987a0f30800000000000000
+      internalID: 4542575756722574248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_47
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 471
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137ab19d974008780800000000000000
+      internalID: -8682935160190294223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_48
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 455
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5718b9e03e2d0d8b0800000000000000
+      internalID: -5129368102930513547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_49
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 451
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cada7e52d5798730800000000000000
+      internalID: 4001859290284088000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_50
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 463
+        width: 58
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66061d98e3a4cbba0800000000000000
+      internalID: -6071896565141643162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_51
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 451
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09980ec80c0d07a0800000000000000
+      internalID: -6409453462722406131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_52
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 451
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7970fb36576efc0800000000000000
+      internalID: -3465953791947860029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_53
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 451
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f415257b2a6be8e10800000000000000
+      internalID: 2201898077807333711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_54
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 451
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abfe657149a61dc30800000000000000
+      internalID: 4382401096687480762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_55
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 387
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 627f1a0c5d90f0da0800000000000000
+      internalID: -5976547366832834778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_56
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 387
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d7a7b8306ff42b0800000000000000
+      internalID: -5597985316712841931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_57
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 387
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12335ea3ae7e5eae0800000000000000
+      internalID: -1520554305971211487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_58
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 387
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c3c4e434c0234bb0800000000000000
+      internalID: -4953079138104327225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_59
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 387
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 014b4a6e03a63ab80800000000000000
+      internalID: -8384741322973203440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_60
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 387
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ef4a5e2536c96f60800000000000000
+      internalID: 8028165742477856741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_61
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 387
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c2f60f6c456579e0800000000000000
+      internalID: -1624280711642549566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_62
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 387
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 081b59df0352e7e30800000000000000
+      internalID: 4503077569760178560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_63
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 395
+        width: 58
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a5aee4b44cab460800000000000000
+      internalID: 7258329577186548309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_64
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 387
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9700db476626c1420800000000000000
+      internalID: 2602062876898033785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_65
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 323
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9f6f39a982ebce90800000000000000
+      internalID: -7004255714566770787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_66
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 323
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a3e1f2be495bd40800000000000000
+      internalID: 5599545449533815423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_67
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 323
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63619de90e2845f90800000000000000
+      internalID: -6965798822386002378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_68
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 323
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7341b44013f1d1b0800000000000000
+      internalID: -5633454407666285701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_69
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 323
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cdfe382ae82b3a80800000000000000
+      internalID: -8486144086686892602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_70
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 323
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6ea027f1276d9120800000000000000
+      internalID: 2422205570172890732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_71
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 323
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15191c9222e484090800000000000000
+      internalID: -8050098425288355503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_72
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 323
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 422ddcf16a5d4a3a0800000000000000
+      internalID: -6654959439871880668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_73
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 335
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 166fb967db4c5afc0800000000000000
+      internalID: -3484162418683414943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_74
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 323
+        width: 26
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e1ecccd0c64ded70800000000000000
+      internalID: 9073986618373497317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_75
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 323
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3b7a90779d9f0f60800000000000000
+      internalID: 8002788336615455551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_76
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 339
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc17b62d3f22f4b0800000000000000
+      internalID: -5408208262829499152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_77
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 259
+        width: 54
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6024705dd74d76410800000000000000
+      internalID: 1470377440269779462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_78
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 263
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21fc1a31b6734a280800000000000000
+      internalID: -9033034019567972590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_79
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 279
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7edc3074d19c5c80800000000000000
+      internalID: -8332624868940128642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_80
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 279
+        width: 18
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863f80316597955d0800000000000000
+      internalID: -3073291860110150808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_81
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 259
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58636eb80ab1e9b50800000000000000
+      internalID: 6601744480127563397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_82
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 259
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1830e061481bb6d70800000000000000
+      internalID: 9037512258112848769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_83
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 259
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5370a0178d575590800000000000000
+      internalID: -7685571404403543206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_84
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 271
+        width: 58
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cad46db2946ac87a0800000000000000
+      internalID: -6373536539437806164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_85
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 267
+        width: 58
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66cf9609ddf53730800000000000000
+      internalID: 3978364954412566126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_86
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 259
+        width: 38
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3586856bb497fbd0800000000000000
+      internalID: -2596443127572691649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_87
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 259
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12b962ba35741620800000000000000
+      internalID: 2743946967937298971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_88
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 259
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aebe3c368a1d6a30800000000000000
+      internalID: 4210050390499966632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_89
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 195
+        width: 38
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e61d5bbb16fcf310800000000000000
+      internalID: 1440296579819706083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_90
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 195
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41413a324e81cf590800000000000000
+      internalID: -7639203499797703660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_91
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 195
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ea05653698490de0800000000000000
+      internalID: -1366481201952126235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_92
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 235
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e48a422a0948d7230800000000000000
+      internalID: 3638209830715697230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_93
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 195
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc172968ed0cc5c80800000000000000
+      internalID: -8332573148569243185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_94
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 195
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247644ce3a18ffa30800000000000000
+      internalID: 4251259114304595778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_95
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 203
+        width: 10
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06546fd52b61f790800000000000000
+      internalID: -7498094094189308405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_96
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 195
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee4b76af2fe5945a0800000000000000
+      internalID: -6536588986475367186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_97
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 195
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38e5e6f85e3f90de0800000000000000
+      internalID: -1366292844650799485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_98
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 195
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acbdd155af1efeda0800000000000000
+      internalID: -5913259320428078134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_99
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 195
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 398c7fb9eaff17950800000000000000
+      internalID: 6445213667149990035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_100
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 215
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1faa66152f08d13c0800000000000000
+      internalID: -4387208683752871183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_101
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 215
+        width: 6
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7a39b2ab337da050800000000000000
+      internalID: 5813429393975491194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_102
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 215
+        width: 6
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cbf9cc5f4f9813d0800000000000000
+      internalID: -3235661169057727545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_103
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 195
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1562ab00f36d97a80800000000000000
+      internalID: -8468502058210023855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_104
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 131
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29587036c2faaad70800000000000000
+      internalID: 9055242605956662674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_105
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 131
+        width: 22
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34b9edda7f5b97a0800000000000000
+      internalID: -6369392266671705029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_106
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 131
+        width: 22
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baa3f343277c9e130800000000000000
+      internalID: 3596625070748809899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_107
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 131
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea598bb3536ffb40800000000000000
+      internalID: 5476204883185588969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_108
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 131
+        width: 22
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 415e955063098c470800000000000000
+      internalID: 8415134465434182932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_109
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 131
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8326d5b91c5fee70800000000000000
+      internalID: 9146630633707414412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_110
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 131
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e3f0b7792f77c290800000000000000
+      internalID: -7870182007728180255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_111
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 131
+        width: 22
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feafea27955459710800000000000000
+      internalID: 1699340684880706287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_112
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 131
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20558ac8778a76a0800000000000000
+      internalID: -6450694563391254481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_113
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 135
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bda39fa7558a4b740800000000000000
+      internalID: 5166939757589641947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_114
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 135
+        width: 58
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11096d7c048d40800800000000000000
+      internalID: 577824424952500241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_115
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 135
+        width: 58
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b737a7be0b9adbd60800000000000000
+      internalID: 7907663098062467963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_116
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 135
+        width: 58
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e6fbf2e6b1b9c80800000000000000
+      internalID: -8315022126948061639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_117
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 135
+        width: 58
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88658419fb2ee4c90800000000000000
+      internalID: -7183555043205294456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_118
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 71
+        width: 58
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa4475ac667e9c7b0800000000000000
+      internalID: -5203373465782500182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_119
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 67
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d7e0dbd74effdd70800000000000000
+      internalID: 9070247759131502552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_120
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 67
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d08b248608137aa60800000000000000
+      internalID: 7685165716705818637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_121
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 67
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b4411e32d32c3cc0800000000000000
+      internalID: -3730067005478189898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_122
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 79
+        width: 58
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5addd11502ad3e0800000000000000
+      internalID: -2028273149411482200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_123
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 67
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334f9bf84f2c72560800000000000000
+      internalID: 7289008877561574451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_124
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 67
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d82b6dec3e220140800000000000000
+      internalID: 4684357401634875609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_125
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 67
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a999788a355dfc9c0800000000000000
+      internalID: -3904667796620469862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_126
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 95
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a5bdba41ccd7840800000000000000
+      internalID: 5223555531974334987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_127
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 67
+        width: 22
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5307fbd3b150bd860800000000000000
+      internalID: 7555638414402351157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_128
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 67
+        width: 22
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7a32dba593c9a60800000000000000
+      internalID: 7682078126270293989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_129
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 67
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c01c959c8bf35b60800000000000000
+      internalID: 7733801566349299905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_130
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 67
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fabab8d0f0e675a90800000000000000
+      internalID: -7325265257964000337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_131
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 67
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf89b825bcb7e4010800000000000000
+      internalID: 1175012665983736060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_132
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 43
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7194e392d967f150800000000000000
+      internalID: 5906305789464973695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_133
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 7
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b992a511df02b2fd0800000000000000
+      internalID: -2365760907963127397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_134
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 7
+        width: 58
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36232552a9e1aa3c0800000000000000
+      internalID: -4347628842872851869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_135
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2ba1ce1b8740830800000000000000
+      internalID: 4036483871596524260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_136
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 3
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92820190628efff50800000000000000
+      internalID: 6917502802722826281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_137
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 43
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 036eb68983f942130800000000000000
+      internalID: 3541130272444245552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_138
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 43
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 346eda01dadfc0ec0800000000000000
+      internalID: -3599223082424867261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_139
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 43
+        width: 38
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90593f3c4fe16a360800000000000000
+      internalID: 7180460692497208585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_140
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 43
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d008cba1b6d6c9b0800000000000000
+      internalID: -5060121072724606761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_141
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 43
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ec8c2d69d0f2060800000000000000
+      internalID: 6930773292979113627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_142
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 43
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03cb1ad406deeab90800000000000000
+      internalID: -7228579354007978960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_143
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 43
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee6e10fcb2ffdf900800000000000000
+      internalID: 720012079070832366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_144
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 3
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7fa544686b37be20800000000000000
+      internalID: 3366224566027661178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_145
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 23
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b30c81090220910800000000000000
+      internalID: 1802038604164250425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_146
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c313e7178d80ab240800000000000000
+      internalID: 4808165277881479484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_147
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 23
+        width: 38
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30aea6cf79d176370800000000000000
+      internalID: 8315647775575042563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_148
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5172ccf2a7ec4d950800000000000000
+      internalID: 6473025588621485845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_149
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3da0dd0efcae50ff0800000000000000
+      internalID: -70392040602662189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_150
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6ffbf8831fd7f740800000000000000
+      internalID: 5185858770936004458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_151
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6168717d05767a390800000000000000
+      internalID: -7807157832119777770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_152
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644a29addaedd28a0800000000000000
+      internalID: -6328157063107926970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_153
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 572d7d5747c2fd550800000000000000
+      internalID: 6187713291735257717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_154
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bdc45083323f41f0800000000000000
+      internalID: -1058572190631014984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_155
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 3
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5a415e1c4b8b54c0800000000000000
+      internalID: -4297688260352587172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_156
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 3
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6260998dbeed2010800000000000000
+      internalID: 1165850376382997100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_157
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 3
+        width: 38
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9fe058146ddebf0800000000000000
+      internalID: -293342823815644734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_158
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 3
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30deefa97fa379d0800000000000000
+      internalID: -2777683607979896771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_159
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 3
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004cc168b8ebda530800000000000000
+      internalID: 3867957161440887808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_160
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 3
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4747237dce3c5e0800000000000000
+      internalID: -1890407009556859699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconsShadow-64_161
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 3
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fac7ec73b0f91750800000000000000
+      internalID: 6276312209402874615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

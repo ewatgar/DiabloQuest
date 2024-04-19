@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 
 public class SpellButton : MonoBehaviour
@@ -12,13 +12,24 @@ public class SpellButton : MonoBehaviour
 
     private void Awake()
     {
-        gameObject.GetComponentInChildren<Image>().sprite = _spell.artwork;
+    }
+
+    private void Start()
+    {
+        //transform.Find("SpellArtwork").GetComponent<Image>().sprite = _spell.artwork;
+        /*
+                Transform tr = transform.Find("SpellArtwork");
+                Image image = tr.GetComponent<Image>();
+                image.sprite = _spell.artwork;*/
+
     }
 
     private void OnMouseEnter()
     {
         //StateMachine.Instance.HandleSpellButtonClicked(_spell);
     }
+
+
 
     private void DisplayTextOnHover()
     {

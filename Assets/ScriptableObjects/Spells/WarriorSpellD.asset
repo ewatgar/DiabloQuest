@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Escudo Protector
   description: descripcion D
-  artwork: {fileID: 0}
+  artwork: {fileID: 8781525044889457999, guid: 4df7fa320e736144597445d93388c32b, type: 3}
   actionPointCost: 0
   baseDamage: 0
   spellAreaType: 0

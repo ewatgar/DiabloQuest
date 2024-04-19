@@ -17,7 +17,6 @@ public class UIManager : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] protected Player player;
-    [SerializeField] private float spellButtonsGap = 5;
 
     private void Awake()
     {
@@ -33,7 +32,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        PlaceSpellButtonsWithOffset(spellPanel, spellButtonsGap);
+        PlaceSpellButtonsWithOffset();
     }
 
     public void OnFinishTurnClicked()
@@ -41,30 +40,20 @@ public class UIManager : MonoBehaviour
         StateMachine.Instance.ProcessEvent(Event.FinishPlayerTurn);
     }
 
-    private void PlaceSpellButtonsWithOffset(GameObject spellPanel, float gap)
+    private void PlaceSpellButtonsWithOffset()
     {
-        Vector3 spellButtonSize = spellButtonPrefab.GetComponentInChildren<RectTransform>().sizeDelta;
-
-        float spellButtonWidth = spellButtonSize.x;
-        float gapX = gap;
-        float nCols = player.ListSpells.Count;
-        float colWidth = spellButtonWidth * nCols + gapX * (nCols - 1);
-        float x0 = -(colWidth - spellButtonWidth) / 2;
-        float offsetX = spellButtonWidth + gapX;
-
-        int i = 0;
+        int i = 50;
         foreach (Spell spell in player.ListSpells)
         {
-            float coordsX = x0 + offsetX * i;
             SpellButton spellButton = Instantiate(spellButtonPrefab, spellPanel.transform);
-            spellButton.name = spellButtonPrefab.name + i;
-            spellButton.transform.localPosition = new Vector2(coordsX, 0);
+            spellButton.name = spellButtonPrefab.name;
+            float pos = spellButton.transform.localPosition.x;
+            spellButton.transform.localPosition = new Vector2(pos + i, 0);
             spellButton.Spell = spell;
-            i++;
+            spellButton.transform.Find("SpellArtwork").GetComponent<Image>().sprite = spell.artwork;
+            i += 100;
         }
     }
-
-
 
 }
 

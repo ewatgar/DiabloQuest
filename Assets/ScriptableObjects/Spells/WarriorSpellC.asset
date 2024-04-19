@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Golpe Certero
   description: descripcion C
-  artwork: {fileID: 0}
+  artwork: {fileID: 2738159280066784702, guid: 582217c6aed880d41a48b42643c7bfc7, type: 3}
   actionPointCost: 0
   baseDamage: 0
   spellAreaType: 2

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Estocada
   description: descripcion A
-  artwork: {fileID: 0}
+  artwork: {fileID: 2186627556539719362, guid: 87c72922c14e5354185d0daf02c8a248, type: 3}
   actionPointCost: 0
   baseDamage: 0
   spellAreaType: 0
