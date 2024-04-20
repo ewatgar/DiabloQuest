@@ -112,8 +112,8 @@ MonoBehaviour:
   _resistancePerc: 0
   _critsPerc: 0
   _listSpells:
-  - {fileID: 11400000, guid: bf514c5224b30a74da3ae01f3240faf6, type: 2}
-  - {fileID: 11400000, guid: b69003e6e33919544bb4cd935bbc6475, type: 2}
+  - {fileID: 11400000, guid: ccd48bb5e495165479fc136ee1c47e57, type: 2}
+  - {fileID: 11400000, guid: 75774e0a406193642b1d98d45fc3ec2d, type: 2}
   _animationSpeed: 0.3
   _enemyType: 1
   _minDistanceLongRange: 5

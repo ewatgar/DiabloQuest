@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360601aaf488fa841aa412d8a5218bb7, type: 3}
   m_Name: WarrC
   m_EditorClassIdentifier: 
-  name: 
+  name: Golpe Certero
   description: 
-  artwork: {fileID: 0}
-  actionPointCost: 0
-  baseDamageOrHealing: 0
-  spellAreaType: 0
+  artwork: {fileID: 2738159280066784702, guid: 582217c6aed880d41a48b42643c7bfc7, type: 3}
+  actionPointCost: 4
+  baseDamageOrHealing: 30
+  spellAreaType: 2
   utilityType: 0

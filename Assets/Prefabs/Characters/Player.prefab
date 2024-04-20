@@ -113,10 +113,10 @@ MonoBehaviour:
   _resistancePerc: 0
   _critsPerc: 0
   _listSpells:
-  - {fileID: 11400000, guid: f687296edf0d1b34489497a4551c0e10, type: 2}
-  - {fileID: 11400000, guid: 18b57581d72e39d42a30357aa1329c79, type: 2}
-  - {fileID: 11400000, guid: b8b84784c5b697140bc6a7c6ffd029ab, type: 2}
-  - {fileID: 11400000, guid: bc730fac70e716843bc9edf6ba532bbc, type: 2}
+  - {fileID: 11400000, guid: 70e9fa97e70dbca40a98d06e1fc95750, type: 2}
+  - {fileID: 11400000, guid: 281513edb6ee8254ca0ae6ff74d3764f, type: 2}
+  - {fileID: 11400000, guid: 56de967915e870848b74f99381990abd, type: 2}
+  - {fileID: 11400000, guid: 108879bcf26a52d4d91a60a3e6a9e1fb, type: 2}
   _animationSpeed: 0.3
 --- !u!95 &6742454679611154156
 Animator:

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360601aaf488fa841aa412d8a5218bb7, type: 3}
   m_Name: WarrB
   m_EditorClassIdentifier: 
-  name: 
+  name: Sablazo
   description: 
-  artwork: {fileID: 0}
-  actionPointCost: 0
-  baseDamageOrHealing: 0
+  artwork: {fileID: 6381045682807812280, guid: 61e4c6107de64eb4fbc91123aee2a1ae, type: 3}
+  actionPointCost: 3
+  baseDamageOrHealing: 40
   spellAreaType: 0
   utilityType: 0

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360601aaf488fa841aa412d8a5218bb7, type: 3}
   m_Name: WarrD
   m_EditorClassIdentifier: 
-  name: 
+  name: Escudo Protector
   description: 
-  artwork: {fileID: 0}
-  actionPointCost: 0
+  artwork: {fileID: 8781525044889457999, guid: 4df7fa320e736144597445d93388c32b, type: 3}
+  actionPointCost: 3
   baseDamageOrHealing: 0
   spellAreaType: 0
-  utilityType: 0
+  utilityType: 2

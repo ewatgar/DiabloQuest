@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360601aaf488fa841aa412d8a5218bb7, type: 3}
   m_Name: WarrA
   m_EditorClassIdentifier: 
-  name: 
+  name: Estocada
   description: 
-  artwork: {fileID: 0}
-  actionPointCost: 0
-  baseDamageOrHealing: 0
+  artwork: {fileID: 2186627556539719362, guid: 87c72922c14e5354185d0daf02c8a248, type: 3}
+  actionPointCost: 2
+  baseDamageOrHealing: 20
   spellAreaType: 0
   utilityType: 0
