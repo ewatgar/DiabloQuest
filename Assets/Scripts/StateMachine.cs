@@ -189,27 +189,11 @@ public class StateMachine : MonoBehaviour
         {
             enemy.RestartStats();
             enemy.GetCharacterTile().Solid = false;
-            yield return StartCoroutine(EnemyTurnCoroutine(enemy));
+            yield return StartCoroutine(enemy.EnemyTurnCoroutine(player));
             enemy.GetCharacterTile().Solid = true;
         }
         ProcessEvent(Event.FinishEnemiesTurn);
     }
-
-    // turno enemigo tiene dos partes:
-    // 1. Movimiento (acercarse o alejarse del player)
-    // 2. Atacar (melee o distancia)
-    private IEnumerator EnemyTurnCoroutine(Enemy enemy)
-    {
-        //PASO 1 - moverse si puede
-        yield return StartCoroutine(enemy.EnemyMovementCoroutine(player.GetCharacterTile()));
-
-        //PASO 2 - atacar si puede
-        yield return StartCoroutine(enemy.EnemyAttackCoroutine(player.GetCharacterTile()));
-
-    }
-
-
-
 
     // OTHER ------------------------------------------------
 

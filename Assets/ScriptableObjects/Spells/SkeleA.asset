@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360601aaf488fa841aa412d8a5218bb7, type: 3}
   m_Name: SkeleA
   m_EditorClassIdentifier: 
-  name: 
+  name: SkeleA
   description: 
   artwork: {fileID: 0}
-  actionPointCost: 0
-  baseDamageOrHealing: 0
-  spellAreaType: 0
+  actionPointCost: 2
+  baseDamageOrHealing: 15
+  spellAreaType: 1
   utilityType: 0

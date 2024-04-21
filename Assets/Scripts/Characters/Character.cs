@@ -26,6 +26,8 @@ public class Character : MonoBehaviour
     [Header("Other")]
     [SerializeField] protected float _animationSpeed = 0.3f;
 
+    protected Tile _oldGoalTile;
+
     public int HealthPoints { get => _healthPoints; }
     public int ActionPoints { get => _actionPoints; }
     public int MovementPoints { get => _movementPoints; }
@@ -47,6 +49,7 @@ public class Character : MonoBehaviour
         _damage = _initDamage;
         _resistancePerc = _initResistancePerc;
         _critsPerc = _initCritsPerc;
+        _oldGoalTile = GetCharacterTile();
     }
 
     public void RestartStats()
@@ -125,11 +128,26 @@ public class Character : MonoBehaviour
         return GridManager.Instance.GetTileFromWorldCoords(transform.position);
     }
 
-    public Tile MeleeTile(Vector2Int dir)
-    {
-        var grid = GridManager.Instance;
+    /*
+        public Tile MeleeTile(Vector2Int dir)
+        {
+            var grid = GridManager.Instance;
 
-        Tile tile = grid.GetTileFromTileCoords(GetCharacterTile().Coords + dir);
-        return tile;
+            Tile tile = grid.GetTileFromTileCoords(GetCharacterTile().Coords + dir);
+            return tile;
+        }*/
+
+    public int CanculateGivenDamage(int baseDamage)
+    {
+        bool isCrits = false;
+        if (Random.Range(1, 101) >= 1) { }
+        return 1;
     }
+
+    public int CalculateTakenDamage(int damage)
+    {
+        return 1;
+    }
+
+
 }
