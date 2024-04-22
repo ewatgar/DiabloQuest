@@ -18,7 +18,7 @@ public class Enemy : Character
 
     public new bool SelectTileForPathfinding(Tile playerTile, bool color)
     {
-        Tile goalTile;
+        Tile goalTile = null;
         if (_enemyType == EnemyType.LongRange)
         {
             playerTile.Solid = true;
@@ -70,7 +70,7 @@ public class Enemy : Character
         yield return StartCoroutine(EnemyMovementCoroutine(player));
 
         //PASO 2 - atacar si puede
-        //yield return StartCoroutine(EnemyAttackCoroutine(player));
+        yield return StartCoroutine(EnemyAttackCoroutine(player));
 
     }
 
@@ -84,22 +84,59 @@ public class Enemy : Character
 
     private IEnumerator EnemyAttackCoroutine(Player player)
     {
-        int step = 100;
-        while (_actionPoints > 0 || step < 100)
+        int step = 0;
+        while (_actionPoints > 0 && step < 100)
         {
             int index = Random.Range(0, ListSpells.Count);
             Spell randomSpell = _listSpells[index];
-            CheckUseSpell(player, randomSpell);
+            UseSpell(player, randomSpell);
             step++;
         }
         yield return null;
 
     }
 
-    private void CheckUseSpell(Player player, Spell spell)
+    private void UseSpell(Player playerAttacked, Spell spell)
     {
+        if (CheckCanUseSpell(playerAttacked, spell))
+        {
+            switch (spell.utilityType)
+            {
+                case UtilityType.Damage:
+                    CalculateFinalSpellDamage(playerAttacked, spell);
+                    break;
+                case UtilityType.Healing:
+                    if (spell.spellAreaType == SpellAreaType.Self) CalculateSpellSelfHealing(spell);
+                    else throw new System.NotImplementedException(); //TODO UtilityType.Healing curar otros aliados
+                    break;
+                case UtilityType.Knockback:
+                    throw new System.NotImplementedException(); //TODO UtilityType.Knockback enemy
+            }
+            SpendActionPoints(spell.actionPointCost);
+        }
+    }
+
+    protected void CalculateSpellSelfHealing(Spell spell)
+    {
+        int baseCharHealing = _damagePoints * 10;
+        int baseSpellHealing = spell.baseDamageOrHealing;
+        int critsPerc = _critsPerc * 10;
+
+        int critsHealing = 0;
+        if (Random.Range(1, 101) >= critsPerc) critsHealing = Mathf.FloorToInt(baseSpellHealing * 1.5f);
+
+        int damageWithCrits = baseCharHealing + baseSpellHealing + critsHealing;
+
+        int finalHealing = damageWithCrits;
+        GetHealth(finalHealing);
+    }
+
+    private bool CheckCanUseSpell(Player playerAttacked, Spell spell)
+    {
+        if (_actionPoints < spell.actionPointCost) return false;
+
         bool canUseSpell = true;
-        int distance = GridManager.DistanceBetweenTiles(GetCharacterTile(), player.GetCharacterTile());
+        int distance = GridManager.DistanceBetweenTiles(GetCharacterTile(), playerAttacked.GetCharacterTile());
         switch (spell.spellAreaType)
         {
             case SpellAreaType.Melee:
@@ -112,32 +149,15 @@ public class Enemy : Character
                 canUseSpell = distance <= 5 && distance > 2;
                 break;
             case SpellAreaType.Line:
-                //no se va a usar line nunca
-                break;
+                //TODO SpellAreaType.Line
+                throw new System.NotImplementedException();
             case SpellAreaType.Self:
                 canUseSpell = true;
                 break;
         }
-
-        if (_actionPoints < spell.actionPointCost) canUseSpell = false;
-
-        //check if can use spell
-        if (canUseSpell)
-        {
-            //TODO
-            SpendActionPoints(spell.actionPointCost);
-            switch (spell.utilityType)
-            {
-                case UtilityType.Damage:
-
-                    break;
-                case UtilityType.Healing:
-                    break;
-                case UtilityType.Knockback:
-                    break;
-            }
-        }
+        return canUseSpell;
     }
+
 
     public new IEnumerator MovingThroughPathCoroutine()
     {
@@ -149,10 +169,7 @@ public class Enemy : Character
 
         foreach (Tile tile in path)
         {
-            if (_movementPoints <= 0)
-            {
-                break;
-            }
+            if (_movementPoints <= 0) break;
 
             Vector3 startPos = transform.position;
 

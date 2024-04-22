@@ -102,13 +102,13 @@ MonoBehaviour:
   _initHealthPoints: 700
   _initActionPoints: 6
   _initMovementPoints: 4
-  _initDamage: 30
+  _initDamagePoints: 3
   _initResistancePerc: 3
   _initCritsPerc: 3
   _healthPoints: 0
   _actionPoints: 0
   _movementPoints: 0
-  _damage: 0
+  _damagePoints: 0
   _resistancePerc: 0
   _critsPerc: 0
   _listSpells:

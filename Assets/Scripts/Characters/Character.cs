@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Character : MonoBehaviour
 {
@@ -8,7 +10,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected int _initHealthPoints = 300;       //health points
     [SerializeField] protected int _initActionPoints = 6;         //action points
     [SerializeField] protected int _initMovementPoints = 4;       //movement points
-    [SerializeField] protected int _initDamage = 1;               //damage
+    [SerializeField] protected int _initDamagePoints = 1;               //damage
     [SerializeField] protected int _initResistancePerc = 1;       //resistance %
     [SerializeField] protected int _initCritsPerc = 1;            //crits %
 
@@ -16,7 +18,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected int _healthPoints;
     [SerializeField] protected int _actionPoints;
     [SerializeField] protected int _movementPoints;
-    [SerializeField] protected int _damage;
+    [SerializeField] protected int _damagePoints;
     [SerializeField] protected int _resistancePerc;
     [SerializeField] protected int _critsPerc;
 
@@ -31,7 +33,7 @@ public class Character : MonoBehaviour
     public int HealthPoints { get => _healthPoints; }
     public int ActionPoints { get => _actionPoints; }
     public int MovementPoints { get => _movementPoints; }
-    public int Damage { get => _damage; }
+    public int DamagePoints { get => _damagePoints; }
     public int ResistancePerc { get => _resistancePerc; }
     public int CritsPerc { get => _critsPerc; }
     public List<Spell> ListSpells { get => _listSpells; }
@@ -46,7 +48,7 @@ public class Character : MonoBehaviour
         _healthPoints = _initHealthPoints;
         _actionPoints = _initActionPoints;
         _movementPoints = _initMovementPoints;
-        _damage = _initDamage;
+        _damagePoints = _initDamagePoints;
         _resistancePerc = _initResistancePerc;
         _critsPerc = _initCritsPerc;
         _oldGoalTile = GetCharacterTile();
@@ -61,8 +63,14 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int hp = 1)
     {
-        if (_movementPoints > 0) _healthPoints -= hp;
-        else _movementPoints = 0;
+        if (_healthPoints > 0) _healthPoints -= hp;
+        else _healthPoints = 0;
+    }
+
+    public void GetHealth(int hp = 1)
+    {
+        if (_healthPoints < _initActionPoints) _healthPoints += hp;
+        else _healthPoints = _initActionPoints;
     }
 
     public void SpendActionPoints(int ap = 1)
@@ -137,17 +145,22 @@ public class Character : MonoBehaviour
             return tile;
         }*/
 
-    public int CanculateGivenDamage(int baseDamage)
+
+    protected void CalculateFinalSpellDamage(Character characterAttacked, Spell spell)
     {
-        bool isCrits = false;
-        if (Random.Range(1, 101) >= 1) { }
-        return 1;
+        int baseCharDamage = _damagePoints * 10;
+        int baseSpellDamage = spell.baseDamageOrHealing;
+        int critsPerc = _critsPerc * 10;
+        int resPerc = _resistancePerc * 10;
+
+        // critsDamage = [spellDamage * 1,5] or [spellDamage + half]
+        int critsDamage = 0;
+        if (Random.Range(1, 101) >= critsPerc) critsDamage = Mathf.FloorToInt(baseSpellDamage * 1.5f);
+
+        int damageWithCrits = baseCharDamage + baseSpellDamage + critsDamage;
+        int resDamage = damageWithCrits * (resPerc / 100);
+
+        int finalDamage = damageWithCrits - resDamage;
+        characterAttacked.TakeDamage(finalDamage);
     }
-
-    public int CalculateTakenDamage(int damage)
-    {
-        return 1;
-    }
-
-
 }
