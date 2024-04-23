@@ -12,14 +12,16 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private Canvas canvas;
-    [SerializeField] private GameObject spellZone;
+    //[SerializeField] private GameObject spellZone;
     [SerializeField] private SpellButton spellButtonPrefab;
-    [SerializeField] private GameObject otherButtonsZone;
+    //[SerializeField] private GameObject otherButtonsZone;
+    [SerializeField] private GameObject mainBar;
+    [SerializeField] private GameObject charInfo;
 
     [Header("Other")]
     [SerializeField] protected Player player;
 
-    private bool _canUseMainButtons;
+    //private bool _canUseMainButtons;
 
     private void Awake()
     {
@@ -45,6 +47,10 @@ public class UIManager : MonoBehaviour
 
     private void PlaceSpellButtonsWithOffset()
     {
+        //GameObject child1 = originalGameObject.transform.FindChild("child1").gameObject;
+        GameObject spellZone = mainBar.transform.Find("SpellZone").gameObject;
+
+
         int i = 50;
         foreach (Spell spell in player.ListSpells)
         {
@@ -56,6 +62,11 @@ public class UIManager : MonoBehaviour
             spellButton.transform.Find("SpellArtwork").GetComponent<Image>().sprite = spell.artwork;
             i += 100;
         }
+    }
+
+    private void UpdateCharInfoText()
+    {
+
     }
 
 }
