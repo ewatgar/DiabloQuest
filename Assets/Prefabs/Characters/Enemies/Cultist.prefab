@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2812739869157420245}
   - component: {fileID: 5393832577258678628}
   - component: {fileID: 6406329269751404298}
+  - component: {fileID: 2372659122257218852}
   m_Layer: 0
   m_Name: Cultist
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,13 +103,13 @@ MonoBehaviour:
   _initHealthPoints: 350
   _initActionPoints: 6
   _initMovementPoints: 4
-  _initDamage: 1
+  _initDamagePoints: 1
   _initResistancePerc: 2
   _initCritsPerc: 1
   _healthPoints: 0
   _actionPoints: 0
   _movementPoints: 0
-  _damage: 0
+  _damagePoints: 0
   _resistancePerc: 0
   _critsPerc: 0
   _listSpells:
@@ -117,3 +118,40 @@ MonoBehaviour:
   _animationSpeed: 0.3
   _enemyType: 1
   _minDistanceLongRange: 5
+--- !u!70 &2372659122257218852
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7908806914963609856}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.734229}
+  m_Size: {x: 1.2, y: 1.8684577}
+  m_Direction: 0

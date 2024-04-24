@@ -18,8 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject mainBar;
     [SerializeField] private GameObject charInfo;
 
-    [Header("Other")]
-    [SerializeField] protected Player player;
+    private Player player;
+    private List<Enemy> enemiesList;
 
     //private bool _canUseMainButtons;
 
@@ -37,6 +37,9 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        player = Utils.GetPlayer();
+        enemiesList = Utils.GetEnemies();
+        AddAsObserverToAllCharacters();
         PlaceSpellButtonsWithOffset();
     }
 
@@ -47,9 +50,7 @@ public class UIManager : MonoBehaviour
 
     private void PlaceSpellButtonsWithOffset()
     {
-        //GameObject child1 = originalGameObject.transform.FindChild("child1").gameObject;
         GameObject spellZone = mainBar.transform.Find("SpellZone").gameObject;
-
 
         int i = 50;
         foreach (Spell spell in player.ListSpells)
@@ -64,10 +65,29 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void UpdateCharInfoText()
+    private void UpdateCharInfoText(Character character)
     {
-
+        //charInf.
+        print("char clicked");
     }
+
+    public void AddAsObserverToAllCharacters()
+    {
+        player.OnCharClicked += HandleCharClicked;
+        foreach (Enemy enemy in enemiesList)
+        {
+            enemy.OnCharClicked += HandleCharClicked;
+        }
+    }
+
+    // EVENTS ---------------------------------
+
+    private void HandleCharClicked(Character character)
+    {
+        UpdateCharInfoText(character);
+    }
+
+
 
 }
 

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 987224317661835778}
   - component: {fileID: 4178955134271070749}
   - component: {fileID: 2394655646715456728}
+  - component: {fileID: 7028279562121865229}
   m_Layer: 3
   m_Name: Goblin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,13 +103,13 @@ MonoBehaviour:
   _initHealthPoints: 250
   _initActionPoints: 6
   _initMovementPoints: 3
-  _initDamage: 1
+  _initDamagePoints: 1
   _initResistancePerc: 1
   _initCritsPerc: 1
   _healthPoints: 0
   _actionPoints: 0
   _movementPoints: 0
-  _damage: 0
+  _damagePoints: 0
   _resistancePerc: 0
   _critsPerc: 0
   _listSpells:
@@ -117,3 +118,40 @@ MonoBehaviour:
   _animationSpeed: 0.3
   _enemyType: 0
   _minDistanceLongRange: 0
+--- !u!70 &7028279562121865229
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199368913069152463}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.72337544}
+  m_Size: {x: 1.2250435, y: 1.8467505}
+  m_Direction: 0

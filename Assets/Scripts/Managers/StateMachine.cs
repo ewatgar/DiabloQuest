@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,9 +40,8 @@ public class StateMachine : MonoBehaviour
     public State CurrectState { get => _currentState; }
     private State _oldState; //DEBUG
 
-    [Header("Fighters")]
-    [SerializeField] private Player player;
-    [SerializeField] private List<Enemy> enemiesList;
+    private Player player;
+    private List<Enemy> enemiesList;
 
     private Tile _selectedTile;
 
@@ -61,9 +61,12 @@ public class StateMachine : MonoBehaviour
 
     private void Start()
     {
+        player = Utils.GetPlayer();
+        enemiesList = Utils.GetEnemies();
         GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
         ProcessEvent();
     }
+
 
     private void Update()
     {

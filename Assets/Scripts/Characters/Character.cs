@@ -30,6 +30,8 @@ public class Character : MonoBehaviour
 
     protected Tile _oldGoalTile;
 
+    public event Action<Character> OnCharClicked;
+
     public int HealthPoints { get => _healthPoints; }
     public int ActionPoints { get => _actionPoints; }
     public int MovementPoints { get => _movementPoints; }
@@ -163,4 +165,10 @@ public class Character : MonoBehaviour
         int finalDamage = damageWithCrits - resDamage;
         characterAttacked.TakeDamage(finalDamage);
     }
+
+    private void OnMouseDown()
+    {
+        OnCharClicked?.Invoke(this);
+    }
+
 }
