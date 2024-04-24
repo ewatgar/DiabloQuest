@@ -175,4 +175,13 @@ public class Character : MonoBehaviour
         OnCharClicked?.Invoke(this);
     }
 
+    public void InitCharZPosition()
+    {
+        Vector3 newPos = new Vector3(
+            transform.position.x,
+            transform.position.y,
+            GetCharacterTile().Coords.y);
+        transform.position = newPos;
+    }
+
 }

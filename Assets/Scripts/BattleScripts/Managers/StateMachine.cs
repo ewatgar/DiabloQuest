@@ -61,12 +61,21 @@ public class StateMachine : MonoBehaviour
 
     private void Start()
     {
-        player = Utils.GetPlayer();
-        enemiesList = Utils.GetEnemies();
+        InitChars();
         GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
         ProcessEvent();
     }
 
+    private void InitChars()
+    {
+        player = Utils.GetPlayer();
+        enemiesList = Utils.GetEnemies();
+        player.InitCharZPosition();
+        foreach (Enemy enemy in enemiesList)
+        {
+            enemy.InitCharZPosition();
+        }
+    }
 
     private void Update()
     {
