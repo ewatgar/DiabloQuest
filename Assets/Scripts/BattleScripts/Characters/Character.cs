@@ -45,6 +45,11 @@ public class Character : MonoBehaviour
         InitStats();
     }
 
+    private void Start()
+    {
+        _oldGoalTile = GetCharacterTile();
+    }
+
     protected void InitStats()
     {
         _healthPoints = _initHealthPoints;
@@ -53,7 +58,6 @@ public class Character : MonoBehaviour
         _damagePoints = _initDamagePoints;
         _resistancePerc = _initResistancePerc;
         _critsPerc = _initCritsPerc;
-        _oldGoalTile = GetCharacterTile();
     }
 
     public void RestartStats()

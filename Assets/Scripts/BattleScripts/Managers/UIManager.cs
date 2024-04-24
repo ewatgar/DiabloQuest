@@ -67,8 +67,18 @@ public class UIManager : MonoBehaviour
 
     private void UpdateCharInfoText(Character character)
     {
-        //charInf.
         print("char clicked");
+        TextMeshProUGUI charName = charInfo.transform.Find("CharName").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI hpText = charInfo.transform.Find("HPText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI apText = charInfo.transform.Find("APText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI mpText = charInfo.transform.Find("MPText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI resPercText = charInfo.transform.Find("ResPercText").GetComponent<TextMeshProUGUI>();
+
+        charName.text = character.gameObject.name;
+        hpText.text = character.HealthPoints.ToString();
+        apText.text = character.ActionPoints.ToString();
+        mpText.text = character.MovementPoints.ToString();
+        resPercText.text = (character.MovementPoints * 10).ToString() + "%";
     }
 
     public void AddAsObserverToAllCharacters()
