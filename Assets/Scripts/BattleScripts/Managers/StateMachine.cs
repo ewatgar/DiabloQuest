@@ -63,7 +63,6 @@ public class StateMachine : MonoBehaviour
     {
         InitChars();
         GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
-        UIManager.Instance.AddAsObserverToUI(HandleFinishButtonClicked);
         ProcessEvent();
     }
 
@@ -152,6 +151,9 @@ public class StateMachine : MonoBehaviour
         }
     }
 
+
+
+
     // START METHODS FOR STATE MACHINE -------------------
 
     private void StartPlayerTurn()
@@ -238,13 +240,18 @@ public class StateMachine : MonoBehaviour
         }
     }
 
-    private void HandleFinishButtonClicked()
-    {
-        ProcessEvent(Event.FinishPlayerTurn);
-    }
-
+    // SPELLS -------------------------------
+    /*
     public void HandleSpellButtonClicked(Spell spell)
     {
         print(spell.name);
-    }
+    }*/
+
+
+
+
+
+
+
+
 }

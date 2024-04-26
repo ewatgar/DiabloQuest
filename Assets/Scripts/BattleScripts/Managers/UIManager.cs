@@ -18,10 +18,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject mainBar;
     [SerializeField] private GameObject charInfo;
 
-    private Player _player;
-    private List<Enemy> _enemiesList;
+    private Player player;
+    private List<Enemy> enemiesList;
 
-    public event Action OnFinishButtonClicked;
+    //private bool _canUseMainButtons;
 
     private void Awake()
     {
@@ -37,10 +37,15 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        _player = Utils.GetPlayer();
-        _enemiesList = Utils.GetEnemies();
+        player = Utils.GetPlayer();
+        enemiesList = Utils.GetEnemies();
         AddAsObserverToAllCharacters();
         PlaceSpellButtonsWithOffset();
+    }
+
+    public void OnFinishTurnClicked()
+    {
+        StateMachine.Instance.ProcessEvent(Event.FinishPlayerTurn);
     }
 
     private void PlaceSpellButtonsWithOffset()
@@ -48,7 +53,7 @@ public class UIManager : MonoBehaviour
         GameObject spellZone = mainBar.transform.Find("SpellZone").gameObject;
 
         int i = 50;
-        foreach (Spell spell in _player.ListSpells)
+        foreach (Spell spell in player.ListSpells)
         {
             SpellButton spellButton = Instantiate(spellButtonPrefab, spellZone.transform);
             spellButton.name = spellButtonPrefab.name;
@@ -78,17 +83,11 @@ public class UIManager : MonoBehaviour
 
     public void AddAsObserverToAllCharacters()
     {
-        _player.OnCharClicked += HandleCharClicked;
-        foreach (Enemy enemy in _enemiesList)
+        player.OnCharClicked += HandleCharClicked;
+        foreach (Enemy enemy in enemiesList)
         {
             enemy.OnCharClicked += HandleCharClicked;
         }
-    }
-
-    //add as observer to all UI elements (finish and spell buttons)
-    public void AddAsObserverToUI(Action HandleFinishButtonClicked)
-    {
-        OnFinishButtonClicked += HandleFinishButtonClicked;
     }
 
     // EVENTS ---------------------------------
@@ -98,11 +97,7 @@ public class UIManager : MonoBehaviour
         UpdateCharInfoText(character);
     }
 
-    // BUTTON METHODS -------------------------
 
-    public void OnFinishTurnClicked()
-    {
-        OnFinishButtonClicked?.Invoke();
-    }
+
 }
 
