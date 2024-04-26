@@ -63,7 +63,15 @@ public class GridManager : MonoBehaviour
 
     public Tile GetTileFromTileCoords(Vector2Int coords)
     {
-        return _tileGrid[coords.x, coords.y];
+        //return _tileGrid[coords.x, coords.y];
+        try
+        {
+            return _tileGrid[coords.x, coords.y];
+        }
+        catch (IndexOutOfRangeException)
+        {
+            return null;
+        }
     }
 
     public Tile GetTileFromWorldCoords(Vector3 worldCoords)
@@ -94,4 +102,10 @@ public class GridManager : MonoBehaviour
         int yDistance = Mathf.Abs(tileA.Coords.y - tileB.Coords.y);
         return xDistance + yDistance;
     }
+
+    public Tile GetTileFromDirection(Tile tile, Vector2Int dir)
+    {
+        return GetTileFromTileCoords(tile.Coords + dir); ;
+    }
+
 }

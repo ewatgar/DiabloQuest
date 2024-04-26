@@ -40,8 +40,8 @@ public class StateMachine : MonoBehaviour
     public State CurrectState { get => _currentState; }
     private State _oldState; //DEBUG
 
-    private Player player;
-    private List<Enemy> enemiesList;
+    private Player _player;
+    private List<Enemy> _enemiesList;
 
     private Tile _selectedTile;
 
@@ -63,15 +63,16 @@ public class StateMachine : MonoBehaviour
     {
         InitChars();
         GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
+        UIManager.Instance.AddAsObserverUI(HandleFinishTurnButtonClicked, HandleSpellButtonClicked);
         ProcessEvent();
     }
 
     private void InitChars()
     {
-        player = Utils.GetPlayer();
-        enemiesList = Utils.GetEnemies();
-        player.InitCharZPosition();
-        foreach (Enemy enemy in enemiesList)
+        _player = Utils.GetPlayer();
+        _enemiesList = Utils.GetEnemies();
+        _player.InitCharZPosition();
+        foreach (Enemy enemy in _enemiesList)
         {
             enemy.InitCharZPosition();
         }
@@ -159,8 +160,8 @@ public class StateMachine : MonoBehaviour
     private void StartPlayerTurn()
     {
         //PathfindingManager.Instance.ClearValues();
-        player.RestartStats();
-        player.GetCharacterTile().Solid = false;
+        _player.RestartStats();
+        _player.GetCharacterTile().Solid = false;
         InitEnemiesSolidTiles();
 
     }
@@ -190,18 +191,18 @@ public class StateMachine : MonoBehaviour
 
     private IEnumerator PlayerMovingCoroutine()
     {
-        yield return StartCoroutine(player.MovingThroughPathCoroutine());
+        yield return StartCoroutine(_player.MovingThroughPathCoroutine());
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
     }
 
     private IEnumerator AllEnemiesTurnsCoroutine()
     {
-        foreach (Enemy enemy in enemiesList)
+        foreach (Enemy enemy in _enemiesList)
         {
             enemy.RestartStats();
             enemy.GetCharacterTile().Solid = false;
-            yield return StartCoroutine(enemy.EnemyTurnCoroutine(player));
+            yield return StartCoroutine(enemy.EnemyTurnCoroutine(_player));
             enemy.GetCharacterTile().Solid = true;
         }
         ProcessEvent(Event.FinishEnemiesTurn);
@@ -211,7 +212,7 @@ public class StateMachine : MonoBehaviour
 
     private void InitEnemiesSolidTiles()
     {
-        foreach (Enemy enemy in enemiesList)
+        foreach (Enemy enemy in _enemiesList)
         {
             enemy.GetCharacterTile().Solid = true;
         }
@@ -223,10 +224,10 @@ public class StateMachine : MonoBehaviour
     {
         if (CurrectState == State.PlayerTurn
         && !tile.Solid
-        && player.EnoughMovementPoints(tile, false))
+        && _player.EnoughMovementPoints(tile, false))
         {
             _selectedTile = tile;
-            player.SelectTileForPathfinding(_selectedTile, true);
+            _player.SelectTileForPathfinding(_selectedTile, true);
         }
     }
 
@@ -240,18 +241,13 @@ public class StateMachine : MonoBehaviour
         }
     }
 
-    // SPELLS -------------------------------
-    /*
+    private void HandleFinishTurnButtonClicked()
+    {
+        ProcessEvent(Event.FinishPlayerTurn);
+    }
+
     public void HandleSpellButtonClicked(Spell spell)
     {
-        print(spell.name);
-    }*/
-
-
-
-
-
-
-
-
+        _player.GetSpellTiles(spell);
+    }
 }

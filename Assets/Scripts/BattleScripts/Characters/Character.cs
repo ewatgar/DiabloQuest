@@ -142,16 +142,6 @@ public class Character : MonoBehaviour
         return GridManager.Instance.GetTileFromWorldCoords(transform.position);
     }
 
-    /*
-        public Tile MeleeTile(Vector2Int dir)
-        {
-            var grid = GridManager.Instance;
-
-            Tile tile = grid.GetTileFromTileCoords(GetCharacterTile().Coords + dir);
-            return tile;
-        }*/
-
-
     protected void CalculateFinalSpellDamage(Character characterAttacked, Spell spell)
     {
         int baseCharDamage = _damagePoints * 10;

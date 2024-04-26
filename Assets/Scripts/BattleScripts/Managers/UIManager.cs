@@ -18,10 +18,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject mainBar;
     [SerializeField] private GameObject charInfo;
 
-    private Player player;
-    private List<Enemy> enemiesList;
+    private Player _player;
+    private List<Enemy> _enemiesList;
 
-    //private bool _canUseMainButtons;
+    public event Action OnFinishTurnButtonClicked;
+    public event Action<Spell> OnSpellButtonClicked;
 
     private void Awake()
     {
@@ -37,15 +38,10 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        player = Utils.GetPlayer();
-        enemiesList = Utils.GetEnemies();
+        _player = Utils.GetPlayer();
+        _enemiesList = Utils.GetEnemies();
         AddAsObserverToAllCharacters();
         PlaceSpellButtonsWithOffset();
-    }
-
-    public void OnFinishTurnClicked()
-    {
-        StateMachine.Instance.ProcessEvent(Event.FinishPlayerTurn);
     }
 
     private void PlaceSpellButtonsWithOffset()
@@ -53,7 +49,7 @@ public class UIManager : MonoBehaviour
         GameObject spellZone = mainBar.transform.Find("SpellZone").gameObject;
 
         int i = 50;
-        foreach (Spell spell in player.ListSpells)
+        foreach (Spell spell in _player.ListSpells)
         {
             SpellButton spellButton = Instantiate(spellButtonPrefab, spellZone.transform);
             spellButton.name = spellButtonPrefab.name;
@@ -83,11 +79,17 @@ public class UIManager : MonoBehaviour
 
     public void AddAsObserverToAllCharacters()
     {
-        player.OnCharClicked += HandleCharClicked;
-        foreach (Enemy enemy in enemiesList)
+        _player.OnCharClicked += HandleCharClicked;
+        foreach (Enemy enemy in _enemiesList)
         {
             enemy.OnCharClicked += HandleCharClicked;
         }
+    }
+
+    public void AddAsObserverUI(Action HandleFinishTurnButtonClicked, Action<Spell> HandleSpellButtonClicked)
+    {
+        OnFinishTurnButtonClicked += HandleFinishTurnButtonClicked;
+        OnSpellButtonClicked += HandleSpellButtonClicked;
     }
 
     // EVENTS ---------------------------------
@@ -97,7 +99,17 @@ public class UIManager : MonoBehaviour
         UpdateCharInfoText(character);
     }
 
+    // BUTTON LISTENERS -------------------------
 
+    public void OnFinishTurnButtonClickedListener()
+    {
+        OnFinishTurnButtonClicked?.Invoke();
+    }
+
+    public void OnSpellButtonClickedListener(Spell spell)
+    {
+        OnSpellButtonClicked?.Invoke(spell);
+    }
 
 }
 
