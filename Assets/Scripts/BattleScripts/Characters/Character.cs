@@ -142,7 +142,7 @@ public class Character : MonoBehaviour
         return GridManager.Instance.GetTileFromWorldCoords(transform.position);
     }
 
-    protected void CalculateFinalSpellDamage(Character characterAttacked, Spell spell)
+    protected void TakeFinalSpellDamage(Character characterAttacked, Spell spell)
     {
         int baseCharDamage = _damagePoints * 10;
         int baseSpellDamage = spell.baseDamageOrHealing;
@@ -173,5 +173,4 @@ public class Character : MonoBehaviour
             GetCharacterTile().Coords.y);
         transform.position = newPos;
     }
-
 }

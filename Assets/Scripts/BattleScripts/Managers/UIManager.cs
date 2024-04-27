@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour
 
     private void HandleCharClicked(Character character)
     {
-        UpdateCharInfoText(character);
+        if (StateMachine.Instance.CurrectState != State.PlayerSelectingSpell) UpdateCharInfoText(character);
     }
 
     // BUTTON LISTENERS -------------------------

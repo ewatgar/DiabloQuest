@@ -96,6 +96,15 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    public void ClearSpellTiles()
+    {
+        foreach (Tile tile in _tileGrid)
+        {
+            tile.Spell = false;
+        }
+    }
+
+
     public static int DistanceBetweenTiles(Tile tileA, Tile tileB)
     {
         int xDistance = Mathf.Abs(tileA.Coords.x - tileB.Coords.x);

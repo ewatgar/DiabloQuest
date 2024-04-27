@@ -103,10 +103,10 @@ public class Enemy : Character
             switch (spell.utilityType)
             {
                 case UtilityType.Damage:
-                    CalculateFinalSpellDamage(playerAttacked, spell);
+                    TakeFinalSpellDamage(playerAttacked, spell);
                     break;
                 case UtilityType.Healing:
-                    if (spell.spellAreaType == SpellAreaType.Self) CalculateSpellSelfHealing(spell);
+                    if (spell.spellAreaType == SpellAreaType.Self) HealSelfWithSpell(spell);
                     else throw new System.NotImplementedException(); //TODO UtilityType.Healing curar otros aliados
                     break;
                 case UtilityType.Knockback:
@@ -116,7 +116,7 @@ public class Enemy : Character
         }
     }
 
-    protected void CalculateSpellSelfHealing(Spell spell)
+    protected void HealSelfWithSpell(Spell spell)
     {
         int baseCharHealing = _damagePoints * 10;
         int baseSpellHealing = spell.baseDamageOrHealing;

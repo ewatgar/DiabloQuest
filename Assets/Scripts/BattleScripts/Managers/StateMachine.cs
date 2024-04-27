@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 
 public enum State
@@ -14,6 +15,7 @@ public enum State
     EnemiesTurn,
     MatchEnd,
     PlayerMoving,
+    PlayerSelectingSpell,
     PlayerCastingSpell,
 }
 
@@ -27,6 +29,8 @@ public enum Event
     PlayerStartsMoving,
     PlayerStopsMoving,
     FinishGame,
+    PlayerStartsSelectingSpell,
+    PlayerStopsSelectingSpell,
     PlayerStartsCastingSpell,
     PlayerStopsCastingSpell
 }
@@ -44,6 +48,7 @@ public class StateMachine : MonoBehaviour
     private List<Enemy> _enemiesList;
 
     private Tile _selectedTile;
+    private Spell _selectedSpell;
 
     private void Awake()
     {
@@ -112,10 +117,10 @@ public class StateMachine : MonoBehaviour
                     _currentState = State.PlayerMoving;
                     StartPlayerMoving();
                 }
-                else if (event_ == Event.PlayerStartsCastingSpell)
+                else if (event_ == Event.PlayerStartsSelectingSpell)
                 {
-                    _currentState = State.PlayerCastingSpell;
-                    StartPlayerCastingSpell();
+                    _currentState = State.PlayerSelectingSpell;
+                    StartPlayerSelectingSpell();
                 }
                 break;
             case State.PlayerMoving:
@@ -125,10 +130,23 @@ public class StateMachine : MonoBehaviour
                     ResumePlayerTurn();
                 }
                 break;
+            case State.PlayerSelectingSpell:
+                if (event_ == Event.PlayerStartsCastingSpell)
+                {
+                    _currentState = State.PlayerCastingSpell;
+                    StartPlayerCastingSpell();
+                }
+                else if (event_ == Event.PlayerStopsSelectingSpell)
+                {
+                    _currentState = State.PlayerTurn;
+                    ResumePlayerTurn();
+                }
+                break;
             case State.PlayerCastingSpell:
                 if (event_ == Event.PlayerStopsCastingSpell) //?
                 {
-                    //TODO Event.PlayerStopsCastingSpell
+                    _currentState = State.PlayerTurn;
+                    ResumePlayerTurn();
                 }
                 break;
             case State.EnemiesTurn:
@@ -152,9 +170,6 @@ public class StateMachine : MonoBehaviour
         }
     }
 
-
-
-
     // START METHODS FOR STATE MACHINE -------------------
 
     private void StartPlayerTurn()
@@ -163,12 +178,11 @@ public class StateMachine : MonoBehaviour
         _player.RestartStats();
         _player.GetCharacterTile().Solid = false;
         InitEnemiesSolidTiles();
-
     }
 
     private void ResumePlayerTurn()
     {
-
+        ClearTiles();
     }
 
     private void StartPlayerMoving()
@@ -176,11 +190,15 @@ public class StateMachine : MonoBehaviour
         StartCoroutine(PlayerMovingCoroutine());
     }
 
-    private void StartPlayerCastingSpell()
+    private void StartPlayerSelectingSpell()
     {
-        //throw new NotImplementedException();
+        _player.GetSpellTiles(_selectedSpell);
     }
 
+    private void StartPlayerCastingSpell()
+    {
+        StartCoroutine(PlayerAttackCoroutine());
+    }
     private void StartEnemiesTurn()
     {
         //player.GetCharacterTile().Solid = true;
@@ -196,6 +214,20 @@ public class StateMachine : MonoBehaviour
         ProcessEvent(Event.PlayerStopsMoving);
     }
 
+    private IEnumerator PlayerAttackCoroutine()
+    {
+        ClearTiles();
+        //TODO check enemy in that tile and attack it
+        print("playerAttackCoroutine starts");
+        /*yield return null;//StartCoroutine(_player.AttackEnemyCoroutine());
+        _selectedTile = null;
+        _selectedSpell = null;*/
+        print("playerAttackCoroutine stops");
+        yield return new WaitForSeconds(3);
+        ProcessEvent(Event.PlayerStopsCastingSpell);
+    }
+
+
     private IEnumerator AllEnemiesTurnsCoroutine()
     {
         foreach (Enemy enemy in _enemiesList)
@@ -208,15 +240,6 @@ public class StateMachine : MonoBehaviour
         ProcessEvent(Event.FinishEnemiesTurn);
     }
 
-    // OTHER ------------------------------------------------
-
-    private void InitEnemiesSolidTiles()
-    {
-        foreach (Enemy enemy in _enemiesList)
-        {
-            enemy.GetCharacterTile().Solid = true;
-        }
-    }
 
     // EVENTS --------------------------------
 
@@ -239,15 +262,52 @@ public class StateMachine : MonoBehaviour
         {
             ProcessEvent(Event.PlayerStartsMoving);
         }
+        else if (CurrectState == State.PlayerSelectingSpell && !tile.Solid && tile.Spell)
+        {
+            _selectedTile = tile;
+            ProcessEvent(Event.PlayerStartsCastingSpell);
+        }
+        else
+        {
+            _selectedTile = null;
+            ProcessEvent(Event.PlayerStopsSelectingSpell);
+        }
     }
 
     private void HandleFinishTurnButtonClicked()
     {
-        ProcessEvent(Event.FinishPlayerTurn);
+        if (CurrectState == State.PlayerTurn) ProcessEvent(Event.FinishPlayerTurn);
     }
 
     public void HandleSpellButtonClicked(Spell spell)
     {
-        _player.GetSpellTiles(spell);
+        ClearTiles();
+        if (CurrectState == State.PlayerTurn || CurrectState == State.PlayerSelectingSpell)
+        {
+            _currentState = State.PlayerTurn;
+            _selectedSpell = spell;
+            ProcessEvent(Event.PlayerStartsSelectingSpell);
+        }
+        /*
+        else if (CurrectState == State.PlayerSelectingSpell)
+        {
+            _selectedSpell = null;
+            ProcessEvent(Event.PlayerStopsSelectingSpell);
+        }*/
+    }
+    // OTHER ------------------------------------------------
+
+    private void InitEnemiesSolidTiles()
+    {
+        foreach (Enemy enemy in _enemiesList)
+        {
+            enemy.GetCharacterTile().Solid = true;
+        }
+    }
+
+    private void ClearTiles()
+    {
+        PathfindingManager.Instance.ClearValues();
+        GridManager.Instance.ClearSpellTiles();
     }
 }
