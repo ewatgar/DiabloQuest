@@ -100,10 +100,10 @@ public class GridManager : MonoBehaviour
     {
         foreach (Tile tile in _tileGrid)
         {
-            tile.Spell = false;
+            tile.SpellAreaEffect = false;
+            tile.SpellSelectable = false;
         }
     }
-
 
     public static int DistanceBetweenTiles(Tile tileA, Tile tileB)
     {

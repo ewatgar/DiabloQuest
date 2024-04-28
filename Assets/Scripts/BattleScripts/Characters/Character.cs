@@ -173,4 +173,9 @@ public class Character : MonoBehaviour
             GetCharacterTile().Coords.y);
         transform.position = newPos;
     }
+
+    public void EnableCollider(bool value)
+    {
+        GetComponent<Collider2D>().enabled = value;
+    }
 }

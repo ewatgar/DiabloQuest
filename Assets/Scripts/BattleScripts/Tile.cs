@@ -5,24 +5,22 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private Color _pathTileColor;
-    [SerializeField] private Color _spellTileColor;
     private Color _baseColor;
     private SpriteRenderer _sprite;
     private Vector2Int _coords;
 
     public Color BaseColor { get => _baseColor; }
-    public Color PathTileColor { get => _pathTileColor; }
-    public Color SpellTileColor { get => _spellTileColor; set => _spellTileColor = value; }
 
     public SpriteRenderer Sprite { get => _sprite; }
     public Vector2Int Coords { get => _coords; }
 
     private bool _bPath;
-    private bool _bSpell;
+    private bool _bSpellAreaEffect;
+    private bool _bSpellSelectable;
 
     public bool Path { get => _bPath; set => _bPath = value; }
-    public bool Spell { get => _bSpell; set => _bSpell = value; }
+    public bool SpellAreaEffect { get => _bSpellAreaEffect; set => _bSpellAreaEffect = value; }
+    public bool SpellSelectable { get => _bSpellSelectable; set => _bSpellSelectable = value; }
 
     //A* Pathfinding Fields
     private Tile _parentTile;
@@ -62,9 +60,10 @@ public class Tile : MonoBehaviour
 
     private void CheckTileColor()
     {
-        if (_bSolid) _sprite.color = Color.black;
-        else if (_bPath) _sprite.color = _pathTileColor;
-        else if (_bSpell) _sprite.color = _spellTileColor;
+        if (_bSpellAreaEffect) _sprite.color = Color.red;
+        else if (_bSpellSelectable) _sprite.color = Color.yellow;
+        else if (_bSolid) _sprite.color = Color.black;
+        else if (_bPath) _sprite.color = Color.green;
         else _sprite.color = _baseColor;
     }
 

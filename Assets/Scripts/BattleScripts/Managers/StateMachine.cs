@@ -54,6 +54,8 @@ public class StateMachine : MonoBehaviour
 
     private Tile _hoveredTile;
     private Tile _selectedTile;
+    private List<Tile> _listSelectableTiles;
+    private List<Tile> _listAreaOfEffectTiles;
     private Spell _selectedSpell;
     private Spell _previousSelectedSpell;
 
@@ -177,6 +179,10 @@ public class StateMachine : MonoBehaviour
                     _currentState = State.PlayerTurn;
                     ResumePlayerTurn();
                 }
+                else if (event_ == Event.TileHovered)
+                {
+                    CheckHoveredTilePlayerSelectingSpell();
+                }
                 else if (event_ == Event.TileClicked)
                 {
                     CheckClickedTilePlayerSelectingSpell();
@@ -187,7 +193,7 @@ public class StateMachine : MonoBehaviour
                 }
                 break;
             case State.PlayerCastingSpell:
-                if (event_ == Event.PlayerStopsCastingSpell) //?
+                if (event_ == Event.PlayerStopsCastingSpell)
                 {
                     _currentState = State.PlayerTurn;
                     ResumePlayerTurn();
@@ -225,6 +231,14 @@ public class StateMachine : MonoBehaviour
         }
     }
 
+    private void CheckHoveredTilePlayerSelectingSpell()
+    {
+        if (_player.GetSelectableSpellTiles(_selectedSpell).Contains(_hoveredTile))
+        {
+            _listAreaOfEffectTiles = _player.GetAreaOfEffectTiles(_selectedSpell, _hoveredTile);
+        }
+    }
+
     private void CheckClickedTilePlayerTurn()
     {
         if (!_selectedTile.Solid && _selectedTile == _hoveredTile)
@@ -235,8 +249,10 @@ public class StateMachine : MonoBehaviour
 
     private void CheckClickedTilePlayerSelectingSpell()
     {
-        if (!_selectedTile.Solid && !_selectedTile.Solid && _selectedTile.Spell)
+        print("se clickea");
+        if (_selectedTile == _hoveredTile)
         {
+            print("se clickea y se tira el hechizo");
             ProcessEvent(Event.PlayerStartsCastingSpell);
         }
     }
@@ -268,6 +284,9 @@ public class StateMachine : MonoBehaviour
     private void ResumePlayerTurn()
     {
         ClearTiles();
+        _listSelectableTiles = null;
+        _listAreaOfEffectTiles = null;
+        EnableAllColliders(true);
     }
 
     private void StartPlayerMoving()
@@ -277,7 +296,9 @@ public class StateMachine : MonoBehaviour
 
     private void StartPlayerSelectingSpell()
     {
-        _player.GetSpellTiles(_selectedSpell);
+        EnableAllColliders(false);
+        _listSelectableTiles = _player.GetSelectableSpellTiles(_selectedSpell);
+        //_player.GetSpellTiles(_selectedSpell);
     }
 
     private void StartPlayerCastingSpell()
@@ -303,8 +324,17 @@ public class StateMachine : MonoBehaviour
     private IEnumerator PlayerAttackCoroutine()
     {
         ClearTiles();
-        //TODO check enemy in that tile and attack it
         print("playerAttackCoroutine starts");
+        //TODO check enemy in that tile and attack it
+        foreach (Enemy enemy in _enemiesList)
+        {
+            if (_listAreaOfEffectTiles.Contains(enemy.GetCharacterTile()))
+            {
+                print("atacar enemy " + enemy.name);
+            }
+        }
+
+
         /*yield return null;//StartCoroutine(_player.AttackEnemyCoroutine());
         _selectedTile = null;
         _selectedSpell = null;*/
@@ -331,6 +361,7 @@ public class StateMachine : MonoBehaviour
 
     private void HandleTileHovered(Tile tile)
     {
+        GridManager.Instance.ClearSpellTiles();
         _hoveredTile = tile;
         ProcessEvent(Event.TileHovered);
     }
@@ -368,5 +399,14 @@ public class StateMachine : MonoBehaviour
     {
         PathfindingManager.Instance.ClearValues();
         GridManager.Instance.ClearSpellTiles();
+    }
+
+    private void EnableAllColliders(bool value)
+    {
+        _player.EnableCollider(value);
+        foreach (Enemy enemy in _enemiesList)
+        {
+            enemy.EnableCollider(value);
+        }
     }
 }

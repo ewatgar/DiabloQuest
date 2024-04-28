@@ -5,29 +5,64 @@ using UnityEngine;
 
 public class Player : Character
 {
-    public List<Tile> GetSpellTiles(Spell spell)
+    public List<Tile> GetSelectableSpellTiles(Spell spell)
     {
-        List<Tile> listTiles = new List<Tile>();
+        List<Tile> selectableTiles = new List<Tile>();
         switch (spell.spellAreaType)
         {
             case SpellAreaType.Melee:
-                listTiles = GetMeleeTiles();
+                selectableTiles = GetMeleeTiles();
                 break;
             case SpellAreaType.Range:
-                //TODO no se usa SpellAreaType.Range en player
-                break;
+                throw new NotImplementedException();
             case SpellAreaType.Donut:
-                listTiles = GetDonutTiles();
+                selectableTiles.Add(GetCharacterTile());
                 break;
             case SpellAreaType.Line:
-                //TODO no se usa SpellAreaType.Line en player
+                selectableTiles = GetMeleeTiles();
                 break;
             case SpellAreaType.Self:
-                //TODO no se usa SpellAreaType.Self en player
+                selectableTiles.Add(GetCharacterTile());
                 break;
         }
-        return listTiles;
+        ColorSpellSelectableTiles(selectableTiles);
+        return selectableTiles;
     }
+
+    public List<Tile> GetAreaOfEffectTiles(Spell spell, Tile selectableTile)
+    {
+        List<Tile> areaEffectsTiles = new List<Tile>();
+        switch (spell.spellAreaType)
+        {
+            case SpellAreaType.Melee:
+                areaEffectsTiles.Add(selectableTile);
+                break;
+            case SpellAreaType.Range:
+                throw new NotImplementedException();
+            case SpellAreaType.Donut:
+                areaEffectsTiles = GetAreaEffectDonutTiles();
+                break;
+            case SpellAreaType.Line:
+                areaEffectsTiles = GetAreaEffectLineTiles(selectableTile, 3);
+                break;
+            case SpellAreaType.Self:
+                areaEffectsTiles.Add(GetCharacterTile());
+                break;
+        }
+        ColorSpellAreaOfEffectTiles(areaEffectsTiles);
+        return areaEffectsTiles;
+    }
+
+    private List<Tile> GetAreaEffectDonutTiles()
+    {
+        return GetDonutTiles();
+    }
+
+    private List<Tile> GetAreaEffectLineTiles(Tile selectableTile, int range)
+    {
+        return GetLineTiles(selectableTile, range);
+    }
+
 
     private List<Tile> GetMeleeTiles()
     {
@@ -55,19 +90,54 @@ public class Player : Character
         return listTiles;
     }
 
+    private List<Tile> GetLineTiles(Tile tile, int range)
+    {
+        var grid = GridManager.Instance;
+
+        List<Tile> listTiles = new List<Tile>();
+        Vector2Int dir = Vector2Int.up;
+        if (tile == GetSpellTile(Vector2Int.up)) dir = Vector2Int.up;
+        if (tile == GetSpellTile(Vector2Int.down)) dir = Vector2Int.down;
+        if (tile == GetSpellTile(Vector2Int.left)) dir = Vector2Int.left;
+        if (tile == GetSpellTile(Vector2Int.right)) dir = Vector2Int.right;
+
+        Vector2Int sum = GetCharacterTile().Coords;
+        for (int i = 1; i <= range; i++)
+        {
+            sum += dir;
+            Tile lineTile = grid.GetTileFromTileCoords(sum);
+            listTiles.Add(lineTile);
+        }
+        return listTiles;
+    }
+
 
     private Tile GetSpellTile(Vector2Int dir)
     {
         var grid = GridManager.Instance;
         Tile spellTile = grid.GetTileFromDirection(GetCharacterTile(), dir);
-        if (spellTile != null) spellTile.Spell = true;
+        //if (spellTile != null) spellTile.SpellSelection = true;
         return spellTile;
     }
-    /*
-        public bool CheckIfCanCastSpell(Spell spell, Tile tile)
+
+    // Color spell tiles -------------------------
+    private void ColorSpellSelectableTiles(List<Tile> selectableTiles)
+    {
+        foreach (Tile tile in selectableTiles)
         {
-            return GetSpellTiles(spell).Contains(tile);
-        }*/
+            if (tile != null) tile.SpellSelectable = true;
+        }
+    }
+
+    private void ColorSpellAreaOfEffectTiles(List<Tile> selectableTiles)
+    {
+        foreach (Tile tile in selectableTiles)
+        {
+            if (tile != null) tile.SpellAreaEffect = true;
+        }
+    }
+
+    // ----------------------------------------------------------------------
 
     public IEnumerator AttackEnemyCoroutine(Enemy enemy, Spell spell)
     {
