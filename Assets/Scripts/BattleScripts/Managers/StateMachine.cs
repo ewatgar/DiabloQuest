@@ -32,7 +32,12 @@ public enum Event
     PlayerStartsSelectingSpell,
     PlayerStopsSelectingSpell,
     PlayerStartsCastingSpell,
-    PlayerStopsCastingSpell
+    PlayerStopsCastingSpell,
+    TileHovered,
+    TileClicked,
+    FinishTurnButtonClicked,
+    SpellButtonClicked
+
 }
 
 public class StateMachine : MonoBehaviour
@@ -47,21 +52,32 @@ public class StateMachine : MonoBehaviour
     private Player _player;
     private List<Enemy> _enemiesList;
 
+    private Tile _hoveredTile;
     private Tile _selectedTile;
     private Spell _selectedSpell;
+    private Spell _previousSelectedSpell;
 
     private void Awake()
     {
         if (_instance == null)
         {
             _instance = this;
-            _currentState = State.MatchStart;
-            _oldState = State.MatchStart;
+            InitStateMachine();
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    private void InitStateMachine()
+    {
+        _currentState = State.MatchStart;
+        _oldState = State.MatchStart;
+        _hoveredTile = null;
+        _selectedTile = null;
+        _selectedSpell = null;
+        _previousSelectedSpell = null;
     }
 
     private void Start()
@@ -122,6 +138,22 @@ public class StateMachine : MonoBehaviour
                     _currentState = State.PlayerSelectingSpell;
                     StartPlayerSelectingSpell();
                 }
+                else if (event_ == Event.TileHovered)
+                {
+                    CheckHoveredTilePlayerTurn();
+                }
+                else if (event_ == Event.TileClicked)
+                {
+                    CheckClickedTilePlayerTurn();
+                }
+                else if (event_ == Event.FinishTurnButtonClicked)
+                {
+                    CheckFinishTurnButtonClicked();
+                }
+                else if (event_ == Event.SpellButtonClicked)
+                {
+                    CheckSpellButtonClickedPlayerTurn();
+                }
                 break;
             case State.PlayerMoving:
                 if (event_ == Event.PlayerStopsMoving)
@@ -136,10 +168,22 @@ public class StateMachine : MonoBehaviour
                     _currentState = State.PlayerCastingSpell;
                     StartPlayerCastingSpell();
                 }
+                else if (event_ == Event.PlayerStartsSelectingSpell)
+                {
+                    StartPlayerSelectingSpell(); // selects another spell
+                }
                 else if (event_ == Event.PlayerStopsSelectingSpell)
                 {
                     _currentState = State.PlayerTurn;
                     ResumePlayerTurn();
+                }
+                else if (event_ == Event.TileClicked)
+                {
+                    CheckClickedTilePlayerSelectingSpell();
+                }
+                else if (event_ == Event.SpellButtonClicked)
+                {
+                    CheckSpellButtonClickedPlayerSelectingSpell();
                 }
                 break;
             case State.PlayerCastingSpell:
@@ -170,7 +214,48 @@ public class StateMachine : MonoBehaviour
         }
     }
 
-    // START METHODS FOR STATE MACHINE -------------------
+
+    // STATE MACHINE METHODS -------------------
+
+    private void CheckHoveredTilePlayerTurn()
+    {
+        if (!_hoveredTile.Solid && _player.EnoughMovementPoints(_hoveredTile, false))
+        {
+            _player.SelectTileForPathfinding(_hoveredTile, true);
+        }
+    }
+
+    private void CheckClickedTilePlayerTurn()
+    {
+        if (!_selectedTile.Solid && _selectedTile == _hoveredTile)
+        {
+            ProcessEvent(Event.PlayerStartsMoving);
+        }
+    }
+
+    private void CheckClickedTilePlayerSelectingSpell()
+    {
+        if (!_selectedTile.Solid && !_selectedTile.Solid && _selectedTile.Spell)
+        {
+            ProcessEvent(Event.PlayerStartsCastingSpell);
+        }
+    }
+
+    private void CheckFinishTurnButtonClicked()
+    {
+        ProcessEvent(Event.FinishPlayerTurn);
+    }
+
+    private void CheckSpellButtonClickedPlayerTurn()
+    {
+        ProcessEvent(Event.PlayerStartsSelectingSpell);
+    }
+
+    private void CheckSpellButtonClickedPlayerSelectingSpell()
+    {
+        if (_previousSelectedSpell == _selectedSpell) ProcessEvent(Event.PlayerStopsSelectingSpell);
+        else ProcessEvent(Event.PlayerStartsSelectingSpell);
+    }
 
     private void StartPlayerTurn()
     {
@@ -210,6 +295,7 @@ public class StateMachine : MonoBehaviour
     private IEnumerator PlayerMovingCoroutine()
     {
         yield return StartCoroutine(_player.MovingThroughPathCoroutine());
+        _hoveredTile = null;
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
     }
@@ -245,56 +331,29 @@ public class StateMachine : MonoBehaviour
 
     private void HandleTileHovered(Tile tile)
     {
-        if (CurrectState == State.PlayerTurn
-        && !tile.Solid
-        && _player.EnoughMovementPoints(tile, false))
-        {
-            _selectedTile = tile;
-            _player.SelectTileForPathfinding(_selectedTile, true);
-        }
+        _hoveredTile = tile;
+        ProcessEvent(Event.TileHovered);
     }
 
     private void HandleTileClicked(Tile tile)
     {
-        if (CurrectState == State.PlayerTurn
-        && !tile.Solid
-        && tile == _selectedTile)
-        {
-            ProcessEvent(Event.PlayerStartsMoving);
-        }
-        else if (CurrectState == State.PlayerSelectingSpell && !tile.Solid && tile.Spell)
-        {
-            _selectedTile = tile;
-            ProcessEvent(Event.PlayerStartsCastingSpell);
-        }
-        else
-        {
-            _selectedTile = null;
-            ProcessEvent(Event.PlayerStopsSelectingSpell);
-        }
+        _selectedTile = tile;
+        ProcessEvent(Event.TileClicked);
     }
 
     private void HandleFinishTurnButtonClicked()
     {
-        if (CurrectState == State.PlayerTurn) ProcessEvent(Event.FinishPlayerTurn);
+        ProcessEvent(Event.FinishTurnButtonClicked);
     }
 
     public void HandleSpellButtonClicked(Spell spell)
     {
         ClearTiles();
-        if (CurrectState == State.PlayerTurn || CurrectState == State.PlayerSelectingSpell)
-        {
-            _currentState = State.PlayerTurn;
-            _selectedSpell = spell;
-            ProcessEvent(Event.PlayerStartsSelectingSpell);
-        }
-        /*
-        else if (CurrectState == State.PlayerSelectingSpell)
-        {
-            _selectedSpell = null;
-            ProcessEvent(Event.PlayerStopsSelectingSpell);
-        }*/
+        _previousSelectedSpell = _selectedSpell;
+        _selectedSpell = spell;
+        ProcessEvent(Event.SpellButtonClicked);
     }
+
     // OTHER ------------------------------------------------
 
     private void InitEnemiesSolidTiles()
