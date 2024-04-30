@@ -25,6 +25,7 @@ public class Player : Character
                 selectableTiles.Add(GetCharacterTile());
                 break;
         }
+        bool notEnoughAP = _actionPoints < spell.actionPointCost;
         ColorSpellSelectableTiles(selectableTiles);
         return selectableTiles;
     }
@@ -49,7 +50,8 @@ public class Player : Character
                 areaEffectsTiles.Add(GetCharacterTile());
                 break;
         }
-        ColorSpellAreaOfEffectTiles(areaEffectsTiles);
+        bool notEnoughAP = _actionPoints < spell.actionPointCost;
+        ColorSpellAreaOfEffectTiles(areaEffectsTiles, notEnoughAP);
         return areaEffectsTiles;
     }
 
@@ -95,22 +97,17 @@ public class Player : Character
         var grid = GridManager.Instance;
 
         List<Tile> listTiles = new List<Tile>();
-        Vector2Int dir = Vector2Int.up;
-        if (tile == GetSpellTile(Vector2Int.up)) dir = Vector2Int.up;
-        if (tile == GetSpellTile(Vector2Int.down)) dir = Vector2Int.down;
-        if (tile == GetSpellTile(Vector2Int.left)) dir = Vector2Int.left;
-        if (tile == GetSpellTile(Vector2Int.right)) dir = Vector2Int.right;
+        Vector2Int lineDir = grid.GetMeleeDirFromTwoTiles(GetCharacterTile(), tile);
 
         Vector2Int sum = GetCharacterTile().Coords;
         for (int i = 1; i <= range; i++)
         {
-            sum += dir;
+            sum += lineDir;
             Tile lineTile = grid.GetTileFromTileCoords(sum);
             listTiles.Add(lineTile);
         }
         return listTiles;
     }
-
 
     private Tile GetSpellTile(Vector2Int dir)
     {
@@ -129,21 +126,36 @@ public class Player : Character
         }
     }
 
-    private void ColorSpellAreaOfEffectTiles(List<Tile> selectableTiles)
+    private void ColorSpellAreaOfEffectTiles(List<Tile> selectableTiles, bool notEnoughAP)
     {
         foreach (Tile tile in selectableTiles)
         {
-            if (tile != null) tile.SpellAreaEffect = true;
+            if (tile != null)
+            {
+                if (notEnoughAP) tile.SpellAreaEffectNoAP = true;
+                else tile.SpellAreaEffect = true;
+            }
         }
     }
 
     // ----------------------------------------------------------------------
 
-    public IEnumerator AttackEnemyCoroutine(Enemy enemy, Spell spell)
+    public IEnumerator AttackEnemyCoroutine(Enemy enemyAttacked, Spell spell)
     {
-        //TODO attack enemy
-        yield return null;
-
+        switch (spell.utilityType)
+        {
+            case UtilityType.Damage:
+                TakeFinalSpellDamage(enemyAttacked, spell);
+                break;
+            case UtilityType.Healing:
+                throw new NotImplementedException();
+            case UtilityType.Knockback:
+                yield return StartCoroutine(KnockbackCharCoroutine(enemyAttacked, 2));
+                break;
+        }
+        //TODO attack enemy animation
+        yield return new WaitForSeconds(.2f);
+        print("Enemy Attacked: " + enemyAttacked.name);
     }
 
 

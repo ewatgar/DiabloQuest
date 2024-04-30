@@ -100,8 +100,9 @@ public class GridManager : MonoBehaviour
     {
         foreach (Tile tile in _tileGrid)
         {
-            tile.SpellAreaEffect = false;
             tile.SpellSelectable = false;
+            tile.SpellAreaEffect = false;
+            tile.SpellAreaEffectNoAP = false;
         }
     }
 
@@ -115,6 +116,16 @@ public class GridManager : MonoBehaviour
     public Tile GetTileFromDirection(Tile tile, Vector2Int dir)
     {
         return GetTileFromTileCoords(tile.Coords + dir); ;
+    }
+
+    public Vector2Int GetMeleeDirFromTwoTiles(Tile tileStart, Tile tileDir)
+    {
+        Vector2Int dir = Vector2Int.up;
+        if (tileDir == GetTileFromDirection(tileStart, Vector2Int.up)) dir = Vector2Int.up;
+        if (tileDir == GetTileFromDirection(tileStart, Vector2Int.down)) dir = Vector2Int.down;
+        if (tileDir == GetTileFromDirection(tileStart, Vector2Int.left)) dir = Vector2Int.left;
+        if (tileDir == GetTileFromDirection(tileStart, Vector2Int.right)) dir = Vector2Int.right;
+        return dir;
     }
 
 }

@@ -104,7 +104,10 @@ public class StateMachine : MonoBehaviour
     private void Update()
     {
         //debug
-        if (_currentState != _oldState) { print("current state changed to: " + _currentState); }
+        if (_currentState != _oldState)
+        {
+            print($"----- STATE CHANGED -> {_currentState} ------------ ");
+        }
         _oldState = _currentState;
         //------------------------------
     }
@@ -249,10 +252,8 @@ public class StateMachine : MonoBehaviour
 
     private void CheckClickedTilePlayerSelectingSpell()
     {
-        print("se clickea");
         if (_selectedTile == _hoveredTile)
         {
-            print("se clickea y se tira el hechizo");
             ProcessEvent(Event.PlayerStartsCastingSpell);
         }
     }
@@ -284,6 +285,9 @@ public class StateMachine : MonoBehaviour
     private void ResumePlayerTurn()
     {
         ClearTiles();
+        _hoveredTile = null;
+        _selectedTile = null;
+        _selectedSpell = null;
         _listSelectableTiles = null;
         _listAreaOfEffectTiles = null;
         EnableAllColliders(true);
@@ -315,7 +319,8 @@ public class StateMachine : MonoBehaviour
 
     private IEnumerator PlayerMovingCoroutine()
     {
-        yield return StartCoroutine(_player.MovingThroughPathCoroutine());
+        List<Tile> path = PathfindingManager.Instance.FinalPath;
+        yield return StartCoroutine(_player.MovingThroughPathCoroutine(path));
         _hoveredTile = null;
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
@@ -324,22 +329,18 @@ public class StateMachine : MonoBehaviour
     private IEnumerator PlayerAttackCoroutine()
     {
         ClearTiles();
-        print("playerAttackCoroutine starts");
-        //TODO check enemy in that tile and attack it
-        foreach (Enemy enemy in _enemiesList)
+        if (_player.ActionPoints >= _selectedSpell.actionPointCost)
         {
-            if (_listAreaOfEffectTiles.Contains(enemy.GetCharacterTile()))
+            foreach (Enemy enemy in _enemiesList)
             {
-                print("atacar enemy " + enemy.name);
+                if (_listAreaOfEffectTiles.Contains(enemy.GetCharacterTile()))
+                {
+                    yield return StartCoroutine(_player.AttackEnemyCoroutine(enemy, _selectedSpell));
+                }
             }
+            if (_selectedSpell.utilityType == UtilityType.Knockback) UpdateEnemiesSolidTiles();
         }
-
-
-        /*yield return null;//StartCoroutine(_player.AttackEnemyCoroutine());
-        _selectedTile = null;
-        _selectedSpell = null;*/
-        print("playerAttackCoroutine stops");
-        yield return new WaitForSeconds(3);
+        _player.SpendActionPoints(_selectedSpell.actionPointCost);
         ProcessEvent(Event.PlayerStopsCastingSpell);
     }
 
@@ -408,5 +409,11 @@ public class StateMachine : MonoBehaviour
         {
             enemy.EnableCollider(value);
         }
+    }
+
+    private void UpdateEnemiesSolidTiles()
+    {
+        GridManager.Instance.ClearSolidTiles();
+        InitEnemiesSolidTiles();
     }
 }

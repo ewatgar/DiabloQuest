@@ -76,6 +76,7 @@ public class Enemy : Character
 
     private IEnumerator EnemyMovementCoroutine(Player player)
     {
+        List<Tile> path = PathfindingManager.Instance.FinalPath;
         bool wantToMove = true;
         wantToMove = SelectTileForPathfinding(player.GetCharacterTile(), true);
         if (wantToMove) yield return StartCoroutine(MovingThroughPathCoroutine());
@@ -159,12 +160,11 @@ public class Enemy : Character
     }
 
 
-    public new IEnumerator MovingThroughPathCoroutine()
+    public IEnumerator MovingThroughPathCoroutine(float animationSpeed = 0.3f)
     {
-        //print("empieza corrutina character moving");
         float currentTime = 0;
-
         List<Tile> path = PathfindingManager.Instance.FinalPath;
+
         if (_enemyType == EnemyType.Melee) path.RemoveAt(path.Count - 1);
 
         foreach (Tile tile in path)
@@ -176,10 +176,10 @@ public class Enemy : Character
             Vector3 tilePos = tile.transform.position;
             Vector3 endPos = new Vector3(tilePos.x, tilePos.y, tile.Coords.y);
 
-            while (currentTime < _animationSpeed)
+            while (currentTime < animationSpeed)
             {
                 currentTime += Time.deltaTime;
-                float t = currentTime / _animationSpeed;
+                float t = currentTime / animationSpeed;
                 transform.position = Vector3.Lerp(startPos, endPos, t);
                 yield return null;
             }
@@ -193,7 +193,6 @@ public class Enemy : Character
             SpendMovementPoint();
             tile.Path = false;
         }
-        //print("termina corrutina character moving");
     }
 
 

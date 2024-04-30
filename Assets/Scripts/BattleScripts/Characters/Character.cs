@@ -25,9 +25,6 @@ public class Character : MonoBehaviour
     [Header("Character Spells")]
     [SerializeField] protected List<Spell> _listSpells;
 
-    [Header("Other")]
-    [SerializeField] protected float _animationSpeed = 0.3f;
-
     protected Tile _oldGoalTile;
 
     public event Action<Character> OnCharClicked;
@@ -103,13 +100,9 @@ public class Character : MonoBehaviour
         PathfindingManager.Instance.RegeneratePath(GetCharacterTile(), selectedTile, color);
     }
 
-    public IEnumerator MovingThroughPathCoroutine()
+    public IEnumerator MovingThroughPathCoroutine(List<Tile> path, float animationSpeed = 0.3f)
     {
-        //print("empieza corrutina character moving");
         float currentTime = 0;
-
-        List<Tile> path = PathfindingManager.Instance.FinalPath;
-
         foreach (Tile tile in path)
         {
             Vector3 startPos = transform.position;
@@ -117,10 +110,10 @@ public class Character : MonoBehaviour
             Vector3 tilePos = tile.transform.position;
             Vector3 endPos = new Vector3(tilePos.x, tilePos.y, tile.Coords.y);
 
-            while (currentTime < _animationSpeed)
+            while (currentTime < animationSpeed)
             {
                 currentTime += Time.deltaTime;
-                float t = currentTime / _animationSpeed;
+                float t = currentTime / animationSpeed;
                 transform.position = Vector3.Lerp(startPos, endPos, t);
                 yield return null;
             }
@@ -134,7 +127,6 @@ public class Character : MonoBehaviour
             SpendMovementPoint();
             tile.Path = false;
         }
-        //print("termina corrutina character moving");
     }
 
     public Tile GetCharacterTile()
@@ -160,7 +152,28 @@ public class Character : MonoBehaviour
         characterAttacked.TakeDamage(finalDamage);
     }
 
-    private void OnMouseDown()
+    protected IEnumerator KnockbackCharCoroutine(Character characterPushed, int distance)
+    {
+        GridManager grid = GridManager.Instance;
+        Tile charPushingTile = GetCharacterTile();
+        Tile charPushedTile = characterPushed.GetCharacterTile();
+        Vector2Int knockbackDir = GridManager.Instance.GetMeleeDirFromTwoTiles(charPushingTile, charPushedTile);
+        List<Tile> path = new List<Tile>();
+
+        Vector2Int sum = charPushedTile.Coords;
+        for (int i = 1; i <= distance; i++)
+        {
+            sum += knockbackDir;
+            Tile knockbackTile = grid.GetTileFromTileCoords(sum);
+            if (knockbackTile == null || knockbackTile.Solid) break;
+            path.Add(knockbackTile);
+        }
+        yield return StartCoroutine(characterPushed.MovingThroughPathCoroutine(path, 0.15f));
+
+    }
+
+
+    protected void OnMouseDown()
     {
         OnCharClicked?.Invoke(this);
     }
@@ -178,4 +191,5 @@ public class Character : MonoBehaviour
     {
         GetComponent<Collider2D>().enabled = value;
     }
+
 }

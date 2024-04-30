@@ -63,7 +63,6 @@ public class UIManager : MonoBehaviour
 
     private void UpdateCharInfoText(Character character)
     {
-        print("char clicked");
         TextMeshProUGUI charName = charInfo.transform.Find("CharName").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI hpText = charInfo.transform.Find("HPText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI apText = charInfo.transform.Find("APText").GetComponent<TextMeshProUGUI>();

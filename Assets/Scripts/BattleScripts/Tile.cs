@@ -15,12 +15,14 @@ public class Tile : MonoBehaviour
     public Vector2Int Coords { get => _coords; }
 
     private bool _bPath;
-    private bool _bSpellAreaEffect;
     private bool _bSpellSelectable;
+    private bool _bSpellAreaEffect;
+    private bool _bSpellAreaEffectNoAP;
 
     public bool Path { get => _bPath; set => _bPath = value; }
-    public bool SpellAreaEffect { get => _bSpellAreaEffect; set => _bSpellAreaEffect = value; }
     public bool SpellSelectable { get => _bSpellSelectable; set => _bSpellSelectable = value; }
+    public bool SpellAreaEffect { get => _bSpellAreaEffect; set => _bSpellAreaEffect = value; }
+    public bool SpellAreaEffectNoAP { get => _bSpellAreaEffectNoAP; set => _bSpellAreaEffectNoAP = value; }
 
     //A* Pathfinding Fields
     private Tile _parentTile;
@@ -60,16 +62,16 @@ public class Tile : MonoBehaviour
 
     private void CheckTileColor()
     {
-        if (_bSpellAreaEffect) _sprite.color = Color.red;
+        if (_bSpellAreaEffectNoAP) _sprite.color = Color.red;
+        else if (_bSpellAreaEffect) _sprite.color = Color.green;
         else if (_bSpellSelectable) _sprite.color = Color.yellow;
         else if (_bSolid) _sprite.color = Color.black;
-        else if (_bPath) _sprite.color = Color.green;
+        else if (_bPath) _sprite.color = Color.cyan;
         else _sprite.color = _baseColor;
     }
 
     private void OnMouseEnter()
     {
-        //print($"coords: {Coords}");
         OnTileHovered?.Invoke(this);
     }
 
