@@ -37,7 +37,6 @@ public enum Event
     TileClicked,
     FinishTurnButtonClicked,
     SpellButtonClicked
-
 }
 
 public class StateMachine : MonoBehaviour
@@ -45,8 +44,12 @@ public class StateMachine : MonoBehaviour
     private static StateMachine _instance;
     public static StateMachine Instance { get => _instance; }
 
+    private int _numRounds;
+    public int NumRounds { get => _numRounds; }
+
     private State _currentState;
     public State CurrectState { get => _currentState; }
+
     private State _oldState; //DEBUG
 
     private Player _player;
@@ -74,6 +77,7 @@ public class StateMachine : MonoBehaviour
 
     private void InitStateMachine()
     {
+        _numRounds = 0;
         _currentState = State.MatchStart;
         _oldState = State.MatchStart;
         _hoveredTile = null;
@@ -106,7 +110,7 @@ public class StateMachine : MonoBehaviour
         //debug
         if (_currentState != _oldState)
         {
-            print($"----- STATE CHANGED -> {_currentState} ------------ ");
+            print($"----- STATE CHANGED -> {_currentState}");
         }
         _oldState = _currentState;
         //------------------------------
@@ -210,6 +214,7 @@ public class StateMachine : MonoBehaviour
                 }
                 else if (event_ == Event.FinishEnemiesTurn)
                 {
+                    _numRounds++;
                     _currentState = State.PlayerTurn;
                     StartPlayerTurn();
                 }
@@ -244,7 +249,7 @@ public class StateMachine : MonoBehaviour
 
     private void CheckClickedTilePlayerTurn()
     {
-        if (!_selectedTile.Solid && _selectedTile == _hoveredTile)
+        if (!_selectedTile.Solid && _player.EnoughMovementPoints(_hoveredTile, false) && _selectedTile == _hoveredTile)
         {
             ProcessEvent(Event.PlayerStartsMoving);
         }
