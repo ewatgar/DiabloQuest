@@ -196,7 +196,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -210,7 +210,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -234,7 +234,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1415,7 +1415,61 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Desert Tileset_0: -6339716562087618354
+      Desert Tileset_1: -7990190610627486575
+      Desert Tileset_10: 5147643905037522479
+      Desert Tileset_11: -2143316791856334420
+      Desert Tileset_12: -7633545753085653814
+      Desert Tileset_13: 1510724011897024299
+      Desert Tileset_14: -8525719724702282488
+      Desert Tileset_15: -1063401218326058134
+      Desert Tileset_16: -5667809862489244319
+      Desert Tileset_17: 1061786525697863368
+      Desert Tileset_18: 151488106911452027
+      Desert Tileset_19: 8118666091359565153
+      Desert Tileset_2: 559091389511205900
+      Desert Tileset_20: 4400632148993437971
+      Desert Tileset_21: -7384629878548291620
+      Desert Tileset_22: -314731346880322500
+      Desert Tileset_23: -4034109900876961664
+      Desert Tileset_24: 4845503204197568347
+      Desert Tileset_25: 7846941952033445007
+      Desert Tileset_26: 6542086354243393851
+      Desert Tileset_27: 8086418671435604152
+      Desert Tileset_28: 4644579956789380407
+      Desert Tileset_29: 262370615450309559
+      Desert Tileset_3: 4898011745322258718
+      Desert Tileset_30: -6571195125422148438
+      Desert Tileset_31: 3898154396847514508
+      Desert Tileset_32: -2679111277853477503
+      Desert Tileset_33: 296064376671380396
+      Desert Tileset_34: -1078569459771323145
+      Desert Tileset_35: 1902342471444581024
+      Desert Tileset_36: -447543589881369930
+      Desert Tileset_37: -4891255757585718813
+      Desert Tileset_38: -3022506273219292006
+      Desert Tileset_39: -1544969628883476799
+      Desert Tileset_4: 1879338201225113032
+      Desert Tileset_40: -5605452615329041241
+      Desert Tileset_41: -4561745014137778262
+      Desert Tileset_42: 2541832222483811703
+      Desert Tileset_43: 1644302813072074247
+      Desert Tileset_44: -1438985804283573118
+      Desert Tileset_45: -2764832521222236673
+      Desert Tileset_46: -9023910544094711437
+      Desert Tileset_47: 3360832067258077825
+      Desert Tileset_48: 8266902261277651161
+      Desert Tileset_49: 4979678708744695001
+      Desert Tileset_5: 9073987501224624407
+      Desert Tileset_50: -476243008576688869
+      Desert Tileset_51: 1525150030197388506
+      Desert Tileset_52: 9037202715021616096
+      Desert Tileset_53: -8542474499111370072
+      Desert Tileset_6: 8568174582606009919
+      Desert Tileset_7: -1329687973649403905
+      Desert Tileset_8: -2983665889757068641
+      Desert Tileset_9: -1889234337342992986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
