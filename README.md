@@ -5,7 +5,6 @@ Ender Watts García
 | assets                             | creator       | link                                                 |
 | ---------------------------------- | ------------- | ---------------------------------------------------- |
 | Lucifer Pack                       | Foozle        | https://foozlecc.itch.io/                            |
-| Blowhard2:Blow Harder              | surt          | https://opengameart.org/users/surt                   |
 | Tilesets_Cemetery                  | Dreamir       | https://dreamir.itch.io/                             |
 | RPG Ability Icons Collection       | frosty_rabbid | https://frosty-rabbid.itch.io/                       |
 | Map Button                         | BeyonderBoy   | https://beyonderboy.itch.io/                         |
