@@ -6,6 +6,9 @@ using Random = UnityEngine.Random;
 
 public class Character : MonoBehaviour
 {
+    [Header("Character State")]
+    [SerializeField] protected bool _isDead;
+
     [Header("Character Init Stats")]
     [SerializeField] protected int _initHealthPoints = 300;       //health points
     [SerializeField] protected int _initActionPoints = 6;         //action points
@@ -25,10 +28,12 @@ public class Character : MonoBehaviour
     [Header("Character Spells")]
     [SerializeField] protected List<Spell> _listSpells;
 
+
     protected Tile _oldGoalTile;
 
     public event Action<Character> OnCharClicked;
 
+    public bool IsDead { get => _isDead; set => _isDead = value; }
     public int HealthPoints { get => _healthPoints; }
     public int ActionPoints { get => _actionPoints; }
     public int MovementPoints { get => _movementPoints; }
@@ -47,6 +52,11 @@ public class Character : MonoBehaviour
         _oldGoalTile = GetCharacterTile();
     }
 
+    private void Update()
+    {
+        gameObject.SetActive(!_isDead);
+    }
+
     protected void InitStats()
     {
         _healthPoints = _initHealthPoints;
@@ -55,6 +65,7 @@ public class Character : MonoBehaviour
         _damagePoints = _initDamagePoints;
         _resistancePerc = _initResistancePerc;
         _critsPerc = _initCritsPerc;
+        _isDead = false;
     }
 
     public void RestartStats()
@@ -172,7 +183,6 @@ public class Character : MonoBehaviour
 
     }
 
-
     protected void OnMouseDown()
     {
         OnCharClicked?.Invoke(this);
@@ -191,5 +201,4 @@ public class Character : MonoBehaviour
     {
         GetComponent<Collider2D>().enabled = value;
     }
-
 }

@@ -7,6 +7,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum State
 {
@@ -130,7 +131,7 @@ public class StateMachine : MonoBehaviour
                 if (event_ == Event.AllEnemiesDie)
                 {
                     _currentState = State.MatchEnd;
-                    //StartMatchEnd(true);
+                    StartMatchEnd(true);
                 }
                 else if (event_ == Event.FinishPlayerTurn)
                 {
@@ -210,7 +211,7 @@ public class StateMachine : MonoBehaviour
                 if (event_ == Event.PlayerDies)
                 {
                     _currentState = State.MatchEnd;
-                    //StartMatchEnd(false);
+                    StartMatchEnd(false);
                 }
                 else if (event_ == Event.FinishEnemiesTurn)
                 {
@@ -222,7 +223,7 @@ public class StateMachine : MonoBehaviour
             case State.MatchEnd:
                 if (event_ == Event.FinishGame)
                 {
-                    //TODO terminar pelea
+                    FinishGame();
                 }
                 break;
         }
@@ -230,6 +231,18 @@ public class StateMachine : MonoBehaviour
 
 
     // STATE MACHINE METHODS -------------------
+
+    private void StartMatchEnd(bool value)
+    {
+        if (value) print("Has ganado, se guarda la partida y se distribuye puntos de características");
+        else print("Has perdido");
+        ProcessEvent(Event.FinishGame);
+    }
+
+    private void FinishGame()
+    {
+        SceneManager.LoadScene("LevelSelectionScene");
+    }
 
     private void CheckHoveredTilePlayerTurn()
     {
@@ -281,21 +294,29 @@ public class StateMachine : MonoBehaviour
 
     private void StartPlayerTurn()
     {
-        //PathfindingManager.Instance.ClearValues();
-        _player.RestartStats();
-        _player.GetCharacterTile().Solid = false;
-        InitEnemiesSolidTiles();
+        if (CheckAllEnemiesDead()) ProcessEvent(Event.AllEnemiesDie);
+        else
+        {
+            //PathfindingManager.Instance.ClearValues();
+            _player.RestartStats();
+            _player.GetCharacterTile().Solid = false;
+            InitEnemiesSolidTiles();
+        }
     }
 
     private void ResumePlayerTurn()
     {
-        ClearTiles();
-        _hoveredTile = null;
-        _selectedTile = null;
-        _selectedSpell = null;
-        _listSelectableTiles = null;
-        _listAreaOfEffectTiles = null;
-        EnableAllColliders(true);
+        if (CheckAllEnemiesDead()) ProcessEvent(Event.AllEnemiesDie);
+        else
+        {
+            ClearTiles();
+            _hoveredTile = null;
+            _selectedTile = null;
+            _selectedSpell = null;
+            _listSelectableTiles = null;
+            _listAreaOfEffectTiles = null;
+            EnableAllColliders(true);
+        }
     }
 
     private void StartPlayerMoving()
@@ -338,9 +359,13 @@ public class StateMachine : MonoBehaviour
         {
             foreach (Enemy enemy in _enemiesList)
             {
-                if (_listAreaOfEffectTiles.Contains(enemy.GetCharacterTile()))
+                if (!enemy.IsDead && _listAreaOfEffectTiles.Contains(enemy.GetCharacterTile()))
                 {
                     yield return StartCoroutine(_player.AttackEnemyCoroutine(enemy, _selectedSpell));
+                    if (enemy.HealthPoints <= 0)
+                    {
+                        enemy.IsDead = true;
+                    }
                 }
             }
             if (_selectedSpell.utilityType == UtilityType.Knockback) UpdateEnemiesSolidTiles();
@@ -354,12 +379,20 @@ public class StateMachine : MonoBehaviour
     {
         foreach (Enemy enemy in _enemiesList)
         {
-            enemy.RestartStats();
-            enemy.GetCharacterTile().Solid = false;
-            yield return StartCoroutine(enemy.EnemyTurnCoroutine(_player));
-            enemy.GetCharacterTile().Solid = true;
+            if (!enemy.IsDead)
+            {
+                enemy.RestartStats();
+                enemy.GetCharacterTile().Solid = false;
+                yield return StartCoroutine(enemy.EnemyTurnCoroutine(_player));
+                enemy.GetCharacterTile().Solid = true;
+                if (_player.HealthPoints <= 0)
+                {
+                    _player.IsDead = true;
+                    ProcessEvent(Event.PlayerDies);
+                }
+            }
         }
-        ProcessEvent(Event.FinishEnemiesTurn);
+        if (!_player.IsDead) ProcessEvent(Event.FinishEnemiesTurn);
     }
 
 
@@ -397,7 +430,7 @@ public class StateMachine : MonoBehaviour
     {
         foreach (Enemy enemy in _enemiesList)
         {
-            enemy.GetCharacterTile().Solid = true;
+            if (!enemy.IsDead) enemy.GetCharacterTile().Solid = true;
         }
     }
 
@@ -412,7 +445,7 @@ public class StateMachine : MonoBehaviour
         _player.EnableCollider(value);
         foreach (Enemy enemy in _enemiesList)
         {
-            enemy.EnableCollider(value);
+            if (!enemy.IsDead) enemy.EnableCollider(value);
         }
     }
 
@@ -420,5 +453,14 @@ public class StateMachine : MonoBehaviour
     {
         GridManager.Instance.ClearSolidTiles();
         InitEnemiesSolidTiles();
+    }
+
+    private bool CheckAllEnemiesDead()
+    {
+        foreach (Enemy enemy in _enemiesList)
+        {
+            if (!enemy.IsDead) return false;
+        }
+        return true;
     }
 }
