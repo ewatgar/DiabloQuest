@@ -89,17 +89,23 @@ public class StateMachine : MonoBehaviour
 
     private void Start()
     {
-        InitChars();
+        InitPlayer();
+        InitEnemy();
         GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
         UIManager.Instance.AddAsObserverUI(HandleFinishTurnButtonClicked, HandleSpellButtonClicked);
-        ProcessEvent();
+        ProcessEvent(Event.StartsMatch);
     }
 
-    private void InitChars()
+    private void InitPlayer()
     {
+        //TODO loadPlayerStats from savefile
         _player = Utils.GetPlayer();
-        _enemiesList = Utils.GetEnemies();
         _player.InitCharZPosition();
+    }
+
+    private void InitEnemy()
+    {
+        _enemiesList = Utils.GetEnemies();
         foreach (Enemy enemy in _enemiesList)
         {
             enemy.InitCharZPosition();
@@ -117,7 +123,7 @@ public class StateMachine : MonoBehaviour
         //------------------------------
     }
 
-    public void ProcessEvent(Event event_ = Event.StartsMatch)
+    public void ProcessEvent(Event event_)
     {
         switch (_currentState)
         {
@@ -234,6 +240,7 @@ public class StateMachine : MonoBehaviour
 
     private void StartMatchEnd(bool value)
     {
+        //TODO savefile when 
         if (value) print("Has ganado, se guarda la partida y se distribuye puntos de características");
         else print("Has perdido");
         ProcessEvent(Event.FinishGame);
@@ -422,6 +429,13 @@ public class StateMachine : MonoBehaviour
         _previousSelectedSpell = _selectedSpell;
         _selectedSpell = spell;
         ProcessEvent(Event.SpellButtonClicked);
+    }
+
+    public void HandleAcceptCharacteristicsPointsButtonClicked()
+    {
+        //TODO HandleAcceptCharacteristicsPointsButtonClicked
+        //savePlayerStats()
+        //saveCompletedScenes()
     }
 
     // OTHER ------------------------------------------------
