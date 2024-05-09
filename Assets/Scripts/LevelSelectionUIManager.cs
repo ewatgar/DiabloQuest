@@ -28,9 +28,13 @@ public class LevelSelectionUIManager : MonoBehaviour
                 SceneManager.LoadScene("BattleOneScene");
                 break;
             case 2:
+                //if completed level 1 -> load level 2
+                //else cant select
                 print("Level 2 not implemented");
                 break;
             case 3:
+                //if completed level 2 -> load level 3
+                //else cant select
                 print("Level 3 not implemented");
                 break;
         }
