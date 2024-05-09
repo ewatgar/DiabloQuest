@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class Character : MonoBehaviour
 {
     [Header("Character State")]
-    [SerializeField] protected bool _isDead;
+    [SerializeField] protected bool _isDead = false;
 
     [Header("Character Init Stats")]
     [SerializeField] protected int _initHealthPoints = 300;       //health points
@@ -34,6 +34,12 @@ public class Character : MonoBehaviour
     public event Action<Character> OnCharClicked;
 
     public bool IsDead { get => _isDead; set => _isDead = value; }
+    public int InitHealthPoints { get => _initHealthPoints; }
+    public int InitActionPoints { get => _initActionPoints; }
+    public int InitMovementPoints { get => _initMovementPoints; }
+    public int InitDamagePoints { get => _initDamagePoints; }
+    public int InitResistancePerc { get => _initResistancePerc; }
+    public int InitCritsPerc { get => _initCritsPerc; }
     public int HealthPoints { get => _healthPoints; }
     public int ActionPoints { get => _actionPoints; }
     public int MovementPoints { get => _movementPoints; }
