@@ -92,7 +92,7 @@ public class StateMachine : MonoBehaviour
         InitPlayer();
         InitEnemy();
         GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
-        UIManager.Instance.AddAsObserverUI(HandleFinishTurnButtonClicked, HandleSpellButtonClicked);
+        BattleUIManager.Instance.AddAsObserverUI(HandleFinishTurnButtonClicked, HandleSpellButtonClicked);
         ProcessEvent(Event.StartsMatch);
     }
 

@@ -13,7 +13,7 @@ public class SpellButton : MonoBehaviour
 
     private void Start()
     {
-        UIManager ui = UIManager.Instance;
+        BattleUIManager ui = BattleUIManager.Instance;
         Button bt = GetComponent<Button>();
         bt.onClick.AddListener(() => ui.OnSpellButtonClickedListener(_spell));
     }

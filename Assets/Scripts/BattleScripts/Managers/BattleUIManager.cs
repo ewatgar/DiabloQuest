@@ -7,10 +7,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class BattleUIManager : MonoBehaviour
 {
-    private static UIManager _instance;
-    public static UIManager Instance { get => _instance; }
+    private static BattleUIManager _instance;
+    public static BattleUIManager Instance { get => _instance; }
 
     [Header("UI Elements")]
     [SerializeField] private Canvas canvas;
@@ -52,8 +52,10 @@ public class UIManager : MonoBehaviour
         PlaceSpellButtonsWithOffset();
         _selectedChar = _player;
         _selectedSpell = _player.ListSpells.First();
+        AddOtherButtonsListeners();
         EnableSpellInfoUI(false);
     }
+
 
     private void Update()
     {
@@ -153,6 +155,13 @@ public class UIManager : MonoBehaviour
     {
         OnFinishTurnButtonClicked += HandleFinishTurnButtonClicked;
         OnSpellButtonClicked += HandleSpellButtonClicked;
+    }
+
+    private void AddOtherButtonsListeners()
+    {
+        GameObject otherButtonsZone = mainBar.transform.Find("OtherButtonsZone").gameObject;
+        Button finishTurnButton = otherButtonsZone.transform.Find("FinishTurnButton").gameObject.GetComponent<Button>();
+        finishTurnButton.onClick.AddListener(() => OnFinishTurnButtonClickedListener());
     }
 
     // EVENTS ---------------------------------

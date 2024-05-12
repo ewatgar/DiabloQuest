@@ -531,6 +531,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5000751201691072686, guid: 7420f52c5f3062749b0903fd4ac7ed30, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6253473214931348396, guid: 7420f52c5f3062749b0903fd4ac7ed30, type: 3}
       propertyPath: m_Name
       value: ItemButton
@@ -553,6 +557,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3978352667022482760}
     m_Modifications:
+    - target: {fileID: 4458127733422845932, guid: 1a8dff616409cf548b3ca9cf38bdb63c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5253679955604342547, guid: 1a8dff616409cf548b3ca9cf38bdb63c, type: 3}
       propertyPath: m_Name
       value: FleeButton
