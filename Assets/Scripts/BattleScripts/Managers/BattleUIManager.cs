@@ -114,7 +114,7 @@ public class BattleUIManager : MonoBehaviour
         healthText.text = character.Health.ToString();
         apText.text = character.ActionPoints.ToString();
         mpText.text = character.MovementPoints.ToString();
-        resPercText.text = (character.MovementPoints * 10).ToString() + "%";
+        resPercText.text = (character.ResistancePerc * 10).ToString() + "%";
     }
 
     private void UpdateBattleInfoText()
