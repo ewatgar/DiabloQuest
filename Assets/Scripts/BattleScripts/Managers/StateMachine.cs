@@ -240,10 +240,16 @@ public class StateMachine : MonoBehaviour
 
     private void StartMatchEnd(bool value)
     {
-        //TODO savefile when 
-        if (value) print("Has ganado, se guarda la partida y se distribuye puntos de características");
-        else print("Has perdido");
-        ProcessEvent(Event.FinishGame);
+        if (value)
+        {
+            print("Has ganado, se distribuye puntos de características y se guarda la partida");
+            BattleUIManager.Instance.ShowCharPointsSelectionUI(true);
+        }
+        else
+        {
+            print("Has perdido");
+            ProcessEvent(Event.FinishGame);
+        }
     }
 
     private void FinishGame()
@@ -369,7 +375,7 @@ public class StateMachine : MonoBehaviour
                 if (!enemy.IsDead && _listAreaOfEffectTiles.Contains(enemy.GetCharacterTile()))
                 {
                     yield return StartCoroutine(_player.AttackEnemyCoroutine(enemy, _selectedSpell));
-                    if (enemy.HealthPoints <= 0)
+                    if (enemy.Health <= 0)
                     {
                         enemy.IsDead = true;
                     }
@@ -392,7 +398,7 @@ public class StateMachine : MonoBehaviour
                 enemy.GetCharacterTile().Solid = false;
                 yield return StartCoroutine(enemy.EnemyTurnCoroutine(_player));
                 enemy.GetCharacterTile().Solid = true;
-                if (_player.HealthPoints <= 0)
+                if (_player.Health <= 0)
                 {
                     _player.IsDead = true;
                     ProcessEvent(Event.PlayerDies);
@@ -436,6 +442,7 @@ public class StateMachine : MonoBehaviour
         //TODO HandleAcceptCharacteristicsPointsButtonClicked
         //savePlayerStats()
         //saveCompletedScenes()
+        ProcessEvent(Event.FinishGame);
     }
 
     // OTHER ------------------------------------------------
