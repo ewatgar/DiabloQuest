@@ -100,13 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e49b1cdef387449910a8ca2b866951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initHealthPoints: 250
+  _isDead: 0
+  _initHealthPoints: 5
   _initActionPoints: 6
   _initMovementPoints: 3
   _initDamagePoints: 1
   _initResistancePerc: 1
   _initCritsPerc: 1
-  _healthPoints: 0
+  _health: 0
   _actionPoints: 0
   _movementPoints: 0
   _damagePoints: 0
@@ -115,7 +116,6 @@ MonoBehaviour:
   _listSpells:
   - {fileID: 11400000, guid: ccd48bb5e495165479fc136ee1c47e57, type: 2}
   - {fileID: 11400000, guid: 75774e0a406193642b1d98d45fc3ec2d, type: 2}
-  _animationSpeed: 0.3
   _enemyType: 1
   _minDistanceLongRange: 5
 --- !u!70 &9107697971438378804

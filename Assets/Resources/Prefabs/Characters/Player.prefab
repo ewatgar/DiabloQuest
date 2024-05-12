@@ -101,13 +101,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e7e6dad728cf546a4bff149a39c44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initHealthPoints: 400
+  _isDead: 0
+  _initHealthPoints: 8
   _initActionPoints: 6
   _initMovementPoints: 3
   _initDamagePoints: 2
   _initResistancePerc: 2
   _initCritsPerc: 2
-  _healthPoints: 0
+  _health: 0
   _actionPoints: 0
   _movementPoints: 0
   _damagePoints: 0
@@ -118,7 +119,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 281513edb6ee8254ca0ae6ff74d3764f, type: 2}
   - {fileID: 11400000, guid: 56de967915e870848b74f99381990abd, type: 2}
   - {fileID: 11400000, guid: 108879bcf26a52d4d91a60a3e6a9e1fb, type: 2}
-  _animationSpeed: 0.3
 --- !u!95 &6742454679611154156
 Animator:
   serializedVersion: 7

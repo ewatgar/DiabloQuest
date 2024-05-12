@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected bool _isDead = false;
 
     [Header("Character Init Stats")]
-    [SerializeField] protected int _initHealthPoints = 300;       //health points
+    [SerializeField] protected int _initHealthPoints = 6;       //health points
     [SerializeField] protected int _initActionPoints = 6;         //action points
     [SerializeField] protected int _initMovementPoints = 4;       //movement points
     [SerializeField] protected int _initDamagePoints = 1;               //damage
@@ -18,7 +18,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected int _initCritsPerc = 1;            //crits %
 
     [Header("Character Current Stats")]
-    [SerializeField] protected int _healthPoints;
+    [SerializeField] protected int _health;
     [SerializeField] protected int _actionPoints;
     [SerializeField] protected int _movementPoints;
     [SerializeField] protected int _damagePoints;
@@ -40,7 +40,7 @@ public class Character : MonoBehaviour
     public int InitDamagePoints { get => _initDamagePoints; }
     public int InitResistancePerc { get => _initResistancePerc; }
     public int InitCritsPerc { get => _initCritsPerc; }
-    public int HealthPoints { get => _healthPoints; }
+    public int Health { get => _health; }
     public int ActionPoints { get => _actionPoints; }
     public int MovementPoints { get => _movementPoints; }
     public int DamagePoints { get => _damagePoints; }
@@ -65,7 +65,7 @@ public class Character : MonoBehaviour
 
     protected void InitStats()
     {
-        _healthPoints = _initHealthPoints;
+        _health = _initHealthPoints * 50;
         _actionPoints = _initActionPoints;
         _movementPoints = _initMovementPoints;
         _damagePoints = _initDamagePoints;
@@ -83,14 +83,14 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int hp = 1)
     {
-        if (_healthPoints > 0) _healthPoints -= hp;
-        else _healthPoints = 0;
+        if (_health > 0) _health -= hp;
+        else _health = 0;
     }
 
     public void GetHealth(int hp = 1)
     {
-        if (_healthPoints < _initActionPoints) _healthPoints += hp;
-        else _healthPoints = _initActionPoints;
+        if (_health < _initActionPoints) _health += hp;
+        else _health = _initActionPoints;
     }
 
     public void SpendActionPoints(int ap = 1)

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5380959137643219165}
   - component: {fileID: 7299471305156151455}
   m_Layer: 5
-  m_Name: HPText
+  m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 5909212874175578618}
   - component: {fileID: 8875107597838210191}
   m_Layer: 5
-  m_Name: HPTitle
+  m_Name: HealthTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PV
+  m_text: Vida
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 500dfe98a80e3a546b5dd4c3df38f334, type: 2}
   m_sharedMaterial: {fileID: 25040306169883593, guid: 500dfe98a80e3a546b5dd4c3df38f334, type: 2}
@@ -1332,12 +1332,12 @@ RectTransform:
   - {fileID: 9087245884734280838}
   - {fileID: 1870159888648725483}
   - {fileID: 729949988760158613}
-  - {fileID: 4480167387943848934}
-  - {fileID: 8780822652935194755}
-  - {fileID: 6536628264242091367}
   - {fileID: 3249025554268342765}
+  - {fileID: 4480167387943848934}
   - {fileID: 7004417051562735724}
+  - {fileID: 8780822652935194755}
   - {fileID: 8284214122696714814}
+  - {fileID: 6536628264242091367}
   - {fileID: 7793233432244670744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

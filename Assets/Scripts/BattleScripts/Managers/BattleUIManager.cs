@@ -21,13 +21,15 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] private GameObject charInfo;
     [SerializeField] private GameObject battleInfo;
     [SerializeField] private GameObject spellInfo;
+    [SerializeField] private GameObject charPointsSelection;
 
     private Player _player;
     private List<Enemy> _enemiesList;
 
     private Character _selectedChar;
     private Spell _selectedSpell;
-    private bool _enableSpellIfoUi;
+    private bool _enableSpellInfoUi;
+    private int _spareCharPoints = 3;
 
     public event Action OnFinishTurnButtonClicked;
     public event Action<Spell> OnSpellButtonClicked;
@@ -53,7 +55,8 @@ public class BattleUIManager : MonoBehaviour
         _selectedChar = _player;
         _selectedSpell = _player.ListSpells.First();
         AddOtherButtonsListeners();
-        EnableSpellInfoUI(false);
+        ShowSpellInfoUI(false);
+        ShowCharPointsSelectionUI(false);
     }
 
 
@@ -66,10 +69,14 @@ public class BattleUIManager : MonoBehaviour
         UpdateSpellInfoText(_selectedSpell);
     }
 
-    private void EnableSpellInfoUI(bool value)
+    private void ShowSpellInfoUI(bool value)
     {
-        //spellInfo.GetComponent<MeshRenderer>().enabled = value;
         spellInfo.SetActive(value);
+    }
+
+    public void ShowCharPointsSelectionUI(bool value)
+    {
+        charPointsSelection.SetActive(value);
     }
 
     private void PlaceSpellButtonsWithOffset()
@@ -91,20 +98,20 @@ public class BattleUIManager : MonoBehaviour
 
     private void UpdateMainBarHealth()
     {
-        TextMeshProUGUI hpText = mainBar.transform.Find("HealthIcon").Find("HealthPointsText").GetComponent<TextMeshProUGUI>();
-        hpText.text = _player.HealthPoints.ToString();
+        TextMeshProUGUI hpText = mainBar.transform.Find("HealthIcon").Find("HealthText").GetComponent<TextMeshProUGUI>();
+        hpText.text = _player.Health.ToString();
     }
 
     private void UpdateCharInfoText(Character character)
     {
         TextMeshProUGUI charName = charInfo.transform.Find("CharName").GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI hpText = charInfo.transform.Find("HPText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI healthText = charInfo.transform.Find("HealthText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI apText = charInfo.transform.Find("APText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI mpText = charInfo.transform.Find("MPText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI resPercText = charInfo.transform.Find("ResPercText").GetComponent<TextMeshProUGUI>();
 
         charName.text = character.gameObject.name;
-        hpText.text = character.HealthPoints.ToString();
+        healthText.text = character.Health.ToString();
         apText.text = character.ActionPoints.ToString();
         mpText.text = character.MovementPoints.ToString();
         resPercText.text = (character.MovementPoints * 10).ToString() + "%";
@@ -162,6 +169,8 @@ public class BattleUIManager : MonoBehaviour
         GameObject otherButtonsZone = mainBar.transform.Find("OtherButtonsZone").gameObject;
         Button finishTurnButton = otherButtonsZone.transform.Find("FinishTurnButton").gameObject.GetComponent<Button>();
         finishTurnButton.onClick.AddListener(() => OnFinishTurnButtonClickedListener());
+
+        //TODO add charPointsSelection listeners
     }
 
     // EVENTS ---------------------------------
@@ -180,12 +189,14 @@ public class BattleUIManager : MonoBehaviour
 
     public void OnSpellButtonClickedListener(Spell spell)
     {
-        if (_selectedSpell == spell) _enableSpellIfoUi = !_enableSpellIfoUi;
-        else _enableSpellIfoUi = true;
-        EnableSpellInfoUI(_enableSpellIfoUi);
+        if (_selectedSpell == spell) _enableSpellInfoUi = !_enableSpellInfoUi;
+        else _enableSpellInfoUi = true;
+        ShowSpellInfoUI(_enableSpellInfoUi);
         _selectedSpell = spell;
         OnSpellButtonClicked?.Invoke(spell);
     }
+
+    //private void On
 
 }
 
