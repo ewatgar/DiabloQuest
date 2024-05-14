@@ -379,6 +379,7 @@ public class StateMachine : MonoBehaviour
                     if (enemy.Health <= 0)
                     {
                         enemy.IsDead = true;
+                        enemy.GetCharacterTile().Solid = false;
                     }
                 }
             }
