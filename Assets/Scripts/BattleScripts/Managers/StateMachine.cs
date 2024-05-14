@@ -92,7 +92,7 @@ public class StateMachine : MonoBehaviour
         InitPlayer();
         InitEnemy();
         GridManager.Instance.AddAsObserverToAllTiles(HandleTileHovered, HandleTileClicked);
-        BattleUIManager.Instance.AddAsObserverUI(HandleFinishTurnButtonClicked, HandleSpellButtonClicked);
+        BattleUIManager.Instance.AddAsObserverUI(HandleFinishTurnButtonClicked, HandleSpellButtonClicked, HandleAcceptCharPointsButtonClicked);
         ProcessEvent(Event.StartsMatch);
     }
 
@@ -244,6 +244,7 @@ public class StateMachine : MonoBehaviour
         {
             print("Has ganado, se distribuye puntos de características y se guarda la partida");
             BattleUIManager.Instance.ShowCharPointsSelectionUI(true);
+            //Se espera a que se clicke el boton Aceptar
         }
         else
         {
@@ -437,11 +438,9 @@ public class StateMachine : MonoBehaviour
         ProcessEvent(Event.SpellButtonClicked);
     }
 
-    public void HandleAcceptCharacteristicsPointsButtonClicked()
+    public void HandleAcceptCharPointsButtonClicked(List<int> listCharPointsGD)
     {
-        //TODO HandleAcceptCharacteristicsPointsButtonClicked
-        //savePlayerStats()
-        //saveCompletedScenes()
+        SaveProgress(listCharPointsGD);
         ProcessEvent(Event.FinishGame);
     }
 
@@ -483,5 +482,10 @@ public class StateMachine : MonoBehaviour
             if (!enemy.IsDead) return false;
         }
         return true;
+    }
+
+    private void SaveProgress(List<int> listCharPointsGD)
+    {
+        throw new NotImplementedException();
     }
 }

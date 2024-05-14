@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameData
 {
-    public bool isDead;
     public string playerName;
     public int healthPoints;
     public int actionPoints;
@@ -26,16 +25,17 @@ public static class SaveManager
         GameObject playerPrefab = Resources.Load("Prefabs/Characters/Player") as GameObject;
         Player player = playerPrefab.GetComponent<Player>();
 
-        GameData gameData = new GameData();
-        gameData.isDead = player.IsDead;
-        gameData.playerName = player.name;
-        gameData.healthPoints = player.InitHealthPoints;
-        gameData.actionPoints = player.InitActionPoints;
-        gameData.movementPoints = player.InitMovementPoints;
-        gameData.damagePoints = player.InitDamagePoints;
-        gameData.resistancePerc = player.InitResistancePerc;
-        gameData.critsPerc = player.InitCritsPerc;
-        gameData.numCompletedLevels = 0;
+        GameData gameData = new GameData
+        {
+            playerName = player.name,
+            healthPoints = player.InitHealthPoints,
+            actionPoints = player.InitActionPoints,
+            movementPoints = player.InitMovementPoints,
+            damagePoints = player.InitDamagePoints,
+            resistancePerc = player.InitResistancePerc,
+            critsPerc = player.InitCritsPerc,
+            numCompletedLevels = 0
+        };
 
         string saveData = JsonUtility.ToJson(gameData);
         File.WriteAllText(saveFilePath, saveData);
@@ -46,7 +46,7 @@ public static class SaveManager
     }
 
 
-    public static string SaveProgress(Player player, int level)
+    public static string SaveProgress(GameData gameData)
     {
         return "SaveProgress";
     }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -29,10 +30,19 @@ public class BattleUIManager : MonoBehaviour
     private Character _selectedChar;
     private Spell _selectedSpell;
     private bool _enableSpellInfoUi;
-    private int _spareCharPoints = 3;
+
+    // Characteristic points selection
+    private int _spareCharPoints;
+    private int _healthPointsGD; //gameData
+    private int _actionPointsGD;
+    private int _movementPointsGD;
+    private int _damagePointsGD;
+    private int _resistancePercGD;
+    private int _critsPercGD;
 
     public event Action OnFinishTurnButtonClicked;
     public event Action<Spell> OnSpellButtonClicked;
+    public event Action<List<int>> OnAcceptCharPointsButtonClicked;
 
     private void Awake()
     {
@@ -50,15 +60,16 @@ public class BattleUIManager : MonoBehaviour
     {
         _player = Utils.GetPlayer();
         _enemiesList = Utils.GetEnemies();
+        InitGameDataValues();
         AddAsObserverToAllCharacters();
         PlaceSpellButtonsWithOffset();
         _selectedChar = _player;
         _selectedSpell = _player.ListSpells.First();
         AddOtherButtonsListeners();
         ShowSpellInfoUI(false);
+        AddCharPointsButtonsListeners();
         ShowCharPointsSelectionUI(false);
     }
-
 
     private void Update()
     {
@@ -69,6 +80,17 @@ public class BattleUIManager : MonoBehaviour
         UpdateSpellInfoText(_selectedSpell);
     }
 
+    private void InitGameDataValues()
+    {
+        _spareCharPoints = 3;
+        _healthPointsGD = _player.InitHealthPoints;
+        _actionPointsGD = _player.InitActionPoints;
+        _movementPointsGD = _player.InitMovementPoints;
+        _damagePointsGD = _player.InitDamagePoints;
+        _resistancePercGD = _player.InitResistancePerc;
+        _critsPercGD = _player.InitCritsPerc;
+    }
+
     private void ShowSpellInfoUI(bool value)
     {
         spellInfo.SetActive(value);
@@ -77,6 +99,13 @@ public class BattleUIManager : MonoBehaviour
     public void ShowCharPointsSelectionUI(bool value)
     {
         charPointsSelection.SetActive(value);
+        if (value)
+        {
+            mainBar.SetActive(!value);
+            charInfo.SetActive(!value);
+            battleInfo.SetActive(!value);
+            spellInfo.SetActive(!value);
+        }
     }
 
     private void PlaceSpellButtonsWithOffset()
@@ -149,6 +178,27 @@ public class BattleUIManager : MonoBehaviour
         damageText.text = spell.baseDamageOrHealing.ToString();
     }
 
+    private void UpdateCharPointsSelectionText()
+    {
+        TextMeshProUGUI title = charPointsSelection.transform.Find("Title").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI hpText = charPointsSelection.transform.Find("HPText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI apText = charPointsSelection.transform.Find("APText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI mpText = charPointsSelection.transform.Find("MPText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI dpText = charPointsSelection.transform.Find("DPText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI resPercText = charPointsSelection.transform.Find("ResPercText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI critsPercText = charPointsSelection.transform.Find("CritsPercText").GetComponent<TextMeshProUGUI>();
+
+        title.text = _spareCharPoints == 1 ? "Queda 1 punto" : $"Quedan {_spareCharPoints} puntos";
+        hpText.text = _healthPointsGD.ToString();
+        apText.text = _actionPointsGD.ToString();
+        mpText.text = _movementPointsGD.ToString();
+        dpText.text = _damagePointsGD.ToString();
+        resPercText.text = _resistancePercGD.ToString();
+        critsPercText.text = _critsPercGD.ToString();
+    }
+
+    // ADD OBSERVERS
+
     public void AddAsObserverToAllCharacters()
     {
         _player.OnCharClicked += HandleCharClicked;
@@ -158,19 +208,31 @@ public class BattleUIManager : MonoBehaviour
         }
     }
 
-    public void AddAsObserverUI(Action HandleFinishTurnButtonClicked, Action<Spell> HandleSpellButtonClicked)
+    public void AddAsObserverUI(Action HandleFinishTurnButtonClicked, Action<Spell> HandleSpellButtonClicked, Action<List<int>> HandleAcceptCharPointsButtonClicked)
     {
         OnFinishTurnButtonClicked += HandleFinishTurnButtonClicked;
         OnSpellButtonClicked += HandleSpellButtonClicked;
+        OnAcceptCharPointsButtonClicked += HandleAcceptCharPointsButtonClicked;
     }
+
+    // ADD LISTENERS
 
     private void AddOtherButtonsListeners()
     {
         GameObject otherButtonsZone = mainBar.transform.Find("OtherButtonsZone").gameObject;
         Button finishTurnButton = otherButtonsZone.transform.Find("FinishTurnButton").gameObject.GetComponent<Button>();
         finishTurnButton.onClick.AddListener(() => OnFinishTurnButtonClickedListener());
+    }
 
-        //TODO add charPointsSelection listeners
+    private void AddCharPointsButtonsListeners()
+    {
+        foreach (Transform childGameObject in charPointsSelection.transform)
+        {
+            Button button = childGameObject.GetComponent<Button>();
+            if (childGameObject.name == "AcceptButton") button.onClick.AddListener(() => OnAcceptCharPointsButtonClickedListener());
+            else if (button != null) button.onClick.AddListener(() => OnPlusMinusCharPointsButtonClickedListener(childGameObject.gameObject));
+        }
+
     }
 
     // EVENTS ---------------------------------
@@ -196,7 +258,60 @@ public class BattleUIManager : MonoBehaviour
         OnSpellButtonClicked?.Invoke(spell);
     }
 
-    //private void On
+    private void OnAcceptCharPointsButtonClickedListener()
+    {
+        List<int> listCharPointsGD = new List<int>
+        {
+            _healthPointsGD,
+            _actionPointsGD,
+            _movementPointsGD,
+            _damagePointsGD,
+            _resistancePercGD,
+            _critsPercGD
+        };
+        OnAcceptCharPointsButtonClicked?.Invoke(listCharPointsGD);
+    }
 
+    private void OnPlusMinusCharPointsButtonClickedListener(GameObject buttonGameObject)
+    {
+        print(buttonGameObject.name);
+        string regex = @"([A-Z][a-z]*)?(Plus|Minus)Button";
+        Match match = Regex.Match(buttonGameObject.name, regex);
+        string typeData = match.Groups[1].Value;
+        bool addPoint = match.Groups[2].Value == "Plus";
+
+        switch (typeData)
+        {
+            case "HP":
+                if (addPoint && _spareCharPoints > 0) _healthPointsGD++;
+                else if (!addPoint && _spareCharPoints < 3 && _player.InitHealthPoints > _healthPointsGD) _healthPointsGD--;
+                break;
+            case "AP":
+                if (addPoint && _spareCharPoints > 0) _actionPointsGD++;
+                else if (!addPoint && _spareCharPoints < 3) _actionPointsGD--;
+                break;
+            case "DP":
+                if (addPoint && _spareCharPoints > 0) _damagePointsGD++;
+                else if (!addPoint && _spareCharPoints < 3) _damagePointsGD--;
+                break;
+            case "MP":
+                if (addPoint && _spareCharPoints > 0) _movementPointsGD++;
+                else if (!addPoint && _spareCharPoints < 3) _movementPointsGD--;
+                break;
+            case "ResPerc":
+                if (addPoint && _spareCharPoints > 0) _resistancePercGD++;
+                else if (!addPoint && _spareCharPoints < 3) _resistancePercGD--;
+                break;
+            case "CritsPerc":
+                if (addPoint && _spareCharPoints > 0) _critsPercGD++;
+                else if (!addPoint && _spareCharPoints < 3) _critsPercGD--;
+                break;
+        }
+        if (addPoint && _spareCharPoints > 0) _spareCharPoints--;
+        else if (!addPoint && _spareCharPoints < 3) _spareCharPoints++;
+
+        UpdateCharPointsSelectionText();
+        print($"{_spareCharPoints} {_healthPointsGD}");
+    }
 }
 
