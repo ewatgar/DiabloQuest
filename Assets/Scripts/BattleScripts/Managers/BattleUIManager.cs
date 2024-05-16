@@ -106,6 +106,7 @@ public class BattleUIManager : MonoBehaviour
             battleInfo.SetActive(!value);
             spellInfo.SetActive(!value);
         }
+        UpdateCharPointsSelectionText();
     }
 
     private void PlaceSpellButtonsWithOffset()
@@ -275,8 +276,15 @@ public class BattleUIManager : MonoBehaviour
     private void OnPlusMinusCharPointsButtonClickedListener(GameObject buttonGameObject)
     {
         print(buttonGameObject.name);
-        string regex = @"([A-Z][a-z]*)?(Plus|Minus)Button";
+        string regex = @"^(HP|AP|DP|MP|ResPerc|CritsPerc)(Plus|Minus)Button$";
         Match match = Regex.Match(buttonGameObject.name, regex);
+
+        if (!match.Success)
+        {
+            print("Button name doesn't match pattern");
+            return;
+        }
+
         string typeData = match.Groups[1].Value;
         bool addPoint = match.Groups[2].Value == "Plus";
 
@@ -284,34 +292,34 @@ public class BattleUIManager : MonoBehaviour
         {
             case "HP":
                 if (addPoint && _spareCharPoints > 0) _healthPointsGD++;
-                else if (!addPoint && _spareCharPoints < 3 && _player.InitHealthPoints > _healthPointsGD) _healthPointsGD--;
+                else if (!addPoint && _spareCharPoints < 3 && _healthPointsGD > _player.InitHealthPoints) _healthPointsGD--;
                 break;
             case "AP":
                 if (addPoint && _spareCharPoints > 0) _actionPointsGD++;
-                else if (!addPoint && _spareCharPoints < 3) _actionPointsGD--;
+                else if (!addPoint && _spareCharPoints < 3 && _actionPointsGD > _player.InitActionPoints) _actionPointsGD--;
                 break;
             case "DP":
                 if (addPoint && _spareCharPoints > 0) _damagePointsGD++;
-                else if (!addPoint && _spareCharPoints < 3) _damagePointsGD--;
+                else if (!addPoint && _spareCharPoints < 3 && _damagePointsGD > _player.InitDamagePoints) _damagePointsGD--;
                 break;
             case "MP":
                 if (addPoint && _spareCharPoints > 0) _movementPointsGD++;
-                else if (!addPoint && _spareCharPoints < 3) _movementPointsGD--;
+                else if (!addPoint && _spareCharPoints < 3 && _movementPointsGD > _player.InitMovementPoints) _movementPointsGD--;
                 break;
             case "ResPerc":
                 if (addPoint && _spareCharPoints > 0) _resistancePercGD++;
-                else if (!addPoint && _spareCharPoints < 3) _resistancePercGD--;
+                else if (!addPoint && _spareCharPoints < 3 && _resistancePercGD > _player.InitResistancePerc) _resistancePercGD--;
                 break;
             case "CritsPerc":
                 if (addPoint && _spareCharPoints > 0) _critsPercGD++;
-                else if (!addPoint && _spareCharPoints < 3) _critsPercGD--;
+                else if (!addPoint && _spareCharPoints < 3 && _critsPercGD > _player.InitCritsPerc) _critsPercGD--;
                 break;
         }
         if (addPoint && _spareCharPoints > 0) _spareCharPoints--;
         else if (!addPoint && _spareCharPoints < 3) _spareCharPoints++;
 
         UpdateCharPointsSelectionText();
-        print($"{_spareCharPoints} {_healthPointsGD}");
+        //print($"Spare Points: {_spareCharPoints}, HP: {_healthPointsGD}, AP: {_actionPointsGD}, MP: {_movementPointsGD}, DP: {_damagePointsGD}, ResPerc: {_resistancePercGD}, CritsPerc: {_critsPercGD}");
     }
 }
 
