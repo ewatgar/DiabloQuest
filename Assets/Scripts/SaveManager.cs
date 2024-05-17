@@ -25,7 +25,7 @@ public static class SaveManager
         GameObject playerPrefab = Resources.Load("Prefabs/Characters/Player") as GameObject;
         Player player = playerPrefab.GetComponent<Player>();
 
-        GameData gameData = new GameData
+        GameData gameData = new()
         {
             playerName = player.name,
             healthPoints = player.InitHealthPoints,
@@ -39,21 +39,47 @@ public static class SaveManager
 
         string saveData = JsonUtility.ToJson(gameData);
         File.WriteAllText(saveFilePath, saveData);
-        /*
-                saveData = File.ReadAllText(saveFilePath);
-                gameData = JsonUtility.FromJson<GameData>(saveData);*/
         return Application.persistentDataPath;
     }
 
-
-    public static string SaveProgress(GameData gameData)
+    public static bool SaveProgress(
+        int healthPoints,
+        int actionPoints,
+        int movementPoints,
+        int damagePoints,
+        int resistancePerc,
+        int critsPerc)
     {
-        return "SaveProgress";
+        GameData oldGameData = Load();
+        GameData newGameData = new()
+        {
+            playerName = oldGameData.playerName,
+            healthPoints = healthPoints,
+            actionPoints = actionPoints,
+            movementPoints = movementPoints,
+            damagePoints = damagePoints,
+            resistancePerc = resistancePerc,
+            critsPerc = critsPerc,
+            numCompletedLevels = ++oldGameData.numCompletedLevels
+        };
+
+        if (File.Exists(saveFilePath))
+        {
+            string saveData = JsonUtility.ToJson(newGameData);
+            File.WriteAllText(saveFilePath, saveData);
+            return true;
+        }
+        return false;
     }
 
-    public static string Load()
+    public static GameData Load()
     {
-        return "Load";
+        if (File.Exists(saveFilePath))
+        {
+            string loadData = File.ReadAllText(saveFilePath);
+            return JsonUtility.FromJson<GameData>(loadData);
+        }
+        return null;
     }
 
     // public static methods -----------------------------

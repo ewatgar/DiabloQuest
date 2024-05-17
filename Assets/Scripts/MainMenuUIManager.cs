@@ -36,13 +36,14 @@ public class MainMenuUIManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene("LevelSelectionScene");
-            print($"Savefile in path {SaveManager.SaveNewGame()}");
+            string path = SaveManager.SaveNewGame();
+            print($"Savefile in path {path}");
         }
     }
 
     private void OnContinueButtonListener()
     {
-        throw new NotImplementedException();
+        SceneManager.LoadScene("LevelSelectionScene");
     }
 
     private void OnQuitButtonListener()

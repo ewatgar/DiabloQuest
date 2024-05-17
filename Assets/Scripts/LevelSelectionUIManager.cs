@@ -11,6 +11,7 @@ public class LevelSelectionUIManager : MonoBehaviour
     [SerializeField] private GameObject levelOneButton;
     [SerializeField] private GameObject levelTwoButton;
     [SerializeField] private GameObject levelThreeButton;
+    private GameData gameData;
 
 
     private void Start()
@@ -18,7 +19,7 @@ public class LevelSelectionUIManager : MonoBehaviour
         levelOneButton.GetComponent<Button>().onClick.AddListener(() => OnLevelSelectionButtonListener(1));
         levelTwoButton.GetComponent<Button>().onClick.AddListener(() => OnLevelSelectionButtonListener(2));
         levelThreeButton.GetComponent<Button>().onClick.AddListener(() => OnLevelSelectionButtonListener(3));
-        //load savefile
+        gameData = SaveManager.Load();
     }
 
     private void OnLevelSelectionButtonListener(int level)
@@ -29,14 +30,12 @@ public class LevelSelectionUIManager : MonoBehaviour
                 SceneManager.LoadScene("BattleOneScene");
                 break;
             case 2:
-                //if completed level 1 -> load level 2
-                //else cant select
-                print("Level 2 not implemented");
+                if (gameData.numCompletedLevels >= 1) SceneManager.LoadScene("BattleOneScene"); //TODO BattleTwoScene
+                else print("You need to finish level 1"); //TODO warning message level 2
                 break;
             case 3:
-                //if completed level 2 -> load level 3
-                //else cant select
-                print("Level 3 not implemented");
+                if (gameData.numCompletedLevels >= 2) SceneManager.LoadScene("BattleOneScene"); //TODO BattleThreeScene
+                else print("You need to finish level 2"); //TODO warning message level 3
                 break;
         }
 

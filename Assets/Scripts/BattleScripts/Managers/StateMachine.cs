@@ -487,6 +487,13 @@ public class StateMachine : MonoBehaviour
 
     private void SaveProgress(List<int> listCharPointsGD)
     {
-        throw new NotImplementedException();
+        SaveManager.SaveProgress(
+            listCharPointsGD[0],
+            listCharPointsGD[1],
+            listCharPointsGD[2],
+            listCharPointsGD[3],
+            listCharPointsGD[4],
+            listCharPointsGD[5]
+        );
     }
 }
