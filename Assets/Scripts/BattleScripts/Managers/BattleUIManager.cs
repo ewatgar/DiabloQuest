@@ -22,7 +22,12 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] private GameObject charInfo;
     [SerializeField] private GameObject battleInfo;
     [SerializeField] private GameObject spellInfo;
+    [SerializeField] private GameObject winMatchText;
     [SerializeField] private GameObject charPointsSelection;
+    [SerializeField] private GameObject acceptErrorText;
+    [SerializeField] private GameObject winBackground;
+    [SerializeField] private GameObject loseMatchText;
+    [SerializeField] private GameObject loseBackground;
 
     private Player _player;
     private List<Enemy> _enemiesList;
@@ -68,7 +73,7 @@ public class BattleUIManager : MonoBehaviour
         AddOtherButtonsListeners();
         ShowSpellInfoUI(false);
         AddCharPointsButtonsListeners();
-        ShowCharPointsSelectionUI(false);
+        HideEndMatchUI();
     }
 
     private void Update()
@@ -96,17 +101,34 @@ public class BattleUIManager : MonoBehaviour
         spellInfo.SetActive(value);
     }
 
-    public void ShowCharPointsSelectionUI(bool value)
+    private void HideEndMatchUI()
     {
-        charPointsSelection.SetActive(value);
-        if (value)
+        charPointsSelection.SetActive(false);
+        winMatchText.SetActive(false);
+        acceptErrorText.SetActive(false);
+        loseMatchText.SetActive(false);
+        loseBackground.SetActive(false);
+        winBackground.SetActive(false);
+    }
+
+    public void ShowEndMatchUI(bool isWin)
+    {
+        mainBar.SetActive(false);
+        charInfo.SetActive(false);
+        battleInfo.SetActive(false);
+        spellInfo.SetActive(false);
+        if (isWin)
         {
-            mainBar.SetActive(!value);
-            charInfo.SetActive(!value);
-            battleInfo.SetActive(!value);
-            spellInfo.SetActive(!value);
+            charPointsSelection.SetActive(true);
+            winMatchText.SetActive(true);
+            winBackground.SetActive(true);
+            UpdateCharPointsSelectionText();
         }
-        UpdateCharPointsSelectionText();
+        else
+        {
+            loseMatchText.SetActive(true);
+            loseBackground.SetActive(true);
+        }
     }
 
     private void PlaceSpellButtonsWithOffset()
@@ -261,16 +283,21 @@ public class BattleUIManager : MonoBehaviour
 
     private void OnAcceptCharPointsButtonClickedListener()
     {
-        List<int> listCharPointsGD = new List<int>
+        if (_spareCharPoints == 0)
         {
-            _healthPointsGD,
-            _actionPointsGD,
-            _movementPointsGD,
-            _damagePointsGD,
-            _resistancePercGD,
-            _critsPercGD
-        };
-        OnAcceptCharPointsButtonClicked?.Invoke(listCharPointsGD);
+            acceptErrorText.SetActive(false);
+            List<int> listCharPointsGD = new List<int>
+            {
+                _healthPointsGD,
+                _actionPointsGD,
+                _movementPointsGD,
+                _damagePointsGD,
+                _resistancePercGD,
+                _critsPercGD
+            };
+            OnAcceptCharPointsButtonClicked?.Invoke(listCharPointsGD);
+        }
+        acceptErrorText.SetActive(true);
     }
 
     private void OnPlusMinusCharPointsButtonClickedListener(GameObject buttonGameObject)

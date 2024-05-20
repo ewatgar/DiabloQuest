@@ -201,6 +201,22 @@ public class Character : MonoBehaviour
         transform.position = newPos;
     }
 
+    public void UpdateStatsFromSave()
+    {
+        GameData gameData = SaveManager.Load();
+        if (gameData != null)
+        {
+            name = gameData.playerName;
+            _initHealthPoints = gameData.healthPoints;
+            _initActionPoints = gameData.actionPoints;
+            _initMovementPoints = gameData.movementPoints;
+            _initDamagePoints = gameData.damagePoints;
+            _initResistancePerc = gameData.resistancePerc;
+            _initCritsPerc = gameData.critsPerc;
+            _health = _initHealthPoints * 50;
+        }
+    }
+
     public void EnableCollider(bool value)
     {
         GetComponent<Collider2D>().enabled = value;

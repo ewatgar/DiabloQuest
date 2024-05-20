@@ -95,6 +95,7 @@ public class StateMachine : MonoBehaviour
         //TODO loadPlayerStats from savefile
         _player = Utils.GetPlayer();
         _player.InitCharZPosition();
+        _player.UpdateStatsFromSave();
     }
 
     private void InitEnemy()
@@ -234,16 +235,17 @@ public class StateMachine : MonoBehaviour
 
     private void StartMatchEnd(bool value)
     {
+
         if (value)
         {
-            print("Has ganado, se distribuye puntos de características y se guarda la partida");
-            BattleUIManager.Instance.ShowCharPointsSelectionUI(true);
+            //print("Has ganado, se distribuye puntos de características y se guarda la partida");
+            BattleUIManager.Instance.ShowEndMatchUI(true);
             //Se espera a que se clicke el boton Aceptar
         }
         else
         {
-            print("Has perdido");
-            ProcessEvent(Event.FinishGame);
+            //print("Has perdido");
+            StartCoroutine(LoseMatchCoroutine());
         }
     }
 
@@ -383,6 +385,12 @@ public class StateMachine : MonoBehaviour
         ProcessEvent(Event.PlayerStopsCastingSpell);
     }
 
+    private IEnumerator LoseMatchCoroutine()
+    {
+        BattleUIManager.Instance.ShowEndMatchUI(false);
+        yield return new WaitForSeconds(2);
+        ProcessEvent(Event.FinishGame);
+    }
 
     private IEnumerator AllEnemiesTurnsCoroutine()
     {
@@ -398,6 +406,7 @@ public class StateMachine : MonoBehaviour
                 {
                     _player.IsDead = true;
                     ProcessEvent(Event.PlayerDies);
+                    yield break;
                 }
             }
         }
