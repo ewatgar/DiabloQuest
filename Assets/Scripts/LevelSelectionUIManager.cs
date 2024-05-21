@@ -36,8 +36,8 @@ public class LevelSelectionUIManager : MonoBehaviour
                 if (gameData.numCompletedLevels >= 1) SceneManager.LoadScene("BattleOneScene"); //TODO BattleTwoScene
                 else
                 {
-                    TextMeshProUGUI charName = blockedLevelError.GetComponent<TextMeshProUGUI>();
-                    charName.text = "Nivel 2 bloqueado";
+                    TextMeshProUGUI errorText = blockedLevelError.GetComponent<TextMeshProUGUI>();
+                    errorText.text = "Nivel 2 bloqueado";
                     blockedLevelError.SetActive(true);
                     print("You need to finish level 1");
                 }
@@ -46,8 +46,8 @@ public class LevelSelectionUIManager : MonoBehaviour
                 if (gameData.numCompletedLevels >= 2) SceneManager.LoadScene("BattleOneScene"); //TODO BattleThreeScene
                 else
                 {
-                    TextMeshProUGUI charName = blockedLevelError.GetComponent<TextMeshProUGUI>();
-                    charName.text = "Nivel 3 bloqueado";
+                    TextMeshProUGUI errorText = blockedLevelError.GetComponent<TextMeshProUGUI>();
+                    errorText.text = "Nivel 3 bloqueado";
                     blockedLevelError.SetActive(true);
                     print("You need to finish level 2");
                 }
