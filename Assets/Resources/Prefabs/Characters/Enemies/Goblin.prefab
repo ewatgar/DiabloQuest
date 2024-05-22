@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4178955134271070749}
   - component: {fileID: 2394655646715456728}
   - component: {fileID: 7028279562121865229}
+  - component: {fileID: 7969341667022891835}
   m_Layer: 3
   m_Name: Goblin
   m_TagString: Enemy
@@ -155,3 +156,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.72337544}
   m_Size: {x: 1.2250435, y: 1.8467505}
   m_Direction: 0
+--- !u!95 &7969341667022891835
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199368913069152463}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15983bd9ebd90634ea760d21e432ee37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

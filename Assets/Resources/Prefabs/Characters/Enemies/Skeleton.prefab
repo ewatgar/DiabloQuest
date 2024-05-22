@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8395896603060600347}
   - component: {fileID: 6249988422176829185}
   - component: {fileID: 9107697971438378804}
+  - component: {fileID: 6258913718483409578}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -155,3 +156,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.7812608}
   m_Size: {x: 1.2, y: 1.9625217}
   m_Direction: 0
+--- !u!95 &6258913718483409578
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2853377745045749431}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1644ee57e7fa9642b7480913bdf754a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
