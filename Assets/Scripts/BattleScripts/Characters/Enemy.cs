@@ -162,39 +162,10 @@ public class Enemy : Character
 
     public IEnumerator MovingThroughPathCoroutine(float animationSpeed = 0.3f)
     {
-        float currentTime = 0;
         List<Tile> path = PathfindingManager.Instance.FinalPath;
 
         if (_enemyType == EnemyType.Melee) path.RemoveAt(path.Count - 1);
 
-        foreach (Tile tile in path)
-        {
-            if (_movementPoints <= 0) break;
-
-            Vector3 startPos = transform.position;
-
-            Vector3 tilePos = tile.transform.position;
-            Vector3 endPos = new Vector3(tilePos.x, tilePos.y, tile.Coords.y);
-
-            while (currentTime < animationSpeed)
-            {
-                currentTime += Time.deltaTime;
-                float t = currentTime / animationSpeed;
-                transform.position = Vector3.Lerp(startPos, endPos, t);
-                yield return null;
-            }
-
-            transform.position = new Vector3(
-                endPos.x,
-                endPos.y,
-                tile.Coords.y
-            );
-            currentTime = 0;
-            SpendMovementPoint();
-            tile.Path = false;
-        }
+        yield return StartCoroutine(MovingThroughPathCoroutine(path, animationSpeed));
     }
-
-
-
 }
