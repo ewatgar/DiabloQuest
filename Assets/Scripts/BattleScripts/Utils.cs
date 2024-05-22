@@ -4,19 +4,6 @@ using UnityEngine;
 
 public class Utils : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        if (Input.GetKey("escape"))
-        {
-            Application.Quit();
-        }
-    }
-
     public static Player GetPlayer()
     {
         return GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
