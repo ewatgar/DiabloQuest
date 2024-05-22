@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleUIManager : MonoBehaviour
@@ -25,9 +26,10 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] private GameObject winMatchText;
     [SerializeField] private GameObject charPointsSelection;
     [SerializeField] private GameObject acceptErrorText;
-    [SerializeField] private GameObject winBackground;
     [SerializeField] private GameObject loseMatchText;
-    [SerializeField] private GameObject loseBackground;
+    [SerializeField] private GameObject background;
+    [SerializeField] private GameObject yesFleeButton;
+    [SerializeField] private GameObject noFleeButton;
 
     private Player _player;
     private List<Enemy> _enemiesList;
@@ -107,8 +109,9 @@ public class BattleUIManager : MonoBehaviour
         winMatchText.SetActive(false);
         acceptErrorText.SetActive(false);
         loseMatchText.SetActive(false);
-        loseBackground.SetActive(false);
-        winBackground.SetActive(false);
+        background.SetActive(false);
+        yesFleeButton.SetActive(false);
+        noFleeButton.SetActive(false);
     }
 
     public void ShowEndMatchUI(bool isWin)
@@ -121,13 +124,13 @@ public class BattleUIManager : MonoBehaviour
         {
             charPointsSelection.SetActive(true);
             winMatchText.SetActive(true);
-            winBackground.SetActive(true);
+            background.SetActive(true);
             UpdateCharPointsSelectionText();
         }
         else
         {
             loseMatchText.SetActive(true);
-            loseBackground.SetActive(true);
+            background.SetActive(true);
         }
     }
 
@@ -244,7 +247,9 @@ public class BattleUIManager : MonoBehaviour
     {
         GameObject otherButtonsZone = mainBar.transform.Find("OtherButtonsZone").gameObject;
         Button finishTurnButton = otherButtonsZone.transform.Find("FinishTurnButton").gameObject.GetComponent<Button>();
+        Button fleeButton = otherButtonsZone.transform.Find("FleeButton").gameObject.GetComponent<Button>();
         finishTurnButton.onClick.AddListener(() => OnFinishTurnButtonClickedListener());
+        fleeButton.onClick.AddListener(() => OnFleeButtonClickedListener());
     }
 
     private void AddCharPointsButtonsListeners()
@@ -270,6 +275,25 @@ public class BattleUIManager : MonoBehaviour
     public void OnFinishTurnButtonClickedListener()
     {
         OnFinishTurnButtonClicked?.Invoke();
+    }
+
+    public void OnFleeButtonClickedListener()
+    {
+        TextMeshProUGUI warningText = loseMatchText.GetComponent<TextMeshProUGUI>();
+        warningText.text = "¿Estás seguro que quieres salir? se perderá el progreso";
+        warningText.fontSize = 36;
+        yesFleeButton.GetComponent<Button>().onClick.AddListener(() => OnFleeOptionsClickedListener(true));
+        noFleeButton.GetComponent<Button>().onClick.AddListener(() => OnFleeOptionsClickedListener(false));
+        background.SetActive(true);
+        loseMatchText.SetActive(true);
+        yesFleeButton.SetActive(true);
+        noFleeButton.SetActive(true);
+    }
+
+    public void OnFleeOptionsClickedListener(bool value)
+    {
+        if (value) SceneManager.LoadScene("LevelSelectionScene");
+        else HideEndMatchUI();
     }
 
     public void OnSpellButtonClickedListener(Spell spell)
