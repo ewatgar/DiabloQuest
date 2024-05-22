@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,6 +14,7 @@ public class LevelSelectionUIManager : MonoBehaviour
     [SerializeField] private GameObject levelTwoButton;
     [SerializeField] private GameObject levelThreeButton;
     [SerializeField] private GameObject blockedLevelError;
+    [SerializeField] private GameObject quitButton;
     private GameData gameData;
 
 
@@ -22,9 +24,9 @@ public class LevelSelectionUIManager : MonoBehaviour
         levelOneButton.GetComponent<Button>().onClick.AddListener(() => OnLevelSelectionButtonListener(1));
         levelTwoButton.GetComponent<Button>().onClick.AddListener(() => OnLevelSelectionButtonListener(2));
         levelThreeButton.GetComponent<Button>().onClick.AddListener(() => OnLevelSelectionButtonListener(3));
+        quitButton.GetComponent<Button>().onClick.AddListener(() => OnQuitButtonListener());
         gameData = SaveManager.Load();
     }
-
     private void OnLevelSelectionButtonListener(int level)
     {
         switch (level)
@@ -53,5 +55,10 @@ public class LevelSelectionUIManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    private void OnQuitButtonListener()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
