@@ -82,6 +82,11 @@ public static class SaveManager
         return null;
     }
 
+    public static bool SaveExists()
+    {
+        return File.Exists(saveFilePath);
+    }
+
     // public static methods -----------------------------
     // loadCompletedScenes() -> int
     // loadPlayerStats()

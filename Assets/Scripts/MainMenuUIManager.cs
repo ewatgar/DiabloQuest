@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -43,7 +44,14 @@ public class MainMenuUIManager : MonoBehaviour
 
     private void OnContinueButtonListener()
     {
-        SceneManager.LoadScene("LevelSelectionScene");
+        if (SaveManager.SaveExists()) SceneManager.LoadScene("LevelSelectionScene");
+        else
+        {
+            TextMeshProUGUI errorText = newGameWarning.GetComponent<TextMeshProUGUI>();
+            errorText.text = "Partida no encontrada. Debes crear una nueva partida";
+            ShowNewGameWarning(true);
+            _clickedNewGameTwice = true;
+        }
     }
 
     private void OnQuitButtonListener()
