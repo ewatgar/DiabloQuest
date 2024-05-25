@@ -356,7 +356,7 @@ public class StateMachine : MonoBehaviour
     private IEnumerator PlayerMovingCoroutine()
     {
         List<Tile> path = PathfindingManager.Instance.FinalPath;
-        yield return StartCoroutine(_player.MovingThroughPathCoroutine(path));
+        yield return StartCoroutine(_player.MovingThroughPathCoroutine(path, true));
         _hoveredTile = null;
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
@@ -367,6 +367,8 @@ public class StateMachine : MonoBehaviour
         ClearTiles();
         if (_player.ActionPoints >= _selectedSpell.actionPointCost)
         {
+            yield return StartCoroutine(_player.PlayCastSpellAnimationCoroutine(_selectedTile, _selectedSpell));
+
             foreach (Enemy enemy in _enemiesList)
             {
                 if (!enemy.IsDead && _listAreaOfEffectTiles.Contains(enemy.GetCharacterTile()))

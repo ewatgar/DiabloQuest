@@ -26,4 +26,5 @@ public class Spell : ScriptableObject
     public int baseDamageOrHealing;
     public SpellAreaType spellAreaType;
     public UtilityType utilityType;
+    public AnimationType animationType;
 }

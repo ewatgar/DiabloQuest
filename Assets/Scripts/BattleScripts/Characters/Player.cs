@@ -153,7 +153,6 @@ public class Player : Character
                 yield return StartCoroutine(KnockbackCharCoroutine(enemyAttacked, 2));
                 break;
         }
-        //TODO attack enemy animation
         yield return new WaitForSeconds(.2f);
         print("Enemy Attacked: " + enemyAttacked.name);
     }

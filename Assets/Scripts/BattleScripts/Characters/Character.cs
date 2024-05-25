@@ -53,7 +53,7 @@ public class Character : MonoBehaviour
     {
         InitStats();
         _animator = GetComponent<Animator>();
-        _lastDirection = Vector2.up;
+        _lastDirection = Vector2.down;
     }
 
     private void Start()
@@ -118,7 +118,7 @@ public class Character : MonoBehaviour
         PathfindingManager.Instance.RegeneratePath(GetCharacterTile(), selectedTile, color);
     }
 
-    public IEnumerator MovingThroughPathCoroutine(List<Tile> path, float animationSpeed = 0.3f)
+    public IEnumerator MovingThroughPathCoroutine(List<Tile> path, bool enableAnimation, float animationSpeed = 0.3f)
     {
         Vector2 direction = _lastDirection;
         float currentTime = 0;
@@ -132,10 +132,14 @@ public class Character : MonoBehaviour
             Vector3 endPos = new(tilePos.x, tilePos.y, tile.Coords.y);
 
             // ANIMATION --------------------------------------------
-            direction = tilePos - startPos;
-            direction = direction.normalized;
+            if (enableAnimation)
+            {
+                direction = tilePos - startPos;
+                direction = direction.normalized;
 
-            AnimationManager.PlayAnimation(_animator, AnimationType.Walk, direction);
+                AnimationManager.PlayAnimation(_animator, AnimationType.Walk, direction);
+                _lastDirection = direction;
+            }
             // --------------------------------------------
 
             while (currentTime < animationSpeed)
@@ -197,7 +201,7 @@ public class Character : MonoBehaviour
             if (knockbackTile == null || knockbackTile.Solid) break;
             path.Add(knockbackTile);
         }
-        yield return StartCoroutine(characterPushed.MovingThroughPathCoroutine(path, 0.15f));
+        yield return StartCoroutine(characterPushed.MovingThroughPathCoroutine(path, false, 0.15f));
 
     }
 
@@ -234,5 +238,20 @@ public class Character : MonoBehaviour
     public void EnableCollider(bool value)
     {
         GetComponent<Collider2D>().enabled = value;
+    }
+
+    public IEnumerator PlayCastSpellAnimationCoroutine(Tile selectedTile, Spell spell)
+    {
+        Vector2 direction;
+        if (spell.spellAreaType == SpellAreaType.Donut || spell.spellAreaType == SpellAreaType.Self) direction = _lastDirection;
+        else direction = selectedTile.Coords - GetCharacterTile().Coords;
+        direction = direction.normalized;
+
+        Debug.Log("direction spell: " + direction);
+        AnimationManager.PlayAnimation(_animator, spell.animationType, direction);
+        yield return new WaitForSeconds(.5f);
+        AnimationManager.PlayAnimation(_animator, AnimationType.Idle, direction);
+        _lastDirection = direction;
+        yield return new WaitForSeconds(.2f);
     }
 }
