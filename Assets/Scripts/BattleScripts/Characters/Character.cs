@@ -28,8 +28,9 @@ public class Character : MonoBehaviour
     [Header("Character Spells")]
     [SerializeField] protected List<Spell> _listSpells;
 
-
     protected Tile _oldGoalTile;
+    protected Animator _animator;
+    protected Vector2 _lastDirection;
 
     public event Action<Character> OnCharClicked;
 
@@ -51,6 +52,8 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         InitStats();
+        _animator = GetComponent<Animator>();
+        _lastDirection = Vector2.up;
     }
 
     private void Start()
@@ -117,6 +120,7 @@ public class Character : MonoBehaviour
 
     public IEnumerator MovingThroughPathCoroutine(List<Tile> path, float animationSpeed = 0.3f)
     {
+        Vector2 direction = _lastDirection;
         float currentTime = 0;
         foreach (Tile tile in path)
         {
@@ -125,7 +129,14 @@ public class Character : MonoBehaviour
             Vector3 startPos = transform.position;
 
             Vector3 tilePos = tile.transform.position;
-            Vector3 endPos = new Vector3(tilePos.x, tilePos.y, tile.Coords.y);
+            Vector3 endPos = new(tilePos.x, tilePos.y, tile.Coords.y);
+
+            // ANIMATION --------------------------------------------
+            direction = tilePos - startPos;
+            direction = direction.normalized;
+
+            AnimationManager.PlayAnimation(_animator, AnimationType.Walk, direction);
+            // --------------------------------------------
 
             while (currentTime < animationSpeed)
             {
@@ -144,6 +155,7 @@ public class Character : MonoBehaviour
             SpendMovementPoint();
             tile.Path = false;
         }
+        AnimationManager.PlayAnimation(_animator, AnimationType.Idle, direction);
     }
 
     public Tile GetCharacterTile()
