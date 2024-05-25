@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isDead: 0
   _initHealthPoints: 7
-  _initActionPoints: 6
+  _initActionPoints: 4
   _initMovementPoints: 4
   _initDamagePoints: 1
   _initResistancePerc: 2

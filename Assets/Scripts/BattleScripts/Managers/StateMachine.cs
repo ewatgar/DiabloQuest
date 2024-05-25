@@ -92,7 +92,7 @@ public class StateMachine : MonoBehaviour
 
     private void InitPlayer()
     {
-        //TODO loadPlayerStats from savefile
+        //TODO load current level
         _player = Utils.GetPlayer();
         _player.InitCharZPosition();
         _player.UpdateStatsFromSave();

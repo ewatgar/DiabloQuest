@@ -90,17 +90,18 @@ public class Enemy : Character
         {
             int index = Random.Range(0, ListSpells.Count);
             Spell randomSpell = _listSpells[index];
-            UseSpell(player, randomSpell);
+            yield return UseSpellCorutine(player, randomSpell);
             step++;
         }
         yield return null;
 
     }
 
-    private void UseSpell(Player playerAttacked, Spell spell)
+    private IEnumerator UseSpellCorutine(Player playerAttacked, Spell spell)
     {
         if (CheckCanUseSpell(playerAttacked, spell))
         {
+            yield return StartCoroutine(PlayCastSpellAnimationCoroutine(playerAttacked.GetCharacterTile(), spell, false));
             switch (spell.utilityType)
             {
                 case UtilityType.Damage:
@@ -114,6 +115,7 @@ public class Enemy : Character
                     throw new System.NotImplementedException(); //TODO UtilityType.Knockback enemy
             }
             SpendActionPoints(spell.actionPointCost);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 

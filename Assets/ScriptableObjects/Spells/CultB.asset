@@ -19,3 +19,4 @@ MonoBehaviour:
   baseDamageOrHealing: 20
   spellAreaType: 4
   utilityType: 1
+  animationType: 2

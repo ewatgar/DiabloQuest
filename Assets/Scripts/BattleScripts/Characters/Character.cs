@@ -240,7 +240,7 @@ public class Character : MonoBehaviour
         GetComponent<Collider2D>().enabled = value;
     }
 
-    public IEnumerator PlayCastSpellAnimationCoroutine(Tile selectedTile, Spell spell)
+    public IEnumerator PlayCastSpellAnimationCoroutine(Tile selectedTile, Spell spell, bool isPlayer = true)
     {
         Vector2 direction;
         if (spell.spellAreaType == SpellAreaType.Donut || spell.spellAreaType == SpellAreaType.Self) direction = _lastDirection;
@@ -249,9 +249,12 @@ public class Character : MonoBehaviour
 
         Debug.Log("direction spell: " + direction);
         AnimationManager.PlayAnimation(_animator, spell.animationType, direction);
-        yield return new WaitForSeconds(.5f);
+
+        float waitTime = 1;
+        if (isPlayer) waitTime = 0.75f;
+        yield return new WaitForSeconds(waitTime);
+
         AnimationManager.PlayAnimation(_animator, AnimationType.Idle, direction);
         _lastDirection = direction;
-        yield return new WaitForSeconds(.2f);
     }
 }
