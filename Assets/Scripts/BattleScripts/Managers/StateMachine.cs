@@ -378,6 +378,7 @@ public class StateMachine : MonoBehaviour
                     {
                         enemy.IsDead = true;
                         enemy.GetCharacterTile().Solid = false;
+                        yield return StartCoroutine(enemy.PlayDeathAnimationCoroutine());
                     }
                 }
             }
@@ -404,9 +405,9 @@ public class StateMachine : MonoBehaviour
                 enemy.GetCharacterTile().Solid = false;
                 yield return StartCoroutine(enemy.EnemyTurnCoroutine(_player));
                 enemy.GetCharacterTile().Solid = true;
-                if (_player.Health <= 0)
+                if (_player.IsDead == true)
                 {
-                    _player.IsDead = true;
+                    yield return StartCoroutine(_player.PlayDeathAnimationCoroutine());
                     ProcessEvent(Event.PlayerDies);
                     yield break;
                 }

@@ -37,6 +37,8 @@ public static class AnimationManager
         }
 
         animationName += type.ToString();
+        Debug.Log("Animation name before play: " + animationName);
         animator.Play(animationName);
+        Debug.Log("Playing animation: " + animationName);
     }
 }

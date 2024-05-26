@@ -91,6 +91,11 @@ public class Enemy : Character
             int index = Random.Range(0, ListSpells.Count);
             Spell randomSpell = _listSpells[index];
             yield return UseSpellCorutine(player, randomSpell);
+            if (player.Health <= 0)
+            {
+                player.IsDead = true;
+                yield break;
+            }
             step++;
         }
         yield return null;
@@ -105,7 +110,8 @@ public class Enemy : Character
             switch (spell.utilityType)
             {
                 case UtilityType.Damage:
-                    StartCoroutine(TakeFinalSpellDamage(playerAttacked, spell));
+                    yield return StartCoroutine(playerAttacked.PlayHurtAnimationCoroutine());
+                    TakeFinalSpellDamage(playerAttacked, spell);
                     break;
                 case UtilityType.Healing:
                     if (spell.spellAreaType == SpellAreaType.Self) HealSelfWithSpell(spell);

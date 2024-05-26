@@ -61,11 +61,6 @@ public class Character : MonoBehaviour
         _oldGoalTile = GetCharacterTile();
     }
 
-    private void Update()
-    {
-        gameObject.SetActive(!_isDead);
-    }
-
     protected void InitStats()
     {
         _health = _initHealthPoints * 50;
@@ -167,11 +162,8 @@ public class Character : MonoBehaviour
         return GridManager.Instance.GetTileFromWorldCoords(transform.position);
     }
 
-    protected IEnumerator TakeFinalSpellDamage(Character characterAttacked, Spell spell)
+    protected void TakeFinalSpellDamage(Character characterAttacked, Spell spell)
     {
-        // ANIMATION --------------------------------------------
-        yield return characterAttacked.StartCoroutine(characterAttacked.PlayHurtAnimationCoroutine());
-        // ------------------------------------------------------
         int baseCharDamage = _damagePoints * 10;
         int baseSpellDamage = spell.baseDamageOrHealing;
         int critsPerc = _critsPerc * 10;
@@ -271,7 +263,7 @@ public class Character : MonoBehaviour
     public IEnumerator PlayDeathAnimationCoroutine()
     {
         AnimationManager.PlayAnimation(_animator, AnimationType.Death, _lastDirection);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.75f);
         gameObject.SetActive(false);
     }
 }
