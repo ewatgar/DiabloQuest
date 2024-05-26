@@ -145,7 +145,7 @@ public class Player : Character
         switch (spell.utilityType)
         {
             case UtilityType.Damage:
-                TakeFinalSpellDamage(enemyAttacked, spell);
+                StartCoroutine(TakeFinalSpellDamage(enemyAttacked, spell));
                 break;
             case UtilityType.Healing:
                 throw new NotImplementedException();

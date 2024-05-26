@@ -105,7 +105,7 @@ public class Enemy : Character
             switch (spell.utilityType)
             {
                 case UtilityType.Damage:
-                    TakeFinalSpellDamage(playerAttacked, spell);
+                    StartCoroutine(TakeFinalSpellDamage(playerAttacked, spell));
                     break;
                 case UtilityType.Healing:
                     if (spell.spellAreaType == SpellAreaType.Self) HealSelfWithSpell(spell);
@@ -115,7 +115,7 @@ public class Enemy : Character
                     throw new System.NotImplementedException(); //TODO UtilityType.Knockback enemy
             }
             SpendActionPoints(spell.actionPointCost);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 

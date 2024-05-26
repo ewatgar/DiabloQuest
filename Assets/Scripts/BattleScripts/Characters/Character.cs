@@ -167,8 +167,11 @@ public class Character : MonoBehaviour
         return GridManager.Instance.GetTileFromWorldCoords(transform.position);
     }
 
-    protected void TakeFinalSpellDamage(Character characterAttacked, Spell spell)
+    protected IEnumerator TakeFinalSpellDamage(Character characterAttacked, Spell spell)
     {
+        // ANIMATION --------------------------------------------
+        yield return characterAttacked.StartCoroutine(characterAttacked.PlayHurtAnimationCoroutine());
+        // ------------------------------------------------------
         int baseCharDamage = _damagePoints * 10;
         int baseSpellDamage = spell.baseDamageOrHealing;
         int critsPerc = _critsPerc * 10;
@@ -256,5 +259,19 @@ public class Character : MonoBehaviour
 
         AnimationManager.PlayAnimation(_animator, AnimationType.Idle, direction);
         _lastDirection = direction;
+    }
+
+    public IEnumerator PlayHurtAnimationCoroutine()
+    {
+        AnimationManager.PlayAnimation(_animator, AnimationType.Hurt, _lastDirection);
+        yield return new WaitForSeconds(0.5f);
+        AnimationManager.PlayAnimation(_animator, AnimationType.Idle, _lastDirection);
+    }
+
+    public IEnumerator PlayDeathAnimationCoroutine()
+    {
+        AnimationManager.PlayAnimation(_animator, AnimationType.Death, _lastDirection);
+        yield return new WaitForSeconds(1.5f);
+        gameObject.SetActive(false);
     }
 }
