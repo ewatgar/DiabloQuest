@@ -204,7 +204,7 @@ public class BattleUIManager : MonoBehaviour
         }
         utilityText.text = utilityStr;
         apText.text = spell.actionPointCost.ToString();
-        damageText.text = spell.baseDamageOrHealing.ToString();
+        damageText.text = spell.value.ToString();
     }
 
     private void UpdateCharPointsSelectionText()

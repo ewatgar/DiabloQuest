@@ -165,7 +165,7 @@ public class Character : MonoBehaviour
     protected void TakeFinalSpellDamage(Character characterAttacked, Spell spell)
     {
         int baseCharDamage = _damagePoints * 10;
-        int baseSpellDamage = spell.baseDamageOrHealing;
+        int baseSpellDamage = spell.value;
         int critsPerc = _critsPerc * 10;
         int resPerc = _resistancePerc * 10;
 

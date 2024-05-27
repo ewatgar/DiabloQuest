@@ -17,6 +17,7 @@ MonoBehaviour:
   artwork: {fileID: 0}
   actionPointCost: 2
   baseDamageOrHealing: 15
+  value: 15
   spellAreaType: 0
   utilityType: 0
   animationType: 2

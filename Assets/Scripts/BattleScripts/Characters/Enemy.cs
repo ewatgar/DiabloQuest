@@ -128,7 +128,7 @@ public class Enemy : Character
     protected void HealSelfWithSpell(Spell spell)
     {
         int baseCharHealing = _damagePoints * 10;
-        int baseSpellHealing = spell.baseDamageOrHealing;
+        int baseSpellHealing = spell.value;
         int critsPerc = _critsPerc * 10;
 
         int critsHealing = 0;

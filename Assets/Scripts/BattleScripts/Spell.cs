@@ -23,7 +23,7 @@ public class Spell : ScriptableObject
     public string description;
     public Sprite artwork;
     public int actionPointCost;
-    public int baseDamageOrHealing;
+    public int value;
     public SpellAreaType spellAreaType;
     public UtilityType utilityType;
     public AnimationType animationType;
