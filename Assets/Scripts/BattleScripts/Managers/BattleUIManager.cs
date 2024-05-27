@@ -30,6 +30,7 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject yesFleeButton;
     [SerializeField] private GameObject noFleeButton;
+    [SerializeField] private int levelNumber;
 
     private Player _player;
     private List<Enemy> _enemiesList;
@@ -175,7 +176,9 @@ public class BattleUIManager : MonoBehaviour
     private void UpdateBattleInfoText()
     {
         TextMeshProUGUI roundText = battleInfo.transform.Find("RoundText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI levelText = battleInfo.transform.Find("LevelText").GetComponent<TextMeshProUGUI>();
         roundText.text = StateMachine.Instance.NumRounds.ToString();
+        levelText.text = levelNumber.ToString();
     }
 
     private void UpdateSpellInfoText(Spell spell)

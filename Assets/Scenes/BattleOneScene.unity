@@ -560,6 +560,7 @@ MonoBehaviour:
   background: {fileID: 2112653966}
   yesFleeButton: {fileID: 1401888998}
   noFleeButton: {fileID: 1438377164}
+  levelNumber: 1
 --- !u!4 &644711310
 Transform:
   m_ObjectHideFlags: 0
