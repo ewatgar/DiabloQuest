@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Player : Character
 {
+    [Header("Player Items")]
+    [SerializeField] private List<Item> listItems;
+
+    public List<Item> ListItems { get => listItems; }
+
     public List<Tile> GetSelectableSpellTiles(Spell spell)
     {
         List<Tile> selectableTiles = new List<Tile>();

@@ -15,7 +15,8 @@ public enum UtilityType
     Healing,
     Knockback,
     MovementPoints,
-    ActionPoints
+    ActionPoints,
+    Crits
 }
 
 [CreateAssetMenu(fileName = "NewSpell", menuName = "Spell", order = 0)]

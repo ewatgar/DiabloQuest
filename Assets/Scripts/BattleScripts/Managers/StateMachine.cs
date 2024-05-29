@@ -57,6 +57,8 @@ public class StateMachine : MonoBehaviour
     private Spell _selectedSpell;
     private Spell _previousSelectedSpell;
 
+    private HashSet<Item> _listOfUsedItems;
+
     private void Awake()
     {
         if (_instance == null)

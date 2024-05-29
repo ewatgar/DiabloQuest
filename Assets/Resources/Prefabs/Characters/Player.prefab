@@ -119,6 +119,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 281513edb6ee8254ca0ae6ff74d3764f, type: 2}
   - {fileID: 11400000, guid: 56de967915e870848b74f99381990abd, type: 2}
   - {fileID: 11400000, guid: 108879bcf26a52d4d91a60a3e6a9e1fb, type: 2}
+  listItems:
+  - {fileID: 11400000, guid: bf2efdfcfb7262f4f87153c7f1283cf4, type: 2}
+  - {fileID: 11400000, guid: f2bfe9ad8d2bc984fbf6c86ec67abc6a, type: 2}
+  - {fileID: 11400000, guid: 48e5ed090fea35649909b855fa0806cf, type: 2}
+  - {fileID: 11400000, guid: 62e04a5819c51c442ae2e60e56234e57, type: 2}
 --- !u!95 &6742454679611154156
 Animator:
   serializedVersion: 7

@@ -38,6 +38,8 @@ public class BattleUIManager : MonoBehaviour
     private Character _selectedChar;
     private Spell _selectedSpell;
     private bool _enableSpellInfoUi;
+    private bool _enableItemButtonsUi = false;
+    private List<SpellButton> _spellButtons = new List<SpellButton>();
 
     // Characteristic points selection
     private int _spareCharPoints;
@@ -146,9 +148,24 @@ public class BattleUIManager : MonoBehaviour
             spellButton.name = spellButtonPrefab.name;
             float pos = spellButton.transform.localPosition.x;
             spellButton.transform.localPosition = new Vector2(pos + i, 0);
-            spellButton.Spell = spell;
-            spellButton.transform.Find("SpellArtwork").GetComponent<Image>().sprite = spell.artwork;
+            InitSpellButton(spellButton, spell);
+            _spellButtons.Add(spellButton);
             i += 100;
+        }
+    }
+
+    private void InitSpellButton(SpellButton spellButton, Spell spell)
+    {
+        spellButton.Spell = spell;
+        spellButton.transform.Find("SpellArtwork").GetComponent<Image>().sprite = spell.artwork;
+    }
+
+    private void ReplaceSpellWithItemButtons(bool value)
+    {
+        for (int i = 0; i < _player.ListItems.Count; i++)
+        {
+            if (value) InitSpellButton(_spellButtons[i], _player.ListItems[i]);
+            else InitSpellButton(_spellButtons[i], _player.ListSpells[i]);
         }
     }
 
@@ -251,8 +268,10 @@ public class BattleUIManager : MonoBehaviour
         GameObject otherButtonsZone = mainBar.transform.Find("OtherButtonsZone").gameObject;
         Button finishTurnButton = otherButtonsZone.transform.Find("FinishTurnButton").gameObject.GetComponent<Button>();
         Button fleeButton = otherButtonsZone.transform.Find("FleeButton").gameObject.GetComponent<Button>();
+        Button itemListButton = otherButtonsZone.transform.Find("ItemListButton").gameObject.GetComponent<Button>();
         finishTurnButton.onClick.AddListener(() => OnFinishTurnButtonClickedListener());
         fleeButton.onClick.AddListener(() => OnFleeButtonClickedListener());
+        itemListButton.onClick.AddListener(() => OnItemListButtonClickedListener());
     }
 
     private void AddCharPointsButtonsListeners()
@@ -297,6 +316,12 @@ public class BattleUIManager : MonoBehaviour
     {
         if (value) SceneManager.LoadScene("LevelSelectionScene");
         else HideEndMatchUI();
+    }
+
+    private void OnItemListButtonClickedListener()
+    {
+        _enableItemButtonsUi = !_enableItemButtonsUi;
+        ReplaceSpellWithItemButtons(_enableItemButtonsUi);
     }
 
     public void OnSpellButtonClickedListener(Spell spell)

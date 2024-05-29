@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b587674a8e20a3f4ea4b673e9742427e, type: 3}
   m_Name: ItemD
   m_EditorClassIdentifier: 
-  name: 
+  name: "Poci\xF3n de Suerte"
   description: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 6997616985800771554, guid: 02025b1f0340333478e874144ee20e87, type: 3}
   actionPointCost: 0
-  value: 0
+  value: 50
   spellAreaType: 4
-  utilityType: 0
+  utilityType: 5
   animationType: 0

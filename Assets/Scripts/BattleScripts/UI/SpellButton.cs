@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class SpellButton : MonoBehaviour
 {
-    private Spell _spell;
+    [SerializeField] private Spell _spell;
 
     public Spell Spell { get => _spell; set => _spell = value; }
 
