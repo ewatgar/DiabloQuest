@@ -88,6 +88,7 @@ public class BattleUIManager : MonoBehaviour
         UpdateCharInfoText(_selectedChar);
         UpdateBattleInfoText();
         UpdateSpellInfoText(_selectedSpell);
+        UpdateTurnButtonsInteractable();
     }
 
     private void InitGameDataValues()
@@ -258,6 +259,23 @@ public class BattleUIManager : MonoBehaviour
         dpText.text = _damagePointsGD.ToString();
         resPercText.text = _resistancePercGD.ToString();
         critsPercText.text = _critsPercGD.ToString();
+    }
+
+    private void UpdateTurnButtonsInteractable()
+    {
+        GameObject otherButtonsZone = mainBar.transform.Find("OtherButtonsZone").gameObject;
+        Button finishTurnButton = otherButtonsZone.transform.Find("FinishTurnButton").gameObject.GetComponent<Button>();
+        Transform finishTurnButtonIcon = finishTurnButton.transform.Find("ButtonIcon");
+        if (StateMachine.Instance.CurrectState == State.PlayerTurn)
+        {
+            finishTurnButton.interactable = true;
+            finishTurnButtonIcon.gameObject.SetActive(true);
+        }
+        else
+        {
+            finishTurnButton.interactable = false;
+            finishTurnButtonIcon.gameObject.SetActive(false);
+        }
     }
 
     // ADD OBSERVERS
