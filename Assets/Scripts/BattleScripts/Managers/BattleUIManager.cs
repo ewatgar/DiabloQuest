@@ -157,15 +157,32 @@ public class BattleUIManager : MonoBehaviour
     private void InitSpellButton(SpellButton spellButton, Spell spell)
     {
         spellButton.Spell = spell;
-        spellButton.transform.Find("SpellArtwork").GetComponent<Image>().sprite = spell.artwork;
+        spellButton.GetComponent<Button>().interactable = true;
+        Transform artwork = spellButton.transform.Find("SpellArtwork");
+        artwork.GetComponent<Image>().sprite = spell.artwork;
+        artwork.gameObject.SetActive(true);
+
     }
 
-    private void ReplaceSpellWithItemButtons(bool value)
+    public void ReplaceSpellWithItemButtons(bool value)
     {
         for (int i = 0; i < _player.ListItems.Count; i++)
         {
-            if (value) InitSpellButton(_spellButtons[i], _player.ListItems[i]);
-            else InitSpellButton(_spellButtons[i], _player.ListSpells[i]);
+            SpellButton spellButton = _spellButtons[i];
+            if (value)
+            {
+                InitSpellButton(spellButton, _player.ListItems[i]);
+
+                HashSet<Item> listOfUsedItems = StateMachine.Instance.ListOfUsedItems;
+                Transform artwork = spellButton.transform.Find("SpellArtwork");
+
+                if (listOfUsedItems.Contains(_player.ListItems[i]))
+                {
+                    spellButton.GetComponent<Button>().interactable = false;
+                    artwork.gameObject.SetActive(false);
+                }
+            }
+            else InitSpellButton(spellButton, _player.ListSpells[i]);
         }
     }
 

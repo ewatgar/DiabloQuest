@@ -163,5 +163,24 @@ public class Player : Character
         print("Enemy Attacked: " + enemyAttacked.name);
     }
 
-
+    public IEnumerator ApplySpellEffectCoroutine(Spell selectedSpell)
+    {
+        if (selectedSpell.utilityType == UtilityType.Healing)
+        {
+            GetHealth(selectedSpell.value);
+        }
+        else if (selectedSpell.utilityType == UtilityType.MovementPoints)
+        {
+            _movementPoints += selectedSpell.value;
+        }
+        else if (selectedSpell.utilityType == UtilityType.ActionPoints)
+        {
+            _actionPoints += selectedSpell.value;
+        }
+        else if (selectedSpell.utilityType == UtilityType.Crits)
+        {
+            _critsPerc = selectedSpell.value / 10;
+        }
+        yield return null;
+    }
 }

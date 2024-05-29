@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,7 +58,8 @@ public class StateMachine : MonoBehaviour
     private Spell _selectedSpell;
     private Spell _previousSelectedSpell;
 
-    private HashSet<Item> _listOfUsedItems;
+    private HashSet<Item> _listOfUsedItems = new HashSet<Item>();
+    public HashSet<Item> ListOfUsedItems { get => _listOfUsedItems; }
 
     private void Awake()
     {
@@ -345,8 +347,10 @@ public class StateMachine : MonoBehaviour
 
     private void StartPlayerCastingSpell()
     {
-        StartCoroutine(PlayerAttackCoroutine());
+        if (_selectedSpell.spellAreaType == SpellAreaType.Self) StartCoroutine(PlayerSelfCoroutine());
+        else StartCoroutine(PlayerAttackCoroutine());
     }
+
     private void StartEnemiesTurn()
     {
         //player.GetCharacterTile().Solid = true;
@@ -362,6 +366,23 @@ public class StateMachine : MonoBehaviour
         _hoveredTile = null;
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
+    }
+
+    private IEnumerator PlayerSelfCoroutine()
+    {
+        ClearTiles();
+        if (_player.ActionPoints >= _selectedSpell.actionPointCost)
+        {
+            //yield return StartCoroutine(_player.PlayCastSpellAnimationCoroutine(_player.LastDirection, _selectedSpell));
+            yield return StartCoroutine(_player.ApplySpellEffectCoroutine(_selectedSpell));
+        }
+        _player.SpendActionPoints(_selectedSpell.actionPointCost);
+        if (_selectedSpell is Item item)
+        {
+            _listOfUsedItems.Add(item);
+            BattleUIManager.Instance.ReplaceSpellWithItemButtons(true);
+        }
+        ProcessEvent(Event.PlayerStopsCastingSpell);
     }
 
     private IEnumerator PlayerAttackCoroutine()
