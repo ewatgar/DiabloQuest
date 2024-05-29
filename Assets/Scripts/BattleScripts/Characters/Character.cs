@@ -87,7 +87,8 @@ public class Character : MonoBehaviour
 
     public void GetHealth(int hp = 1)
     {
-        if (_health < _initActionPoints) _health += hp;
+        if (_health + hp <= _initHealthPoints * 50) _health += hp;
+        else _health = _initHealthPoints * 50;
     }
 
     public void SpendActionPoints(int ap = 1)
