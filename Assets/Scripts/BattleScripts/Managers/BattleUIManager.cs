@@ -199,13 +199,16 @@ public class BattleUIManager : MonoBehaviour
         TextMeshProUGUI healthText = charInfo.transform.Find("HealthText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI apText = charInfo.transform.Find("APText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI mpText = charInfo.transform.Find("MPText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI dmgText = charInfo.transform.Find("DmgText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI resPercText = charInfo.transform.Find("ResPercText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI critsPercText = charInfo.transform.Find("CritsPercText").GetComponent<TextMeshProUGUI>();
 
         charName.text = character.gameObject.name;
         healthText.text = character.Health.ToString();
         apText.text = character.ActionPoints.ToString();
         mpText.text = character.MovementPoints.ToString();
         resPercText.text = (character.ResistancePerc * 10).ToString() + "%";
+        critsPercText.text = (character.CritsPerc * 10).ToString() + "%";
     }
 
     private void UpdateBattleInfoText()
@@ -222,9 +225,10 @@ public class BattleUIManager : MonoBehaviour
         TextMeshProUGUI utilityText = spellInfo.transform.Find("UtilityText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI apText = spellInfo.transform.Find("APText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI damageText = spellInfo.transform.Find("DamageText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI descr = spellInfo.transform.Find("Descr").GetComponent<TextMeshProUGUI>();
 
         spellName.text = spell.name;
-        String utilityStr = "";
+        string utilityStr = "";
         switch (spell.utilityType)
         {
             case UtilityType.Damage:
@@ -236,10 +240,21 @@ public class BattleUIManager : MonoBehaviour
             case UtilityType.Knockback:
                 utilityStr = "Empuje";
                 break;
+            case UtilityType.MovementPoints:
+                utilityStr = "Movim.";
+                break;
+            case UtilityType.ActionPoints:
+                utilityStr = "Acción";
+                break;
+            case UtilityType.Crits:
+                utilityStr = "Críticos";
+                break;
         }
         utilityText.text = utilityStr;
         apText.text = spell.actionPointCost.ToString();
         damageText.text = spell.value.ToString();
+        if (spell.utilityType == UtilityType.Crits) damageText.text += " %";
+        descr.text = spell.description;
     }
 
     private void UpdateCharPointsSelectionText()

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemC
   m_EditorClassIdentifier: 
   name: "Poci\xF3n de Voluntad"
-  description: 
+  description: "Aumenta los puntos de acci\xF3n"
   artwork: {fileID: -3065595510956808684, guid: 02025b1f0340333478e874144ee20e87, type: 3}
   actionPointCost: 0
   value: 6

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemD
   m_EditorClassIdentifier: 
   name: "Poci\xF3n de Suerte"
-  description: 
+  description: "Aumenta la probabilidad de cr\xEDticos en un 50%"
   artwork: {fileID: 6997616985800771554, guid: 02025b1f0340333478e874144ee20e87, type: 3}
   actionPointCost: 0
   value: 50

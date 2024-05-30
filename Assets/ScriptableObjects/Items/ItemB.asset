@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemB
   m_EditorClassIdentifier: 
   name: "Poci\xF3n de Agilidad"
-  description: 
+  description: Aumenta los puntos de movimiento
   artwork: {fileID: -1061600653231999548, guid: 02025b1f0340333478e874144ee20e87, type: 3}
   actionPointCost: 0
   value: 3
