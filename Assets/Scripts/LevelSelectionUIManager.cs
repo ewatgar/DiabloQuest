@@ -35,7 +35,7 @@ public class LevelSelectionUIManager : MonoBehaviour
                 SceneManager.LoadScene("BattleOneScene");
                 break;
             case 2:
-                if (gameData.numCompletedLevels >= 1) SceneManager.LoadScene("BattleOneScene"); //TODO BattleTwoScene
+                if (gameData.numCompletedLevels >= 1) SceneManager.LoadScene("BattleTwoScene");
                 else
                 {
                     TextMeshProUGUI errorText = blockedLevelError.GetComponent<TextMeshProUGUI>();
@@ -45,7 +45,7 @@ public class LevelSelectionUIManager : MonoBehaviour
                 }
                 break;
             case 3:
-                if (gameData.numCompletedLevels >= 2) SceneManager.LoadScene("BattleOneScene"); //TODO BattleThreeScene
+                if (gameData.numCompletedLevels >= 2) SceneManager.LoadScene("BattleThreeScene");
                 else
                 {
                     TextMeshProUGUI errorText = blockedLevelError.GetComponent<TextMeshProUGUI>();
