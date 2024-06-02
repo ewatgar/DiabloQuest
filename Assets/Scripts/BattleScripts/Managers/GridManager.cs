@@ -128,4 +128,11 @@ public class GridManager : MonoBehaviour
         return dir;
     }
 
+    /*
+    public Vector2Int GetMeleeDirFromTwoTiles(Tile tileStart, Tile tileDir)
+    {
+        Vector2 direction = tileDir.Coords - tileStart.Coords;
+        Vector2Int directionNormalized = Vector2Int.RoundToInt(direction.normalized); ;
+        return directionNormalized;
+    }*/
 }
