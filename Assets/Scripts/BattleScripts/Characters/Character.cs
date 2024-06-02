@@ -114,7 +114,7 @@ public class Character : MonoBehaviour
         PathfindingManager.Instance.RegeneratePath(GetCharacterTile(), selectedTile, color);
     }
 
-    public IEnumerator MovingThroughPathCoroutine(List<Tile> path, bool enableAnimation, float animationSpeed = 0.3f)
+    public IEnumerator MovingThroughPathCoroutine(List<Tile> path, float animationSpeed = 0.3f, bool isKnockback = false)
     {
         Vector2 direction = _lastDirection;
         float currentTime = 0;
@@ -128,7 +128,7 @@ public class Character : MonoBehaviour
             Vector3 endPos = new(tilePos.x, tilePos.y, tile.Coords.y);
 
             // ANIMATION --------------------------------------------
-            if (enableAnimation)
+            if (!isKnockback)
             {
                 direction = tilePos - startPos;
                 direction = direction.normalized;
@@ -152,7 +152,7 @@ public class Character : MonoBehaviour
                 tile.Coords.y
             );
             currentTime = 0;
-            SpendMovementPoint();
+            if (!isKnockback) SpendMovementPoint();
             tile.Path = false;
         }
         AnimationManager.PlayAnimation(_animator, AnimationType.Idle, direction);
@@ -197,7 +197,7 @@ public class Character : MonoBehaviour
             if (knockbackTile == null || knockbackTile.Solid) break;
             path.Add(knockbackTile);
         }
-        yield return StartCoroutine(characterPushed.MovingThroughPathCoroutine(path, false, 0.15f));
+        yield return StartCoroutine(characterPushed.MovingThroughPathCoroutine(path, 0.15f, true));
 
     }
 

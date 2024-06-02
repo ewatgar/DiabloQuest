@@ -174,6 +174,6 @@ public class Enemy : Character
 
         if (_enemyType == EnemyType.Melee) path.RemoveAt(path.Count - 1);
 
-        yield return StartCoroutine(MovingThroughPathCoroutine(path, true, animationSpeed));
+        yield return StartCoroutine(MovingThroughPathCoroutine(path, animationSpeed));
     }
 }

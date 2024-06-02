@@ -362,7 +362,7 @@ public class StateMachine : MonoBehaviour
     private IEnumerator PlayerMovingCoroutine()
     {
         List<Tile> path = PathfindingManager.Instance.FinalPath;
-        yield return StartCoroutine(_player.MovingThroughPathCoroutine(path, true));
+        yield return StartCoroutine(_player.MovingThroughPathCoroutine(path));
         _hoveredTile = null;
         _selectedTile = null;
         ProcessEvent(Event.PlayerStopsMoving);
