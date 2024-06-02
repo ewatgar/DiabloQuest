@@ -396,7 +396,7 @@ public class BattleUIManager : MonoBehaviour
             };
             OnAcceptCharPointsButtonClicked?.Invoke(listCharPointsGD);
         }
-        acceptErrorText.SetActive(true);
+        else acceptErrorText.SetActive(true);
     }
 
     private void OnPlusMinusCharPointsButtonClickedListener(GameObject buttonGameObject)
