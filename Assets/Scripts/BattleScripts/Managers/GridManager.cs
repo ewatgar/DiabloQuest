@@ -88,6 +88,14 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    public void AddAsObserverToAllTiles(Action<Tile> HandleTileClicked)
+    {
+        foreach (Tile tile in _tileGrid)
+        {
+            tile.OnTileClicked += HandleTileClicked;
+        }
+    }
+
     public void ClearSolidTiles()
     {
         foreach (Tile tile in _tileGrid)

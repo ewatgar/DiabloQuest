@@ -329,7 +329,7 @@ public class StateMachine : MonoBehaviour
             _selectedSpell = null;
             _listSelectableTiles = null;
             _listAreaOfEffectTiles = null;
-            EnableAllColliders(true);
+            //EnableAllColliders(true);
         }
     }
 
@@ -340,7 +340,7 @@ public class StateMachine : MonoBehaviour
 
     private void StartPlayerSelectingSpell()
     {
-        EnableAllColliders(false);
+        //EnableAllColliders(false);
         _listSelectableTiles = _player.GetSelectableSpellTiles(_selectedSpell);
         //_player.GetSpellTiles(_selectedSpell);
     }

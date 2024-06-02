@@ -71,7 +71,6 @@ public class BattleUIManager : MonoBehaviour
         _player = Utils.GetPlayer();
         _enemiesList = Utils.GetEnemies();
         InitGameDataValues();
-        AddAsObserverToAllCharacters();
         PlaceSpellButtonsWithOffset();
         _selectedChar = _player;
         _selectedSpell = _player.ListSpells.First();
@@ -79,6 +78,7 @@ public class BattleUIManager : MonoBehaviour
         ShowSpellInfoUI(false);
         AddCharPointsButtonsListeners();
         HideEndMatchUI();
+        GridManager.Instance.AddAsObserverToAllTiles(HandleTileClicked);
     }
 
     private void Update()
@@ -207,6 +207,7 @@ public class BattleUIManager : MonoBehaviour
         healthText.text = character.Health.ToString();
         apText.text = character.ActionPoints.ToString();
         mpText.text = character.MovementPoints.ToString();
+        dmgText.text = character.DamagePoints.ToString();
         resPercText.text = (character.ResistancePerc * 10).ToString() + "%";
         critsPercText.text = (character.CritsPerc * 10).ToString() + "%";
     }
@@ -295,15 +296,6 @@ public class BattleUIManager : MonoBehaviour
 
     // ADD OBSERVERS
 
-    public void AddAsObserverToAllCharacters()
-    {
-        _player.OnCharClicked += HandleCharClicked;
-        foreach (Enemy enemy in _enemiesList)
-        {
-            enemy.OnCharClicked += HandleCharClicked;
-        }
-    }
-
     public void AddAsObserverUI(Action HandleFinishTurnButtonClicked, Action<Spell> HandleSpellButtonClicked, Action<List<int>> HandleAcceptCharPointsButtonClicked)
     {
         OnFinishTurnButtonClicked += HandleFinishTurnButtonClicked;
@@ -337,9 +329,14 @@ public class BattleUIManager : MonoBehaviour
 
     // EVENTS ---------------------------------
 
-    private void HandleCharClicked(Character character)
+    private void HandleTileClicked(Tile tile)
     {
-        if (StateMachine.Instance.CurrectState != State.PlayerSelectingSpell) _selectedChar = character;//UpdateCharInfoText(character);
+        List<Character> charList = new List<Character>();
+        charList.AddRange(_enemiesList);
+        charList.Add(_player);
+        Character selectedChar = charList.Where(c => c.GetCharacterTile() == tile).FirstOrDefault();
+
+        if (StateMachine.Instance.CurrectState != State.PlayerSelectingSpell && selectedChar != null) _selectedChar = selectedChar;
     }
 
     // BUTTON LISTENERS -------------------------
