@@ -127,113 +127,109 @@ public class StateMachine : MonoBehaviour
         switch (_currentState)
         {
             case State.MatchStart:
-                {
-                    _currentState = State.PlayerTurn;
-                    StartPlayerTurn();
-                }
+                _currentState = State.PlayerTurn;
+                StartPlayerTurn();
                 break;
             case State.PlayerTurn:
-                if (event_ == Event.AllEnemiesDie)
+                switch (event_)
                 {
-                    _currentState = State.MatchEnd;
-                    StartMatchEnd(true);
-                }
-                else if (event_ == Event.FinishPlayerTurn)
-                {
-                    _currentState = State.EnemiesTurn;
-                    StartEnemiesTurn();
-                }
-                else if (event_ == Event.PlayerStartsMoving)
-                {
-                    _currentState = State.PlayerMoving;
-                    StartPlayerMoving();
-                }
-                else if (event_ == Event.PlayerStartsSelectingSpell)
-                {
-                    _currentState = State.PlayerSelectingSpell;
-                    StartPlayerSelectingSpell();
-                }
-                else if (event_ == Event.TileHovered)
-                {
-                    CheckHoveredTilePlayerTurn();
-                }
-                else if (event_ == Event.TileClicked)
-                {
-                    CheckClickedTilePlayerTurn();
-                }
-                else if (event_ == Event.FinishTurnButtonClicked)
-                {
-                    CheckFinishTurnButtonClicked();
-                }
-                else if (event_ == Event.SpellButtonClicked)
-                {
-                    CheckSpellButtonClickedPlayerTurn();
+                    case Event.AllEnemiesDie:
+                        _currentState = State.MatchEnd;
+                        StartMatchEnd(true);
+                        break;
+                    case Event.FinishPlayerTurn:
+                        _currentState = State.EnemiesTurn;
+                        StartEnemiesTurn();
+                        break;
+                    case Event.PlayerStartsMoving:
+                        _currentState = State.PlayerMoving;
+                        StartPlayerMoving();
+                        break;
+                    case Event.PlayerStartsSelectingSpell:
+                        _currentState = State.PlayerSelectingSpell;
+                        StartPlayerSelectingSpell();
+                        break;
+                    case Event.TileHovered:
+                        CheckHoveredTilePlayerTurn();
+                        break;
+                    case Event.TileClicked:
+                        CheckClickedTilePlayerTurn();
+                        break;
+                    case Event.FinishTurnButtonClicked:
+                        CheckFinishTurnButtonClicked();
+                        break;
+                    case Event.SpellButtonClicked:
+                        CheckSpellButtonClickedPlayerTurn();
+                        break;
                 }
                 break;
             case State.PlayerMoving:
-                if (event_ == Event.PlayerStopsMoving)
+                switch (event_)
                 {
-                    _currentState = State.PlayerTurn;
-                    ResumePlayerTurn();
+                    case Event.PlayerStopsMoving:
+                        _currentState = State.PlayerTurn;
+                        ResumePlayerTurn();
+                        break;
                 }
                 break;
             case State.PlayerSelectingSpell:
-                if (event_ == Event.PlayerStartsCastingSpell)
+                switch (event_)
                 {
-                    _currentState = State.PlayerCastingSpell;
-                    StartPlayerCastingSpell();
-                }
-                else if (event_ == Event.PlayerStartsSelectingSpell)
-                {
-                    StartPlayerSelectingSpell(); // selects another spell
-                }
-                else if (event_ == Event.PlayerStopsSelectingSpell)
-                {
-                    _currentState = State.PlayerTurn;
-                    ResumePlayerTurn();
-                }
-                else if (event_ == Event.TileHovered)
-                {
-                    CheckHoveredTilePlayerSelectingSpell();
-                }
-                else if (event_ == Event.TileClicked)
-                {
-                    CheckClickedTilePlayerSelectingSpell();
-                }
-                else if (event_ == Event.SpellButtonClicked)
-                {
-                    CheckSpellButtonClickedPlayerSelectingSpell();
+                    case Event.PlayerStartsCastingSpell:
+                        _currentState = State.PlayerCastingSpell;
+                        StartPlayerCastingSpell();
+                        break;
+                    case Event.PlayerStartsSelectingSpell:
+                        StartPlayerSelectingSpell(); // selects another spell
+                        break;
+                    case Event.PlayerStopsSelectingSpell:
+                        _currentState = State.PlayerTurn;
+                        ResumePlayerTurn();
+                        break;
+                    case Event.TileHovered:
+                        CheckHoveredTilePlayerSelectingSpell();
+                        break;
+                    case Event.TileClicked:
+                        CheckClickedTilePlayerSelectingSpell();
+                        break;
+                    case Event.SpellButtonClicked:
+                        CheckSpellButtonClickedPlayerSelectingSpell();
+                        break;
                 }
                 break;
             case State.PlayerCastingSpell:
-                if (event_ == Event.PlayerStopsCastingSpell)
+                switch (event_)
                 {
-                    _currentState = State.PlayerTurn;
-                    ResumePlayerTurn();
+                    case Event.PlayerStopsCastingSpell:
+                        _currentState = State.PlayerTurn;
+                        ResumePlayerTurn();
+                        break;
                 }
                 break;
             case State.EnemiesTurn:
-                if (event_ == Event.PlayerDies)
+                switch (event_)
                 {
-                    _currentState = State.MatchEnd;
-                    StartMatchEnd(false);
-                }
-                else if (event_ == Event.FinishEnemiesTurn)
-                {
-                    _numRounds++;
-                    _currentState = State.PlayerTurn;
-                    StartPlayerTurn();
+                    case Event.PlayerDies:
+                        _currentState = State.MatchEnd;
+                        StartMatchEnd(false);
+                        break;
+                    case Event.FinishEnemiesTurn:
+                        _numRounds++;
+                        _currentState = State.PlayerTurn;
+                        StartPlayerTurn();
+                        break;
                 }
                 break;
             case State.MatchEnd:
-                if (event_ == Event.FinishGame)
+                switch (event_)
                 {
-                    FinishGame();
+                    case Event.FinishGame:
+                        FinishGame();
+                        break;
                 }
                 break;
         }
     }
-
 
     // STATE MACHINE METHODS -------------------
 
