@@ -98,4 +98,9 @@ public class Tile : MonoBehaviour
     {
         if (!_bStart && !_bGoal) _bChecked = true;
     }
+
+    public override string ToString()
+    {
+        return $"Tile: {_coords}";
+    }
 }
