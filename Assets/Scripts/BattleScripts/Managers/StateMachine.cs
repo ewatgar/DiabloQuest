@@ -284,7 +284,7 @@ public class StateMachine : MonoBehaviour
 
     private void CheckClickedTilePlayerSelectingSpell()
     {
-        if (_selectedTile == _hoveredTile)
+        if (_selectedTile == _hoveredTile && _selectedTile.SpellSelectable)
         {
             ProcessEvent(Event.PlayerStartsCastingSpell);
         }
