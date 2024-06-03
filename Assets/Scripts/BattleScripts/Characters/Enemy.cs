@@ -90,11 +90,14 @@ public class Enemy : Character
         {
             int index = Random.Range(0, ListSpells.Count);
             Spell randomSpell = _listSpells[index];
-            yield return UseSpellCorutine(player, randomSpell);
-            if (player.Health <= 0)
+            if (!(randomSpell.utilityType == UtilityType.Healing && Health >= (InitHealthPoints * 50 / 2)))
             {
-                player.IsDead = true;
-                yield break;
+                yield return UseSpellCorutine(player, randomSpell);
+                if (player.Health <= 0)
+                {
+                    player.IsDead = true;
+                    yield break;
+                }
             }
             step++;
         }
