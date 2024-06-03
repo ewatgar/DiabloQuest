@@ -21,24 +21,19 @@ public static class AnimationManager
         else if (direction == Vector2.down) animationName = "Down";
         else if (direction == Vector2.left) animationName = "Left";
         else if (direction == Vector2.right) animationName = "Right";
-        else if (direction.x < 0 && direction.y > 0 || direction.x > 0 && direction.y > 0)
+        else if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
-            if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
-                animationName = "Up";
-            else
-                animationName = "Left";
+            if (direction.x > 0) animationName = "Right";
+            else animationName = "Left";
         }
-        else if (direction.x < 0 && direction.y < 0 || direction.x > 0 && direction.y < 0)
+        else
         {
-            if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
-                animationName = "Down";
-            else
-                animationName = "Right";
+            if (direction.y > 0) animationName = "Up";
+            else animationName = "Down";
         }
 
         animationName += type.ToString();
-        Debug.Log("Animation name before play: " + animationName);
         animator.Play(animationName);
-        Debug.Log("Playing animation: " + animationName);
+        //Debug.Log("Playing animation: " + animationName);
     }
 }
