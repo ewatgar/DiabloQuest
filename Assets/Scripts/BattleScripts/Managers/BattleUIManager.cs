@@ -42,7 +42,8 @@ public class BattleUIManager : MonoBehaviour
     private List<SpellButton> _spellButtons = new List<SpellButton>();
 
     // Characteristic points selection
-    private int _spareCharPoints;
+    [Header("spareCharPoints")]
+    [SerializeField] private int _spareCharPoints = 5;
     private int _healthPointsGD; //gameData
     private int _actionPointsGD;
     private int _movementPointsGD;
@@ -93,7 +94,6 @@ public class BattleUIManager : MonoBehaviour
 
     private void InitGameDataValues()
     {
-        _spareCharPoints = 3;
         _healthPointsGD = _player.InitHealthPoints;
         _actionPointsGD = _player.InitActionPoints;
         _movementPointsGD = _player.InitMovementPoints;

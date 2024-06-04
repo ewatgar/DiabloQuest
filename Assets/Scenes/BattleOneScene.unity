@@ -196,7 +196,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1931211635409340772, guid: 3130b24fbca92044e9b5907f9f1836e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1931211635409340772, guid: 3130b24fbca92044e9b5907f9f1836e8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -236,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2853377745045749431, guid: 3130b24fbca92044e9b5907f9f1836e8, type: 3}
       propertyPath: m_Name
-      value: Skeleton 1
+      value: Esqueleto
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3732,7 +3732,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4831696983151222084, guid: 52b98919bda2fec4c8463c8f6022469a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4831696983151222084, guid: 52b98919bda2fec4c8463c8f6022469a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3772,7 +3772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6911345113808426159, guid: 52b98919bda2fec4c8463c8f6022469a, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Jugador
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4137,11 +4137,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 987224317661835778, guid: f62fe4c769def7f4eaf5483558af89b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 987224317661835778, guid: f62fe4c769def7f4eaf5483558af89b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 987224317661835778, guid: f62fe4c769def7f4eaf5483558af89b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4537,11 +4537,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 987224317661835778, guid: f62fe4c769def7f4eaf5483558af89b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 987224317661835778, guid: f62fe4c769def7f4eaf5483558af89b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 987224317661835778, guid: f62fe4c769def7f4eaf5483558af89b7, type: 3}
       propertyPath: m_LocalPosition.z

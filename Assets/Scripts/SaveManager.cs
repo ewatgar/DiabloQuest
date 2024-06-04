@@ -27,7 +27,7 @@ public static class SaveManager
 
         GameData gameData = new()
         {
-            playerName = player.name,
+            playerName = "Jugador",
             healthPoints = player.InitHealthPoints,
             actionPoints = player.InitActionPoints,
             movementPoints = player.InitMovementPoints,

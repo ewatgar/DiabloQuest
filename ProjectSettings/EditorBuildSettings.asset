@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleOneScene.unity
     guid: e0034360b7e2aed4c9fc1dc3fa2ce965
+  - enabled: 1
+    path: Assets/Scenes/BattleTwoScene.unity
+    guid: 245f9e0dac5e0af45a0fb64b6853fb6e
+  - enabled: 1
+    path: Assets/Scenes/BattleThreeScene.unity
+    guid: cf3155b5c2a39ef46922a8ce122646e6
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
