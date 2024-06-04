@@ -15,3 +15,6 @@ Ender Watts García
 | Font: Crang                        | Caveras       | https://www.dafont.com/es/cliff-modes.d6641?text=%F1                                |
 | Main menu Background               | Craftpix.net  | https://free-game-assets.itch.io/                                                   |
 | Saving and Loading Data using JSON | Kevin Han     | https://ponderingpixel.com/tutorials/unity/save-and-load-games-using-json-in-unity/ |
+| Retro Sounds                       | DaSk          | https://dagurasusk.itch.io                                                          |
+| Sweet Sounds                       | Coffee Bat    | https://coffeevalenbat.itch.io/                                                     |
+| FreeSFX                            | KronBits      | https://kronbits.itch.io/                                                           |
