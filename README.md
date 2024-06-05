@@ -18,3 +18,4 @@ Ender Watts García
 | Retro Sounds                       | DaSk          | https://dagurasusk.itch.io                                                          |
 | Sweet Sounds                       | Coffee Bat    | https://coffeevalenbat.itch.io/                                                     |
 | FreeSFX                            | KronBits      | https://kronbits.itch.io/                                                           |
+| Minifantasy Audio Pack             | Leohpaz       | https://leohpaz.itch.io/                                                            |
