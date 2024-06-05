@@ -54,7 +54,7 @@ public class Enemy : Character
             int randRow = Random.Range(0, grid.NRows);
             Tile randTile = tileGrid[randCol, randRow];
             int distanceRandTile = GridManager.DistanceBetweenTiles(randTile, playerTile);
-            if (distanceRandTile >= _minDistanceLongRange) goalTile = randTile;
+            if (distanceRandTile == _minDistanceLongRange) goalTile = randTile;
             step++;
         }
         _oldGoalTile = goalTile;
