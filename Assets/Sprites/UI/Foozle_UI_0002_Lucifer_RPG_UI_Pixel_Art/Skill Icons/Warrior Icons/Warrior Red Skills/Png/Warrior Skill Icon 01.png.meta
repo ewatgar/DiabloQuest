@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Warrior Skill Icon 01_0: -3744794944116581878
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

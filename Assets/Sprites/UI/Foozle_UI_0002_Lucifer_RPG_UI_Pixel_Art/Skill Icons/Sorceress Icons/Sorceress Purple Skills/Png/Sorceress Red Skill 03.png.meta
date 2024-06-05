@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sorceress Red Skill 03_0: 1791819349257040998
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Necromancer Icon 11_0: -2352273024868837130
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

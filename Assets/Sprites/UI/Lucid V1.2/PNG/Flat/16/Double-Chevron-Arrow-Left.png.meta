@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Double-Chevron-Arrow-Left_0: 2888017310507683561
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

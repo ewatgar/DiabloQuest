@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sorceress Green Skill 02_0: 2147111778389138232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

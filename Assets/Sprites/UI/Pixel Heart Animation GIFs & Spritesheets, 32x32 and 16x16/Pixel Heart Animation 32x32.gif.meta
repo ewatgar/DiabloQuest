@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pixel Heart Animation 32x32_0: -5592639175566964818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

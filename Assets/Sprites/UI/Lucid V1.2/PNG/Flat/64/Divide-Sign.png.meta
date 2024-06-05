@@ -191,7 +191,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Divide-Sign_0: 3939884854043734841
+      Divide-Sign_1: -4366899555105600841
+      Divide-Sign_2: 5494302656392688590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

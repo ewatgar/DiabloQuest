@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HotbarSkillNo4_0: -6915414868684180241
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Main Menu animated background 12_0: -847549326553977501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

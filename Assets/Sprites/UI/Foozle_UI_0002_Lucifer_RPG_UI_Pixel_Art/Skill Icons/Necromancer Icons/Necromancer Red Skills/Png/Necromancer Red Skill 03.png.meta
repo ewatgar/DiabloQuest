@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Necromancer Red Skill 03_0: 4696549339049806121
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sorceress Attack 1_0: -8222604561885862068
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

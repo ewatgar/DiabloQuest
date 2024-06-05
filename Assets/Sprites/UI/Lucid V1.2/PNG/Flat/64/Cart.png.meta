@@ -191,7 +191,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cart_0: -7226846049606579820
+      Cart_1: 8213326372612031864
+      Cart_2: -5073641862152878348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

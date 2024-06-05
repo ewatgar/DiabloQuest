@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Maximize or minimaze button2_0: 5915966820301491360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

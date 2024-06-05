@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Necromancer Green Skill 08_0: -178516290178056783
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

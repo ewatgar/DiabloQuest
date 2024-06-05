@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Warrior Purple Skill 06_0: 1765487676854835817
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

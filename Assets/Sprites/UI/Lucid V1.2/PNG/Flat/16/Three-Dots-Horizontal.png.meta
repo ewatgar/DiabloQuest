@@ -191,7 +191,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Three-Dots-Horizontal_0: 5858357723767414961
+      Three-Dots-Horizontal_1: -6607218379733142585
+      Three-Dots-Horizontal_2: 556225986065705907
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

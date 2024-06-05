@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HUDHealthBar_0: -7834013726659109451
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

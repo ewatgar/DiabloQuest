@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Necromancer Attack 1_0: 3711404608070169016
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -191,7 +191,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lava lamp_0: 7939141855476593278
+      Lava lamp_1: 7433366112958004333
+      Lava lamp_2: -7774532883153526035
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

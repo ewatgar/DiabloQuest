@@ -191,7 +191,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BossHealthBar_0: -2313838572340273266
+      BossHealthBar_1: 2557461980713412998
+      BossHealthBar_2: -792899567622094532
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

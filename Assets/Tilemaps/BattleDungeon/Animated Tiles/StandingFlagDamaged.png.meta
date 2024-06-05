@@ -407,7 +407,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      StandingFlagDamaged_0: -4386863867038266206
+      StandingFlagDamaged_1: -3431412010460304721
+      StandingFlagDamaged_10: 6830906018314547417
+      StandingFlagDamaged_11: -710987494959900888
+      StandingFlagDamaged_2: -4291599819221707753
+      StandingFlagDamaged_3: -2806814490011899914
+      StandingFlagDamaged_4: 5573474426920927295
+      StandingFlagDamaged_5: 5170864672078582514
+      StandingFlagDamaged_6: 5931240002397645372
+      StandingFlagDamaged_7: 2897052571343538392
+      StandingFlagDamaged_8: -5561902997304026136
+      StandingFlagDamaged_9: 4534253796215060853
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

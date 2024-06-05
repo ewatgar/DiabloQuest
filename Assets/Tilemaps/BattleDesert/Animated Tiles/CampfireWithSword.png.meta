@@ -215,7 +215,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CampfireWithSword_0: 4553630995009942402
+      CampfireWithSword_1: 7948717781641609970
+      CampfireWithSword_2: -8546209034817539096
+      CampfireWithSword_3: -7104739354482141613
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

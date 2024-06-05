@@ -407,7 +407,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      StandingFlag_0: 303676634345795106
+      StandingFlag_1: -4947461471399361454
+      StandingFlag_10: 4042997056309646786
+      StandingFlag_11: 7981442977043636361
+      StandingFlag_2: -1168115524813541256
+      StandingFlag_3: 1726384513976761248
+      StandingFlag_4: -1288958316188520942
+      StandingFlag_5: -5051413262882180061
+      StandingFlag_6: 8646408347168455119
+      StandingFlag_7: 1778999074225713864
+      StandingFlag_8: -3335546779695736206
+      StandingFlag_9: -8497355858194064598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

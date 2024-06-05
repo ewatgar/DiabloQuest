@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sorceress Icon 06_0: -4800793774020743647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
