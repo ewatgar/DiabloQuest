@@ -98,6 +98,7 @@ public class Character : MonoBehaviour
 
     public void SpendMovementPoint()
     {
+        SoundManager.Instance.PlayWalkSFX();
         if (_movementPoints > 0) _movementPoints--;
         else _movementPoints = 0;
     }

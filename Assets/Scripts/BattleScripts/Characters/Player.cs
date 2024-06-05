@@ -159,7 +159,7 @@ public class Player : Character
                 yield return StartCoroutine(KnockbackCharCoroutine(enemyAttacked, 2));
                 break;
         }
-        yield return new WaitForSeconds(.2f);
+        //yield return new WaitForSeconds(.2f);
         print("Enemy Attacked: " + enemyAttacked.name);
     }
 

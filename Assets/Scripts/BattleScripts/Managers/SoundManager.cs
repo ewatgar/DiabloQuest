@@ -8,27 +8,27 @@ public class SoundManager : MonoBehaviour
     private static SoundManager _instance;
     public static SoundManager Instance { get => _instance; }
 
-    [Header("DEBUG")]
-    public AudioClip sfxDebug;
-    public AudioClip musicDebug;
     [Header("SFX")]
     public AudioClip sfxUIButton;
     public AudioClip sfxWin;
     public AudioClip sfxLose;
-    public AudioClip sfxAttackMelee;
-    public AudioClip sfxAttackRange;
+    public AudioClip sfxkMelee;
+    public AudioClip sfxArrow;
     public AudioClip sfxKnockback;
-    public AudioClip sfxHeal;
+    public AudioClip sfxMagicAttack;
+    public AudioClip sfxMagicHeal;
     public AudioClip sfxHurt;
-    public AudioClip sfxDying;
     public AudioClip sfxPotion;
+    public AudioClip sfxWalk;
     [Header("Music")]
     public AudioClip musicMainMenu;
     public AudioClip musicLevelSelection;
-    public AudioClip musicBattle;
+    public AudioClip musicFirstBattle;
+    public AudioClip musicSecondBattle;
     public AudioClip musicBossBattle;
-
-    private AudioSource _source;
+    [Header("AudioSources")]
+    public AudioSource sfx;
+    public AudioSource music;
 
     private void Awake()
     {
@@ -36,87 +36,131 @@ public class SoundManager : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
-            _source = GetComponent<AudioSource>();
         }
         else
         {
             Destroy(gameObject);
             gameObject.SetActive(false);
         }
+
     }
 
-    public void PlayAudio(AudioClip audio)
+    // SFX -------------------------------------------
+
+    public void PlaySFX(AudioClip audio, float volume = 0.3f, float pitch = 1)
     {
-        _source.clip = sfxDebug; //TODO change DEBUG
-        _source.Play();
-        print("AUDIO");
+        sfx.clip = audio;
+        sfx.volume = volume;
+        sfx.pitch = pitch;
+        sfx.Play();
     }
 
     public void PlayUIButtonSFX()
     {
-        PlayAudio(sfxUIButton);
+        PlaySFX(sfxUIButton);
     }
 
     public void PlayWinSFX()
     {
-        PlayAudio(sfxWin);
+        StopMusic();
+        PlaySFX(sfxWin);
     }
 
     public void PlayLoseSFX()
     {
-        PlayAudio(sfxLose);
+        StopMusic();
+        PlaySFX(sfxLose);
     }
 
-    public void PlaySpellSFX(Spell spell)
+    public void PlaySpellSFX(Spell spell, float volume = 0.05f, float pitch = 1)
     {
-        if (spell.utilityType == UtilityType.Knockback) PlayAudio(sfxKnockback);
-        else if (spell.utilityType == UtilityType.Healing) PlayAudio(sfxHeal);
-        else if (spell.spellAreaType == SpellAreaType.Range) PlayAudio(sfxAttackRange);
-        else PlayAudio(sfxAttackMelee);
+        switch (spell.soundType)
+        {
+            case SoundType.Melee:
+                PlaySFX(sfxkMelee, volume, pitch);
+                break;
+            case SoundType.Arrow:
+                PlaySFX(sfxArrow, volume, pitch);
+                break;
+            case SoundType.Knockback:
+                PlaySFX(sfxKnockback, volume, pitch);
+                break;
+            case SoundType.MagicAttack:
+                PlaySFX(sfxMagicAttack, volume, pitch);
+                break;
+            case SoundType.MagicHeal:
+                PlaySFX(sfxMagicHeal, volume, pitch);
+                break;
+        }
+    }
+
+    public void PlayCritsSFX(Spell spell)
+    {
+        PlaySpellSFX(spell, pitch: 0.25f);
     }
 
     public void PlayHurtSFX()
     {
-        PlayAudio(sfxHurt);
+        PlaySFX(sfxHurt);
     }
 
     public void PlayDyingSFX()
     {
-        PlayAudio(sfxDying);
+        PlaySFX(sfxHurt, pitch: 0.5f);
     }
 
     public void PlayPotionSFX()
     {
-        PlayAudio(sfxPotion);
+        PlaySFX(sfxPotion);
     }
 
-    public void PlayAttackRangeSFX()
+    public void PlayWalkSFX()
     {
-        PlayAudio(sfxAttackRange);
+        PlaySFX(sfxWalk, volume: 0.75f);
+    }
+
+    public void StopSFX()
+    {
+        sfx.Stop();
+    }
+
+    // Music -------------------------------------------
+
+    public void PlayMusic(AudioClip audio, float pitch = 1)
+    {
+        music.clip = audio;
+        music.pitch = pitch;
+        music.Play();
     }
 
     public void PlayMainMenuMusic()
     {
-        PlayAudio(musicMainMenu);
+        PlayMusic(musicMainMenu);
     }
 
     public void PlayLevelSelectionMusic()
     {
-        PlayAudio(musicLevelSelection);
+        PlayMusic(musicLevelSelection);
     }
 
-    public void PlayBattleMusic()
+    public void PlayBattleMusic(int level)
     {
-        PlayAudio(musicBattle);
+        switch (level)
+        {
+            case 1:
+                PlayMusic(musicFirstBattle);
+                break;
+            case 2:
+                PlayMusic(musicSecondBattle);
+                break;
+            case 3:
+                PlayMusic(musicBossBattle);
+                break;
+        }
     }
 
-    public void PlayBossBattleMusic()
+    public void StopMusic()
     {
-        PlayAudio(musicBossBattle);
-    }
-
-    public void StopAudio()
-    {
-        _source.Stop();
+        music.Stop();
     }
 }

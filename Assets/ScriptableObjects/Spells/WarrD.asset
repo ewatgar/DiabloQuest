@@ -16,7 +16,8 @@ MonoBehaviour:
   description: 
   artwork: {fileID: 8781525044889457999, guid: 4df7fa320e736144597445d93388c32b, type: 3}
   actionPointCost: 3
-  baseDamageOrHealing: 0
+  value: 0
   spellAreaType: 0
   utilityType: 2
   animationType: 4
+  soundType: 2

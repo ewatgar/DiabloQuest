@@ -238,6 +238,7 @@ public class StateMachine : MonoBehaviour
 
         if (value)
         {
+            SoundManager.Instance.PlayWinSFX();
             //print("Has ganado, se distribuye puntos de características y se guarda la partida");
             BattleUIManager.Instance.ShowEndMatchUI(true);
             //Se espera a que se clicke el boton Aceptar
@@ -377,6 +378,7 @@ public class StateMachine : MonoBehaviour
         {
             _listOfUsedItems.Add(item);
             BattleUIManager.Instance.ReplaceSpellWithItemButtons(true);
+            SoundManager.Instance.PlayPotionSFX();
         }
         ProcessEvent(Event.PlayerStopsCastingSpell);
     }
@@ -386,15 +388,18 @@ public class StateMachine : MonoBehaviour
         ClearTiles();
         if (_player.ActionPoints >= _selectedSpell.actionPointCost)
         {
+            SoundManager.Instance.PlaySpellSFX(_selectedSpell);
             yield return StartCoroutine(_player.PlayCastSpellAnimationCoroutine(_selectedTile, _selectedSpell));
 
             foreach (Enemy enemy in _enemiesList)
             {
                 if (!enemy.IsDead && _listAreaOfEffectTiles.Contains(enemy.GetCharacterTile()))
                 {
+                    SoundManager.Instance.PlayHurtSFX();
                     yield return StartCoroutine(_player.AttackEnemyCoroutine(enemy, _selectedSpell));
                     if (enemy.Health <= 0)
                     {
+                        SoundManager.Instance.PlayDyingSFX();
                         enemy.IsDead = true;
                         enemy.GetCharacterTile().Solid = false;
                         yield return StartCoroutine(enemy.PlayDeathAnimationCoroutine());
@@ -410,7 +415,8 @@ public class StateMachine : MonoBehaviour
     private IEnumerator LoseMatchCoroutine()
     {
         BattleUIManager.Instance.ShowEndMatchUI(false);
-        yield return new WaitForSeconds(2);
+        SoundManager.Instance.PlayLoseSFX();
+        yield return new WaitForSeconds(1);
         ProcessEvent(Event.FinishGame);
     }
 
@@ -426,6 +432,7 @@ public class StateMachine : MonoBehaviour
                 enemy.GetCharacterTile().Solid = true;
                 if (_player.IsDead == true)
                 {
+                    SoundManager.Instance.PlayDyingSFX();
                     yield return StartCoroutine(_player.PlayDeathAnimationCoroutine());
                     ProcessEvent(Event.PlayerDies);
                     yield break;

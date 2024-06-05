@@ -95,6 +95,7 @@ public class Enemy : Character
                 yield return UseSpellCorutine(player, randomSpell);
                 if (player.Health <= 0)
                 {
+                    SoundManager.Instance.PlayDyingSFX();
                     player.IsDead = true;
                     yield break;
                 }
@@ -109,10 +110,12 @@ public class Enemy : Character
     {
         if (CheckCanUseSpell(playerAttacked, spell))
         {
+            SoundManager.Instance.PlaySpellSFX(spell);
             yield return StartCoroutine(PlayCastSpellAnimationCoroutine(playerAttacked.GetCharacterTile(), spell, false));
             switch (spell.utilityType)
             {
                 case UtilityType.Damage:
+                    SoundManager.Instance.PlayHurtSFX();
                     yield return StartCoroutine(playerAttacked.PlayHurtAnimationCoroutine());
                     TakeFinalSpellDamage(playerAttacked, spell);
                     break;
@@ -124,7 +127,7 @@ public class Enemy : Character
                     throw new System.NotImplementedException(); //TODO UtilityType.Knockback enemy
             }
             SpendActionPoints(spell.actionPointCost);
-            yield return new WaitForSeconds(0.2f);
+            //yield return new WaitForSeconds(0.2f);
         }
     }
 

@@ -19,6 +19,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.PlayMainMenuMusic();
         newGameButton.GetComponent<Button>().onClick.AddListener(() => OnNewGameButtonListener());
         continueButton.GetComponent<Button>().onClick.AddListener(() => OnContinueButtonListener());
         quitButton.GetComponent<Button>().onClick.AddListener(() => OnQuitButtonListener());
@@ -28,6 +29,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     private void OnNewGameButtonListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         if (!_clickedNewGameTwice)
         {
             ShowNewGameWarning(true);
@@ -44,6 +46,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     private void OnContinueButtonListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         if (SaveManager.SaveExists()) SceneManager.LoadScene("LevelSelectionScene");
         else
         {
@@ -56,6 +59,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     private void OnQuitButtonListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

@@ -19,6 +19,15 @@ public enum UtilityType
     Crits
 }
 
+public enum SoundType
+{
+    Melee,
+    Arrow,
+    Knockback,
+    MagicAttack,
+    MagicHeal
+}
+
 [CreateAssetMenu(fileName = "NewSpell", menuName = "Spell", order = 0)]
 public class Spell : ScriptableObject
 {
@@ -30,4 +39,5 @@ public class Spell : ScriptableObject
     public SpellAreaType spellAreaType;
     public UtilityType utilityType;
     public AnimationType animationType;
+    public SoundType soundType;
 }

@@ -69,6 +69,7 @@ public class BattleUIManager : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.PlayBattleMusic(levelNumber);
         _player = Utils.GetPlayer();
         _enemiesList = Utils.GetEnemies();
         InitGameDataValues();
@@ -347,11 +348,13 @@ public class BattleUIManager : MonoBehaviour
 
     public void OnFinishTurnButtonClickedListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         OnFinishTurnButtonClicked?.Invoke();
     }
 
     public void OnFleeButtonClickedListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         TextMeshProUGUI warningText = loseMatchText.GetComponent<TextMeshProUGUI>();
         warningText.text = "¿Estás seguro que quieres salir? se perderá el progreso";
         warningText.fontSize = 36;
@@ -365,12 +368,14 @@ public class BattleUIManager : MonoBehaviour
 
     public void OnFleeOptionsClickedListener(bool value)
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         if (value) SceneManager.LoadScene("LevelSelectionScene");
         else HideEndMatchUI();
     }
 
     private void OnItemListButtonClickedListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         _enableItemButtonsUi = !_enableItemButtonsUi;
         ReplaceSpellWithItemButtons(_enableItemButtonsUi);
     }
@@ -391,6 +396,7 @@ public class BattleUIManager : MonoBehaviour
 
     private void OnAcceptCharPointsButtonClickedListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         if (_spareCharPoints == 0)
         {
             acceptErrorText.SetActive(false);
@@ -410,6 +416,7 @@ public class BattleUIManager : MonoBehaviour
 
     private void OnPlusMinusCharPointsButtonClickedListener(GameObject buttonGameObject)
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         print(buttonGameObject.name);
         string regex = @"^(HP|AP|DP|MP|ResPerc|CritsPerc)(Plus|Minus)Button$";
         Match match = Regex.Match(buttonGameObject.name, regex);

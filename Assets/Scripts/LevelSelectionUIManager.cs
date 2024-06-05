@@ -20,6 +20,7 @@ public class LevelSelectionUIManager : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.PlayLevelSelectionMusic();
         blockedLevelError.SetActive(false);
         levelOneButton.GetComponent<Button>().onClick.AddListener(() => OnLevelSelectionButtonListener(1));
         levelTwoButton.GetComponent<Button>().onClick.AddListener(() => OnLevelSelectionButtonListener(2));
@@ -29,6 +30,7 @@ public class LevelSelectionUIManager : MonoBehaviour
     }
     private void OnLevelSelectionButtonListener(int level)
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         switch (level)
         {
             case 1:
@@ -59,6 +61,7 @@ public class LevelSelectionUIManager : MonoBehaviour
 
     private void OnQuitButtonListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         SceneManager.LoadScene("MainMenu");
     }
 }
