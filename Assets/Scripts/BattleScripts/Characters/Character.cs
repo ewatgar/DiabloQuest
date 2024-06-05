@@ -120,7 +120,7 @@ public class Character : MonoBehaviour
         float currentTime = 0;
         foreach (Tile tile in path)
         {
-            if (_movementPoints <= 0) break;
+            if (!isKnockback && _movementPoints <= 0) break;
 
             Vector3 startPos = transform.position;
 
