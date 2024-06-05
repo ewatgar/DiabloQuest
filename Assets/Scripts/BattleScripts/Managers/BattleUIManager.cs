@@ -90,6 +90,10 @@ public class BattleUIManager : MonoBehaviour
         UpdateBattleInfoText();
         UpdateSpellInfoText(_selectedSpell);
         UpdateTurnButtonsInteractable();
+
+        State state = StateMachine.Instance.CurrectState;
+        if (state != State.PlayerTurn && state != State.PlayerSelectingSpell) _enableSpellInfoUi = false;
+        ShowSpellInfoUI(_enableSpellInfoUi);
     }
 
     private void InitGameDataValues()
@@ -373,11 +377,16 @@ public class BattleUIManager : MonoBehaviour
 
     public void OnSpellButtonClickedListener(Spell spell)
     {
-        if (_selectedSpell == spell) _enableSpellInfoUi = !_enableSpellInfoUi;
-        else _enableSpellInfoUi = true;
-        ShowSpellInfoUI(_enableSpellInfoUi);
-        _selectedSpell = spell;
-        OnSpellButtonClicked?.Invoke(spell);
+        State state = StateMachine.Instance.CurrectState;
+        if (state == State.PlayerTurn || state == State.PlayerSelectingSpell)
+        {
+            SoundManager.Instance.PlayUIButtonSFX();
+            if (_selectedSpell == spell) _enableSpellInfoUi = !_enableSpellInfoUi;
+            else _enableSpellInfoUi = true;
+            _selectedSpell = spell;
+            OnSpellButtonClicked?.Invoke(spell);
+        }
+        else _enableSpellInfoUi = false;
     }
 
     private void OnAcceptCharPointsButtonClickedListener()
