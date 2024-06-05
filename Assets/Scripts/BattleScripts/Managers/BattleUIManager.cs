@@ -43,7 +43,8 @@ public class BattleUIManager : MonoBehaviour
 
     // Characteristic points selection
     [Header("spareCharPoints")]
-    [SerializeField] private int _spareCharPoints = 5;
+    [SerializeField] private int _maxSpareCharPoints = 5;
+    [SerializeField] private int _spareCharPoints;
     private int _healthPointsGD; //gameData
     private int _actionPointsGD;
     private int _movementPointsGD;
@@ -70,6 +71,7 @@ public class BattleUIManager : MonoBehaviour
     private void Start()
     {
         SoundManager.Instance.PlayBattleMusic(levelNumber);
+        _spareCharPoints = _maxSpareCharPoints;
         _player = Utils.GetPlayer();
         _enemiesList = Utils.GetEnemies();
         InitGameDataValues();
@@ -434,31 +436,31 @@ public class BattleUIManager : MonoBehaviour
         {
             case "HP":
                 if (addPoint && _spareCharPoints > 0) _healthPointsGD++;
-                else if (!addPoint && _spareCharPoints < 3 && _healthPointsGD > _player.InitHealthPoints) _healthPointsGD--;
+                else if (!addPoint && _spareCharPoints < _maxSpareCharPoints && _healthPointsGD > _player.InitHealthPoints) _healthPointsGD--;
                 break;
             case "AP":
                 if (addPoint && _spareCharPoints > 0) _actionPointsGD++;
-                else if (!addPoint && _spareCharPoints < 3 && _actionPointsGD > _player.InitActionPoints) _actionPointsGD--;
+                else if (!addPoint && _spareCharPoints < _maxSpareCharPoints && _actionPointsGD > _player.InitActionPoints) _actionPointsGD--;
                 break;
             case "DP":
                 if (addPoint && _spareCharPoints > 0) _damagePointsGD++;
-                else if (!addPoint && _spareCharPoints < 3 && _damagePointsGD > _player.InitDamagePoints) _damagePointsGD--;
+                else if (!addPoint && _spareCharPoints < _maxSpareCharPoints && _damagePointsGD > _player.InitDamagePoints) _damagePointsGD--;
                 break;
             case "MP":
                 if (addPoint && _spareCharPoints > 0) _movementPointsGD++;
-                else if (!addPoint && _spareCharPoints < 3 && _movementPointsGD > _player.InitMovementPoints) _movementPointsGD--;
+                else if (!addPoint && _spareCharPoints < _maxSpareCharPoints && _movementPointsGD > _player.InitMovementPoints) _movementPointsGD--;
                 break;
             case "ResPerc":
                 if (addPoint && _spareCharPoints > 0) _resistancePercGD++;
-                else if (!addPoint && _spareCharPoints < 3 && _resistancePercGD > _player.InitResistancePerc) _resistancePercGD--;
+                else if (!addPoint && _spareCharPoints < _maxSpareCharPoints && _resistancePercGD > _player.InitResistancePerc) _resistancePercGD--;
                 break;
             case "CritsPerc":
                 if (addPoint && _spareCharPoints > 0) _critsPercGD++;
-                else if (!addPoint && _spareCharPoints < 3 && _critsPercGD > _player.InitCritsPerc) _critsPercGD--;
+                else if (!addPoint && _spareCharPoints < _maxSpareCharPoints && _critsPercGD > _player.InitCritsPerc) _critsPercGD--;
                 break;
         }
         if (addPoint && _spareCharPoints > 0) _spareCharPoints--;
-        else if (!addPoint && _spareCharPoints < 3) _spareCharPoints++;
+        else if (!addPoint && _spareCharPoints < _maxSpareCharPoints) _spareCharPoints++;
 
         UpdateCharPointsSelectionText();
         //print($"Spare Points: {_spareCharPoints}, HP: {_healthPointsGD}, AP: {_actionPointsGD}, MP: {_movementPointsGD}, DP: {_damagePointsGD}, ResPerc: {_resistancePercGD}, CritsPerc: {_critsPercGD}");
