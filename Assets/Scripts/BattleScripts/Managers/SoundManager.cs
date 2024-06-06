@@ -72,7 +72,7 @@ public class SoundManager : MonoBehaviour
         PlaySFX(sfxLose);
     }
 
-    public void PlaySpellSFX(Spell spell, float volume = 0.05f, float pitch = 1)
+    public void PlaySpellSFX(Spell spell, float volume = 0.3f, float pitch = 1)
     {
         switch (spell.soundType)
         {

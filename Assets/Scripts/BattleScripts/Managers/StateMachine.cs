@@ -242,6 +242,7 @@ public class StateMachine : MonoBehaviour
             //print("Has ganado, se distribuye puntos de características y se guarda la partida");
             BattleUIManager.Instance.ShowEndMatchUI(true);
             //Se espera a que se clicke el boton Aceptar
+            if (BattleUIManager.Instance.LevelNumber == 3) StartCoroutine(EndGameCoroutine());
         }
         else
         {
@@ -416,7 +417,13 @@ public class StateMachine : MonoBehaviour
     {
         BattleUIManager.Instance.ShowEndMatchUI(false);
         SoundManager.Instance.PlayLoseSFX();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+        ProcessEvent(Event.FinishGame);
+    }
+
+    private IEnumerator EndGameCoroutine()
+    {
+        yield return new WaitForSeconds(3);
         ProcessEvent(Event.FinishGame);
     }
 

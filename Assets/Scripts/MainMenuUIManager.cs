@@ -40,7 +40,8 @@ public class MainMenuUIManager : MonoBehaviour
         {
             SceneManager.LoadScene("LevelSelectionScene");
             string path = SaveManager.SaveNewGame();
-            print($"Savefile in path {path}");
+            print($"Savefile in path:");
+            print(path);
         }
     }
 

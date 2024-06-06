@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: WarrA
   m_EditorClassIdentifier: 
   name: Estocada
-  description: 
+  description: "Hechizo d\xE9bil cuerpo a cuerpo"
   artwork: {fileID: 2186627556539719362, guid: 87c72922c14e5354185d0daf02c8a248, type: 3}
   actionPointCost: 2
-  baseDamageOrHealing: 20
   value: 20
   spellAreaType: 0
   utilityType: 0
   animationType: 2
+  soundType: 0

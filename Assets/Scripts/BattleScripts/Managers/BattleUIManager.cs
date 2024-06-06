@@ -13,6 +13,7 @@ public class BattleUIManager : MonoBehaviour
 {
     private static BattleUIManager _instance;
     public static BattleUIManager Instance { get => _instance; }
+    public int LevelNumber { get => levelNumber; }
 
     [Header("UI Elements")]
     [SerializeField] private Canvas canvas;
@@ -80,7 +81,7 @@ public class BattleUIManager : MonoBehaviour
         _selectedSpell = _player.ListSpells.First();
         AddOtherButtonsListeners();
         ShowSpellInfoUI(false);
-        AddCharPointsButtonsListeners();
+        if (levelNumber < 3) AddCharPointsButtonsListeners();
         HideEndMatchUI();
         GridManager.Instance.AddAsObserverToAllTiles(HandleTileClicked);
     }
@@ -116,9 +117,9 @@ public class BattleUIManager : MonoBehaviour
 
     private void HideEndMatchUI()
     {
-        charPointsSelection.SetActive(false);
+        if (levelNumber < 3) charPointsSelection.SetActive(false);
         winMatchText.SetActive(false);
-        acceptErrorText.SetActive(false);
+        if (levelNumber < 3) acceptErrorText.SetActive(false);
         loseMatchText.SetActive(false);
         background.SetActive(false);
         yesFleeButton.SetActive(false);
@@ -133,10 +134,13 @@ public class BattleUIManager : MonoBehaviour
         spellInfo.SetActive(false);
         if (isWin)
         {
-            charPointsSelection.SetActive(true);
+            if (levelNumber < 3)
+            {
+                charPointsSelection.SetActive(true);
+                UpdateCharPointsSelectionText();
+            }
             winMatchText.SetActive(true);
             background.SetActive(true);
-            UpdateCharPointsSelectionText();
         }
         else
         {
