@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: WarrC
   m_EditorClassIdentifier: 
   name: Golpe Certero
-  description: "Hechizo muy poderoso frente a enemigos que est\xE9n alrededor de
-    ti"
+  description: "Hechizo poderoso contra enemigos que est\xE9n alrededor de ti"
   artwork: {fileID: 2738159280066784702, guid: 582217c6aed880d41a48b42643c7bfc7, type: 3}
   actionPointCost: 4
   value: 30
