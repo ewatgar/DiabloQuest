@@ -40,7 +40,7 @@ public class StateMachine : MonoBehaviour
     private static StateMachine _instance;
     public static StateMachine Instance { get => _instance; }
 
-    private int _numRounds;
+    private int _numRounds = 1;
     public int NumRounds { get => _numRounds; }
 
     private State _currentState;
@@ -76,7 +76,6 @@ public class StateMachine : MonoBehaviour
 
     private void InitStateMachine()
     {
-        _numRounds = 0;
         _currentState = State.MatchStart;
         _oldState = State.MatchStart;
         _hoveredTile = null;
