@@ -26,6 +26,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip musicFirstBattle;
     public AudioClip musicSecondBattle;
     public AudioClip musicBossBattle;
+    public AudioClip musicWin;
     [Header("AudioSources")]
     public AudioSource sfx;
     public AudioSource music;
@@ -62,8 +63,9 @@ public class SoundManager : MonoBehaviour
 
     public void PlayWinSFX()
     {
-        StopMusic();
-        PlaySFX(sfxWin);
+        //StopMusic();
+        //PlaySFX(sfxWin);
+        PlayMusic(musicWin);
     }
 
     public void PlayLoseSFX()

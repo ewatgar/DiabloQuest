@@ -583,6 +583,7 @@ MonoBehaviour:
   musicFirstBattle: {fileID: 8300000, guid: fe5674a5cee2dee4eab5e6fe3bd7fe65, type: 3}
   musicSecondBattle: {fileID: 8300000, guid: 59be009ecbd3e2c43829957bcff1a77f, type: 3}
   musicBossBattle: {fileID: 8300000, guid: 5cff333ea5e60ea439958bea4edfc92e, type: 3}
+  musicWin: {fileID: 8300000, guid: 91a951aaf8740e74293de7b4c3227905, type: 3}
   sfx: {fileID: 836873872}
   music: {fileID: 55021831}
 --- !u!4 &512646518

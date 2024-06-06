@@ -78,7 +78,7 @@ public class Enemy : Character
     {
         List<Tile> path = PathfindingManager.Instance.FinalPath;
         bool wantToMove = true;
-        wantToMove = SelectTileForPathfinding(player.GetCharacterTile(), true);
+        wantToMove = SelectTileForPathfinding(player.GetCharacterTile(), false);
         if (wantToMove) yield return StartCoroutine(MovingThroughPathCoroutine());
         yield return null;
     }

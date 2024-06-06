@@ -65,7 +65,7 @@ public class Tile : MonoBehaviour
         if (_bSpellAreaEffectNoAP) _sprite.color = Color.red;
         else if (_bSpellAreaEffect) _sprite.color = Color.green;
         else if (_bSpellSelectable) _sprite.color = Color.yellow;
-        else if (_bSolid) _sprite.color = Color.black;
+        //else if (_bSolid) _sprite.color = Color.black;
         else if (_bPath) _sprite.color = Color.cyan;
         else _sprite.color = _baseColor;
     }

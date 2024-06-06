@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   artwork: {fileID: 0}
   actionPointCost: 3
-  value: 20
+  value: 25
   spellAreaType: 4
   utilityType: 1
   animationType: 2
