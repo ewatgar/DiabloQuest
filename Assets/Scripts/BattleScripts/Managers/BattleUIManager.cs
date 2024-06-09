@@ -278,6 +278,9 @@ public class BattleUIManager : MonoBehaviour
         TextMeshProUGUI dpText = charPointsSelection.transform.Find("DPText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI resPercText = charPointsSelection.transform.Find("ResPercText").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI critsPercText = charPointsSelection.transform.Find("CritsPercText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI healthTotal = charPointsSelection.transform.Find("HealthTotal").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI resPercFinal = charPointsSelection.transform.Find("ResPercFinal").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI critsPercFinal = charPointsSelection.transform.Find("CritsPercFinal").GetComponent<TextMeshProUGUI>();
 
         title.text = _spareCharPoints == 1 ? "Queda 1 punto" : $"Quedan {_spareCharPoints} puntos";
         hpText.text = _healthPointsGD.ToString();
@@ -286,6 +289,9 @@ public class BattleUIManager : MonoBehaviour
         dpText.text = _damagePointsGD.ToString();
         resPercText.text = _resistancePercGD.ToString();
         critsPercText.text = _critsPercGD.ToString();
+        healthTotal.text = $"({_healthPointsGD * 50})";
+        resPercFinal.text = $"({_resistancePercGD * 10}%)";
+        critsPercFinal.text = $"({_critsPercGD * 10}%)";
     }
 
     private void UpdateTurnButtonsInteractable()
