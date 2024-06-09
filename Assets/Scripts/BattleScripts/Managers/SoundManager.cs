@@ -96,14 +96,10 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayCritsSFX(Spell spell)
+    public void PlayHurtSFX(bool isCrits)
     {
-        PlaySpellSFX(spell, pitch: 0.25f);
-    }
-
-    public void PlayHurtSFX()
-    {
-        PlaySFX(sfxHurt);
+        if (isCrits) PlaySFX(sfxHurt, pitch: 0.7f);
+        else PlaySFX(sfxHurt);
     }
 
     public void PlayDyingSFX()

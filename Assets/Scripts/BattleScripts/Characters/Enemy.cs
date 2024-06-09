@@ -115,7 +115,6 @@ public class Enemy : Character
             switch (spell.utilityType)
             {
                 case UtilityType.Damage:
-                    SoundManager.Instance.PlayHurtSFX();
                     yield return StartCoroutine(playerAttacked.PlayHurtAnimationCoroutine());
                     TakeFinalSpellDamage(playerAttacked, spell);
                     break;

@@ -395,7 +395,6 @@ public class StateMachine : MonoBehaviour
             {
                 if (!enemy.IsDead && _listAreaOfEffectTiles.Contains(enemy.GetCharacterTile()))
                 {
-                    SoundManager.Instance.PlayHurtSFX();
                     yield return StartCoroutine(_player.AttackEnemyCoroutine(enemy, _selectedSpell));
                     if (enemy.Health <= 0)
                     {

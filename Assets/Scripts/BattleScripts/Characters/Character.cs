@@ -166,6 +166,7 @@ public class Character : MonoBehaviour
 
     protected void TakeFinalSpellDamage(Character characterAttacked, Spell spell)
     {
+        bool isCrits = false;
         int baseCharDamage = _damagePoints * 10;
         int baseSpellDamage = spell.value;
         int critsPerc = _critsPerc * 10;
@@ -173,12 +174,18 @@ public class Character : MonoBehaviour
 
         // critsDamage = [spellDamage * 1,5] or [spellDamage + half]
         int critsDamage = 0;
-        if (Random.Range(1, 101) >= critsPerc) critsDamage = Mathf.FloorToInt(baseSpellDamage * 1.5f);
+        if (Random.Range(1, 101) <= critsPerc)
+        {
+            isCrits = true;
+            print("isCrits");
+            critsDamage = Mathf.FloorToInt(baseSpellDamage * 1.5f);
+        }
 
         int damageWithCrits = baseCharDamage + baseSpellDamage + critsDamage;
         int resDamage = damageWithCrits * (resPerc / 100);
 
         int finalDamage = damageWithCrits - resDamage;
+        SoundManager.Instance.PlayHurtSFX(isCrits);
         characterAttacked.TakeDamage(finalDamage);
     }
 
