@@ -41,7 +41,7 @@ public class LevelSelectionUIManager : MonoBehaviour
                 else
                 {
                     TextMeshProUGUI errorText = blockedLevelError.GetComponent<TextMeshProUGUI>();
-                    errorText.text = "Nivel 2 bloqueado";
+                    errorText.text = "Nivel 2 bloqueado, debes terminar el nivel 1";
                     blockedLevelError.SetActive(true);
                     print("You need to finish level 1");
                 }
@@ -51,7 +51,7 @@ public class LevelSelectionUIManager : MonoBehaviour
                 else
                 {
                     TextMeshProUGUI errorText = blockedLevelError.GetComponent<TextMeshProUGUI>();
-                    errorText.text = "Nivel 3 bloqueado";
+                    errorText.text = "Nivel 3 bloqueado, debes terminar el nivel 2";
                     blockedLevelError.SetActive(true);
                     print("You need to finish level 2");
                 }
