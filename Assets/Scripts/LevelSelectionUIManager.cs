@@ -31,30 +31,42 @@ public class LevelSelectionUIManager : MonoBehaviour
     private void OnLevelSelectionButtonListener(int level)
     {
         SoundManager.Instance.PlayUIButtonSFX();
+        TextMeshProUGUI errorText = blockedLevelError.GetComponent<TextMeshProUGUI>();
         switch (level)
         {
             case 1:
-                SceneManager.LoadScene("BattleOneScene");
+                if (gameData.numCompletedLevels > 0)
+                {
+                    errorText.text = "Nivel 1 ya se ha completado";
+                    blockedLevelError.SetActive(true);
+                }
+                else SceneManager.LoadScene("BattleOneScene");
                 break;
             case 2:
-                if (gameData.numCompletedLevels >= 1) SceneManager.LoadScene("BattleTwoScene");
-                else
+                if (gameData.numCompletedLevels < 1)
                 {
-                    TextMeshProUGUI errorText = blockedLevelError.GetComponent<TextMeshProUGUI>();
                     errorText.text = "Nivel 2 bloqueado, debes terminar el nivel 1";
                     blockedLevelError.SetActive(true);
-                    print("You need to finish level 1");
                 }
+                else if (gameData.numCompletedLevels > 1)
+                {
+                    errorText.text = "Nivel 2 ya se ha completado";
+                    blockedLevelError.SetActive(true);
+                }
+                else SceneManager.LoadScene("BattleTwoScene");
                 break;
             case 3:
-                if (gameData.numCompletedLevels >= 2) SceneManager.LoadScene("BattleThreeScene");
-                else
+                if (gameData.numCompletedLevels < 2)
                 {
-                    TextMeshProUGUI errorText = blockedLevelError.GetComponent<TextMeshProUGUI>();
                     errorText.text = "Nivel 3 bloqueado, debes terminar el nivel 2";
                     blockedLevelError.SetActive(true);
-                    print("You need to finish level 2");
                 }
+                else if (gameData.numCompletedLevels > 2)
+                {
+                    errorText.text = "Nivel 3 ya se ha completado";
+                    blockedLevelError.SetActive(true);
+                }
+                else SceneManager.LoadScene("BattleThreeScene");
                 break;
         }
     }
