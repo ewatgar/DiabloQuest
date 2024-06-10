@@ -46,6 +46,7 @@ public class BattleUIManager : MonoBehaviour
     [Header("spareCharPoints")]
     [SerializeField] private int _maxSpareCharPoints = 5;
     [SerializeField] private int _spareCharPoints;
+    private GameData gameData;
     private int _healthPointsGD; //gameData
     private int _actionPointsGD;
     private int _movementPointsGD;
@@ -102,12 +103,13 @@ public class BattleUIManager : MonoBehaviour
 
     private void InitGameDataValues()
     {
-        _healthPointsGD = _player.InitHealthPoints;
-        _actionPointsGD = _player.InitActionPoints;
-        _movementPointsGD = _player.InitMovementPoints;
-        _damagePointsGD = _player.InitDamagePoints;
-        _resistancePercGD = _player.InitResistancePerc;
-        _critsPercGD = _player.InitCritsPerc;
+        gameData = SaveManager.Load();
+        _healthPointsGD = gameData.healthPoints;
+        _actionPointsGD = gameData.actionPoints;
+        _movementPointsGD = gameData.movementPoints;
+        _damagePointsGD = gameData.damagePoints;
+        _resistancePercGD = gameData.resistancePerc;
+        _critsPercGD = gameData.critsPerc;
     }
 
     private void ShowSpellInfoUI(bool value)
@@ -467,6 +469,7 @@ public class BattleUIManager : MonoBehaviour
             case "CritsPerc":
                 if (addPoint && _spareCharPoints > 0) _critsPercGD++;
                 else if (!addPoint && _spareCharPoints < _maxSpareCharPoints && _critsPercGD > _player.InitCritsPerc) _critsPercGD--;
+                print($"CritsPerc: {_critsPercGD}, InitCritsPerc: {_player.InitCritsPerc}, spareCharPoints: {_spareCharPoints}");
                 break;
         }
         if (addPoint && _spareCharPoints > 0) _spareCharPoints--;

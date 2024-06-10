@@ -237,6 +237,7 @@ public class Character : MonoBehaviour
             _initCritsPerc = gameData.critsPerc;
             _health = _initHealthPoints * 50;
         }
+        InitStats();
     }
 
     public void EnableCollider(bool value)
