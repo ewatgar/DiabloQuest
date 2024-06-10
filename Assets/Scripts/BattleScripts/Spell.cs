@@ -25,7 +25,8 @@ public enum SoundType
     Arrow,
     Knockback,
     MagicAttack,
-    MagicHeal
+    MagicHeal,
+    MeleeTriple
 }
 
 [CreateAssetMenu(fileName = "NewSpell", menuName = "Spell", order = 0)]

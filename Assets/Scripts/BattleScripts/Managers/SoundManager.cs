@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,7 +13,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip sfxUIButton;
     public AudioClip sfxWin;
     public AudioClip sfxLose;
-    public AudioClip sfxkMelee;
+    public AudioClip sfxMelee;
     public AudioClip sfxArrow;
     public AudioClip sfxKnockback;
     public AudioClip sfxMagicAttack;
@@ -79,7 +80,7 @@ public class SoundManager : MonoBehaviour
         switch (spell.soundType)
         {
             case SoundType.Melee:
-                PlaySFX(sfxkMelee, volume, pitch);
+                PlaySFX(sfxMelee, 0.5f, pitch);
                 break;
             case SoundType.Arrow:
                 PlaySFX(sfxArrow, volume, pitch);
@@ -88,12 +89,27 @@ public class SoundManager : MonoBehaviour
                 PlaySFX(sfxKnockback, volume, pitch);
                 break;
             case SoundType.MagicAttack:
-                PlaySFX(sfxMagicAttack, volume, pitch);
+                PlaySFX(sfxMagicAttack, 0.2f, pitch);
                 break;
             case SoundType.MagicHeal:
-                PlaySFX(sfxMagicHeal, volume, pitch);
+                PlaySFX(sfxMagicHeal, 0.2f, pitch);
+                break;
+            case SoundType.MeleeTriple:
+                StartCoroutine(PlayMeleeTripleSFX(pitch));
+
                 break;
         }
+    }
+
+    private IEnumerator PlayMeleeTripleSFX(float pitch)
+    {
+        PlaySFX(sfxMelee, 0.5f, pitch);
+        yield return new WaitForSeconds(0.2f);
+        StopSFX();
+        PlaySFX(sfxMelee, 0.5f, pitch);
+        yield return new WaitForSeconds(0.2f);
+        StopSFX();
+        PlaySFX(sfxMelee, 0.5f, pitch);
     }
 
     public void PlayHurtSFX(bool isCrits)

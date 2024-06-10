@@ -115,8 +115,8 @@ public class Enemy : Character
             switch (spell.utilityType)
             {
                 case UtilityType.Damage:
-                    yield return StartCoroutine(playerAttacked.PlayHurtAnimationCoroutine());
                     TakeFinalSpellDamage(playerAttacked, spell);
+                    yield return StartCoroutine(playerAttacked.PlayHurtAnimationCoroutine());
                     break;
                 case UtilityType.Healing:
                     if (spell.spellAreaType == SpellAreaType.Self) HealSelfWithSpell(spell);

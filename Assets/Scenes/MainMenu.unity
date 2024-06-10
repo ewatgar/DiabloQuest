@@ -570,7 +570,7 @@ MonoBehaviour:
   sfxUIButton: {fileID: 8300000, guid: 30cb1e27929288746a0829f783fadbda, type: 3}
   sfxWin: {fileID: 8300000, guid: 696ae520ffe694e4c8c8f01633ff1d16, type: 3}
   sfxLose: {fileID: 8300000, guid: 8871510f7dc0b894bb36798331843e45, type: 3}
-  sfxkMelee: {fileID: 8300000, guid: 29cb24f5f9981e74d9ec16534cc6174a, type: 3}
+  sfxMelee: {fileID: 8300000, guid: 29cb24f5f9981e74d9ec16534cc6174a, type: 3}
   sfxArrow: {fileID: 8300000, guid: 0319572cbdba0344ea2ab84fc37c362c, type: 3}
   sfxKnockback: {fileID: 8300000, guid: 0561fac041a5b3745a57e47159a31b9c, type: 3}
   sfxMagicAttack: {fileID: 8300000, guid: ef0fd8c827edc6648aba780567ad61c4, type: 3}

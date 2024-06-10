@@ -150,8 +150,8 @@ public class Player : Character
         switch (spell.utilityType)
         {
             case UtilityType.Damage:
-                yield return StartCoroutine(enemyAttacked.PlayHurtAnimationCoroutine());
                 TakeFinalSpellDamage(enemyAttacked, spell);
+                yield return StartCoroutine(enemyAttacked.PlayHurtAnimationCoroutine());
                 break;
             case UtilityType.Healing:
                 throw new NotImplementedException();
