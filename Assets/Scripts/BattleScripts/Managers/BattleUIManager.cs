@@ -95,10 +95,10 @@ public class BattleUIManager : MonoBehaviour
         UpdateBattleInfoText();
         UpdateSpellInfoText(_selectedSpell);
         UpdateTurnButtonsInteractable();
-
         State state = StateMachine.Instance.CurrectState;
         if (state != State.PlayerTurn && state != State.PlayerSelectingSpell) _enableSpellInfoUi = false;
         ShowSpellInfoUI(_enableSpellInfoUi);
+        _enemiesList = Utils.GetEnemies();
     }
 
     private void InitGameDataValues()
