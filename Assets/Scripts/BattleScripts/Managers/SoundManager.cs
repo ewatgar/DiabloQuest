@@ -96,7 +96,6 @@ public class SoundManager : MonoBehaviour
                 break;
             case SoundType.MeleeTriple:
                 StartCoroutine(PlayMeleeTripleSFX(pitch));
-
                 break;
         }
     }
