@@ -26,18 +26,21 @@ public class TutorialUIManager : MonoBehaviour
 
     private void OnFirstPageNextButtonListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         pageOne.SetActive(false);
         pageTwo.SetActive(true);
     }
 
     private void OnSecondPagePreviousButtonListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         pageOne.SetActive(true);
         pageTwo.SetActive(false);
     }
 
     private void OnSecondPageFinishButtonListener()
     {
+        SoundManager.Instance.PlayUIButtonSFX();
         tutorialPanel.SetActive(false);
     }
 }
