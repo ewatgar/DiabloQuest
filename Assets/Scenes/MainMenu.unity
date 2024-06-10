@@ -695,6 +695,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4282523930912606738, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_text
+      value: "Pasa el turno del jugador. Si tienes seleccionado un hechizo o un item,
+        debes volver a presionar el bot\xF3n del hechizo para poder deseleccionarlo
+        y pasar turno."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569054033005758521, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_text
+      value: "Aparece la lista de items. Para poder ver los hechizos de nuevo, vuelve
+        a presionar el bot\xF3n. Los items s\xF3lo se pueden usar una vez en todo
+        el transcurso la pelea."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437443738007396584, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_text
+      value: "Este juego consiste en tres niveles, cada uno con su propia pelea.
+        Las peleas se desarrollan por turnos: primero ataca el jugador y luego, uno
+        por uno, los enemigos. Al ganar una pelea se completar\xE1 el nivel correspondiente
+        y se guardar\xE1 el progreso. Para completar el juego es necesario superar
+        todos los niveles.\n\nPara moverse a una casilla especifica hay que seleccionarla
+        con el rat\xF3n. Es importante tener puntos de movimiento necesarios (PM).\n\nA
+        continuaci\xF3n se explica qu\xE9 hace cada bot\xF3n:"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
