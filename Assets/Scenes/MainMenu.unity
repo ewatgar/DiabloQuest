@@ -164,7 +164,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -611,9 +611,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1235777929}
     m_Modifications:
+    - target: {fileID: 405208505588678937, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -129
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384487102468336002, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -256
+      objectReference: {fileID: 0}
     - target: {fileID: 2480307180283810868, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
       propertyPath: m_Name
       value: TutorialPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894299177670426571, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -106
       objectReference: {fileID: 0}
     - target: {fileID: 2929734973905382212, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
       propertyPath: m_Pivot.x
@@ -695,6 +707,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4093521114780609338, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -398
+      objectReference: {fileID: 0}
     - target: {fileID: 4282523930912606738, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
       propertyPath: m_text
       value: "Pasa el turno del jugador. Si tienes seleccionado un hechizo o un item,
@@ -707,15 +723,57 @@ PrefabInstance:
         a presionar el bot\xF3n. Los items s\xF3lo se pueden usar una vez en todo
         el transcurso la pelea."
       objectReference: {fileID: 0}
+    - target: {fileID: 4605439745148757959, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -235
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057575502134297361, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -129
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173450238678332379, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -398
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295363359703882110, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -84
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329200071402302812, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -289
+      objectReference: {fileID: 0}
     - target: {fileID: 7437443738007396584, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
       propertyPath: m_text
       value: "Este juego consiste en tres niveles, cada uno con su propia pelea.
         Las peleas se desarrollan por turnos: primero ataca el jugador y luego, uno
         por uno, los enemigos. Al ganar una pelea se completar\xE1 el nivel correspondiente
         y se guardar\xE1 el progreso. Para completar el juego es necesario superar
-        todos los niveles.\n\nPara moverse a una casilla especifica hay que seleccionarla
-        con el rat\xF3n. Es importante tener puntos de movimiento necesarios (PM).\n\nA
-        continuaci\xF3n se explica qu\xE9 hace cada bot\xF3n:"
+        todos los niveles. A continuaci\xF3n se muestran varios tips:\n\n- Para moverse
+        a una casilla especifica hay que seleccionarla con el rat\xF3n. Es importante
+        tener puntos de movimiento necesarios (PM).\n\n- Para mostrar las caracter\xEDsticas
+        de un personaje en concreto, selecciona la casilla en la que se encuentra.\n\nSe
+        muestra tambi\xE9n como utilizar cada bot\xF3n:"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437443738007396584, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_margin.w
+      value: -312.65845
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437443738007396584, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_margin.x
+      value: -560.91797
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194748259373155679, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 282
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115715549106715331, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -398
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135214499909030784, guid: 7193eb94d076a0942bea77b711c4cb41, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -289
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

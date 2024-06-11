@@ -49,7 +49,7 @@ public class SoundManager : MonoBehaviour
 
     // SFX -------------------------------------------
 
-    public void PlaySFX(AudioClip audio, float volume = 0.3f, float pitch = 1)
+    public void PlaySFX(AudioClip audio, float volume = 0.6f, float pitch = 1)
     {
         sfx.clip = audio;
         sfx.volume = volume;
@@ -75,24 +75,24 @@ public class SoundManager : MonoBehaviour
         PlaySFX(sfxLose);
     }
 
-    public void PlaySpellSFX(Spell spell, float volume = 0.3f, float pitch = 1)
+    public void PlaySpellSFX(Spell spell, float pitch = 1)
     {
         switch (spell.soundType)
         {
             case SoundType.Melee:
-                PlaySFX(sfxMelee, 0.5f, pitch);
+                PlaySFX(sfxMelee, 1f, pitch);
                 break;
             case SoundType.Arrow:
-                PlaySFX(sfxArrow, volume, pitch);
+                PlaySFX(sfxArrow, 0.5f, pitch);
                 break;
             case SoundType.Knockback:
-                PlaySFX(sfxKnockback, volume, pitch);
+                PlaySFX(sfxKnockback, 1f, pitch);
                 break;
             case SoundType.MagicAttack:
-                PlaySFX(sfxMagicAttack, 0.2f, pitch);
+                PlaySFX(sfxMagicAttack, 0.4f, pitch);
                 break;
             case SoundType.MagicHeal:
-                PlaySFX(sfxMagicHeal, 0.2f, pitch);
+                PlaySFX(sfxMagicHeal, 0.4f, pitch);
                 break;
             case SoundType.MeleeTriple:
                 StartCoroutine(PlayMeleeTripleSFX(pitch));
@@ -102,13 +102,13 @@ public class SoundManager : MonoBehaviour
 
     private IEnumerator PlayMeleeTripleSFX(float pitch)
     {
-        PlaySFX(sfxMelee, 0.5f, pitch);
+        PlaySFX(sfxMelee, 1.5f, pitch);
         yield return new WaitForSeconds(0.2f);
         StopSFX();
-        PlaySFX(sfxMelee, 0.5f, pitch);
+        PlaySFX(sfxMelee, 1.5f, pitch);
         yield return new WaitForSeconds(0.2f);
         StopSFX();
-        PlaySFX(sfxMelee, 0.5f, pitch);
+        PlaySFX(sfxMelee, 1.5f, pitch);
     }
 
     public void PlayHurtSFX(bool isCrits)
@@ -129,7 +129,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayWalkSFX()
     {
-        PlaySFX(sfxWalk, volume: 0.75f);
+        PlaySFX(sfxWalk, volume: 1f);
     }
 
     public void StopSFX()
