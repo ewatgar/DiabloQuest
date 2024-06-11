@@ -1,7 +1,8 @@
 # DiabloQuest
 Proyecto Integrado 23/24 DAM
 Ender Watts García
-## Manual de Usuario
+## Itch.io
+https://ewatgar.itch.io/diabloquest
 
 ## Créditos
 | assets                                          | creator       | link                                                                                |
