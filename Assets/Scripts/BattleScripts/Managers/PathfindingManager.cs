@@ -33,19 +33,19 @@ public class PathfindingManager : MonoBehaviour
         }
     }
 
-    public void RegeneratePath(Tile startTile, Tile goalTile, bool color)
+    public void RegeneratePath(Tile startTile, Tile goalTile, bool color, int maxTiles = 100)
     {
         ClearValues();
-        SetPathfinding(startTile, goalTile);
+        SetPathfinding(startTile, goalTile, maxTiles);
         if (color) ColorFinalPath();
     }
 
-    public void SetPathfinding(Tile startTile, Tile goalTile)
+    private void SetPathfinding(Tile startTile, Tile goalTile, int maxTiles)
     {
         SetStartTile(startTile);
         SetGoalTile(goalTile);
         SetCostOnAllTiles();
-        Search();
+        Search(maxTiles);
     }
 
     private void SetStartTile(Tile tile)
@@ -83,11 +83,11 @@ public class PathfindingManager : MonoBehaviour
         tile.FCost = tile.GCost + tile.HCost;
     }
 
-    private void Search()
+    private void Search(int maxTiles = 100)
     {
         GridManager _grid = GridManager.Instance;
         int step = 0;
-        while (!_bGoalReached && step < 100)
+        while (!_bGoalReached && step < maxTiles)
         {
             _currentTile.SetAsChecked();
             _checkedList.Add(_currentTile);

@@ -18,20 +18,27 @@ public class Enemy : Character
 
     public new bool SelectTileForPathfinding(Tile playerTile, bool color)
     {
-        Tile goalTile = null;
-        if (_enemyType == EnemyType.LongRange)
+        Tile goalTile;
+        int distance = GridManager.DistanceBetweenTiles(GetCharacterTile(), playerTile);
+        Debug.Log("distance between enemy and player: " + distance);
+        if (_enemyType == EnemyType.LongRange && distance < _minDistanceLongRange)
         {
             playerTile.Solid = true;
             goalTile = GetTileAwayFromPlayer(playerTile);
         }
-        else
+        else if (_enemyType == EnemyType.Melee || (_enemyType == EnemyType.LongRange && distance > _minDistanceLongRange))
         {
             playerTile.Solid = false;
             goalTile = playerTile;
         }
+        else return false;
 
-        if (goalTile == null) return false;
-        PathfindingManager.Instance.RegeneratePath(GetCharacterTile(), goalTile, color);
+        if (_enemyType == EnemyType.LongRange && distance > _minDistanceLongRange)
+        {
+            int numTilesToDrawNearPlayer = distance - _minDistanceLongRange;
+            PathfindingManager.Instance.RegeneratePath(GetCharacterTile(), goalTile, color, numTilesToDrawNearPlayer);
+        }
+        else PathfindingManager.Instance.RegeneratePath(GetCharacterTile(), goalTile, color);
         return true;
     }
 
@@ -76,9 +83,7 @@ public class Enemy : Character
 
     private IEnumerator EnemyMovementCoroutine(Player player)
     {
-        List<Tile> path = PathfindingManager.Instance.FinalPath;
-        bool wantToMove = true;
-        wantToMove = SelectTileForPathfinding(player.GetCharacterTile(), false);
+        bool wantToMove = SelectTileForPathfinding(player.GetCharacterTile(), false);
         if (wantToMove) yield return StartCoroutine(MovingThroughPathCoroutine());
         yield return null;
     }
@@ -160,7 +165,7 @@ public class Enemy : Character
                 canUseSpell = distance <= 2;
                 break;
             case SpellAreaType.Range:
-                canUseSpell = distance <= 5 && distance > 2;
+                canUseSpell = distance == _minDistanceLongRange;
                 break;
             case SpellAreaType.Line:
                 //TODO SpellAreaType.Line

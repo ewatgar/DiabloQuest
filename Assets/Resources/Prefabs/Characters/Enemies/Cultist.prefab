@@ -118,7 +118,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1be86a3ead9182248a220cec2a3d7a47, type: 2}
   - {fileID: 11400000, guid: 5d6c108e3d088c34d93891b68a3ccbc7, type: 2}
   _enemyType: 1
-  _minDistanceLongRange: 5
+  _minDistanceLongRange: 7
 --- !u!70 &2372659122257218852
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
